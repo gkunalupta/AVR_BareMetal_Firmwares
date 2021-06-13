@@ -9,9 +9,9 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include "pinDefines.h"
-#include "uarts.h"
+#include "GB_uarts.h"
 
-void null()
+void GB_null()
 {
 	OCR1C= 0;
 	OCR4C= 0;
@@ -20,7 +20,7 @@ void null()
 	OCR1B= 0;
 	//OCR1C= 0;
 }
-void glow()
+void GB_glow()
 {
 	
 	//led1
@@ -35,7 +35,7 @@ void glow()
 }
 
 
-static inline void initTimer1Servo(void)
+static inline void GB_initTimer1Servo(void)
 {
 	/* Set up Timer1 (16bit) to give a pulse every 20ms */
 	/* Use Fast PWM mode, counter max in ICR1 */
@@ -46,7 +46,7 @@ static inline void initTimer1Servo(void)
 	TCCR1A |= (1 << COM1A1)|(1<<COM1B1)|(1<<COM1C1);              /* Direct output on PB1 / OC1A */
 	// DDRB |= (1 << PB5)|(1<<PB6)|(1<<PB7);                            /* set pin for output */
 }
-static inline void initTimer4Servo(void)
+static inline void GB_initTimer4Servo(void)
 {
 	/* Set up Timer1 (16bit) to give a pulse every 20ms */
 	/* Use Fast PWM mode, counter max in ICR1 */
@@ -58,24 +58,24 @@ static inline void initTimer4Servo(void)
 	// DDRH |= (1 << PH3)|(1<<PH4)|(1<<PH5);                            /* set pin for output */
 	
 }
-void fun1(int angle)
+void GB_fun1(int gb_angle)
 {   //uint16_t count =count_maximum-count_minimum;
 	
-	OCR4A=(angle*22.22)+1000;
-	decimel0(OCR4A);
-	printString0("\n");
+	OCR4A=(gb_angle*22.22)+1000;
+	GB_decimel0(OCR4A);
+	GB_printString0("\n");
 	
 	_delay_ms(50000);
 	
 }
-void demo()
-{  printString0(" demo \n");
-	null();
+void GB_demo()
+{  GB_printString0(" demo \n");
+	GB_null();
 	_delay_ms(500);
-	for(int i=0;i<5;i++)
+	for(int gb_i=0;gb_i<5;gb_i++)
 	{
 		
-		glow();
+		GB_glow();
 		_delay_ms(10000);
 		DDRH &= ~(1<<PH3);
 		DDRH &= ~(1<<PH4);
@@ -90,14 +90,14 @@ void demo()
 		_delay_ms(10000);
 		
 	}
-	glow();
+	GB_glow();
 }
-void firstpattern()
-{   null();
+void GB_firstpattern()
+{   GB_null();
 	DDRB |= (1 << PB5)|(1<<PB6)|(1<<PB7);
 	DDRH |= (1 << PH3)|(1<<PH4)|(1<<PH5);
 	_delay_ms(500);
-	printString0(" first pattern \n");
+	GB_printString0(" first pattern \n");
 	//led1
 	OCR4A=40000;  //PH3-6
 	_delay_ms(20000);
@@ -117,9 +117,9 @@ void firstpattern()
 	DDRB &= ~(1<<PB6);
 	DDRB &= ~(1<<PB7);
 }
-void secondpattern()
-{  printString0(" second pattern \n");
-	null();
+void GB_secondpattern()
+{  GB_printString0(" second pattern \n");
+	GB_null();
 	_delay_ms(500);
 	DDRB |= (1 << PB5)|(1<<PB6)|(1<<PB7);
 	DDRH |= (1 << PH3)|(1<<PH4)|(1<<PH5);
@@ -149,9 +149,9 @@ void secondpattern()
 	
 	
 }
-void thirdpattern()
-{  printString0(" third pattern \n");
-	null();
+void GB_thirdpattern()
+{  GB_printString0(" third pattern \n");
+	GB_null();
 	_delay_ms(500);
 	DDRB |= (1 << PB5)|(1<<PB6)|(1<<PB7);
 	DDRH |= (1 << PH3)|(1<<PH4)|(1<<PH5);
@@ -199,40 +199,40 @@ void thirdpattern()
 	
 	
 }
-void fourthpattern()
-{   printString0("fourth paaterm \n");
-	null();
+void GB_fourthpattern()
+{   GB_printString0("fourth paaterm \n");
+	GB_null();
 	_delay_ms(500);
 	DDRB |= (1 << PB5)|(1<<PB6)|(1<<PB7);
 	DDRH |= (1 << PH3)|(1<<PH4)|(1<<PH5);
-	for (uint16_t i=0;i<1024;i++)
+	for (uint16_t gb_i=0;gb_i<1024;gb_i++)
 	{
 		
 		//decimel0(i);
 		//printString0("/n");
-		OCR4C= (i*39.06);
-		OCR4B= (i*39.06);
-		OCR4A= (i*39.06);
-		OCR1B= (i*39.06);
-		OCR1C= ((i*39.06)/2);
+		OCR4C= (gb_i*39.06);
+		OCR4B= (gb_i*39.06);
+		OCR4A= (gb_i*39.06);
+		OCR1B= (gb_i*39.06);
+		OCR1C= ((gb_i*39.06)/2);
 		_delay_ms(200);
 		
 	}
 	
 }
 
-uint16_t map(uint16_t x)
+uint16_t GB_map(uint16_t gb_x)
 {
-	return (x*39.06);
+	return (gb_x*39.06);
 	
 }
-void fadeout ()
+void GB_fadeout ()
 {
-	for (uint16_t i=0;i<1024;i++)
+	for (uint16_t gb_i=0;gb_i<1024;gb_i++)
 	{
-		decimel0(i);
-		printString0("/n");
-		OCR4C=map(i);
+		GB_decimel0(gb_i);
+		GB_printString0("/n");
+		OCR4C=GB_map(gb_i);
 		//_delay_ms(100);
 		
 	}
@@ -247,18 +247,18 @@ int main(void)
 
 	// -------- Inits --------- //
 	
-	initTimer4Servo();
-	initTimer1Servo();
-	char  val;
-	UART_Init0();
+	GB_initTimer4Servo();
+	GB_initTimer1Servo();
+	char  GB_val;
+	GB_UART_Init0();
 	
 	
-	printString0("DICO LIGHTS \n");
-	printString0("1. 1st Pattern \n");
-	printString0("2. 2nd Pattern \n");
-	printString0("3. 3rd Pattern \n");
-	printString0("4. 4th Pattern \n");
-	demo();
+	GB_printString0("DICO LIGHTS \n");
+	GB_printString0("1. 1st Pattern \n");
+	GB_printString0("2. 2nd Pattern \n");
+	GB_printString0("3. 3rd Pattern \n");
+	GB_printString0("4. 4th Pattern \n");
+	GB_demo();
 	
 	while (1)
 	{
@@ -267,24 +267,24 @@ int main(void)
 		
 		//	val= rxstring0();
 		//UART_TxChar0(val);
-		char option = UART_RxChar0();
-		UART_TxChar0(option);
-		switch (option)
+		char gb_option = GB_UART_RxChar0();
+		GB_UART_TxChar0(gb_option);
+		switch (gb_option)
 		{
 			case '1' : {
-				firstpattern();
+				GB_firstpattern();
 				break;
 			}
 			case '2' : {
-				secondpattern();
+				GB_secondpattern();
 				break;
 			}
 			case '3' : {
-				thirdpattern();
+				GB_thirdpattern();
 				break;
 			}
 			case '4' : {
-				fourthpattern();
+				GB_fourthpattern();
 				break;
 				
 			}

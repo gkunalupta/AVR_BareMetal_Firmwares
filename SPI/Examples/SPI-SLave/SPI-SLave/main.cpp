@@ -25,37 +25,37 @@ When Configured as Slave
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include "uarts.h"
-#include "SPI_slave.h"
+#include "GB_uarts.h"
+#include "GB_SPI_slave.h"
 
 
 int main(void)
 {     
-	UART_Init0();
-	SL_SPI0_init_slave();                             //Initialize slave SPI
-	SL_SPI0_disable_interrupt();
-	char ch[30],bh[30];
-	memset(ch, '\0', 30);
-	memset(bh, '\0', 30);
+	GB_UART_Init0();
+	GB_SL_SPI0_init_slave();                             //Initialize slave SPI
+	GB_SL_SPI0_disable_interrupt();
+	char gb_ch[30],gb_bh[30];
+	memset(gb_ch, '\0', 30);
+	memset(gb_bh, '\0', 30);
 	sei();
-	printString0("SPI-Slave-receiving\n");
-	int8_t c=0;
+	GB_printString0("SPI-Slave-receiving\n");
+	int8_t gb_c=0;
 	while(1)
 	{
        	   _delay_us(100);
-       	   SL_SPI0_read_block(ch,19);
-       	   SL_SPI0_read_block(bh,11);
-       	   UART_TxChar0(SL_SPI0_read_byte());
+       	   GB_SL_SPI0_read_block(gb_ch,19);
+       	   GB_SL_SPI0_read_block(gb_bh,11);
+       	   GB_UART_TxChar0(GB_SL_SPI0_read_byte());
        	   
        	   
-       	   printString0("\n");
-       	   printString0(ch);
-       	   printString0("\n");
-       	   printString0(bh);
-       	   printString0("\n");
+       	  GB_printString0("\n");
+       	  GB_printString0(gb_ch);
+       	   GB_printString0("\n");
+       	   GB_printString0(gb_bh);
+       	   GB_printString0("\n");
        	   
-       	   memset(ch, '\0', 30);
-       	   memset(bh, '\0', 30);
+       	   memset(gb_ch, '\0', 30);
+       	   memset(gb_bh, '\0', 30);
        	   _delay_us(100);
 	    
    }
@@ -66,27 +66,27 @@ int main(void)
 //Slave Receiving
 /*
 	   _delay_us(100);
-	   SL_SPI0_read_block(ch,19);
-	   SL_SPI0_read_block(bh,11);
-	   UART_TxChar0(SL_SPI0_read_byte());
+	   GB_SL_SPI0_read_block(gb_ch,19);
+	   GB_SL_SPI0_read_block(gb_bh,11);
+	   GB_UART_TxChar0(GB_SL_SPI0_read_byte());
 	   
 	   
-	   printString0("\n");
-	   printString0(ch);
-	   printString0("\n");
-	   printString0(bh);
-	   printString0("\n");
+	   GB_printString0("\n");
+	   GB_printString0(gb_ch);
+	   GB_printString0("\n");
+	   GB_printString0(gb_bh);
+	   GB_printString0("\n");
 	   
-	   memset(ch, '\0', 30);
-	   memset(bh, '\0', 30);
+	   memset(gb_ch, '\0', 30);
+	   memset(gb_bh, '\0', 30);
 	   _delay_us(100);
 */
 
 
 //Slave Sending
 /*	       
-SL_SPI0_send_string("Subscribe Gettobyte");
-SL_SPI0_send_string("Kunal Gupta");
-SL_SPI0_send_byte('p');
+GB_SL_SPI0_send_string("Subscribe Gettobyte");
+GB_SL_SPI0_send_string("Kunal Gupta");
+GB_SL_SPI0_send_byte('p');
 */
 

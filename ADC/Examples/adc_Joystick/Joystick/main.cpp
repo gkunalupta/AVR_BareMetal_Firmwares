@@ -12,32 +12,32 @@
 #include <stdlib.h>
 
 
-#include "adc.h"
-#include "uarts.h"
+#include "GB_adc.h"
+#include "GB_uarts.h"
 
-uint16_t jolangle(uint16_t val)
-{    uint16_t anser;
-	anser= val*0.175;
-	return anser;
+uint16_t GB_jolangle(uint16_t gb_val)
+{    uint16_t gb_anser;
+	gb_anser= gb_val*0.175;
+	return gb_anser;
 
 }
 
 int main(void)
 {
-	 ADC_setup();
-	 UART_Init0();
+	 GB_ADC_setup();
+	 GB_UART_Init0();
 
-	 printString0("*************Joystick********************\n");
+	 GB_printString0("*************Joystick********************\n");
 	 _delay_ms(100);
-	 int x = 0, y= 0 ;
+	 int gb_x = 0, gb_y= 0 ;
 	 
     /* Replace with your application code */
     while (1) 
     {
-		printString0(" x axis \n");
-			x = ADC_select(ADC1);
-			printString0(" y axis \n");
-			y = ADC_select(ADC2);
+		GB_printString0(" x axis \n");
+			gb_x = GB_ADC_select(ADC1);
+			GB_printString0(" y axis \n");
+			gb_y = GB_ADC_select(ADC2);
     }
 }
 

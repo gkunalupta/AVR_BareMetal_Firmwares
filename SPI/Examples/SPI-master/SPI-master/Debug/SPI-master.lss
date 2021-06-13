@@ -3,29 +3,31 @@ SPI-master.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000004c  00800200  00000236  000002aa  2**0
+  0 .data         0000004c  00800200  0000027a  0000030e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000236  00000000  00000000  00000074  2**1
+  1 .text         0000027a  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000002f6  2**0
+  2 .bss          00000103  0080024c  0080024c  0000035a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000035a  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000328  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000038c  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000190  00000000  00000000  00000368  2**0
+  5 .debug_aranges 000001c8  00000000  00000000  000003cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001a94  00000000  00000000  000004f8  2**0
+  6 .debug_info   00001cb6  00000000  00000000  00000594  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e8d  00000000  00000000  00001f8c  2**0
+  7 .debug_abbrev 00000e5e  00000000  00000000  0000224a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000ce3  00000000  00000000  00002e19  2**0
+  8 .debug_line   00000e1d  00000000  00000000  000030a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000558  00000000  00000000  00003afc  2**2
+  9 .debug_frame  000006c8  00000000  00000000  00003ec8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000cf4  00000000  00000000  00004054  2**0
+ 10 .debug_str    00000f7a  00000000  00000000  00004590  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00001645  00000000  00000000  00004d48  2**0
+ 11 .debug_loc    00001c21  00000000  00000000  0000550a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000180  00000000  00000000  0000638d  2**0
+ 12 .debug_ranges 000001b8  00000000  00000000  0000712b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -79,7 +81,7 @@ Disassembly of section .text:
   5a:	00 00       	nop
   5c:	62 c0       	rjmp	.+196    	; 0x122 <__bad_interrupt>
   5e:	00 00       	nop
-  60:	60 c0       	rjmp	.+192    	; 0x122 <__bad_interrupt>
+  60:	82 c0       	rjmp	.+260    	; 0x166 <__vector_24>
   62:	00 00       	nop
   64:	5e c0       	rjmp	.+188    	; 0x122 <__bad_interrupt>
   66:	00 00       	nop
@@ -160,7 +162,7 @@ Disassembly of section .text:
   f4:	12 e0       	ldi	r17, 0x02	; 2
   f6:	a0 e0       	ldi	r26, 0x00	; 0
   f8:	b2 e0       	ldi	r27, 0x02	; 2
-  fa:	e6 e3       	ldi	r30, 0x36	; 54
+  fa:	ea e7       	ldi	r30, 0x7A	; 122
   fc:	f2 e0       	ldi	r31, 0x02	; 2
   fe:	00 e0       	ldi	r16, 0x00	; 0
  100:	0b bf       	out	0x3b, r16	; 59
@@ -172,7 +174,7 @@ Disassembly of section .text:
  10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
 
 0000010e <__do_clear_bss>:
- 10e:	22 e0       	ldi	r18, 0x02	; 2
+ 10e:	23 e0       	ldi	r18, 0x03	; 3
  110:	ac e4       	ldi	r26, 0x4C	; 76
  112:	b2 e0       	ldi	r27, 0x02	; 2
  114:	01 c0       	rjmp	.+2      	; 0x118 <.do_clear_bss_start>
@@ -181,21 +183,21 @@ Disassembly of section .text:
  116:	1d 92       	st	X+, r1
 
 00000118 <.do_clear_bss_start>:
- 118:	ac 34       	cpi	r26, 0x4C	; 76
+ 118:	af 34       	cpi	r26, 0x4F	; 79
  11a:	b2 07       	cpc	r27, r18
  11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
- 11e:	49 d0       	rcall	.+146    	; 0x1b2 <main>
- 120:	88 c0       	rjmp	.+272    	; 0x232 <_exit>
+ 11e:	6b d0       	rcall	.+214    	; 0x1f6 <main>
+ 120:	aa c0       	rjmp	.+340    	; 0x276 <_exit>
 
 00000122 <__bad_interrupt>:
  122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
 
-00000124 <_Z10UART_Init0v>:
+00000124 <_Z13GB_UART_Init0v>:
 	while (!(SPSR & (1 << SPIF)));
-	spi_recv_char= spi_data_reg;
-	block[i++] = spi_recv_char;
+	gb_spi_recv_char= gb_spi_data_reg;
+	gb_block[gb_i++] = gb_spi_recv_char;
 	 }
-	 spi_port |= (1<<SS);
+	 gb_spi_port |= (1<<gb_SPI_SS);
 }
  124:	87 e6       	ldi	r24, 0x67	; 103
  126:	90 e0       	ldi	r25, 0x00	; 0
@@ -205,182 +207,212 @@ Disassembly of section .text:
  132:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
  136:	08 95       	ret
 
-00000138 <_Z12UART_TxChar0j>:
+00000138 <_Z15GB_UART_TxChar0j>:
  138:	e0 ec       	ldi	r30, 0xC0	; 192
  13a:	f0 e0       	ldi	r31, 0x00	; 0
  13c:	90 81       	ld	r25, Z
  13e:	95 ff       	sbrs	r25, 5
- 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z12UART_TxChar0j+0x4>
+ 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z15GB_UART_TxChar0j+0x4>
  142:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
  146:	08 95       	ret
 
-00000148 <_Z12printString0PKc>:
+00000148 <_Z15GB_printString0PKc>:
  148:	cf 93       	push	r28
  14a:	df 93       	push	r29
  14c:	ec 01       	movw	r28, r24
  14e:	88 81       	ld	r24, Y
  150:	88 23       	and	r24, r24
- 152:	31 f0       	breq	.+12     	; 0x160 <_Z12printString0PKc+0x18>
+ 152:	31 f0       	breq	.+12     	; 0x160 <_Z15GB_printString0PKc+0x18>
  154:	21 96       	adiw	r28, 0x01	; 1
  156:	90 e0       	ldi	r25, 0x00	; 0
- 158:	ef df       	rcall	.-34     	; 0x138 <_Z12UART_TxChar0j>
+ 158:	ef df       	rcall	.-34     	; 0x138 <_Z15GB_UART_TxChar0j>
  15a:	89 91       	ld	r24, Y+
  15c:	81 11       	cpse	r24, r1
- 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z12printString0PKc+0xe>
+ 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z15GB_printString0PKc+0xe>
  160:	df 91       	pop	r29
  162:	cf 91       	pop	r28
  164:	08 95       	ret
 
-00000166 <_Z19MA_SPI0_init_masterv>:
- 166:	84 b1       	in	r24, 0x04	; 4
- 168:	87 60       	ori	r24, 0x07	; 7
- 16a:	84 b9       	out	0x04, r24	; 4
- 16c:	8c b5       	in	r24, 0x2c	; 44
- 16e:	81 65       	ori	r24, 0x51	; 81
- 170:	8c bd       	out	0x2c, r24	; 44
- 172:	8c b5       	in	r24, 0x2c	; 44
- 174:	80 62       	ori	r24, 0x20	; 32
- 176:	8c bd       	out	0x2c, r24	; 44
- 178:	8c b5       	in	r24, 0x2c	; 44
- 17a:	83 7f       	andi	r24, 0xF3	; 243
- 17c:	8c bd       	out	0x2c, r24	; 44
- 17e:	08 95       	ret
+00000166 <__vector_24>:
+ 166:	1f 92       	push	r1
+ 168:	0f 92       	push	r0
+ 16a:	0f b6       	in	r0, 0x3f	; 63
+ 16c:	0f 92       	push	r0
+ 16e:	11 24       	eor	r1, r1
+ 170:	0b b6       	in	r0, 0x3b	; 59
+ 172:	0f 92       	push	r0
+ 174:	8f 93       	push	r24
+ 176:	9f 93       	push	r25
+ 178:	ef 93       	push	r30
+ 17a:	ff 93       	push	r31
+ 17c:	9e b5       	in	r25, 0x2e	; 46
+ 17e:	90 93 4c 02 	sts	0x024C, r25	; 0x80024c <__data_end>
+ 182:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <gb_RECV_Wr_Index_SPI0>
+ 186:	e8 2f       	mov	r30, r24
+ 188:	f0 e0       	ldi	r31, 0x00	; 0
+ 18a:	e0 5b       	subi	r30, 0xB0	; 176
+ 18c:	fd 4f       	sbci	r31, 0xFD	; 253
+ 18e:	90 83       	st	Z, r25
+ 190:	8f 5f       	subi	r24, 0xFF	; 255
+ 192:	80 93 4f 02 	sts	0x024F, r24	; 0x80024f <gb_RECV_Wr_Index_SPI0>
+ 196:	80 91 4e 02 	lds	r24, 0x024E	; 0x80024e <gb_RECV_Counter_SPI0>
+ 19a:	8f 5f       	subi	r24, 0xFF	; 255
+ 19c:	80 93 4e 02 	sts	0x024E, r24	; 0x80024e <gb_RECV_Counter_SPI0>
+ 1a0:	80 93 4d 02 	sts	0x024D, r24	; 0x80024d <gb_RECV_No_of_bytes_SPI0>
+ 1a4:	ff 91       	pop	r31
+ 1a6:	ef 91       	pop	r30
+ 1a8:	9f 91       	pop	r25
+ 1aa:	8f 91       	pop	r24
+ 1ac:	0f 90       	pop	r0
+ 1ae:	0b be       	out	0x3b, r0	; 59
+ 1b0:	0f 90       	pop	r0
+ 1b2:	0f be       	out	0x3f, r0	; 63
+ 1b4:	0f 90       	pop	r0
+ 1b6:	1f 90       	pop	r1
+ 1b8:	18 95       	reti
 
-00000180 <_Z25MA_SPI0_disable_interruptv>:
- 180:	8c b5       	in	r24, 0x2c	; 44
- 182:	8f 77       	andi	r24, 0x7F	; 127
- 184:	8c bd       	out	0x2c, r24	; 44
- 186:	08 95       	ret
+000001ba <_Z22GB_MA_SPI0_init_masterv>:
+ 1ba:	87 e0       	ldi	r24, 0x07	; 7
+ 1bc:	84 b9       	out	0x04, r24	; 4
+ 1be:	81 e5       	ldi	r24, 0x51	; 81
+ 1c0:	8c bd       	out	0x2c, r24	; 44
+ 1c2:	08 95       	ret
 
-00000188 <_Z17MA_SPI0_send_byteh>:
- 188:	28 98       	cbi	0x05, 0	; 5
- 18a:	8e bd       	out	0x2e, r24	; 46
- 18c:	0d b4       	in	r0, 0x2d	; 45
- 18e:	07 fe       	sbrs	r0, 7
- 190:	fd cf       	rjmp	.-6      	; 0x18c <_Z17MA_SPI0_send_byteh+0x4>
- 192:	28 9a       	sbi	0x05, 0	; 5
- 194:	08 95       	ret
+000001c4 <_Z28GB_MA_SPI0_disable_interruptv>:
+ 1c4:	8c b5       	in	r24, 0x2c	; 44
+ 1c6:	8f 77       	andi	r24, 0x7F	; 127
+ 1c8:	8c bd       	out	0x2c, r24	; 44
+ 1ca:	08 95       	ret
 
-00000196 <_Z19MA_SPI0_send_stringPKc>:
- 196:	cf 93       	push	r28
- 198:	df 93       	push	r29
- 19a:	ec 01       	movw	r28, r24
- 19c:	88 81       	ld	r24, Y
- 19e:	88 23       	and	r24, r24
- 1a0:	29 f0       	breq	.+10     	; 0x1ac <_Z19MA_SPI0_send_stringPKc+0x16>
- 1a2:	21 96       	adiw	r28, 0x01	; 1
- 1a4:	f1 df       	rcall	.-30     	; 0x188 <_Z17MA_SPI0_send_byteh>
- 1a6:	89 91       	ld	r24, Y+
- 1a8:	81 11       	cpse	r24, r1
- 1aa:	fc cf       	rjmp	.-8      	; 0x1a4 <_Z19MA_SPI0_send_stringPKc+0xe>
- 1ac:	df 91       	pop	r29
- 1ae:	cf 91       	pop	r28
- 1b0:	08 95       	ret
+000001cc <_Z20GB_MA_SPI0_send_byteh>:
+ 1cc:	28 98       	cbi	0x05, 0	; 5
+ 1ce:	8e bd       	out	0x2e, r24	; 46
+ 1d0:	0d b4       	in	r0, 0x2d	; 45
+ 1d2:	07 fe       	sbrs	r0, 7
+ 1d4:	fd cf       	rjmp	.-6      	; 0x1d0 <_Z20GB_MA_SPI0_send_byteh+0x4>
+ 1d6:	28 9a       	sbi	0x05, 0	; 5
+ 1d8:	08 95       	ret
 
-000001b2 <main>:
+000001da <_Z22GB_MA_SPI0_send_stringPKc>:
+ 1da:	cf 93       	push	r28
+ 1dc:	df 93       	push	r29
+ 1de:	ec 01       	movw	r28, r24
+ 1e0:	88 81       	ld	r24, Y
+ 1e2:	88 23       	and	r24, r24
+ 1e4:	29 f0       	breq	.+10     	; 0x1f0 <_Z22GB_MA_SPI0_send_stringPKc+0x16>
+ 1e6:	21 96       	adiw	r28, 0x01	; 1
+ 1e8:	f1 df       	rcall	.-30     	; 0x1cc <_Z20GB_MA_SPI0_send_byteh>
+ 1ea:	89 91       	ld	r24, Y+
+ 1ec:	81 11       	cpse	r24, r1
+ 1ee:	fc cf       	rjmp	.-8      	; 0x1e8 <_Z22GB_MA_SPI0_send_stringPKc+0xe>
+ 1f0:	df 91       	pop	r29
+ 1f2:	cf 91       	pop	r28
+ 1f4:	08 95       	ret
+
+000001f6 <main>:
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include "SPI_master.h"
+#include "GB_SPI_master.h"
 
 int main(void)
 {   
- 1b2:	cf 93       	push	r28
- 1b4:	df 93       	push	r29
- 1b6:	cd b7       	in	r28, 0x3d	; 61
- 1b8:	de b7       	in	r29, 0x3e	; 62
- 1ba:	ec 97       	sbiw	r28, 0x3c	; 60
- 1bc:	0f b6       	in	r0, 0x3f	; 63
- 1be:	f8 94       	cli
- 1c0:	de bf       	out	0x3e, r29	; 62
- 1c2:	0f be       	out	0x3f, r0	; 63
- 1c4:	cd bf       	out	0x3d, r28	; 61
-	UART_Init0();
- 1c6:	ae df       	rcall	.-164    	; 0x124 <_Z10UART_Init0v>
-	MA_SPI0_init_master();                     //Initialize SPI Master
- 1c8:	ce df       	rcall	.-100    	; 0x166 <_Z19MA_SPI0_init_masterv>
-	MA_SPI0_disable_interrupt();
- 1ca:	da df       	rcall	.-76     	; 0x180 <_Z25MA_SPI0_disable_interruptv>
- 1cc:	8e e1       	ldi	r24, 0x1E	; 30
-    char ch[30],bh[30];
-	memset(ch, '\0', 30);
- 1ce:	fe 01       	movw	r30, r28
- 1d0:	31 96       	adiw	r30, 0x01	; 1
- 1d2:	df 01       	movw	r26, r30
- 1d4:	28 2f       	mov	r18, r24
- 1d6:	1d 92       	st	X+, r1
- 1d8:	2a 95       	dec	r18
- 1da:	e9 f7       	brne	.-6      	; 0x1d6 <main+0x24>
- 1dc:	7e 96       	adiw	r30, 0x1e	; 30
-	memset(bh, '\0', 30);
- 1de:	df 01       	movw	r26, r30
- 1e0:	1d 92       	st	X+, r1
- 1e2:	8a 95       	dec	r24
- 1e4:	e9 f7       	brne	.-6      	; 0x1e0 <main+0x2e>
-	printString0("SPI-master-sending\n");
- 1e6:	83 e0       	ldi	r24, 0x03	; 3
- 1e8:	92 e0       	ldi	r25, 0x02	; 2
- 1ea:	ae df       	rcall	.-164    	; 0x148 <_Z12printString0PKc>
+ 1f6:	cf 93       	push	r28
+ 1f8:	df 93       	push	r29
+ 1fa:	cd b7       	in	r28, 0x3d	; 61
+ 1fc:	de b7       	in	r29, 0x3e	; 62
+ 1fe:	ec 97       	sbiw	r28, 0x3c	; 60
+ 200:	0f b6       	in	r0, 0x3f	; 63
+ 202:	f8 94       	cli
+ 204:	de bf       	out	0x3e, r29	; 62
+ 206:	0f be       	out	0x3f, r0	; 63
+ 208:	cd bf       	out	0x3d, r28	; 61
+	GB_UART_Init0();
+ 20a:	8c df       	rcall	.-232    	; 0x124 <_Z13GB_UART_Init0v>
+	GB_MA_SPI0_init_master();                     //Initialize SPI Master
+ 20c:	d6 df       	rcall	.-84     	; 0x1ba <_Z22GB_MA_SPI0_init_masterv>
+	GB_MA_SPI0_disable_interrupt();
+ 20e:	da df       	rcall	.-76     	; 0x1c4 <_Z28GB_MA_SPI0_disable_interruptv>
+ 210:	8e e1       	ldi	r24, 0x1E	; 30
+    char gb_ch[30],gb_bh[30];
+	memset(gb_ch, '\0', 30);
+ 212:	fe 01       	movw	r30, r28
+ 214:	31 96       	adiw	r30, 0x01	; 1
+ 216:	df 01       	movw	r26, r30
+ 218:	28 2f       	mov	r18, r24
+ 21a:	1d 92       	st	X+, r1
+ 21c:	2a 95       	dec	r18
+ 21e:	e9 f7       	brne	.-6      	; 0x21a <main+0x24>
+ 220:	7e 96       	adiw	r30, 0x1e	; 30
+	memset(gb_bh, '\0', 30);
+ 222:	df 01       	movw	r26, r30
+ 224:	1d 92       	st	X+, r1
+ 226:	8a 95       	dec	r24
+ 228:	e9 f7       	brne	.-6      	; 0x224 <main+0x2e>
+	GB_printString0("SPI-master-sending\n");
+ 22a:	83 e0       	ldi	r24, 0x03	; 3
+ 22c:	92 e0       	ldi	r25, 0x02	; 2
+ 22e:	8c df       	rcall	.-232    	; 0x148 <_Z15GB_printString0PKc>
 	sei();
- 1ec:	78 94       	sei
+ 230:	78 94       	sei
 		  
 	
-		  if(c<1)
+		  if(gb_c<1)
 		  {
 
-			  printString0("SPI-master-Sending\n");
- 1ee:	87 e1       	ldi	r24, 0x17	; 23
- 1f0:	92 e0       	ldi	r25, 0x02	; 2
- 1f2:	aa df       	rcall	.-172    	; 0x148 <_Z12printString0PKc>
-			  MA_SPI0_send_string("Subscribe Gettobyte");
- 1f4:	8b e2       	ldi	r24, 0x2B	; 43
- 1f6:	92 e0       	ldi	r25, 0x02	; 2
-			  MA_SPI0_send_string("Kunal Gupta");
- 1f8:	ce df       	rcall	.-100    	; 0x196 <_Z19MA_SPI0_send_stringPKc>
- 1fa:	8f e3       	ldi	r24, 0x3F	; 63
- 1fc:	92 e0       	ldi	r25, 0x02	; 2
-			  MA_SPI0_send_byte('p');
- 1fe:	cb df       	rcall	.-106    	; 0x196 <_Z19MA_SPI0_send_stringPKc>
- 200:	80 e7       	ldi	r24, 0x70	; 112
- 202:	c2 df       	rcall	.-124    	; 0x188 <_Z17MA_SPI0_send_byteh>
-			  printString0("\n");
- 204:	89 e2       	ldi	r24, 0x29	; 41
- 206:	92 e0       	ldi	r25, 0x02	; 2
- 208:	9f df       	rcall	.-194    	; 0x148 <_Z12printString0PKc>
- 20a:	bf ef       	ldi	r27, 0xFF	; 255
+			  GB_printString0("SPI-master-Sending\n");
+ 232:	87 e1       	ldi	r24, 0x17	; 23
+ 234:	92 e0       	ldi	r25, 0x02	; 2
+ 236:	88 df       	rcall	.-240    	; 0x148 <_Z15GB_printString0PKc>
+			  GB_MA_SPI0_send_string("Subscribe Gettobyte");
+ 238:	8b e2       	ldi	r24, 0x2B	; 43
+ 23a:	92 e0       	ldi	r25, 0x02	; 2
+			  GB_MA_SPI0_send_string("Kunal Gupta");
+ 23c:	ce df       	rcall	.-100    	; 0x1da <_Z22GB_MA_SPI0_send_stringPKc>
+ 23e:	8f e3       	ldi	r24, 0x3F	; 63
+ 240:	92 e0       	ldi	r25, 0x02	; 2
+			  GB_MA_SPI0_send_byte('p');
+ 242:	cb df       	rcall	.-106    	; 0x1da <_Z22GB_MA_SPI0_send_stringPKc>
+ 244:	80 e7       	ldi	r24, 0x70	; 112
+ 246:	c2 df       	rcall	.-124    	; 0x1cc <_Z20GB_MA_SPI0_send_byteh>
+			  GB_printString0("\n");
+ 248:	89 e2       	ldi	r24, 0x29	; 41
+ 24a:	92 e0       	ldi	r25, 0x02	; 2
+ 24c:	7d df       	rcall	.-262    	; 0x148 <_Z15GB_printString0PKc>
+ 24e:	bf ef       	ldi	r27, 0xFF	; 255
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 20c:	21 ee       	ldi	r18, 0xE1	; 225
- 20e:	84 e0       	ldi	r24, 0x04	; 4
- 210:	b1 50       	subi	r27, 0x01	; 1
- 212:	20 40       	sbci	r18, 0x00	; 0
- 214:	80 40       	sbci	r24, 0x00	; 0
- 216:	e1 f7       	brne	.-8      	; 0x210 <main+0x5e>
- 218:	00 c0       	rjmp	.+0      	; 0x21a <main+0x68>
- 21a:	00 00       	nop
- 21c:	80 e0       	ldi	r24, 0x00	; 0
+ 250:	21 ee       	ldi	r18, 0xE1	; 225
+ 252:	84 e0       	ldi	r24, 0x04	; 4
+ 254:	b1 50       	subi	r27, 0x01	; 1
+ 256:	20 40       	sbci	r18, 0x00	; 0
+ 258:	80 40       	sbci	r24, 0x00	; 0
+ 25a:	e1 f7       	brne	.-8      	; 0x254 <main+0x5e>
+ 25c:	00 c0       	rjmp	.+0      	; 0x25e <main+0x68>
+ 25e:	00 00       	nop
+ 260:	80 e0       	ldi	r24, 0x00	; 0
 		  
 		  
 		  
 
    }
 }
- 21e:	90 e0       	ldi	r25, 0x00	; 0
- 220:	ec 96       	adiw	r28, 0x3c	; 60
- 222:	0f b6       	in	r0, 0x3f	; 63
- 224:	f8 94       	cli
- 226:	de bf       	out	0x3e, r29	; 62
- 228:	0f be       	out	0x3f, r0	; 63
- 22a:	cd bf       	out	0x3d, r28	; 61
- 22c:	df 91       	pop	r29
- 22e:	cf 91       	pop	r28
- 230:	08 95       	ret
+ 262:	90 e0       	ldi	r25, 0x00	; 0
+ 264:	ec 96       	adiw	r28, 0x3c	; 60
+ 266:	0f b6       	in	r0, 0x3f	; 63
+ 268:	f8 94       	cli
+ 26a:	de bf       	out	0x3e, r29	; 62
+ 26c:	0f be       	out	0x3f, r0	; 63
+ 26e:	cd bf       	out	0x3d, r28	; 61
+ 270:	df 91       	pop	r29
+ 272:	cf 91       	pop	r28
+ 274:	08 95       	ret
 
-00000232 <_exit>:
- 232:	f8 94       	cli
+00000276 <_exit>:
+ 276:	f8 94       	cli
 
-00000234 <__stop_program>:
- 234:	ff cf       	rjmp	.-2      	; 0x234 <__stop_program>
+00000278 <__stop_program>:
+ 278:	ff cf       	rjmp	.-2      	; 0x278 <__stop_program>

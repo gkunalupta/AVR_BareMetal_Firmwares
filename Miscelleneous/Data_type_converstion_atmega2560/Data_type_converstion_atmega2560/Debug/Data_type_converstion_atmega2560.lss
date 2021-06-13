@@ -11,21 +11,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000e40  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000110  00000000  00000000  00000e80  2**0
+  4 .debug_aranges 00000140  00000000  00000000  00000e80  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000014fb  00000000  00000000  00000f90  2**0
+  5 .debug_info   000016f8  00000000  00000000  00000fc0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e1a  00000000  00000000  0000248b  2**0
+  6 .debug_abbrev 00000de4  00000000  00000000  000026b8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000097f  00000000  00000000  000032a5  2**0
+  7 .debug_line   00000a8d  00000000  00000000  0000349c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000003ec  00000000  00000000  00003c24  2**2
+  8 .debug_frame  0000052c  00000000  00000000  00003f2c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000092f  00000000  00000000  00004010  2**0
+  9 .debug_str    00000b14  00000000  00000000  00004458  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00001071  00000000  00000000  0000493f  2**0
+ 10 .debug_loc    000015e3  00000000  00000000  00004f6c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000100  00000000  00000000  000059b0  2**0
+ 11 .debug_ranges 00000130  00000000  00000000  0000654f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -212,12 +212,13 @@ Disassembly of section .text:
 00000224 <__bad_interrupt>:
  224:	ed ce       	rjmp	.-550    	; 0x0 <__vectors>
 
-00000226 <_Z10UART_Init0v>:
-		if (buf[ptr] != '0') break;
-	}
-	for(;ptr>=0;--ptr) {
-		UART_TxChar3(buf[ptr]);
-	}
+00000226 <_Z13GB_UART_Init0v>:
+{
+	char gb_float_buff[10];
+	sprintf(gb_float_buff,"%f",gb_value);
+	GB_printString3(gb_float_buff);
+	
+}
  226:	87 e6       	ldi	r24, 0x67	; 103
  228:	90 e0       	ldi	r25, 0x00	; 0
  22a:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7c00c5>
@@ -226,33 +227,33 @@ Disassembly of section .text:
  234:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
  238:	08 95       	ret
 
-0000023a <_Z12UART_TxChar0j>:
+0000023a <_Z15GB_UART_TxChar0j>:
  23a:	e0 ec       	ldi	r30, 0xC0	; 192
  23c:	f0 e0       	ldi	r31, 0x00	; 0
  23e:	90 81       	ld	r25, Z
  240:	95 ff       	sbrs	r25, 5
- 242:	fd cf       	rjmp	.-6      	; 0x23e <_Z12UART_TxChar0j+0x4>
+ 242:	fd cf       	rjmp	.-6      	; 0x23e <_Z15GB_UART_TxChar0j+0x4>
  244:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
  248:	08 95       	ret
 
-0000024a <_Z12printString0PKc>:
+0000024a <_Z15GB_printString0PKc>:
  24a:	cf 93       	push	r28
  24c:	df 93       	push	r29
  24e:	ec 01       	movw	r28, r24
  250:	88 81       	ld	r24, Y
  252:	88 23       	and	r24, r24
- 254:	31 f0       	breq	.+12     	; 0x262 <_Z12printString0PKc+0x18>
+ 254:	31 f0       	breq	.+12     	; 0x262 <_Z15GB_printString0PKc+0x18>
  256:	21 96       	adiw	r28, 0x01	; 1
  258:	90 e0       	ldi	r25, 0x00	; 0
- 25a:	ef df       	rcall	.-34     	; 0x23a <_Z12UART_TxChar0j>
+ 25a:	ef df       	rcall	.-34     	; 0x23a <_Z15GB_UART_TxChar0j>
  25c:	89 91       	ld	r24, Y+
  25e:	81 11       	cpse	r24, r1
- 260:	fb cf       	rjmp	.-10     	; 0x258 <_Z12printString0PKc+0xe>
+ 260:	fb cf       	rjmp	.-10     	; 0x258 <_Z15GB_printString0PKc+0xe>
  262:	df 91       	pop	r29
  264:	cf 91       	pop	r28
  266:	08 95       	ret
 
-00000268 <_Z12float_value0f>:
+00000268 <_Z15GB_float_value0f>:
  268:	0f 93       	push	r16
  26a:	1f 93       	push	r17
  26c:	cf 93       	push	r28
@@ -280,7 +281,7 @@ Disassembly of section .text:
  298:	0f 93       	push	r16
  29a:	d8 d4       	rcall	.+2480   	; 0xc4c <sprintf>
  29c:	c8 01       	movw	r24, r16
- 29e:	d5 df       	rcall	.-86     	; 0x24a <_Z12printString0PKc>
+ 29e:	d5 df       	rcall	.-86     	; 0x24a <_Z15GB_printString0PKc>
  2a0:	0f b6       	in	r0, 0x3f	; 63
  2a2:	f8 94       	cli
  2a4:	de bf       	out	0x3e, r29	; 62
@@ -299,24 +300,24 @@ Disassembly of section .text:
  2be:	08 95       	ret
 
 000002c0 <main>:
-#include "uarts.h"
+#include "GB_uarts.h"
 
 
 int main(void)
 {
-	UART_Init0();
- 2c0:	b2 df       	rcall	.-156    	; 0x226 <_Z10UART_Init0v>
-	int a = 50;
+	GB_UART_Init0();
+ 2c0:	b2 df       	rcall	.-156    	; 0x226 <_Z13GB_UART_Init0v>
+	int gb_a = 50;
     /* Replace with your application code */
     while (1) 
     {
-		float x = static_cast<float>(a);
-		float_value0(x);
+		float gb_x = static_cast<float>(gb_a);
+		GB_float_value0(gb_x);
  2c2:	60 e0       	ldi	r22, 0x00	; 0
  2c4:	70 e0       	ldi	r23, 0x00	; 0
  2c6:	88 e4       	ldi	r24, 0x48	; 72
  2c8:	92 e4       	ldi	r25, 0x42	; 66
- 2ca:	ce df       	rcall	.-100    	; 0x268 <_Z12float_value0f>
+ 2ca:	ce df       	rcall	.-100    	; 0x268 <_Z15GB_float_value0f>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
@@ -337,10 +338,10 @@ int main(void)
 		//UART_TxChar0(c);
 		
 		_delay_ms(100);
-		printString0("\n");
+		GB_printString0("\n");
  2de:	83 e0       	ldi	r24, 0x03	; 3
  2e0:	92 e0       	ldi	r25, 0x02	; 2
- 2e2:	b3 df       	rcall	.-154    	; 0x24a <_Z12printString0PKc>
+ 2e2:	b3 df       	rcall	.-154    	; 0x24a <_Z15GB_printString0PKc>
  2e4:	ee cf       	rjmp	.-36     	; 0x2c2 <main+0x2>
 
 000002e6 <vfprintf>:

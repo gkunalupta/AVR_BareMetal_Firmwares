@@ -40,8 +40,6 @@ c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4
                               main.o (__do_copy_data)
 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
                               main.o (__do_clear_bss)
-c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
-                              main.o (__umulhisi3)
 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
                               c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_divmodhi4.o) (__udivmodhi4)
 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
@@ -70,89 +68,101 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text._Z12UART_RxChar0v
+ .text._Z15GB_UART_RxChar0v
                 0x00000000       0x10 main.o
- .text._Z9rxstring0Pc
+ .text._Z12GB_rxstring0Pc
                 0x00000000       0x54 main.o
- .text._Z9printint0Ph
+ .text._Z12GB_printint0Ph
                 0x00000000       0x20 main.o
- .text._Z4bit0m
+ .text._Z7GB_bit0m
                 0x00000000       0x6a main.o
- .text._Z12float_value0f
+ .text._Z15GB_float_value0f
                 0x00000000       0x5c main.o
- .text._Z12UART_RxChar1v
+ .text._Z15GB_UART_RxChar1v
                 0x00000000       0x10 main.o
- .text._Z9rxstring1Pc
+ .text._Z12GB_rxstring1Pc
                 0x00000000       0x54 main.o
- .text._Z4bit1j
-                0x00000000       0x4c main.o
- .text._Z8decimel1j
-                0x00000000       0xd0 main.o
- .text._Z10UART_Init2v
+ .text._Z12GB_printint1Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit1m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel1m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value1f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init2v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar2h
+ .text._Z15GB_UART_TxChar2h
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar2v
+ .text._Z15GB_UART_RxChar2v
                 0x00000000       0x10 main.o
- .text._Z9rxstring2Pc
+ .text._Z12GB_rxstring2Pc
                 0x00000000       0x54 main.o
- .text._Z12printString2PKc
-                0x00000000       0x2c main.o
- .text._Z4bit2j
-                0x00000000       0x4c main.o
- .text._Z8decimel2j
-                0x00000000       0xd0 main.o
- .text._Z10UART_Init3v
+ .text._Z15GB_printString2PKc
+                0x00000000       0x1e main.o
+ .text._Z12GB_printint2Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit2m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel2m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value2f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init3v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar3c
+ .text._Z15GB_UART_TxChar3c
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar3v
+ .text._Z15GB_UART_RxChar3v
                 0x00000000       0x10 main.o
- .text._Z9rxstring3Pc
+ .text._Z12GB_rxstring3Pc
                 0x00000000       0x1e main.o
- .text._Z12printString3Pc
+ .text._Z15GB_printString3PKc
                 0x00000000       0x1e main.o
- .text._Z4bit3j
-                0x00000000       0x4c main.o
- .text._Z8decimel3j
-                0x00000000       0xd0 main.o
- .text._Z23Timer_delay_check_oscilv
+ .text._Z12GB_printint3Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit3m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel3m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value3f
+                0x00000000       0x5c main.o
+ .text._Z26GB_Timer_delay_check_oscilv
                 0x00000000       0x44 main.o
- .text._Z9dht11_humv
+ .text._Z12GB_dht11_humv
                 0x00000000       0x58 main.o
- .text._Z12dht11_init10v
+ .text._Z15GB_dht11_init10v
                 0x00000000       0x34 main.o
- .text._Z21dht11_find_response10v
+ .text._Z24GB_dht11_find_response10v
                 0x00000000       0x2e main.o
- .text._Z18dht11_receivedht10Ph
+ .text._Z21GB_dht11_receivedht10Ph
                 0x00000000      0x172 main.o
- .text._Z18TWI_repeated_startv
+ .text._Z21GB_TWI_repeated_startv
                 0x00000000       0x1e main.o
- .text._Z22TWI_read_slave_addressh
+ .text._Z25GB_TWI_read_slave_addressh
                 0x00000000       0x22 main.o
- .text._Z20TWI_write_datastringPc
+ .text._Z23GB_TWI_write_datastringPc
                 0x00000000       0x44 main.o
- .text._Z17TWI_read_dataNackv
+ .text._Z20GB_TWI_read_dataNackv
                 0x00000000       0x22 main.o
- .text._Z16TWI_read_dataAckv
+ .text._Z19GB_TWI_read_dataAckv
                 0x00000000       0x22 main.o
- .text._Z11i2c_readRegPhj
+ .text._Z14GB_i2c_readRegPhj
                 0x00000000       0x54 main.o
- .text._Z12pulse_enableh
+ .text._Z15GB_pulse_enableh
                 0x00000000       0x32 main.o
- .text._Z13lcd_setcursorhh
+ .text._Z16GB_lcd_setcursorhh
                 0x00000000       0x1a main.o
- .text._Z11lcd_Rethomev
+ .text._Z14GB_lcd_Rethomev
                 0x00000000       0x14 main.o
- .text._Z12lcd_printinti
+ .text._Z15GB_lcd_printinti
                 0x00000000       0x76 main.o
- .text._Z16lcd_printint_numi
+ .text._Z19GB_lcd_printint_numi
                 0x00000000       0x7c main.o
- .text._Z14lcd_print1linePKc
+ .text._Z17GB_lcd_print1linePKc
                 0x00000000       0x20 main.o
- .text._Z14lcd_print2linePKc
+ .text._Z17GB_lcd_print2linePKc
                 0x00000000       0x20 main.o
- .text._Z7lcd_bith
+ .text._Z10GB_lcd_bith
                 0x00000000       0x42 main.o
  .text._Z7pinModehPVhb
                 0x00000000       0x42 main.o
@@ -160,66 +170,67 @@ Discarded input sections
                 0x00000000       0x42 main.o
  .text._Z11digitalReadhPVh
                 0x00000000       0x1a main.o
- .text._Z13getchar_UART0v
+ .text._Z16GB_getchar_UART0v
                 0x00000000       0x2e main.o
- .text._Z15getstring_UART1v
+ .text._Z18GB_getstring_UART1v
                 0x00000000       0x5c main.o
- .text._Z12send_commandPKc
+ .text._Z15GB_send_commandPKc
                 0x00000000        0x6 main.o
- .text._Z9RFR_UART1j
+ .text._Z12GB_RFR_UART1j
                 0x00000000       0x86 main.o
- .text._Z18esp8266_disconnectv
+ .text._Z21GB_esp8266_disconnectv
                 0x00000000       0x32 main.o
- .text._Z16esp8266_IPadressv
+ .text._Z19GB_esp8266_IPadressv
                 0x00000000      0x2a4 main.o
- .text._Z14esp8266_listAPv
+ .text._Z17GB_esp8266_listAPv
                 0x00000000       0x3c main.o
- .text._Z11esp8266_rstv
+ .text._Z14GB_esp8266_rstv
                 0x00000000       0x22 main.o
- .text._Z15esp8266_commandPKc
+ .text._Z18GB_esp8266_commandPKc
                 0x00000000       0x34 main.o
- .text._Z15esp8266_commandPKcPc
+ .text._Z18GB_esp8266_commandPKcPc
                 0x00000000       0x4c main.o
- .text._Z15esp8266_cipsendiPKc
+ .text._Z18GB_esp8266_cipsendiPKc
                 0x00000000       0x86 main.o
- .text._Z15esp8266_cipsendPcPKc
+ .text._Z18GB_esp8266_cipsendPcPKc
                 0x00000000       0x86 main.o
- .text._Z21esp8266_tcpgetcommandPKc
+ .text._Z24GB_esp8266_tcpgetcommandPKc
                 0x00000000       0x9c main.o
- .text._Z21esp8266_tcpgetcommandPKcPc
+ .text._Z24GB_esp8266_tcpgetcommandPKcPc
                 0x00000000       0x9e main.o
- .text._Z17GetMenukeypressedv
+ .text._Z20GB_GetMenukeypressedv
                 0x00000000       0x32 main.o
- .text._Z4menuv
+ .text._Z7GB_menuv
                 0x00000000       0x30 main.o
- .text._Z5arrowv
+ .text._Z8GB_arrowv
                 0x00000000       0x30 main.o
- .text._Z10UInterfacev
+ .text._Z13GB_UInterfacev
                 0x00000000       0xf8 main.o
- .bss.arrow_flag
+ .bss.gb_arrow_flag
                 0x00000000        0x1 main.o
- .bss.temp_dht11
+ .bss.gb_ff_temp_to_cal
                 0x00000000        0x1 main.o
- .bss.ff_temp_to_cal
+ .bss.gb_cali_temp
                 0x00000000        0x1 main.o
- .bss.cali_temp
+ .bss.gb_Menu_State
                 0x00000000        0x1 main.o
- .bss.Menu_State
-                0x00000000        0x1 main.o
- .bss.menu_key_value
+ .bss.gb_menu_key_value
                 0x00000000        0x1 main.o
  .bss.x         0x00000000        0x5 main.o
- .bss.RX_Buffer_Overflow_UART1
+ .bss.gb_RX_Buffer_Overflow_UART1
                 0x00000000        0x1 main.o
- .bss.RX_Rd_Index_UART0
+ .bss.gb_RX_Rd_Index_UART0
                 0x00000000        0x1 main.o
- .bss.senseval  0x00000000        0x2 main.o
- .data.En       0x00000000        0x1 main.o
- .bss.recv_data
+ .bss.gb_senseval
+                0x00000000        0x2 main.o
+ .data.gb_LCD_En
                 0x00000000        0x1 main.o
- .bss.write_data
+ .bss.gb_recv_data
                 0x00000000        0x1 main.o
- .bss.myValue   0x00000000        0x1 main.o
+ .bss.gb_write_data
+                0x00000000        0x1 main.o
+ .bss.gb_myValue
+                0x00000000        0x1 main.o
  .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
  .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
  .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o)
@@ -343,22 +354,6 @@ Discarded input sections
                 0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
- .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc.mul
-                0x00000000       0x1e c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc.div
-                0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc   0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc.prologue
-                0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc.builtins
-                0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc.fmul
-                0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
- .text.libgcc.fixed
-                0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
  .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
  .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
  .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodhi4.o)
@@ -651,141 +646,141 @@ END GROUP
  .text.__vector_17
                 0x00000228       0x4a main.o
                 0x00000228                __vector_17
- .text._Z11init_millism
+ .text._Z14GB_init_millism
                 0x00000272       0x2e main.o
-                0x00000272                _Z11init_millism
- .text._Z6millisv
+                0x00000272                _Z14GB_init_millism
+ .text._Z9GB_millisv
                 0x000002a0       0x20 main.o
-                0x000002a0                _Z6millisv
- .text._Z10UART_Init0v
+                0x000002a0                _Z9GB_millisv
+ .text._Z13GB_UART_Init0v
                 0x000002c0       0x14 main.o
-                0x000002c0                _Z10UART_Init0v
- .text._Z12UART_TxChar0j
+                0x000002c0                _Z13GB_UART_Init0v
+ .text._Z15GB_UART_TxChar0j
                 0x000002d4       0x10 main.o
-                0x000002d4                _Z12UART_TxChar0j
- .text._Z12printString0PKc
+                0x000002d4                _Z15GB_UART_TxChar0j
+ .text._Z15GB_printString0PKc
                 0x000002e4       0x1e main.o
-                0x000002e4                _Z12printString0PKc
- .text._Z8decimel0m
+                0x000002e4                _Z15GB_printString0PKc
+ .text._Z11GB_decimel0m
                 0x00000302       0xc4 main.o
-                0x00000302                _Z8decimel0m
- .text._Z10UART_Init1v
+                0x00000302                _Z11GB_decimel0m
+ .text._Z13GB_UART_Init1v
                 0x000003c6       0x14 main.o
-                0x000003c6                _Z10UART_Init1v
- .text._Z12UART_TxChar1h
+                0x000003c6                _Z13GB_UART_Init1v
+ .text._Z15GB_UART_TxChar1h
                 0x000003da       0x10 main.o
-                0x000003da                _Z12UART_TxChar1h
- .text._Z12printString1PKc
+                0x000003da                _Z15GB_UART_TxChar1h
+ .text._Z15GB_printString1PKc
                 0x000003ea       0x1c main.o
-                0x000003ea                _Z12printString1PKc
- .text._Z10dht11_initv
+                0x000003ea                _Z15GB_printString1PKc
+ .text._Z13GB_dht11_initv
                 0x00000406       0x48 main.o
-                0x00000406                _Z10dht11_initv
- .text._Z19dht11_find_responsev
+                0x00000406                _Z13GB_dht11_initv
+ .text._Z22GB_dht11_find_responsev
                 0x0000044e       0x2e main.o
-                0x0000044e                _Z19dht11_find_responsev
- .text._Z16dht11_receivedhtv
+                0x0000044e                _Z22GB_dht11_find_responsev
+ .text._Z19GB_dht11_receivedhtv
                 0x0000047c      0x116 main.o
-                0x0000047c                _Z16dht11_receivedhtv
- .text._Z5dht11v
+                0x0000047c                _Z19GB_dht11_receivedhtv
+ .text._Z8GB_dht11v
                 0x00000592        0x8 main.o
-                0x00000592                _Z5dht11v
- .text._Z10dht11_tempv
+                0x00000592                _Z8GB_dht11v
+ .text._Z13GB_dht11_tempv
                 0x0000059a       0x4a main.o
-                0x0000059a                _Z10dht11_tempv
- .text._Z15TWI_init_masterv
+                0x0000059a                _Z13GB_dht11_tempv
+ .text._Z18GB_TWI_init_masterv
                 0x000005e4        0xc main.o
-                0x000005e4                _Z15TWI_init_masterv
- .text._Z9TWI_startv
+                0x000005e4                _Z18GB_TWI_init_masterv
+ .text._Z12GB_TWI_startv
                 0x000005f0       0x1e main.o
-                0x000005f0                _Z9TWI_startv
- .text._Z23TWI_write_slave_addressh
+                0x000005f0                _Z12GB_TWI_startv
+ .text._Z26GB_TWI_write_slave_addressh
                 0x0000060e       0x22 main.o
-                0x0000060e                _Z23TWI_write_slave_addressh
- .text._Z14TWI_write_datah
+                0x0000060e                _Z26GB_TWI_write_slave_addressh
+ .text._Z17GB_TWI_write_datah
                 0x00000630       0x22 main.o
-                0x00000630                _Z14TWI_write_datah
- .text._Z8TWI_stopv
+                0x00000630                _Z17GB_TWI_write_datah
+ .text._Z11GB_TWI_stopv
                 0x00000652       0x12 main.o
-                0x00000652                _Z8TWI_stopv
- .text._Z13lcd_ioexanderh
+                0x00000652                _Z11GB_TWI_stopv
+ .text._Z16GB_lcd_ioexanderh
                 0x00000664       0x16 main.o
-                0x00000664                _Z13lcd_ioexanderh
- .text._Z13lcd_write4bith
+                0x00000664                _Z16GB_lcd_ioexanderh
+ .text._Z16GB_lcd_write4bith
                 0x0000067a       0x30 main.o
-                0x0000067a                _Z13lcd_write4bith
- .text._Z11LCD_commandh
+                0x0000067a                _Z16GB_lcd_write4bith
+ .text._Z14GB_LCD_commandh
                 0x000006aa       0x1c main.o
-                0x000006aa                _Z11LCD_commandh
- .text._Z9lcd_clearv
+                0x000006aa                _Z14GB_LCD_commandh
+ .text._Z12GB_lcd_clearv
                 0x000006c6       0x18 main.o
-                0x000006c6                _Z9lcd_clearv
- .text._Z8LCD_datah
+                0x000006c6                _Z12GB_lcd_clearv
+ .text._Z11GB_LCD_datah
                 0x000006de       0x20 main.o
-                0x000006de                _Z8LCD_datah
- .text._Z10LCD_stringPKc
+                0x000006de                _Z11GB_LCD_datah
+ .text._Z13GB_LCD_stringPKc
                 0x000006fe       0x22 main.o
-                0x000006fe                _Z10LCD_stringPKc
- .text._Z8LCD_initv
+                0x000006fe                _Z13GB_LCD_stringPKc
+ .text._Z11GB_LCD_initv
                 0x00000720       0x70 main.o
-                0x00000720                _Z8LCD_initv
+                0x00000720                _Z11GB_LCD_initv
  .text.__vector_25
                 0x00000790       0x94 main.o
                 0x00000790                __vector_25
  .text.__vector_36
                 0x00000824       0x56 main.o
                 0x00000824                __vector_36
- .text._Z13getchar_UART1v
+ .text._Z16GB_getchar_UART1v
                 0x0000087a       0x24 main.o
-                0x0000087a                _Z13getchar_UART1v
- .text._Z13search_bufferPKc
+                0x0000087a                _Z16GB_getchar_UART1v
+ .text._Z16GB_search_bufferPKc
                 0x0000089e       0x26 main.o
-                0x0000089e                _Z13search_bufferPKc
- .text._Z9RFR_UART1PKcj
+                0x0000089e                _Z16GB_search_bufferPKc
+ .text._Z12GB_RFR_UART1PKcj
                 0x000008c4       0x98 main.o
-                0x000008c4                _Z9RFR_UART1PKcj
- .text._Z15esp8266_getmodev
+                0x000008c4                _Z12GB_RFR_UART1PKcj
+ .text._Z18GB_esp8266_getmodev
                 0x0000095c       0x6c main.o
-                0x0000095c                _Z15esp8266_getmodev
- .text._Z22esp8266_connectiontypev
+                0x0000095c                _Z18GB_esp8266_getmodev
+ .text._Z25GB_esp8266_connectiontypev
                 0x000009c8       0x4a main.o
-                0x000009c8                _Z22esp8266_connectiontypev
- .text._Z13esp8266_getAPv
+                0x000009c8                _Z25GB_esp8266_connectiontypev
+ .text._Z16GB_esp8266_getAPv
                 0x00000a12       0xa2 main.o
-                0x00000a12                _Z13esp8266_getAPv
- .text._Z13esp8266_setAPPKcS0_
+                0x00000a12                _Z16GB_esp8266_getAPv
+ .text._Z16GB_esp8266_setAPPKcS0_
                 0x00000ab4       0xea main.o
-                0x00000ab4                _Z13esp8266_setAPPKcS0_
- .text._Z25esp8266_initialise_clientv
+                0x00000ab4                _Z16GB_esp8266_setAPPKcS0_
+ .text._Z28GB_esp8266_initialise_clientv
                 0x00000b9e       0x18 main.o
-                0x00000b9e                _Z25esp8266_initialise_clientv
- .text._Z24esp8266_connectTCPserverPKci
+                0x00000b9e                _Z28GB_esp8266_initialise_clientv
+ .text._Z27GB_esp8266_connectTCPserverPKci
                 0x00000bb6       0x80 main.o
-                0x00000bb6                _Z24esp8266_connectTCPserverPKci
- .text._Z15esp8266_commandPKci
+                0x00000bb6                _Z27GB_esp8266_connectTCPserverPKci
+ .text._Z18GB_esp8266_commandPKci
                 0x00000c36       0x48 main.o
-                0x00000c36                _Z15esp8266_commandPKci
- .text._Z15esp8266_cipsendfPKc
+                0x00000c36                _Z18GB_esp8266_commandPKci
+ .text._Z18GB_esp8266_cipsendfPKc
                 0x00000c7e       0x7c main.o
-                0x00000c7e                _Z15esp8266_cipsendfPKc
- .text._Z21esp8266_tcpgetcommandPKci
+                0x00000c7e                _Z18GB_esp8266_cipsendfPKc
+ .text._Z24GB_esp8266_tcpgetcommandPKci
                 0x00000cfa       0x92 main.o
-                0x00000cfa                _Z21esp8266_tcpgetcommandPKci
- .text._Z14menu_pin_setupv
+                0x00000cfa                _Z24GB_esp8266_tcpgetcommandPKci
+ .text._Z17GB_menu_pin_setupv
                 0x00000d8c        0xa main.o
-                0x00000d8c                _Z14menu_pin_setupv
- .text._Z11timer2_initv
+                0x00000d8c                _Z17GB_menu_pin_setupv
+ .text._Z14GB_timer2_initv
                 0x00000d96       0x1c main.o
-                0x00000d96                _Z11timer2_initv
- .text._Z15menu_key_searchv
+                0x00000d96                _Z14GB_timer2_initv
+ .text._Z18GB_menu_key_searchv
                 0x00000db2       0x4e main.o
-                0x00000db2                _Z15menu_key_searchv
+                0x00000db2                _Z18GB_menu_key_searchv
  .text.__vector_15
                 0x00000e00       0x54 main.o
                 0x00000e00                __vector_15
- .text._Z10ManageHomev
+ .text._Z13GB_ManageHomev
                 0x00000e54       0x82 main.o
-                0x00000e54                _Z10ManageHomev
+                0x00000e54                _Z13GB_ManageHomev
  .text.main     0x00000ed6       0xb8 main.o
                 0x00000ed6                main
  .text.avr-libc.fplib
@@ -899,17 +894,18 @@ END GROUP
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.Rs       0x00800200        0x1 main.o
-                0x00800200                Rs
+ .data.gb_LCD_Rs
+                0x00800200        0x1 main.o
+                0x00800200                gb_LCD_Rs
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
                 0x00800201      0x44c main.o
                                 0x49e (size before relaxing)
- .rodata._ZL3url
+ .rodata._ZL6gb_url
                 0x0080064d       0x64 main.o
- .rodata._ZL7urlpath
+ .rodata._ZL10gb_urlpath
                 0x008006b1       0x64 main.o
  *(.gnu.linkonce.r*)
                 0x00800716                . = ALIGN (0x2)
@@ -921,59 +917,62 @@ END GROUP
                 0x00800716                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.t         0x00800716        0x4 main.o
-                0x00800716                t
- .bss.mystr     0x0080071a        0x1 main.o
-                0x0080071a                mystr
- .bss.keys      0x0080071b        0x4 main.o
-                0x0080071b                keys
- .bss.Menu_key_switch
+ .bss.gb_t      0x00800716        0x4 main.o
+                0x00800716                gb_t
+ .bss.gb_mystr  0x0080071a        0x1 main.o
+                0x0080071a                gb_mystr
+ .bss.gb_keys   0x0080071b        0x4 main.o
+                0x0080071b                gb_keys
+ .bss.gb_Menu_key_switch
                 0x0080071f        0x1 main.o
-                0x0080071f                Menu_key_switch
- .bss.CWMODE    0x00800720        0x2 main.o
-                0x00800720                CWMODE
- .bss.RX_DATA_UART1
+                0x0080071f                gb_Menu_key_switch
+ .bss.gb_CWMODE
+                0x00800720        0x2 main.o
+                0x00800720                gb_CWMODE
+ .bss.gb_RX_DATA_UART1
                 0x00800722       0xff main.o
-                0x00800722                RX_DATA_UART1
- .bss.rx_byte   0x00800821        0x1 main.o
-                0x00800821                rx_byte
- .bss.RX_No_of_byte_UART1
+                0x00800722                gb_RX_DATA_UART1
+ .bss.gb_rx_byte
+                0x00800821        0x1 main.o
+                0x00800821                gb_rx_byte
+ .bss.gb_RX_No_of_byte_UART1
                 0x00800822        0x1 main.o
-                0x00800822                RX_No_of_byte_UART1
- .bss.RX_Counter_UART1
+                0x00800822                gb_RX_No_of_byte_UART1
+ .bss.gb_RX_Counter_UART1
                 0x00800823        0x1 main.o
-                0x00800823                RX_Counter_UART1
- .bss.RX_Rd_Index_UART1
+                0x00800823                gb_RX_Counter_UART1
+ .bss.gb_RX_Rd_Index_UART1
                 0x00800824        0x1 main.o
-                0x00800824                RX_Rd_Index_UART1
- .bss.RX_Wr_Index_UART1
+                0x00800824                gb_RX_Rd_Index_UART1
+ .bss.gb_RX_Wr_Index_UART1
                 0x00800825        0x1 main.o
-                0x00800825                RX_Wr_Index_UART1
- .bss.Rx_Buffer_UART1
+                0x00800825                gb_RX_Wr_Index_UART1
+ .bss.gb_Rx_Buffer_UART1
                 0x00800826       0xff main.o
-                0x00800826                Rx_Buffer_UART1
- .bss.RX_Buffer_Overflow_UART0
+                0x00800826                gb_Rx_Buffer_UART1
+ .bss.gb_RX_Buffer_Overflow_UART0
                 0x00800925        0x1 main.o
-                0x00800925                RX_Buffer_Overflow_UART0
- .bss.RX_Counter_UART0
+                0x00800925                gb_RX_Buffer_Overflow_UART0
+ .bss.gb_RX_Counter_UART0
                 0x00800926        0x1 main.o
-                0x00800926                RX_Counter_UART0
- .bss.RX_Wr_Index_UART0
+                0x00800926                gb_RX_Counter_UART0
+ .bss.gb_RX_Wr_Index_UART0
                 0x00800927        0x1 main.o
-                0x00800927                RX_Wr_Index_UART0
- .bss.Rx_Buffer_UART0
+                0x00800927                gb_RX_Wr_Index_UART0
+ .bss.gb_Rx_Buffer_UART0
                 0x00800928       0x21 main.o
-                0x00800928                Rx_Buffer_UART0
- .bss.get_command
+                0x00800928                gb_Rx_Buffer_UART0
+ .bss.gb_get_command
                 0x00800949       0x64 main.o
-                0x00800949                get_command
- .bss.Rw        0x008009ad        0x1 main.o
-                0x008009ad                Rw
- .bss.data      0x008009ae        0x5 main.o
-                0x008009ae                data
- .bss.timer1_millis
+                0x00800949                gb_get_command
+ .bss.gb_LCD_Rw
+                0x008009ad        0x1 main.o
+                0x008009ad                gb_LCD_Rw
+ .bss.gb_data   0x008009ae        0x5 main.o
+                0x008009ae                gb_data
+ .bss.gb_timer1_millis
                 0x008009b3        0x4 main.o
-                0x008009b3                timer1_millis
+                0x008009b3                gb_timer1_millis
  *(COMMON)
                 0x008009b7                PROVIDE (__bss_end, .)
                 0x00001dca                __data_load_start = LOADADDR (.data)
@@ -1052,42 +1051,42 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x388
+.debug_aranges  0x00000000      0x3b8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x388 main.o
+                0x00000000      0x3b8 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5015
+.debug_info     0x00000000     0x5245
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_info    0x00000bbc     0x4459 main.o
+ .debug_info    0x00000bbc     0x4689 main.o
 
-.debug_abbrev   0x00000000      0xfd0
+.debug_abbrev   0x00000000      0xf80
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_abbrev  0x00000b1a      0x4b6 main.o
+ .debug_abbrev  0x00000b1a      0x466 main.o
 
-.debug_line     0x00000000     0x2149
+.debug_line     0x00000000     0x227f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1fa C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_line    0x000001fa     0x1f4f main.o
+ .debug_line    0x000001fa     0x2085 main.o
 
-.debug_frame    0x00000000      0xd00
+.debug_frame    0x00000000      0xe40
  *(.debug_frame)
- .debug_frame   0x00000000      0xd00 main.o
+ .debug_frame   0x00000000      0xe40 main.o
 
-.debug_str      0x00000000     0x15fa
+.debug_str      0x00000000     0x1afb
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6     0x1214 main.o
-                               0x12a7 (size before relaxing)
+ .debug_str     0x000003e6     0x1715 main.o
+                               0x175a (size before relaxing)
 
-.debug_loc      0x00000000     0x4035
+.debug_loc      0x00000000     0x45a7
  *(.debug_loc)
- .debug_loc     0x00000000     0x4035 main.o
+ .debug_loc     0x00000000     0x45a7 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1107,9 +1106,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x400
+.debug_ranges   0x00000000      0x430
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x400 main.o
+ .debug_ranges  0x00000000      0x430 main.o
 
 .debug_macro
  *(.debug_macro)

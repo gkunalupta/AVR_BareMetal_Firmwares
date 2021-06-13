@@ -12,6 +12,18 @@ c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4
                               main.o (__umulhisi3)
 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
                               main.o (memset)
+c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+                              main.o (sprintf)
+c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                              c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o) (vfprintf)
+c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+                              c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (strnlen_P)
+c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+                              c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (strnlen)
+c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+                              c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (fputc)
+c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                              c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (__ultoa_invert)
 
 Discarded input sections
 
@@ -20,83 +32,98 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text._Z12UART_RxChar0v
+ .text._Z15GB_UART_RxChar0v
                 0x00000000       0x10 main.o
- .text._Z9rxstring0Pc
+ .text._Z12GB_rxstring0Pc
                 0x00000000       0x54 main.o
- .text._Z9printint0Ph
+ .text._Z12GB_printint0Ph
                 0x00000000       0x20 main.o
- .text._Z4bit0m
+ .text._Z7GB_bit0m
                 0x00000000       0x6a main.o
- .text._Z8decimel0m
+ .text._Z11GB_decimel0m
                 0x00000000       0xc6 main.o
- .text._Z10UART_Init1v
+ .text._Z15GB_float_value0f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init1v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar1h
+ .text._Z15GB_UART_TxChar1h
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar1v
+ .text._Z15GB_UART_RxChar1v
                 0x00000000       0x10 main.o
- .text._Z9rxstring1Pc
+ .text._Z12GB_rxstring1Pc
                 0x00000000       0x54 main.o
- .text._Z12printString1PKc
+ .text._Z15GB_printString1PKc
                 0x00000000       0x1e main.o
- .text._Z4bit1j
-                0x00000000       0x4c main.o
- .text._Z8decimel1j
-                0x00000000       0xd0 main.o
- .text._Z10UART_Init2v
+ .text._Z12GB_printint1Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit1m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel1m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value1f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init2v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar2h
+ .text._Z15GB_UART_TxChar2h
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar2v
+ .text._Z15GB_UART_RxChar2v
                 0x00000000       0x10 main.o
- .text._Z9rxstring2Pc
+ .text._Z12GB_rxstring2Pc
                 0x00000000       0x54 main.o
- .text._Z12printString2PKc
-                0x00000000       0x2c main.o
- .text._Z4bit2j
-                0x00000000       0x4c main.o
- .text._Z8decimel2j
-                0x00000000       0xd0 main.o
- .text._Z10UART_Init3v
+ .text._Z15GB_printString2PKc
+                0x00000000       0x1e main.o
+ .text._Z12GB_printint2Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit2m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel2m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value2f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init3v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar3c
+ .text._Z15GB_UART_TxChar3c
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar3v
+ .text._Z15GB_UART_RxChar3v
                 0x00000000       0x10 main.o
- .text._Z9rxstring3Pc
+ .text._Z12GB_rxstring3Pc
                 0x00000000       0x1e main.o
- .text._Z12printString3Pc
+ .text._Z15GB_printString3PKc
                 0x00000000       0x1e main.o
- .text._Z4bit3j
-                0x00000000       0x4c main.o
- .text._Z8decimel3j
-                0x00000000       0xd0 main.o
- .text._Z24SL_SPI0_INTRPT_read_bytev
+ .text._Z12GB_printint3Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit3m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel3m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value3f
+                0x00000000       0x5c main.o
+ .text._Z27GB_SL_SPI0_INTRPT_read_bytev
                 0x00000000       0x24 main.o
- .text._Z26SL_SPI0_INTRPT_read_stringv
+ .text._Z29GB_SL_SPI0_INTRPT_read_stringv
                 0x00000000       0x3e main.o
- .text._Z25SL_SPI0_INTRPT_read_blockPch
+ .text._Z28GB_SL_SPI0_INTRPT_read_blockPch
                 0x00000000       0x2c main.o
- .text._Z24SL_SPI0_enable_interruptv
+ .text._Z27GB_SL_SPI0_enable_interruptv
                 0x00000000        0x8 main.o
- .text._Z21SL_SPI0_exchange_bytej
+ .text._Z24GB_SL_SPI0_exchange_bytej
                 0x00000000        0xe main.o
- .text._Z17SL_SPI0_send_byteh
+ .text._Z20GB_SL_SPI0_send_byteh
                 0x00000000        0xe main.o
- .text._Z19SL_SPI0_send_stringPKc
+ .text._Z22GB_SL_SPI0_send_stringPKc
                 0x00000000       0x1e main.o
- .text._Z16SL_SPI0_send_intj
+ .text._Z19GB_SL_SPI0_send_intj
                 0x00000000       0xd0 main.o
- .text._Z21SL_SPI0_send_intarrayPKj
+ .text._Z24GB_SL_SPI0_send_intarrayPKj
                 0x00000000       0x20 main.o
- .bss.RECV_DATA_SPI0
+ .bss.gb_RECV_DATA_SPI0
                 0x00000000       0xff main.o
- .bss.RECV_Buffer_Overflow_SPI0
+ .bss.gb_RECV_Buffer_Overflow_SPI0
                 0x00000000        0x1 main.o
- .bss.RECV_Rd_Index_SPI0
+ .bss.gb_RECV_Rd_Index_SPI0
                 0x00000000        0x1 main.o
- .bss.myValue   0x00000000        0x1 main.o
+ .bss.gb_myValue
+                0x00000000        0x1 main.o
  .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
  .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
  .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
@@ -180,6 +207,39 @@ Discarded input sections
  .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
  .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
  .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
+ .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .text.avr-libc
+                0x00000000       0x5e c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .comment       0x00000000       0x31 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .text.avr-libc
+                0x00000000      0x414 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .comment       0x00000000       0x2d c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .text.avr-libc
+                0x00000000       0x78 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .comment       0x00000000       0x31 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+ .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+ .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+ .text.avr-libc
+                0x00000000       0xbc c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
 
 Memory Configuration
 
@@ -309,7 +369,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x2ea
+.text           0x00000000      0x2f0
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/avr atmel studio/7.0/Packs/Atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -426,40 +486,40 @@ END GROUP
                 0x00000122                __vector_42
                 0x00000124                . = ALIGN (0x2)
  *(.text.*)
- .text._Z10UART_Init0v
+ .text._Z13GB_UART_Init0v
                 0x00000124       0x14 main.o
-                0x00000124                _Z10UART_Init0v
- .text._Z12UART_TxChar0j
+                0x00000124                _Z13GB_UART_Init0v
+ .text._Z15GB_UART_TxChar0j
                 0x00000138       0x10 main.o
-                0x00000138                _Z12UART_TxChar0j
- .text._Z12printString0PKc
+                0x00000138                _Z15GB_UART_TxChar0j
+ .text._Z15GB_printString0PKc
                 0x00000148       0x1e main.o
-                0x00000148                _Z12printString0PKc
+                0x00000148                _Z15GB_printString0PKc
  .text.__vector_24
                 0x00000166       0x54 main.o
                 0x00000166                __vector_24
- .text._Z18SL_SPI0_init_slavev
-                0x000001ba        0xc main.o
-                0x000001ba                _Z18SL_SPI0_init_slavev
- .text._Z25SL_SPI0_disable_interruptv
-                0x000001c6        0x8 main.o
-                0x000001c6                _Z25SL_SPI0_disable_interruptv
- .text._Z17SL_SPI0_read_bytev
-                0x000001ce        0xa main.o
-                0x000001ce                _Z17SL_SPI0_read_bytev
- .text._Z18SL_SPI0_read_blockPch
-                0x000001d8       0x56 main.o
-                0x000001d8                _Z18SL_SPI0_read_blockPch
- .text.main     0x0000022e       0xaa main.o
-                0x0000022e                main
+ .text._Z21GB_SL_SPI0_init_slavev
+                0x000001ba       0x12 main.o
+                0x000001ba                _Z21GB_SL_SPI0_init_slavev
+ .text._Z28GB_SL_SPI0_disable_interruptv
+                0x000001cc        0x8 main.o
+                0x000001cc                _Z28GB_SL_SPI0_disable_interruptv
+ .text._Z20GB_SL_SPI0_read_bytev
+                0x000001d4        0xa main.o
+                0x000001d4                _Z20GB_SL_SPI0_read_bytev
+ .text._Z21GB_SL_SPI0_read_blockPch
+                0x000001de       0x56 main.o
+                0x000001de                _Z21GB_SL_SPI0_read_blockPch
+ .text.main     0x00000234       0xaa main.o
+                0x00000234                main
  .text.avr-libc
-                0x000002d8        0xe c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
-                0x000002d8                memset
-                0x000002e6                . = ALIGN (0x2)
+                0x000002de        0xe c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
+                0x000002de                memset
+                0x000002ec                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000002e6        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x000002e6                _exit
-                0x000002e6                exit
+ .fini9         0x000002ec        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x000002ec                _exit
+                0x000002ec                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -478,11 +538,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000002e6        0x4 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x000002ec        0x4 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x000002ea                _etext = .
+                0x000002f0                _etext = .
 
-.data           0x00800200       0x16 load address 0x000002ea
+.data           0x00800200       0x18 load address 0x000002f0
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -490,42 +550,42 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800200       0x15 main.o
-                                 0x17 (size before relaxing)
+                0x00800200       0x18 main.o
+                                 0x1a (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x00800216                . = ALIGN (0x2)
- *fill*         0x00800215        0x1 
-                0x00800216                _edata = .
-                0x00800216                PROVIDE (__data_end, .)
+                0x00800218                . = ALIGN (0x2)
+                0x00800218                _edata = .
+                0x00800218                PROVIDE (__data_end, .)
 
-.bss            0x00800216      0x103
-                0x00800216                PROVIDE (__bss_start, .)
+.bss            0x00800218      0x103
+                0x00800218                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.rx_byte   0x00800216        0x1 main.o
-                0x00800216                rx_byte
- .bss.RECV_No_of_bytes_SPI0
-                0x00800217        0x1 main.o
-                0x00800217                RECV_No_of_bytes_SPI0
- .bss.RECV_Counter_SPI0
+ .bss.gb_rx_byte
                 0x00800218        0x1 main.o
-                0x00800218                RECV_Counter_SPI0
- .bss.RECV_Wr_Index_SPI0
+                0x00800218                gb_rx_byte
+ .bss.gb_RECV_No_of_bytes_SPI0
                 0x00800219        0x1 main.o
-                0x00800219                RECV_Wr_Index_SPI0
- .bss.RECV_BUFFER_SPI0
-                0x0080021a       0xff main.o
-                0x0080021a                RECV_BUFFER_SPI0
+                0x00800219                gb_RECV_No_of_bytes_SPI0
+ .bss.gb_RECV_Counter_SPI0
+                0x0080021a        0x1 main.o
+                0x0080021a                gb_RECV_Counter_SPI0
+ .bss.gb_RECV_Wr_Index_SPI0
+                0x0080021b        0x1 main.o
+                0x0080021b                gb_RECV_Wr_Index_SPI0
+ .bss.gb_RECV_BUFFER_SPI0
+                0x0080021c       0xff main.o
+                0x0080021c                gb_RECV_BUFFER_SPI0
  *(COMMON)
-                0x00800319                PROVIDE (__bss_end, .)
-                0x000002ea                __data_load_start = LOADADDR (.data)
-                0x00000300                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080031b                PROVIDE (__bss_end, .)
+                0x000002f0                __data_load_start = LOADADDR (.data)
+                0x00000308                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800319        0x0
+.noinit         0x0080031b        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800319                _end = .
+                0x0080031b                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -590,42 +650,42 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x178
+.debug_aranges  0x00000000      0x1b0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x178 main.o
+                0x00000000      0x1b0 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x199b
+.debug_info     0x00000000     0x1c24
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/avr atmel studio/7.0/Packs/Atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_info    0x00000bbc      0xddf main.o
+ .debug_info    0x00000bbc     0x1068 main.o
 
-.debug_abbrev   0x00000000      0xe5c
+.debug_abbrev   0x00000000      0xe38
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/avr atmel studio/7.0/Packs/Atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_abbrev  0x00000b1a      0x342 main.o
+ .debug_abbrev  0x00000b1a      0x31e main.o
 
-.debug_line     0x00000000      0xc59
+.debug_line     0x00000000      0xe09
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1fa C:/avr atmel studio/7.0/Packs/Atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_line    0x000001fa      0xa5f main.o
+ .debug_line    0x000001fa      0xc0f main.o
 
-.debug_frame    0x00000000      0x52c
+.debug_frame    0x00000000      0x698
  *(.debug_frame)
- .debug_frame   0x00000000      0x52c main.o
+ .debug_frame   0x00000000      0x698 main.o
 
-.debug_str      0x00000000      0xc23
+.debug_str      0x00000000      0xeca
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/avr atmel studio/7.0/Packs/Atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6      0x83d main.o
-                                0x883 (size before relaxing)
+ .debug_str     0x000003e6      0xae4 main.o
+                                0xb24 (size before relaxing)
 
-.debug_loc      0x00000000     0x15fe
+.debug_loc      0x00000000     0x1bff
  *(.debug_loc)
- .debug_loc     0x00000000     0x15fe main.o
+ .debug_loc     0x00000000     0x1bff main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -645,9 +705,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x168
+.debug_ranges   0x00000000      0x1a0
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x168 main.o
+ .debug_ranges  0x00000000      0x1a0 main.o
 
 .debug_macro
  *(.debug_macro)

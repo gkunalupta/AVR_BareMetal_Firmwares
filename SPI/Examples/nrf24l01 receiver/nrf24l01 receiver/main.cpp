@@ -7,24 +7,24 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-#include "uarts.h"
-#include "spi_master.h"
-#include "nrf24l01.h"
+#include "GB_uarts.h"
+#include "GB_spi_master.h"
+#include "GB_nrf24l01.h"
 
 
 int main(void)
 {
     
-    UART_Init0();
-    MA_SPI0_init_master();
+    GB_UART_Init0();
+    GB_MA_SPI0_init_master();
     
     while (1)
     {
 	    _delay_ms(100);
-	    nrf_ss_enable;
-	    MA_SPI0_send_byte_conti(rpd & read_command);
-	    MA_SPI0_read_byte();
-	    nrf_ss_disable;
+	    gb_nrf_ss_enable;
+	    GB_MA_SPI0_send_byte_conti(gb_rpd & gb_read_command);
+	    GB_MA_SPI0_read_byte();
+	    gb_nrf_ss_disable;
 	    _delay_ms(100);
 	    
     }

@@ -11,21 +11,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000002bc  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000130  00000000  00000000  000002fc  2**0
+  4 .debug_aranges 00000160  00000000  00000000  000002fc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001614  00000000  00000000  0000042c  2**0
+  5 .debug_info   00001811  00000000  00000000  0000045c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e2b  00000000  00000000  00001a40  2**0
+  6 .debug_abbrev 00000df5  00000000  00000000  00001c6d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000a2f  00000000  00000000  0000286b  2**0
+  7 .debug_line   00000b43  00000000  00000000  00002a62  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  0000042c  00000000  00000000  0000329c  2**2
+  8 .debug_frame  0000056c  00000000  00000000  000035a8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000973  00000000  00000000  000036c8  2**0
+  9 .debug_str    00000b89  00000000  00000000  00003b14  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00001174  00000000  00000000  0000403b  2**0
+ 10 .debug_loc    000016e6  00000000  00000000  0000469d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000120  00000000  00000000  000051af  2**0
+ 11 .debug_ranges 00000150  00000000  00000000  00005d83  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -190,11 +190,11 @@ Disassembly of section .text:
 00000122 <__bad_interrupt>:
  122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
 
-00000124 <_Z10UART_Init0v>:
-uint16_t jolangle(uint16_t val)
-{    uint16_t anser;
-	anser= val*0.175;
-	return anser;
+00000124 <_Z13GB_UART_Init0v>:
+uint16_t GB_jolangle(uint16_t gb_val)
+{    uint16_t gb_anser;
+	gb_anser= gb_val*0.175;
+	return gb_anser;
 
 }
  124:	87 e6       	ldi	r24, 0x67	; 103
@@ -205,40 +205,40 @@ uint16_t jolangle(uint16_t val)
  132:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
  136:	08 95       	ret
 
-00000138 <_Z12UART_TxChar0j>:
+00000138 <_Z15GB_UART_TxChar0j>:
  138:	e0 ec       	ldi	r30, 0xC0	; 192
  13a:	f0 e0       	ldi	r31, 0x00	; 0
  13c:	90 81       	ld	r25, Z
  13e:	95 ff       	sbrs	r25, 5
- 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z12UART_TxChar0j+0x4>
+ 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z15GB_UART_TxChar0j+0x4>
  142:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
  146:	08 95       	ret
 
-00000148 <_Z12printString0PKc>:
+00000148 <_Z15GB_printString0PKc>:
  148:	cf 93       	push	r28
  14a:	df 93       	push	r29
  14c:	ec 01       	movw	r28, r24
  14e:	88 81       	ld	r24, Y
  150:	88 23       	and	r24, r24
- 152:	31 f0       	breq	.+12     	; 0x160 <_Z12printString0PKc+0x18>
+ 152:	31 f0       	breq	.+12     	; 0x160 <_Z15GB_printString0PKc+0x18>
  154:	21 96       	adiw	r28, 0x01	; 1
  156:	90 e0       	ldi	r25, 0x00	; 0
- 158:	ef df       	rcall	.-34     	; 0x138 <_Z12UART_TxChar0j>
+ 158:	ef df       	rcall	.-34     	; 0x138 <_Z15GB_UART_TxChar0j>
  15a:	89 91       	ld	r24, Y+
  15c:	81 11       	cpse	r24, r1
- 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z12printString0PKc+0xe>
+ 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z15GB_printString0PKc+0xe>
  160:	df 91       	pop	r29
  162:	cf 91       	pop	r28
  164:	08 95       	ret
 
-00000166 <_Z9ADC_setupv>:
+00000166 <_Z12GB_ADC_setupv>:
  166:	80 ec       	ldi	r24, 0xC0	; 192
  168:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7c007c>
  16c:	87 e8       	ldi	r24, 0x87	; 135
  16e:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7c007a>
  172:	08 95       	ret
 
-00000174 <_Z10ADC_selecth>:
+00000174 <_Z13GB_ADC_selecth>:
  174:	ec e7       	ldi	r30, 0x7C	; 124
  176:	f0 e0       	ldi	r31, 0x00	; 0
  178:	90 81       	ld	r25, Z
@@ -264,15 +264,15 @@ uint16_t jolangle(uint16_t val)
 
 int main(void)
 {
-	 ADC_setup();
- 1a0:	e2 df       	rcall	.-60     	; 0x166 <_Z9ADC_setupv>
-	 UART_Init0();
- 1a2:	c0 df       	rcall	.-128    	; 0x124 <_Z10UART_Init0v>
+	 GB_ADC_setup();
+ 1a0:	e2 df       	rcall	.-60     	; 0x166 <_Z12GB_ADC_setupv>
+	 GB_UART_Init0();
+ 1a2:	c0 df       	rcall	.-128    	; 0x124 <_Z13GB_UART_Init0v>
  1a4:	83 e0       	ldi	r24, 0x03	; 3
 
-	 printString0("*************Joystick********************\n");
+	 GB_printString0("*************Joystick********************\n");
  1a6:	92 e0       	ldi	r25, 0x02	; 2
- 1a8:	cf df       	rcall	.-98     	; 0x148 <_Z12printString0PKc>
+ 1a8:	cf df       	rcall	.-98     	; 0x148 <_Z15GB_printString0PKc>
  1aa:	2f ef       	ldi	r18, 0xFF	; 255
 	#else
 		//round up by default
@@ -288,25 +288,25 @@ int main(void)
  1b6:	e1 f7       	brne	.-8      	; 0x1b0 <main+0x10>
  1b8:	00 c0       	rjmp	.+0      	; 0x1ba <main+0x1a>
  1ba:	00 00       	nop
-	 int x = 0, y= 0 ;
+	 int gb_x = 0, gb_y= 0 ;
 	 
     /* Replace with your application code */
     while (1) 
     {
-		printString0(" x axis \n");
+		GB_printString0(" x axis \n");
  1bc:	8e e2       	ldi	r24, 0x2E	; 46
  1be:	92 e0       	ldi	r25, 0x02	; 2
- 1c0:	c3 df       	rcall	.-122    	; 0x148 <_Z12printString0PKc>
-			x = ADC_select(ADC1);
+ 1c0:	c3 df       	rcall	.-122    	; 0x148 <_Z15GB_printString0PKc>
+			gb_x = GB_ADC_select(ADC1);
  1c2:	81 e0       	ldi	r24, 0x01	; 1
- 1c4:	d7 df       	rcall	.-82     	; 0x174 <_Z10ADC_selecth>
-			printString0(" y axis \n");
+ 1c4:	d7 df       	rcall	.-82     	; 0x174 <_Z13GB_ADC_selecth>
+			GB_printString0(" y axis \n");
  1c6:	88 e3       	ldi	r24, 0x38	; 56
  1c8:	92 e0       	ldi	r25, 0x02	; 2
- 1ca:	be df       	rcall	.-132    	; 0x148 <_Z12printString0PKc>
+ 1ca:	be df       	rcall	.-132    	; 0x148 <_Z15GB_printString0PKc>
  1cc:	82 e0       	ldi	r24, 0x02	; 2
-			y = ADC_select(ADC2);
- 1ce:	d2 df       	rcall	.-92     	; 0x174 <_Z10ADC_selecth>
+			gb_y = GB_ADC_select(ADC2);
+ 1ce:	d2 df       	rcall	.-92     	; 0x174 <_Z13GB_ADC_selecth>
  1d0:	f5 cf       	rjmp	.-22     	; 0x1bc <main+0x1c>
 
 000001d2 <_exit>:

@@ -9,18 +9,18 @@
 #include <util/delay.h>
 #include "stdio.h"
 #include "math.h"
-#include "uarts.h"
+#include "GB_uarts.h"
 
 
 int main(void)
 {
-	UART_Init0();
-	int a = 50;
+	GB_UART_Init0();
+	int gb_a = 50;
     /* Replace with your application code */
     while (1) 
     {
-		float x = static_cast<float>(a);
-		float_value0(x);
+		float gb_x = static_cast<float>(gb_a);
+		GB_float_value0(gb_x);
 		//float x = a;
 		//float_value0(x);
 		
@@ -28,7 +28,7 @@ int main(void)
 		//UART_TxChar0(c);
 		
 		_delay_ms(100);
-		printString0("\n");
+		GB_printString0("\n");
 		
 		
     }

@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001acc  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000238  00000000  00000000  00001b0c  2**0
+  5 .debug_aranges 00000268  00000000  00000000  00001b0c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003b6f  00000000  00000000  00001d44  2**0
+  6 .debug_info   00003dba  00000000  00000000  00001d74  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000f9c  00000000  00000000  000058b3  2**0
+  7 .debug_abbrev 00000f3d  00000000  00000000  00005b2e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001846  00000000  00000000  0000684f  2**0
+  8 .debug_line   00001969  00000000  00000000  00006a6b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000088c  00000000  00000000  00008098  2**2
+  9 .debug_frame  000009cc  00000000  00000000  000083d4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001052  00000000  00000000  00008924  2**0
+ 10 .debug_str    0000140c  00000000  00000000  00008da0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002668  00000000  00000000  00009976  2**0
+ 11 .debug_loc    00002bda  00000000  00000000  0000a1ac  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000002c8  00000000  00000000  0000bfde  2**0
+ 12 .debug_ranges 000002f8  00000000  00000000  0000cd86  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -229,13 +229,13 @@ Disassembly of section .text:
 00000168 <__bad_interrupt>:
  168:	4b cf       	rjmp	.-362    	; 0x0 <__vectors>
 
-0000016a <_Z10UART_Init0v>:
+0000016a <_Z13GB_UART_Init0v>:
 	//send_command("AT+CWJAP=\"JioFiber 2.4ghz\",\"Mansi5481\"\r\n");
 	//RFR_UART1(16000);
 
 	//Created A Server
-	send_command("AT+CIPSERVER=1,80\r\n");
-	RFR_UART1(1000);
+	GB_send_command("AT+CIPSERVER=1,80\r\n");
+	GB_RFR_UART1(1000);
  16a:	87 e6       	ldi	r24, 0x67	; 103
  16c:	90 e0       	ldi	r25, 0x00	; 0
  16e:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7000c5>
@@ -244,33 +244,33 @@ Disassembly of section .text:
  178:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7000c1>
  17c:	08 95       	ret
 
-0000017e <_Z12UART_TxChar0j>:
+0000017e <_Z15GB_UART_TxChar0j>:
  17e:	e0 ec       	ldi	r30, 0xC0	; 192
  180:	f0 e0       	ldi	r31, 0x00	; 0
  182:	90 81       	ld	r25, Z
  184:	95 ff       	sbrs	r25, 5
- 186:	fd cf       	rjmp	.-6      	; 0x182 <_Z12UART_TxChar0j+0x4>
+ 186:	fd cf       	rjmp	.-6      	; 0x182 <_Z15GB_UART_TxChar0j+0x4>
  188:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7000c6>
  18c:	08 95       	ret
 
-0000018e <_Z12printString0PKc>:
+0000018e <_Z15GB_printString0PKc>:
  18e:	cf 93       	push	r28
  190:	df 93       	push	r29
  192:	ec 01       	movw	r28, r24
  194:	88 81       	ld	r24, Y
  196:	88 23       	and	r24, r24
- 198:	31 f0       	breq	.+12     	; 0x1a6 <_Z12printString0PKc+0x18>
+ 198:	31 f0       	breq	.+12     	; 0x1a6 <_Z15GB_printString0PKc+0x18>
  19a:	21 96       	adiw	r28, 0x01	; 1
  19c:	90 e0       	ldi	r25, 0x00	; 0
- 19e:	ef df       	rcall	.-34     	; 0x17e <_Z12UART_TxChar0j>
+ 19e:	ef df       	rcall	.-34     	; 0x17e <_Z15GB_UART_TxChar0j>
  1a0:	89 91       	ld	r24, Y+
  1a2:	81 11       	cpse	r24, r1
- 1a4:	fb cf       	rjmp	.-10     	; 0x19c <_Z12printString0PKc+0xe>
+ 1a4:	fb cf       	rjmp	.-10     	; 0x19c <_Z15GB_printString0PKc+0xe>
  1a6:	df 91       	pop	r29
  1a8:	cf 91       	pop	r28
  1aa:	08 95       	ret
 
-000001ac <_Z8decimel0m>:
+000001ac <_Z11GB_decimel0m>:
  1ac:	8f 92       	push	r8
  1ae:	9f 92       	push	r9
  1b0:	af 92       	push	r10
@@ -281,7 +281,7 @@ Disassembly of section .text:
  1ba:	1f 93       	push	r17
  1bc:	cf 93       	push	r28
  1be:	df 93       	push	r29
- 1c0:	00 d0       	rcall	.+0      	; 0x1c2 <_Z8decimel0m+0x16>
+ 1c0:	00 d0       	rcall	.+0      	; 0x1c2 <_Z11GB_decimel0m+0x16>
  1c2:	1f 92       	push	r1
  1c4:	1f 92       	push	r1
  1c6:	cd b7       	in	r28, 0x3d	; 61
@@ -300,11 +300,11 @@ Disassembly of section .text:
  1e0:	a1 2c       	mov	r10, r1
  1e2:	b1 2c       	mov	r11, r1
  1e4:	f0 2d       	mov	r31, r0
- 1e6:	04 c0       	rjmp	.+8      	; 0x1f0 <_Z8decimel0m+0x44>
+ 1e6:	04 c0       	rjmp	.+8      	; 0x1f0 <_Z11GB_decimel0m+0x44>
  1e8:	8d 81       	ldd	r24, Y+5	; 0x05
  1ea:	80 33       	cpi	r24, 0x30	; 48
- 1ec:	81 f0       	breq	.+32     	; 0x20e <_Z8decimel0m+0x62>
- 1ee:	1a c0       	rjmp	.+52     	; 0x224 <_Z8decimel0m+0x78>
+ 1ec:	81 f0       	breq	.+32     	; 0x20e <_Z11GB_decimel0m+0x62>
+ 1ee:	1a c0       	rjmp	.+52     	; 0x224 <_Z11GB_decimel0m+0x78>
  1f0:	a5 01       	movw	r20, r10
  1f2:	94 01       	movw	r18, r8
  1f4:	73 d3       	rcall	.+1766   	; 0x8dc <__udivmodsi4>
@@ -318,19 +318,19 @@ Disassembly of section .text:
  204:	95 2f       	mov	r25, r21
  206:	ee 15       	cp	r30, r14
  208:	ff 05       	cpc	r31, r15
- 20a:	91 f7       	brne	.-28     	; 0x1f0 <_Z8decimel0m+0x44>
- 20c:	ed cf       	rjmp	.-38     	; 0x1e8 <_Z8decimel0m+0x3c>
+ 20a:	91 f7       	brne	.-28     	; 0x1f0 <_Z11GB_decimel0m+0x44>
+ 20c:	ed cf       	rjmp	.-38     	; 0x1e8 <_Z11GB_decimel0m+0x3c>
  20e:	8c 81       	ldd	r24, Y+4	; 0x04
  210:	80 33       	cpi	r24, 0x30	; 48
- 212:	b9 f4       	brne	.+46     	; 0x242 <_Z8decimel0m+0x96>
+ 212:	b9 f4       	brne	.+46     	; 0x242 <_Z11GB_decimel0m+0x96>
  214:	8b 81       	ldd	r24, Y+3	; 0x03
  216:	80 33       	cpi	r24, 0x30	; 48
- 218:	b1 f4       	brne	.+44     	; 0x246 <_Z8decimel0m+0x9a>
+ 218:	b1 f4       	brne	.+44     	; 0x246 <_Z11GB_decimel0m+0x9a>
  21a:	8a 81       	ldd	r24, Y+2	; 0x02
  21c:	80 33       	cpi	r24, 0x30	; 48
- 21e:	a9 f4       	brne	.+42     	; 0x24a <_Z8decimel0m+0x9e>
+ 21e:	a9 f4       	brne	.+42     	; 0x24a <_Z11GB_decimel0m+0x9e>
  220:	10 e0       	ldi	r17, 0x00	; 0
- 222:	01 c0       	rjmp	.+2      	; 0x226 <_Z8decimel0m+0x7a>
+ 222:	01 c0       	rjmp	.+2      	; 0x226 <_Z11GB_decimel0m+0x7a>
  224:	14 e0       	ldi	r17, 0x04	; 4
  226:	e1 e0       	ldi	r30, 0x01	; 1
  228:	f0 e0       	ldi	r31, 0x00	; 0
@@ -342,16 +342,16 @@ Disassembly of section .text:
  234:	fa 95       	dec	r31
  236:	80 81       	ld	r24, Z
  238:	90 e0       	ldi	r25, 0x00	; 0
- 23a:	a1 df       	rcall	.-190    	; 0x17e <_Z12UART_TxChar0j>
+ 23a:	a1 df       	rcall	.-190    	; 0x17e <_Z15GB_UART_TxChar0j>
  23c:	11 50       	subi	r17, 0x01	; 1
- 23e:	9a f7       	brpl	.-26     	; 0x226 <_Z8decimel0m+0x7a>
- 240:	06 c0       	rjmp	.+12     	; 0x24e <_Z8decimel0m+0xa2>
+ 23e:	9a f7       	brpl	.-26     	; 0x226 <_Z11GB_decimel0m+0x7a>
+ 240:	06 c0       	rjmp	.+12     	; 0x24e <_Z11GB_decimel0m+0xa2>
  242:	13 e0       	ldi	r17, 0x03	; 3
- 244:	f0 cf       	rjmp	.-32     	; 0x226 <_Z8decimel0m+0x7a>
+ 244:	f0 cf       	rjmp	.-32     	; 0x226 <_Z11GB_decimel0m+0x7a>
  246:	12 e0       	ldi	r17, 0x02	; 2
- 248:	ee cf       	rjmp	.-36     	; 0x226 <_Z8decimel0m+0x7a>
+ 248:	ee cf       	rjmp	.-36     	; 0x226 <_Z11GB_decimel0m+0x7a>
  24a:	11 e0       	ldi	r17, 0x01	; 1
- 24c:	ec cf       	rjmp	.-40     	; 0x226 <_Z8decimel0m+0x7a>
+ 24c:	ec cf       	rjmp	.-40     	; 0x226 <_Z11GB_decimel0m+0x7a>
  24e:	0f 90       	pop	r0
  250:	0f 90       	pop	r0
  252:	0f 90       	pop	r0
@@ -369,7 +369,7 @@ Disassembly of section .text:
  26a:	8f 90       	pop	r8
  26c:	08 95       	ret
 
-0000026e <_Z10UART_Init1v>:
+0000026e <_Z13GB_UART_Init1v>:
  26e:	88 e0       	ldi	r24, 0x08	; 8
  270:	90 e0       	ldi	r25, 0x00	; 0
  272:	90 93 cd 00 	sts	0x00CD, r25	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7000cd>
@@ -378,27 +378,27 @@ Disassembly of section .text:
  27c:	80 93 c9 00 	sts	0x00C9, r24	; 0x8000c9 <__TEXT_REGION_LENGTH__+0x7000c9>
  280:	08 95       	ret
 
-00000282 <_Z12UART_TxChar1h>:
+00000282 <_Z15GB_UART_TxChar1h>:
  282:	e8 ec       	ldi	r30, 0xC8	; 200
  284:	f0 e0       	ldi	r31, 0x00	; 0
  286:	90 81       	ld	r25, Z
  288:	95 ff       	sbrs	r25, 5
- 28a:	fd cf       	rjmp	.-6      	; 0x286 <_Z12UART_TxChar1h+0x4>
+ 28a:	fd cf       	rjmp	.-6      	; 0x286 <_Z15GB_UART_TxChar1h+0x4>
  28c:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7000ce>
  290:	08 95       	ret
 
-00000292 <_Z12printString1PKc>:
+00000292 <_Z15GB_printString1PKc>:
  292:	cf 93       	push	r28
  294:	df 93       	push	r29
  296:	ec 01       	movw	r28, r24
  298:	88 81       	ld	r24, Y
  29a:	88 23       	and	r24, r24
- 29c:	29 f0       	breq	.+10     	; 0x2a8 <_Z12printString1PKc+0x16>
+ 29c:	29 f0       	breq	.+10     	; 0x2a8 <_Z15GB_printString1PKc+0x16>
  29e:	21 96       	adiw	r28, 0x01	; 1
- 2a0:	f0 df       	rcall	.-32     	; 0x282 <_Z12UART_TxChar1h>
+ 2a0:	f0 df       	rcall	.-32     	; 0x282 <_Z15GB_UART_TxChar1h>
  2a2:	89 91       	ld	r24, Y+
  2a4:	81 11       	cpse	r24, r1
- 2a6:	fc cf       	rjmp	.-8      	; 0x2a0 <_Z12printString1PKc+0xe>
+ 2a6:	fc cf       	rjmp	.-8      	; 0x2a0 <_Z15GB_printString1PKc+0xe>
  2a8:	df 91       	pop	r29
  2aa:	cf 91       	pop	r28
  2ac:	08 95       	ret
@@ -413,17 +413,17 @@ Disassembly of section .text:
  2ba:	9f 93       	push	r25
  2bc:	af 93       	push	r26
  2be:	bf 93       	push	r27
- 2c0:	80 91 c5 0e 	lds	r24, 0x0EC5	; 0x800ec5 <timer1_millis>
- 2c4:	90 91 c6 0e 	lds	r25, 0x0EC6	; 0x800ec6 <timer1_millis+0x1>
- 2c8:	a0 91 c7 0e 	lds	r26, 0x0EC7	; 0x800ec7 <timer1_millis+0x2>
- 2cc:	b0 91 c8 0e 	lds	r27, 0x0EC8	; 0x800ec8 <timer1_millis+0x3>
+ 2c0:	80 91 c5 0e 	lds	r24, 0x0EC5	; 0x800ec5 <gb_timer1_millis>
+ 2c4:	90 91 c6 0e 	lds	r25, 0x0EC6	; 0x800ec6 <gb_timer1_millis+0x1>
+ 2c8:	a0 91 c7 0e 	lds	r26, 0x0EC7	; 0x800ec7 <gb_timer1_millis+0x2>
+ 2cc:	b0 91 c8 0e 	lds	r27, 0x0EC8	; 0x800ec8 <gb_timer1_millis+0x3>
  2d0:	01 96       	adiw	r24, 0x01	; 1
  2d2:	a1 1d       	adc	r26, r1
  2d4:	b1 1d       	adc	r27, r1
- 2d6:	80 93 c5 0e 	sts	0x0EC5, r24	; 0x800ec5 <timer1_millis>
- 2da:	90 93 c6 0e 	sts	0x0EC6, r25	; 0x800ec6 <timer1_millis+0x1>
- 2de:	a0 93 c7 0e 	sts	0x0EC7, r26	; 0x800ec7 <timer1_millis+0x2>
- 2e2:	b0 93 c8 0e 	sts	0x0EC8, r27	; 0x800ec8 <timer1_millis+0x3>
+ 2d6:	80 93 c5 0e 	sts	0x0EC5, r24	; 0x800ec5 <gb_timer1_millis>
+ 2da:	90 93 c6 0e 	sts	0x0EC6, r25	; 0x800ec6 <gb_timer1_millis+0x1>
+ 2de:	a0 93 c7 0e 	sts	0x0EC7, r26	; 0x800ec7 <gb_timer1_millis+0x2>
+ 2e2:	b0 93 c8 0e 	sts	0x0EC8, r27	; 0x800ec8 <gb_timer1_millis+0x3>
  2e6:	bf 91       	pop	r27
  2e8:	af 91       	pop	r26
  2ea:	9f 91       	pop	r25
@@ -434,7 +434,7 @@ Disassembly of section .text:
  2f4:	1f 90       	pop	r1
  2f6:	18 95       	reti
 
-000002f8 <_Z11init_millism>:
+000002f8 <_Z14GB_init_millism>:
  2f8:	20 e4       	ldi	r18, 0x40	; 64
  2fa:	3f e1       	ldi	r19, 0x1F	; 31
  2fc:	40 e0       	ldi	r20, 0x00	; 0
@@ -455,17 +455,17 @@ Disassembly of section .text:
  320:	80 83       	st	Z, r24
  322:	08 95       	ret
 
-00000324 <_Z6millisv>:
+00000324 <_Z9GB_millisv>:
  324:	60 e0       	ldi	r22, 0x00	; 0
  326:	74 e2       	ldi	r23, 0x24	; 36
  328:	84 ef       	ldi	r24, 0xF4	; 244
  32a:	90 e0       	ldi	r25, 0x00	; 0
- 32c:	e5 df       	rcall	.-54     	; 0x2f8 <_Z11init_millism>
+ 32c:	e5 df       	rcall	.-54     	; 0x2f8 <_Z14GB_init_millism>
  32e:	f8 94       	cli
- 330:	60 91 c5 0e 	lds	r22, 0x0EC5	; 0x800ec5 <timer1_millis>
- 334:	70 91 c6 0e 	lds	r23, 0x0EC6	; 0x800ec6 <timer1_millis+0x1>
- 338:	80 91 c7 0e 	lds	r24, 0x0EC7	; 0x800ec7 <timer1_millis+0x2>
- 33c:	90 91 c8 0e 	lds	r25, 0x0EC8	; 0x800ec8 <timer1_millis+0x3>
+ 330:	60 91 c5 0e 	lds	r22, 0x0EC5	; 0x800ec5 <gb_timer1_millis>
+ 334:	70 91 c6 0e 	lds	r23, 0x0EC6	; 0x800ec6 <gb_timer1_millis+0x1>
+ 338:	80 91 c7 0e 	lds	r24, 0x0EC7	; 0x800ec7 <gb_timer1_millis+0x2>
+ 33c:	90 91 c8 0e 	lds	r25, 0x0EC8	; 0x800ec8 <gb_timer1_millis+0x3>
  340:	78 94       	sei
  342:	08 95       	ret
 
@@ -493,8 +493,8 @@ Disassembly of section .text:
  36c:	c0 91 c6 00 	lds	r28, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7000c6>
  370:	8c 2f       	mov	r24, r28
  372:	90 e0       	ldi	r25, 0x00	; 0
- 374:	04 df       	rcall	.-504    	; 0x17e <_Z12UART_TxChar0j>
- 376:	80 91 a3 0e 	lds	r24, 0x0EA3	; 0x800ea3 <RX_Wr_Index_UART0>
+ 374:	04 df       	rcall	.-504    	; 0x17e <_Z15GB_UART_TxChar0j>
+ 376:	80 91 a3 0e 	lds	r24, 0x0EA3	; 0x800ea3 <gb_RX_Wr_Index_UART0>
  37a:	e8 2f       	mov	r30, r24
  37c:	f0 e0       	ldi	r31, 0x00	; 0
  37e:	ec 55       	subi	r30, 0x5C	; 92
@@ -503,19 +503,19 @@ Disassembly of section .text:
  384:	8f 5f       	subi	r24, 0xFF	; 255
  386:	81 32       	cpi	r24, 0x21	; 33
  388:	18 f4       	brcc	.+6      	; 0x390 <__vector_25+0x4c>
- 38a:	80 93 a3 0e 	sts	0x0EA3, r24	; 0x800ea3 <RX_Wr_Index_UART0>
+ 38a:	80 93 a3 0e 	sts	0x0EA3, r24	; 0x800ea3 <gb_RX_Wr_Index_UART0>
  38e:	02 c0       	rjmp	.+4      	; 0x394 <__vector_25+0x50>
- 390:	10 92 a3 0e 	sts	0x0EA3, r1	; 0x800ea3 <RX_Wr_Index_UART0>
- 394:	80 91 a2 0e 	lds	r24, 0x0EA2	; 0x800ea2 <RX_Counter_UART0>
+ 390:	10 92 a3 0e 	sts	0x0EA3, r1	; 0x800ea3 <gb_RX_Wr_Index_UART0>
+ 394:	80 91 a2 0e 	lds	r24, 0x0EA2	; 0x800ea2 <gb_RX_Counter_UART0>
  398:	8f 5f       	subi	r24, 0xFF	; 255
  39a:	81 32       	cpi	r24, 0x21	; 33
  39c:	18 f4       	brcc	.+6      	; 0x3a4 <__vector_25+0x60>
- 39e:	80 93 a2 0e 	sts	0x0EA2, r24	; 0x800ea2 <RX_Counter_UART0>
+ 39e:	80 93 a2 0e 	sts	0x0EA2, r24	; 0x800ea2 <gb_RX_Counter_UART0>
  3a2:	06 c0       	rjmp	.+12     	; 0x3b0 <__vector_25+0x6c>
  3a4:	80 e2       	ldi	r24, 0x20	; 32
- 3a6:	80 93 a2 0e 	sts	0x0EA2, r24	; 0x800ea2 <RX_Counter_UART0>
+ 3a6:	80 93 a2 0e 	sts	0x0EA2, r24	; 0x800ea2 <gb_RX_Counter_UART0>
  3aa:	81 e0       	ldi	r24, 0x01	; 1
- 3ac:	80 93 a1 0e 	sts	0x0EA1, r24	; 0x800ea1 <RX_Buffer_Overflow_UART0>
+ 3ac:	80 93 a1 0e 	sts	0x0EA1, r24	; 0x800ea1 <gb_RX_Buffer_Overflow_UART0>
  3b0:	ff 91       	pop	r31
  3b2:	ef 91       	pop	r30
  3b4:	cf 91       	pop	r28
@@ -550,19 +550,19 @@ Disassembly of section .text:
  3ea:	ef 93       	push	r30
  3ec:	ff 93       	push	r31
  3ee:	90 91 ce 00 	lds	r25, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7000ce>
- 3f2:	90 93 9d 0d 	sts	0x0D9D, r25	; 0x800d9d <rx_byte>
- 3f6:	80 91 a1 0d 	lds	r24, 0x0DA1	; 0x800da1 <RX_Wr_Index_UART1>
+ 3f2:	90 93 9d 0d 	sts	0x0D9D, r25	; 0x800d9d <gb_rx_byte>
+ 3f6:	80 91 a1 0d 	lds	r24, 0x0DA1	; 0x800da1 <gb_RX_Wr_Index_UART1>
  3fa:	e8 2f       	mov	r30, r24
  3fc:	f0 e0       	ldi	r31, 0x00	; 0
  3fe:	ee 55       	subi	r30, 0x5E	; 94
  400:	f2 4f       	sbci	r31, 0xF2	; 242
  402:	90 83       	st	Z, r25
  404:	8f 5f       	subi	r24, 0xFF	; 255
- 406:	80 93 a1 0d 	sts	0x0DA1, r24	; 0x800da1 <RX_Wr_Index_UART1>
- 40a:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <RX_Counter_UART1>
+ 406:	80 93 a1 0d 	sts	0x0DA1, r24	; 0x800da1 <gb_RX_Wr_Index_UART1>
+ 40a:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <gb_RX_Counter_UART1>
  40e:	8f 5f       	subi	r24, 0xFF	; 255
- 410:	80 93 9f 0d 	sts	0x0D9F, r24	; 0x800d9f <RX_Counter_UART1>
- 414:	80 93 9e 0d 	sts	0x0D9E, r24	; 0x800d9e <RX_No_of_byte_UART1>
+ 410:	80 93 9f 0d 	sts	0x0D9F, r24	; 0x800d9f <gb_RX_Counter_UART1>
+ 414:	80 93 9e 0d 	sts	0x0D9E, r24	; 0x800d9e <gb_RX_No_of_byte_UART1>
  418:	ff 91       	pop	r31
  41a:	ef 91       	pop	r30
  41c:	9f 91       	pop	r25
@@ -575,74 +575,74 @@ Disassembly of section .text:
  42a:	1f 90       	pop	r1
  42c:	18 95       	reti
 
-0000042e <_Z13getchar_UART1v>:
- 42e:	90 91 a0 0d 	lds	r25, 0x0DA0	; 0x800da0 <RX_Rd_Index_UART1>
+0000042e <_Z16GB_getchar_UART1v>:
+ 42e:	90 91 a0 0d 	lds	r25, 0x0DA0	; 0x800da0 <gb_RX_Rd_Index_UART1>
  432:	e9 2f       	mov	r30, r25
  434:	f0 e0       	ldi	r31, 0x00	; 0
  436:	ee 55       	subi	r30, 0x5E	; 94
  438:	f2 4f       	sbci	r31, 0xF2	; 242
  43a:	80 81       	ld	r24, Z
  43c:	9f 5f       	subi	r25, 0xFF	; 255
- 43e:	90 93 a0 0d 	sts	0x0DA0, r25	; 0x800da0 <RX_Rd_Index_UART1>
- 442:	90 91 9f 0d 	lds	r25, 0x0D9F	; 0x800d9f <RX_Counter_UART1>
+ 43e:	90 93 a0 0d 	sts	0x0DA0, r25	; 0x800da0 <gb_RX_Rd_Index_UART1>
+ 442:	90 91 9f 0d 	lds	r25, 0x0D9F	; 0x800d9f <gb_RX_Counter_UART1>
  446:	99 23       	and	r25, r25
- 448:	19 f0       	breq	.+6      	; 0x450 <_Z13getchar_UART1v+0x22>
+ 448:	19 f0       	breq	.+6      	; 0x450 <_Z16GB_getchar_UART1v+0x22>
  44a:	91 50       	subi	r25, 0x01	; 1
- 44c:	90 93 9f 0d 	sts	0x0D9F, r25	; 0x800d9f <RX_Counter_UART1>
+ 44c:	90 93 9f 0d 	sts	0x0D9F, r25	; 0x800d9f <gb_RX_Counter_UART1>
  450:	08 95       	ret
 
-00000452 <_Z15getstring_UART1v>:
+00000452 <_Z18GB_getstring_UART1v>:
  452:	cf 93       	push	r28
  454:	8c e0       	ldi	r24, 0x0C	; 12
  456:	92 e0       	ldi	r25, 0x02	; 2
- 458:	9a de       	rcall	.-716    	; 0x18e <_Z12printString0PKc>
- 45a:	60 91 9e 0d 	lds	r22, 0x0D9E	; 0x800d9e <RX_No_of_byte_UART1>
+ 458:	9a de       	rcall	.-716    	; 0x18e <_Z15GB_printString0PKc>
+ 45a:	60 91 9e 0d 	lds	r22, 0x0D9E	; 0x800d9e <gb_RX_No_of_byte_UART1>
  45e:	70 e0       	ldi	r23, 0x00	; 0
  460:	80 e0       	ldi	r24, 0x00	; 0
  462:	90 e0       	ldi	r25, 0x00	; 0
- 464:	a3 de       	rcall	.-698    	; 0x1ac <_Z8decimel0m>
+ 464:	a3 de       	rcall	.-698    	; 0x1ac <_Z11GB_decimel0m>
  466:	8f e7       	ldi	r24, 0x7F	; 127
  468:	97 e0       	ldi	r25, 0x07	; 7
- 46a:	91 de       	rcall	.-734    	; 0x18e <_Z12printString0PKc>
+ 46a:	91 de       	rcall	.-734    	; 0x18e <_Z15GB_printString0PKc>
  46c:	8f ef       	ldi	r24, 0xFF	; 255
  46e:	ee e9       	ldi	r30, 0x9E	; 158
  470:	fc e0       	ldi	r31, 0x0C	; 12
  472:	df 01       	movw	r26, r30
  474:	1d 92       	st	X+, r1
  476:	8a 95       	dec	r24
- 478:	e9 f7       	brne	.-6      	; 0x474 <_Z15getstring_UART1v+0x22>
- 47a:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <RX_Counter_UART1>
+ 478:	e9 f7       	brne	.-6      	; 0x474 <_Z18GB_getstring_UART1v+0x22>
+ 47a:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <gb_RX_Counter_UART1>
  47e:	88 23       	and	r24, r24
- 480:	61 f0       	breq	.+24     	; 0x49a <_Z15getstring_UART1v+0x48>
+ 480:	61 f0       	breq	.+24     	; 0x49a <_Z18GB_getstring_UART1v+0x48>
  482:	c0 e0       	ldi	r28, 0x00	; 0
- 484:	d4 df       	rcall	.-88     	; 0x42e <_Z13getchar_UART1v>
+ 484:	d4 df       	rcall	.-88     	; 0x42e <_Z16GB_getchar_UART1v>
  486:	ec 2f       	mov	r30, r28
  488:	f0 e0       	ldi	r31, 0x00	; 0
  48a:	e2 56       	subi	r30, 0x62	; 98
  48c:	f3 4f       	sbci	r31, 0xF3	; 243
  48e:	80 83       	st	Z, r24
  490:	cf 5f       	subi	r28, 0xFF	; 255
- 492:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <RX_Counter_UART1>
+ 492:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <gb_RX_Counter_UART1>
  496:	81 11       	cpse	r24, r1
- 498:	f5 cf       	rjmp	.-22     	; 0x484 <_Z15getstring_UART1v+0x32>
+ 498:	f5 cf       	rjmp	.-22     	; 0x484 <_Z18GB_getstring_UART1v+0x32>
  49a:	8e e9       	ldi	r24, 0x9E	; 158
  49c:	9c e0       	ldi	r25, 0x0C	; 12
- 49e:	77 de       	rcall	.-786    	; 0x18e <_Z12printString0PKc>
+ 49e:	77 de       	rcall	.-786    	; 0x18e <_Z15GB_printString0PKc>
  4a0:	cf 91       	pop	r28
  4a2:	08 95       	ret
 
-000004a4 <_Z13search_bufferPKc>:
+000004a4 <_Z16GB_search_bufferPKc>:
  4a4:	ee e9       	ldi	r30, 0x9E	; 158
  4a6:	fc e0       	ldi	r31, 0x0C	; 12
  4a8:	01 90       	ld	r0, Z+
  4aa:	00 20       	and	r0, r0
- 4ac:	e9 f7       	brne	.-6      	; 0x4a8 <_Z13search_bufferPKc+0x4>
+ 4ac:	e9 f7       	brne	.-6      	; 0x4a8 <_Z16GB_search_bufferPKc+0x4>
  4ae:	31 97       	sbiw	r30, 0x01	; 1
  4b0:	ee 59       	subi	r30, 0x9E	; 158
  4b2:	fc 40       	sbci	r31, 0x0C	; 12
  4b4:	ef 3f       	cpi	r30, 0xFF	; 255
  4b6:	f1 05       	cpc	r31, r1
- 4b8:	2c f4       	brge	.+10     	; 0x4c4 <_Z13search_bufferPKc+0x20>
+ 4b8:	2c f4       	brge	.+10     	; 0x4c4 <_Z16GB_search_bufferPKc+0x20>
  4ba:	bc 01       	movw	r22, r24
  4bc:	8e e9       	ldi	r24, 0x9E	; 158
  4be:	9c e0       	ldi	r25, 0x0C	; 12
@@ -651,7 +651,7 @@ Disassembly of section .text:
  4c4:	c9 01       	movw	r24, r18
  4c6:	08 95       	ret
 
-000004c8 <_Z9RFR_UART1j>:
+000004c8 <_Z12GB_RFR_UART1j>:
  4c8:	8f 92       	push	r8
  4ca:	9f 92       	push	r9
  4cc:	af 92       	push	r10
@@ -662,7 +662,7 @@ Disassembly of section .text:
  4d6:	ff 92       	push	r15
  4d8:	cf 93       	push	r28
  4da:	6c 01       	movw	r12, r24
- 4dc:	23 df       	rcall	.-442    	; 0x324 <_Z6millisv>
+ 4dc:	23 df       	rcall	.-442    	; 0x324 <_Z9GB_millisv>
  4de:	4b 01       	movw	r8, r22
  4e0:	5c 01       	movw	r10, r24
  4e2:	8f ef       	ldi	r24, 0xFF	; 255
@@ -671,11 +671,11 @@ Disassembly of section .text:
  4e8:	df 01       	movw	r26, r30
  4ea:	1d 92       	st	X+, r1
  4ec:	8a 95       	dec	r24
- 4ee:	e9 f7       	brne	.-6      	; 0x4ea <_Z9RFR_UART1j+0x22>
+ 4ee:	e9 f7       	brne	.-6      	; 0x4ea <_Z12GB_RFR_UART1j+0x22>
  4f0:	c0 e0       	ldi	r28, 0x00	; 0
  4f2:	e1 2c       	mov	r14, r1
  4f4:	f1 2c       	mov	r15, r1
- 4f6:	16 df       	rcall	.-468    	; 0x324 <_Z6millisv>
+ 4f6:	16 df       	rcall	.-468    	; 0x324 <_Z9GB_millisv>
  4f8:	dc 01       	movw	r26, r24
  4fa:	cb 01       	movw	r24, r22
  4fc:	88 19       	sub	r24, r8
@@ -686,23 +686,23 @@ Disassembly of section .text:
  506:	9d 05       	cpc	r25, r13
  508:	ae 05       	cpc	r26, r14
  50a:	bf 05       	cpc	r27, r15
- 50c:	60 f4       	brcc	.+24     	; 0x526 <_Z9RFR_UART1j+0x5e>
- 50e:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <RX_Counter_UART1>
+ 50c:	60 f4       	brcc	.+24     	; 0x526 <_Z12GB_RFR_UART1j+0x5e>
+ 50e:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <gb_RX_Counter_UART1>
  512:	88 23       	and	r24, r24
- 514:	81 f3       	breq	.-32     	; 0x4f6 <_Z9RFR_UART1j+0x2e>
- 516:	8b df       	rcall	.-234    	; 0x42e <_Z13getchar_UART1v>
+ 514:	81 f3       	breq	.-32     	; 0x4f6 <_Z12GB_RFR_UART1j+0x2e>
+ 516:	8b df       	rcall	.-234    	; 0x42e <_Z16GB_getchar_UART1v>
  518:	ec 2f       	mov	r30, r28
  51a:	f0 e0       	ldi	r31, 0x00	; 0
  51c:	e2 56       	subi	r30, 0x62	; 98
  51e:	f3 4f       	sbci	r31, 0xF3	; 243
  520:	80 83       	st	Z, r24
  522:	cf 5f       	subi	r28, 0xFF	; 255
- 524:	e8 cf       	rjmp	.-48     	; 0x4f6 <_Z9RFR_UART1j+0x2e>
+ 524:	e8 cf       	rjmp	.-48     	; 0x4f6 <_Z12GB_RFR_UART1j+0x2e>
  526:	c1 11       	cpse	r28, r1
- 528:	03 c0       	rjmp	.+6      	; 0x530 <_Z9RFR_UART1j+0x68>
+ 528:	03 c0       	rjmp	.+6      	; 0x530 <_Z12GB_RFR_UART1j+0x68>
  52a:	82 e0       	ldi	r24, 0x02	; 2
  52c:	90 e0       	ldi	r25, 0x00	; 0
- 52e:	02 c0       	rjmp	.+4      	; 0x534 <_Z9RFR_UART1j+0x6c>
+ 52e:	02 c0       	rjmp	.+4      	; 0x534 <_Z12GB_RFR_UART1j+0x6c>
  530:	80 e0       	ldi	r24, 0x00	; 0
  532:	90 e0       	ldi	r25, 0x00	; 0
  534:	cf 91       	pop	r28
@@ -716,7 +716,7 @@ Disassembly of section .text:
  544:	8f 90       	pop	r8
  546:	08 95       	ret
 
-00000548 <_Z9RFR_UART1PKcj>:
+00000548 <_Z12GB_RFR_UART1PKcj>:
  548:	8f 92       	push	r8
  54a:	9f 92       	push	r9
  54c:	af 92       	push	r10
@@ -730,7 +730,7 @@ Disassembly of section .text:
  55c:	df 93       	push	r29
  55e:	ec 01       	movw	r28, r24
  560:	6b 01       	movw	r12, r22
- 562:	e0 de       	rcall	.-576    	; 0x324 <_Z6millisv>
+ 562:	e0 de       	rcall	.-576    	; 0x324 <_Z9GB_millisv>
  564:	4b 01       	movw	r8, r22
  566:	5c 01       	movw	r10, r24
  568:	8f ef       	ldi	r24, 0xFF	; 255
@@ -739,11 +739,11 @@ Disassembly of section .text:
  56e:	df 01       	movw	r26, r30
  570:	1d 92       	st	X+, r1
  572:	8a 95       	dec	r24
- 574:	e9 f7       	brne	.-6      	; 0x570 <_Z9RFR_UART1PKcj+0x28>
+ 574:	e9 f7       	brne	.-6      	; 0x570 <_Z12GB_RFR_UART1PKcj+0x28>
  576:	10 e0       	ldi	r17, 0x00	; 0
  578:	e1 2c       	mov	r14, r1
  57a:	f1 2c       	mov	r15, r1
- 57c:	d3 de       	rcall	.-602    	; 0x324 <_Z6millisv>
+ 57c:	d3 de       	rcall	.-602    	; 0x324 <_Z9GB_millisv>
  57e:	dc 01       	movw	r26, r24
  580:	cb 01       	movw	r24, r22
  582:	88 19       	sub	r24, r8
@@ -754,11 +754,11 @@ Disassembly of section .text:
  58c:	9d 05       	cpc	r25, r13
  58e:	ae 05       	cpc	r26, r14
  590:	bf 05       	cpc	r27, r15
- 592:	80 f4       	brcc	.+32     	; 0x5b4 <_Z9RFR_UART1PKcj+0x6c>
- 594:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <RX_Counter_UART1>
+ 592:	80 f4       	brcc	.+32     	; 0x5b4 <_Z12GB_RFR_UART1PKcj+0x6c>
+ 594:	80 91 9f 0d 	lds	r24, 0x0D9F	; 0x800d9f <gb_RX_Counter_UART1>
  598:	88 23       	and	r24, r24
- 59a:	81 f3       	breq	.-32     	; 0x57c <_Z9RFR_UART1PKcj+0x34>
- 59c:	48 df       	rcall	.-368    	; 0x42e <_Z13getchar_UART1v>
+ 59a:	81 f3       	breq	.-32     	; 0x57c <_Z12GB_RFR_UART1PKcj+0x34>
+ 59c:	48 df       	rcall	.-368    	; 0x42e <_Z16GB_getchar_UART1v>
  59e:	e1 2f       	mov	r30, r17
  5a0:	f0 e0       	ldi	r31, 0x00	; 0
  5a2:	e2 56       	subi	r30, 0x62	; 98
@@ -766,18 +766,18 @@ Disassembly of section .text:
  5a6:	80 83       	st	Z, r24
  5a8:	1f 5f       	subi	r17, 0xFF	; 255
  5aa:	ce 01       	movw	r24, r28
- 5ac:	7b df       	rcall	.-266    	; 0x4a4 <_Z13search_bufferPKc>
+ 5ac:	7b df       	rcall	.-266    	; 0x4a4 <_Z16GB_search_bufferPKc>
  5ae:	89 2b       	or	r24, r25
- 5b0:	29 f3       	breq	.-54     	; 0x57c <_Z9RFR_UART1PKcj+0x34>
- 5b2:	05 c0       	rjmp	.+10     	; 0x5be <_Z9RFR_UART1PKcj+0x76>
+ 5b0:	29 f3       	breq	.-54     	; 0x57c <_Z12GB_RFR_UART1PKcj+0x34>
+ 5b2:	05 c0       	rjmp	.+10     	; 0x5be <_Z12GB_RFR_UART1PKcj+0x76>
  5b4:	11 11       	cpse	r17, r1
- 5b6:	06 c0       	rjmp	.+12     	; 0x5c4 <_Z9RFR_UART1PKcj+0x7c>
+ 5b6:	06 c0       	rjmp	.+12     	; 0x5c4 <_Z12GB_RFR_UART1PKcj+0x7c>
  5b8:	82 e0       	ldi	r24, 0x02	; 2
  5ba:	90 e0       	ldi	r25, 0x00	; 0
- 5bc:	05 c0       	rjmp	.+10     	; 0x5c8 <_Z9RFR_UART1PKcj+0x80>
+ 5bc:	05 c0       	rjmp	.+10     	; 0x5c8 <_Z12GB_RFR_UART1PKcj+0x80>
  5be:	81 e0       	ldi	r24, 0x01	; 1
  5c0:	90 e0       	ldi	r25, 0x00	; 0
- 5c2:	02 c0       	rjmp	.+4      	; 0x5c8 <_Z9RFR_UART1PKcj+0x80>
+ 5c2:	02 c0       	rjmp	.+4      	; 0x5c8 <_Z12GB_RFR_UART1PKcj+0x80>
  5c4:	80 e0       	ldi	r24, 0x00	; 0
  5c6:	90 e0       	ldi	r25, 0x00	; 0
  5c8:	df 91       	pop	r29
@@ -793,7 +793,7 @@ Disassembly of section .text:
  5dc:	8f 90       	pop	r8
  5de:	08 95       	ret
 
-000005e0 <_Z26getstring_ESP8266FORSERVERPc>:
+000005e0 <_Z29GB_getstring_ESP8266FORSERVERPc>:
  5e0:	cf 93       	push	r28
  5e2:	df 93       	push	r29
  5e4:	ec 01       	movw	r28, r24
@@ -803,29 +803,29 @@ Disassembly of section .text:
  5ec:	df 01       	movw	r26, r30
  5ee:	1d 92       	st	X+, r1
  5f0:	8a 95       	dec	r24
- 5f2:	e9 f7       	brne	.-6      	; 0x5ee <_Z26getstring_ESP8266FORSERVERPc+0xe>
+ 5f2:	e9 f7       	brne	.-6      	; 0x5ee <_Z29GB_getstring_ESP8266FORSERVERPc+0xe>
  5f4:	8e ee       	ldi	r24, 0xEE	; 238
  5f6:	94 e0       	ldi	r25, 0x04	; 4
- 5f8:	ca dd       	rcall	.-1132   	; 0x18e <_Z12printString0PKc>
+ 5f8:	ca dd       	rcall	.-1132   	; 0x18e <_Z15GB_printString0PKc>
  5fa:	80 e2       	ldi	r24, 0x20	; 32
  5fc:	95 e0       	ldi	r25, 0x05	; 5
- 5fe:	c7 dd       	rcall	.-1138   	; 0x18e <_Z12printString0PKc>
+ 5fe:	c7 dd       	rcall	.-1138   	; 0x18e <_Z15GB_printString0PKc>
  600:	ce 01       	movw	r24, r28
- 602:	c5 dd       	rcall	.-1142   	; 0x18e <_Z12printString0PKc>
+ 602:	c5 dd       	rcall	.-1142   	; 0x18e <_Z15GB_printString0PKc>
  604:	8f e7       	ldi	r24, 0x7F	; 127
  606:	97 e0       	ldi	r25, 0x07	; 7
- 608:	c2 dd       	rcall	.-1148   	; 0x18e <_Z12printString0PKc>
+ 608:	c2 dd       	rcall	.-1148   	; 0x18e <_Z15GB_printString0PKc>
  60a:	c0 e0       	ldi	r28, 0x00	; 0
- 60c:	80 91 9a 0c 	lds	r24, 0x0C9A	; 0x800c9a <flag>
- 610:	90 91 9b 0c 	lds	r25, 0x0C9B	; 0x800c9b <flag+0x1>
- 614:	a0 91 9c 0c 	lds	r26, 0x0C9C	; 0x800c9c <flag+0x2>
- 618:	b0 91 9d 0c 	lds	r27, 0x0C9D	; 0x800c9d <flag+0x3>
+ 60c:	80 91 9a 0c 	lds	r24, 0x0C9A	; 0x800c9a <gb_flag>
+ 610:	90 91 9b 0c 	lds	r25, 0x0C9B	; 0x800c9b <gb_flag+0x1>
+ 614:	a0 91 9c 0c 	lds	r26, 0x0C9C	; 0x800c9c <gb_flag+0x2>
+ 618:	b0 91 9d 0c 	lds	r27, 0x0C9D	; 0x800c9d <gb_flag+0x3>
  61c:	89 2b       	or	r24, r25
  61e:	8a 2b       	or	r24, r26
  620:	8b 2b       	or	r24, r27
- 622:	09 f0       	breq	.+2      	; 0x626 <_Z26getstring_ESP8266FORSERVERPc+0x46>
- 624:	4c c0       	rjmp	.+152    	; 0x6be <_Z26getstring_ESP8266FORSERVERPc+0xde>
- 626:	03 df       	rcall	.-506    	; 0x42e <_Z13getchar_UART1v>
+ 622:	09 f0       	breq	.+2      	; 0x626 <_Z29GB_getstring_ESP8266FORSERVERPc+0x46>
+ 624:	4c c0       	rjmp	.+152    	; 0x6be <_Z29GB_getstring_ESP8266FORSERVERPc+0xde>
+ 626:	03 df       	rcall	.-506    	; 0x42e <_Z16GB_getchar_UART1v>
  628:	ec 2f       	mov	r30, r28
  62a:	f0 e0       	ldi	r31, 0x00	; 0
  62c:	e2 56       	subi	r30, 0x62	; 98
@@ -838,10 +838,10 @@ Disassembly of section .text:
  63a:	9c e0       	ldi	r25, 0x0C	; 12
  63c:	8b d1       	rcall	.+790    	; 0x954 <strstr>
  63e:	89 2b       	or	r24, r25
- 640:	29 f3       	breq	.-54     	; 0x60c <_Z26getstring_ESP8266FORSERVERPc+0x2c>
+ 640:	29 f3       	breq	.-54     	; 0x60c <_Z29GB_getstring_ESP8266FORSERVERPc+0x2c>
  642:	87 e5       	ldi	r24, 0x57	; 87
  644:	95 e0       	ldi	r25, 0x05	; 5
- 646:	a3 dd       	rcall	.-1210   	; 0x18e <_Z12printString0PKc>
+ 646:	a3 dd       	rcall	.-1210   	; 0x18e <_Z15GB_printString0PKc>
  648:	67 e7       	ldi	r22, 0x77	; 119
  64a:	75 e0       	ldi	r23, 0x05	; 5
  64c:	8e e9       	ldi	r24, 0x9E	; 158
@@ -854,41 +854,41 @@ Disassembly of section .text:
  65c:	80 93 98 0c 	sts	0x0C98, r24	; 0x800c98 <__data_end>
  660:	8c e7       	ldi	r24, 0x7C	; 124
  662:	95 e0       	ldi	r25, 0x05	; 5
- 664:	94 dd       	rcall	.-1240   	; 0x18e <_Z12printString0PKc>
+ 664:	94 dd       	rcall	.-1240   	; 0x18e <_Z15GB_printString0PKc>
  666:	80 91 98 0c 	lds	r24, 0x0C98	; 0x800c98 <__data_end>
  66a:	90 91 99 0c 	lds	r25, 0x0C99	; 0x800c99 <__data_end+0x1>
- 66e:	87 dd       	rcall	.-1266   	; 0x17e <_Z12UART_TxChar0j>
+ 66e:	87 dd       	rcall	.-1266   	; 0x17e <_Z15GB_UART_TxChar0j>
  670:	81 e0       	ldi	r24, 0x01	; 1
  672:	90 e0       	ldi	r25, 0x00	; 0
  674:	a0 e0       	ldi	r26, 0x00	; 0
  676:	b0 e0       	ldi	r27, 0x00	; 0
- 678:	80 93 9a 0c 	sts	0x0C9A, r24	; 0x800c9a <flag>
- 67c:	90 93 9b 0c 	sts	0x0C9B, r25	; 0x800c9b <flag+0x1>
- 680:	a0 93 9c 0c 	sts	0x0C9C, r26	; 0x800c9c <flag+0x2>
- 684:	b0 93 9d 0c 	sts	0x0C9D, r27	; 0x800c9d <flag+0x3>
+ 678:	80 93 9a 0c 	sts	0x0C9A, r24	; 0x800c9a <gb_flag>
+ 67c:	90 93 9b 0c 	sts	0x0C9B, r25	; 0x800c9b <gb_flag+0x1>
+ 680:	a0 93 9c 0c 	sts	0x0C9C, r26	; 0x800c9c <gb_flag+0x2>
+ 684:	b0 93 9d 0c 	sts	0x0C9D, r27	; 0x800c9d <gb_flag+0x3>
  688:	8f e7       	ldi	r24, 0x7F	; 127
  68a:	97 e0       	ldi	r25, 0x07	; 7
- 68c:	80 dd       	rcall	.-1280   	; 0x18e <_Z12printString0PKc>
- 68e:	60 91 9a 0c 	lds	r22, 0x0C9A	; 0x800c9a <flag>
- 692:	70 91 9b 0c 	lds	r23, 0x0C9B	; 0x800c9b <flag+0x1>
- 696:	80 91 9c 0c 	lds	r24, 0x0C9C	; 0x800c9c <flag+0x2>
- 69a:	90 91 9d 0c 	lds	r25, 0x0C9D	; 0x800c9d <flag+0x3>
- 69e:	86 dd       	rcall	.-1268   	; 0x1ac <_Z8decimel0m>
+ 68c:	80 dd       	rcall	.-1280   	; 0x18e <_Z15GB_printString0PKc>
+ 68e:	60 91 9a 0c 	lds	r22, 0x0C9A	; 0x800c9a <gb_flag>
+ 692:	70 91 9b 0c 	lds	r23, 0x0C9B	; 0x800c9b <gb_flag+0x1>
+ 696:	80 91 9c 0c 	lds	r24, 0x0C9C	; 0x800c9c <gb_flag+0x2>
+ 69a:	90 91 9d 0c 	lds	r25, 0x0C9D	; 0x800c9d <gb_flag+0x3>
+ 69e:	86 dd       	rcall	.-1268   	; 0x1ac <_Z11GB_decimel0m>
  6a0:	8f e7       	ldi	r24, 0x7F	; 127
  6a2:	97 e0       	ldi	r25, 0x07	; 7
- 6a4:	74 dd       	rcall	.-1304   	; 0x18e <_Z12printString0PKc>
+ 6a4:	74 dd       	rcall	.-1304   	; 0x18e <_Z15GB_printString0PKc>
  6a6:	8f ef       	ldi	r24, 0xFF	; 255
  6a8:	e2 ea       	ldi	r30, 0xA2	; 162
  6aa:	fd e0       	ldi	r31, 0x0D	; 13
  6ac:	df 01       	movw	r26, r30
  6ae:	1d 92       	st	X+, r1
  6b0:	8a 95       	dec	r24
- 6b2:	e9 f7       	brne	.-6      	; 0x6ae <_Z26getstring_ESP8266FORSERVERPc+0xce>
+ 6b2:	e9 f7       	brne	.-6      	; 0x6ae <_Z29GB_getstring_ESP8266FORSERVERPc+0xce>
  6b4:	61 e0       	ldi	r22, 0x01	; 1
  6b6:	70 e0       	ldi	r23, 0x00	; 0
  6b8:	80 e0       	ldi	r24, 0x00	; 0
  6ba:	90 e0       	ldi	r25, 0x00	; 0
- 6bc:	03 c0       	rjmp	.+6      	; 0x6c4 <_Z26getstring_ESP8266FORSERVERPc+0xe4>
+ 6bc:	03 c0       	rjmp	.+6      	; 0x6c4 <_Z29GB_getstring_ESP8266FORSERVERPc+0xe4>
  6be:	60 e0       	ldi	r22, 0x00	; 0
  6c0:	70 e0       	ldi	r23, 0x00	; 0
  6c2:	cb 01       	movw	r24, r22
@@ -896,7 +896,7 @@ Disassembly of section .text:
  6c6:	cf 91       	pop	r28
  6c8:	08 95       	ret
 
-000006ca <_Z33esp8266_serverdatatoclientcipsendv>:
+000006ca <_Z36GB_esp8266_serverdatatoclientcipsendv>:
  6ca:	0f 93       	push	r16
  6cc:	1f 93       	push	r17
  6ce:	cf 93       	push	r28
@@ -911,7 +911,7 @@ Disassembly of section .text:
  6e0:	cd bf       	out	0x3d, r28	; 61
  6e2:	8d ed       	ldi	r24, 0xDD	; 221
  6e4:	95 e0       	ldi	r25, 0x05	; 5
- 6e6:	53 dd       	rcall	.-1370   	; 0x18e <_Z12printString0PKc>
+ 6e6:	53 dd       	rcall	.-1370   	; 0x18e <_Z15GB_printString0PKc>
  6e8:	1f 92       	push	r1
  6ea:	85 e4       	ldi	r24, 0x45	; 69
  6ec:	8f 93       	push	r24
@@ -932,23 +932,23 @@ Disassembly of section .text:
  70e:	3c d1       	rcall	.+632    	; 0x988 <sprintf>
  710:	8e e2       	ldi	r24, 0x2E	; 46
  712:	96 e0       	ldi	r25, 0x06	; 6
- 714:	3c dd       	rcall	.-1416   	; 0x18e <_Z12printString0PKc>
+ 714:	3c dd       	rcall	.-1416   	; 0x18e <_Z15GB_printString0PKc>
  716:	80 91 98 0c 	lds	r24, 0x0C98	; 0x800c98 <__data_end>
  71a:	90 91 99 0c 	lds	r25, 0x0C99	; 0x800c99 <__data_end+0x1>
- 71e:	2f dd       	rcall	.-1442   	; 0x17e <_Z12UART_TxChar0j>
+ 71e:	2f dd       	rcall	.-1442   	; 0x17e <_Z15GB_UART_TxChar0j>
  720:	8f e7       	ldi	r24, 0x7F	; 127
  722:	97 e0       	ldi	r25, 0x07	; 7
- 724:	34 dd       	rcall	.-1432   	; 0x18e <_Z12printString0PKc>
+ 724:	34 dd       	rcall	.-1432   	; 0x18e <_Z15GB_printString0PKc>
  726:	c8 01       	movw	r24, r16
- 728:	b4 dd       	rcall	.-1176   	; 0x292 <_Z12printString1PKc>
+ 728:	b4 dd       	rcall	.-1176   	; 0x292 <_Z15GB_printString1PKc>
  72a:	60 ed       	ldi	r22, 0xD0	; 208
  72c:	77 e0       	ldi	r23, 0x07	; 7
  72e:	8e e3       	ldi	r24, 0x3E	; 62
  730:	96 e0       	ldi	r25, 0x06	; 6
- 732:	0a df       	rcall	.-492    	; 0x548 <_Z9RFR_UART1PKcj>
+ 732:	0a df       	rcall	.-492    	; 0x548 <_Z12GB_RFR_UART1PKcj>
  734:	8e e9       	ldi	r24, 0x9E	; 158
  736:	9c e0       	ldi	r25, 0x0C	; 12
- 738:	2a dd       	rcall	.-1452   	; 0x18e <_Z12printString0PKc>
+ 738:	2a dd       	rcall	.-1452   	; 0x18e <_Z15GB_printString0PKc>
  73a:	0f b6       	in	r0, 0x3f	; 63
  73c:	f8 94       	cli
  73e:	de bf       	out	0x3e, r29	; 62
@@ -966,23 +966,23 @@ Disassembly of section .text:
  756:	0f 91       	pop	r16
  758:	08 95       	ret
 
-0000075a <_Z19esp8266_webpagedatav>:
+0000075a <_Z22GB_esp8266_webpagedatav>:
  75a:	80 e4       	ldi	r24, 0x40	; 64
  75c:	96 e0       	ldi	r25, 0x06	; 6
- 75e:	17 dd       	rcall	.-1490   	; 0x18e <_Z12printString0PKc>
+ 75e:	17 dd       	rcall	.-1490   	; 0x18e <_Z15GB_printString0PKc>
  760:	84 ee       	ldi	r24, 0xE4	; 228
  762:	90 e0       	ldi	r25, 0x00	; 0
- 764:	96 dd       	rcall	.-1236   	; 0x292 <_Z12printString1PKc>
+ 764:	96 dd       	rcall	.-1236   	; 0x292 <_Z15GB_printString1PKc>
  766:	60 ed       	ldi	r22, 0xD0	; 208
  768:	77 e0       	ldi	r23, 0x07	; 7
  76a:	81 e7       	ldi	r24, 0x71	; 113
  76c:	96 e0       	ldi	r25, 0x06	; 6
- 76e:	ec de       	rcall	.-552    	; 0x548 <_Z9RFR_UART1PKcj>
+ 76e:	ec de       	rcall	.-552    	; 0x548 <_Z12GB_RFR_UART1PKcj>
  770:	01 97       	sbiw	r24, 0x01	; 1
- 772:	19 f4       	brne	.+6      	; 0x77a <_Z19esp8266_webpagedatav+0x20>
+ 772:	19 f4       	brne	.+6      	; 0x77a <_Z22GB_esp8266_webpagedatav+0x20>
  774:	8e e9       	ldi	r24, 0x9E	; 158
  776:	9c e0       	ldi	r25, 0x0C	; 12
- 778:	0a cd       	rjmp	.-1516   	; 0x18e <_Z12printString0PKc>
+ 778:	0a cd       	rjmp	.-1516   	; 0x18e <_Z15GB_printString0PKc>
  77a:	08 95       	ret
 
 0000077c <main>:
@@ -1003,37 +1003,37 @@ Disassembly of section .text:
  78c:	0f be       	out	0x3f, r0	; 63
  78e:	cd bf       	out	0x3d, r28	; 61
 			
-			init_millis(16000000UL); //frequency the atmega328p is running at
+			GB_init_millis(16000000UL); //frequency the atmega328p is running at
  790:	60 e0       	ldi	r22, 0x00	; 0
  792:	74 e2       	ldi	r23, 0x24	; 36
  794:	84 ef       	ldi	r24, 0xF4	; 244
  796:	90 e0       	ldi	r25, 0x00	; 0
- 798:	af dd       	rcall	.-1186   	; 0x2f8 <_Z11init_millism>
-			UART_Init0();
- 79a:	e7 dc       	rcall	.-1586   	; 0x16a <_Z10UART_Init0v>
-			UART_Init1();       ///for esp baudrate is selected 115200
- 79c:	68 dd       	rcall	.-1328   	; 0x26e <_Z10UART_Init1v>
-			printString0("******************ESP8266 AT Commands firmware: Webserver (using embedded C)*****************");
+ 798:	af dd       	rcall	.-1186   	; 0x2f8 <_Z14GB_init_millism>
+			GB_UART_Init0();
+ 79a:	e7 dc       	rcall	.-1586   	; 0x16a <_Z13GB_UART_Init0v>
+			GB_UART_Init1();       ///for esp baudrate is selected 115200
+ 79c:	68 dd       	rcall	.-1328   	; 0x26e <_Z13GB_UART_Init1v>
+			GB_printString0("******************ESP8266 AT Commands firmware: Webserver (using embedded C)*****************");
  79e:	8a ef       	ldi	r24, 0xFA	; 250
  7a0:	96 e0       	ldi	r25, 0x06	; 6
- 7a2:	f5 dc       	rcall	.-1558   	; 0x18e <_Z12printString0PKc>
-			printString0("\n");
+ 7a2:	f5 dc       	rcall	.-1558   	; 0x18e <_Z15GB_printString0PKc>
+			GB_printString0("\n");
  7a4:	8f e7       	ldi	r24, 0x7F	; 127
  7a6:	97 e0       	ldi	r25, 0x07	; 7
- 7a8:	f2 dc       	rcall	.-1564   	; 0x18e <_Z12printString0PKc>
+ 7a8:	f2 dc       	rcall	.-1564   	; 0x18e <_Z15GB_printString0PKc>
  7aa:	78 94       	sei
 			sei();
  7ac:	e1 2c       	mov	r14, r1
-			int i=0;
-			int c=0;
+			int gb_i=0;
+			int gb_c=0;
  7ae:	f1 2c       	mov	r15, r1
  7b0:	0f 2e       	mov	r0, r31
 	
 	
-send_command("AT+CIFSR\r\n");
-RFR_UART1(1000);
+GB_send_command("AT+CIFSR\r\n");
+GB_RFR_UART1(1000);
 
- memset(staip, '\0',sizeof(staip));
+ memset(gb_staip, '\0',sizeof(gb_staip));
  7b2:	f4 e1       	ldi	r31, 0x14	; 20
  7b4:	7f 2e       	mov	r7, r31
  7b6:	f0 2d       	mov	r31, r0
@@ -1041,143 +1041,143 @@ RFR_UART1(1000);
  7ba:	0f 5f       	subi	r16, 0xFF	; 255
  7bc:	1f 4f       	sbci	r17, 0xFF	; 255
  7be:	6e 01       	movw	r12, r28
- memset(stamac, '\0',sizeof(stamac));
+ memset(gb_stamac, '\0',sizeof(gb_stamac));
  7c0:	25 e1       	ldi	r18, 0x15	; 21
  7c2:	c2 0e       	add	r12, r18
  7c4:	d1 1c       	adc	r13, r1
  7c6:	1e 14       	cp	r1, r14
-			char staip[20],stamac[20];
+			char gb_staip[20],gb_stamac[20];
 			while(1)
 			{
 			
 				
-				if(c<1)
+				if(gb_c<1)
  7c8:	1f 04       	cpc	r1, r15
  7ca:	0c f4       	brge	.+2      	; 0x7ce <main+0x52>
 	//printString0(p);
-	return (p);
+	return (gb_p);
 }
-void send_command(const char * command)
+void GB_send_command(const char * gb_command)
 {
-	printString1(command);
+	GB_printString1(gb_command);
  7cc:	5c c0       	rjmp	.+184    	; 0x886 <main+0x10a>
  7ce:	8a ec       	ldi	r24, 0xCA	; 202
 {
 	//Configure as Station
-	send_command("AT+CWMODE=1\r\n");
-	getstring_UART1();
+	GB_send_command("AT+CWMODE=1\r\n");
+	GB_getstring_UART1();
  7d0:	96 e0       	ldi	r25, 0x06	; 6
- 7d2:	5f dd       	rcall	.-1346   	; 0x292 <_Z12printString1PKc>
- 7d4:	3e de       	rcall	.-900    	; 0x452 <_Z15getstring_UART1v>
+ 7d2:	5f dd       	rcall	.-1346   	; 0x292 <_Z15GB_printString1PKc>
+ 7d4:	3e de       	rcall	.-900    	; 0x452 <_Z18GB_getstring_UART1v>
  7d6:	88 ed       	ldi	r24, 0xD8	; 216
 
 	//Start Multiple connection
-	send_command("AT+CIPMUX=1\r\n");
-	getstring_UART1();
+	GB_send_command("AT+CIPMUX=1\r\n");
+	GB_getstring_UART1();
  7d8:	96 e0       	ldi	r25, 0x06	; 6
- 7da:	5b dd       	rcall	.-1354   	; 0x292 <_Z12printString1PKc>
- 7dc:	3a de       	rcall	.-908    	; 0x452 <_Z15getstring_UART1v>
+ 7da:	5b dd       	rcall	.-1354   	; 0x292 <_Z15GB_printString1PKc>
+ 7dc:	3a de       	rcall	.-908    	; 0x452 <_Z18GB_getstring_UART1v>
  7de:	86 ee       	ldi	r24, 0xE6	; 230
 	
-	send_command("AT+CIPSERVER=1,80\r\n");
-    RFR_UART1(1000);	
+	GB_send_command("AT+CIPSERVER=1,80\r\n");
+    GB_RFR_UART1(1000);	
  7e0:	96 e0       	ldi	r25, 0x06	; 6
- 7e2:	57 dd       	rcall	.-1362   	; 0x292 <_Z12printString1PKc>
+ 7e2:	57 dd       	rcall	.-1362   	; 0x292 <_Z15GB_printString1PKc>
  7e4:	88 ee       	ldi	r24, 0xE8	; 232
-	printString0(RX_DATA_UART1);
+	GB_printString0(gb_RX_DATA_UART1);
  7e6:	93 e0       	ldi	r25, 0x03	; 3
- 7e8:	6f de       	rcall	.-802    	; 0x4c8 <_Z9RFR_UART1j>
+ 7e8:	6f de       	rcall	.-802    	; 0x4c8 <_Z12GB_RFR_UART1j>
  7ea:	8e e9       	ldi	r24, 0x9E	; 158
  7ec:	9c e0       	ldi	r25, 0x0C	; 12
- 7ee:	cf dc       	rcall	.-1634   	; 0x18e <_Z12printString0PKc>
+ 7ee:	cf dc       	rcall	.-1634   	; 0x18e <_Z15GB_printString0PKc>
  7f0:	82 ed       	ldi	r24, 0xD2	; 210
 	
-		send_command("AT+CWJAP?\r\n");
-		getstring_UART1();
+		GB_send_command("AT+CWJAP?\r\n");
+		GB_getstring_UART1();
  7f2:	92 e0       	ldi	r25, 0x02	; 2
- 7f4:	4e dd       	rcall	.-1380   	; 0x292 <_Z12printString1PKc>
- 7f6:	2d de       	rcall	.-934    	; 0x452 <_Z15getstring_UART1v>
+ 7f4:	4e dd       	rcall	.-1380   	; 0x292 <_Z15GB_printString1PKc>
+ 7f6:	2d de       	rcall	.-934    	; 0x452 <_Z18GB_getstring_UART1v>
  7f8:	88 e5       	ldi	r24, 0x58	; 88
  7fa:	97 e0       	ldi	r25, 0x07	; 7
- 7fc:	4a dd       	rcall	.-1388   	; 0x292 <_Z12printString1PKc>
+ 7fc:	4a dd       	rcall	.-1388   	; 0x292 <_Z15GB_printString1PKc>
 
 
 		//Connect To wifi
-	send_command("AT+CWJAP=\"JioFiber 2.4ghz\",\"Mansi5481\"\r\n");
-	RFR_UART1(16000);
+	GB_send_command("AT+CWJAP=\"JioFiber 2.4ghz\",\"Mansi5481\"\r\n");
+	GB_RFR_UART1(16000);
  7fe:	80 e8       	ldi	r24, 0x80	; 128
  800:	9e e3       	ldi	r25, 0x3E	; 62
- 802:	62 de       	rcall	.-828    	; 0x4c8 <_Z9RFR_UART1j>
+ 802:	62 de       	rcall	.-828    	; 0x4c8 <_Z12GB_RFR_UART1j>
  804:	81 e0       	ldi	r24, 0x01	; 1
  806:	94 e0       	ldi	r25, 0x04	; 4
- 808:	44 dd       	rcall	.-1400   	; 0x292 <_Z12printString1PKc>
+ 808:	44 dd       	rcall	.-1400   	; 0x292 <_Z15GB_printString1PKc>
  80a:	88 ee       	ldi	r24, 0xE8	; 232
  80c:	93 e0       	ldi	r25, 0x03	; 3
 	
 	
-send_command("AT+CIFSR\r\n");
-RFR_UART1(1000);
- 80e:	5c de       	rcall	.-840    	; 0x4c8 <_Z9RFR_UART1j>
+GB_send_command("AT+CIFSR\r\n");
+GB_RFR_UART1(1000);
+ 80e:	5c de       	rcall	.-840    	; 0x4c8 <_Z12GB_RFR_UART1j>
  810:	f8 01       	movw	r30, r16
  812:	27 2d       	mov	r18, r7
 
- memset(staip, '\0',sizeof(staip));
+ memset(gb_staip, '\0',sizeof(gb_staip));
  814:	11 92       	st	Z+, r1
  816:	2a 95       	dec	r18
  818:	e9 f7       	brne	.-6      	; 0x814 <main+0x98>
  81a:	f6 01       	movw	r30, r12
- memset(stamac, '\0',sizeof(stamac));
+ memset(gb_stamac, '\0',sizeof(gb_stamac));
  81c:	27 2d       	mov	r18, r7
  81e:	11 92       	st	Z+, r1
  820:	2a 95       	dec	r18
  822:	e9 f7       	brne	.-6      	; 0x81e <main+0xa2>
  
- char * p = strstr(RX_DATA_UART1,"+CIFSR:STAIP");
+ char * gb_p = strstr(gb_RX_DATA_UART1,"+CIFSR:STAIP");
  824:	6c e1       	ldi	r22, 0x1C	; 28
  826:	74 e0       	ldi	r23, 0x04	; 4
  828:	8e e9       	ldi	r24, 0x9E	; 158
  82a:	9c e0       	ldi	r25, 0x0C	; 12
- p += strlen("+CWJAP:STAIP")+2;
+ gb_p += strlen("+CWJAP:STAIP")+2;
  82c:	93 d0       	rcall	.+294    	; 0x954 <strstr>
- char * q=strchr(p,'"');
+ char * gb_q=strchr(gb_p,'"');
  82e:	0e 96       	adiw	r24, 0x0e	; 14
  830:	5c 01       	movw	r10, r24
  832:	62 e2       	ldi	r22, 0x22	; 34
  834:	70 e0       	ldi	r23, 0x00	; 0
- strncpy(staip,p,q-p);
+ strncpy(gb_staip,gb_p,gb_q-gb_p);
  836:	74 d0       	rcall	.+232    	; 0x920 <strchr>
  838:	ac 01       	movw	r20, r24
  83a:	4a 19       	sub	r20, r10
  83c:	5b 09       	sbc	r21, r11
  83e:	b5 01       	movw	r22, r10
- printString0("IP address of Station is :");
+ GB_printString0("IP address of Station is :");
  840:	c8 01       	movw	r24, r16
  842:	79 d0       	rcall	.+242    	; 0x936 <strncpy>
  844:	89 e2       	ldi	r24, 0x29	; 41
  846:	94 e0       	ldi	r25, 0x04	; 4
- printString0(staip);
- 848:	a2 dc       	rcall	.-1724   	; 0x18e <_Z12printString0PKc>
+ GB_printString0(gb_staip);
+ 848:	a2 dc       	rcall	.-1724   	; 0x18e <_Z15GB_printString0PKc>
  84a:	c8 01       	movw	r24, r16
 
-printString0("\n");
- 84c:	a0 dc       	rcall	.-1728   	; 0x18e <_Z12printString0PKc>
+GB_printString0("\n");
+ 84c:	a0 dc       	rcall	.-1728   	; 0x18e <_Z15GB_printString0PKc>
  84e:	8f e7       	ldi	r24, 0x7F	; 127
-printString0(p);
+GB_printString0(gb_p);
  850:	97 e0       	ldi	r25, 0x07	; 7
- 852:	9d dc       	rcall	.-1734   	; 0x18e <_Z12printString0PKc>
-char * r = strstr(RX_DATA_UART1,"+CIFSR:STAMAC");
+ 852:	9d dc       	rcall	.-1734   	; 0x18e <_Z15GB_printString0PKc>
+char * gb_r = strstr(gb_RX_DATA_UART1,"+CIFSR:STAMAC");
  854:	c5 01       	movw	r24, r10
- 856:	9b dc       	rcall	.-1738   	; 0x18e <_Z12printString0PKc>
+ 856:	9b dc       	rcall	.-1738   	; 0x18e <_Z15GB_printString0PKc>
  858:	64 e4       	ldi	r22, 0x44	; 68
  85a:	74 e0       	ldi	r23, 0x04	; 4
  85c:	8e e9       	ldi	r24, 0x9E	; 158
-r += strlen("+CIFSR:STAMAC")+2;
+gb_r += strlen("+CIFSR:STAMAC")+2;
  85e:	9c e0       	ldi	r25, 0x0C	; 12
-char * s =strchr(r,'"');
+char * gb_s =strchr(gb_r,'"');
  860:	79 d0       	rcall	.+242    	; 0x954 <strstr>
  862:	0f 96       	adiw	r24, 0x0f	; 15
  864:	5c 01       	movw	r10, r24
-strncpy(stamac,r,s-r);
+strncpy(gb_stamac,gb_r,gb_s-gb_r);
  866:	62 e2       	ldi	r22, 0x22	; 34
  868:	70 e0       	ldi	r23, 0x00	; 0
  86a:	5a d0       	rcall	.+180    	; 0x920 <strchr>
@@ -1191,44 +1191,44 @@ strncpy(stamac,r,s-r);
 //printString0("\n Mac address of Station is :");
 //printString0(stamac);
 
-send_command("AT+CIPSTO?\r\n");
-getstring_UART1();
+GB_send_command("AT+CIPSTO?\r\n");
+GB_getstring_UART1();
  87a:	97 e0       	ldi	r25, 0x07	; 7
- 87c:	0a dd       	rcall	.-1516   	; 0x292 <_Z12printString1PKc>
+ 87c:	0a dd       	rcall	.-1516   	; 0x292 <_Z15GB_printString1PKc>
 
 
-c++;
- 87e:	e9 dd       	rcall	.-1070   	; 0x452 <_Z15getstring_UART1v>
+gb_c++;
+ 87e:	e9 dd       	rcall	.-1070   	; 0x452 <_Z18GB_getstring_UART1v>
  880:	8f ef       	ldi	r24, 0xFF	; 255
  882:	e8 1a       	sub	r14, r24
 }
 
 
-uint32_t g=0;
-g = getstring_ESP8266FORSERVER(staip);
+uint32_t gb_g=0;
+gb_g = GB_getstring_ESP8266FORSERVER(gb_staip);
  884:	f8 0a       	sbc	r15, r24
  886:	c8 01       	movw	r24, r16
- 888:	ab de       	rcall	.-682    	; 0x5e0 <_Z26getstring_ESP8266FORSERVERPc>
+ 888:	ab de       	rcall	.-682    	; 0x5e0 <_Z29GB_getstring_ESP8266FORSERVERPc>
  88a:	4b 01       	movw	r8, r22
  88c:	5c 01       	movw	r10, r24
-printString0("\n");
+GB_printString0("\n");
  88e:	8f e7       	ldi	r24, 0x7F	; 127
  890:	97 e0       	ldi	r25, 0x07	; 7
- 892:	7d dc       	rcall	.-1798   	; 0x18e <_Z12printString0PKc>
+ 892:	7d dc       	rcall	.-1798   	; 0x18e <_Z15GB_printString0PKc>
  894:	c5 01       	movw	r24, r10
-decimel0(g);
+GB_decimel0(gb_g);
  896:	b4 01       	movw	r22, r8
- 898:	89 dc       	rcall	.-1774   	; 0x1ac <_Z8decimel0m>
+ 898:	89 dc       	rcall	.-1774   	; 0x1ac <_Z11GB_decimel0m>
  89a:	8f e7       	ldi	r24, 0x7F	; 127
  89c:	97 e0       	ldi	r25, 0x07	; 7
-printString0("\n");
- 89e:	77 dc       	rcall	.-1810   	; 0x18e <_Z12printString0PKc>
- 8a0:	14 df       	rcall	.-472    	; 0x6ca <_Z33esp8266_serverdatatoclientcipsendv>
+GB_printString0("\n");
+ 89e:	77 dc       	rcall	.-1810   	; 0x18e <_Z15GB_printString0PKc>
+ 8a0:	14 df       	rcall	.-472    	; 0x6ca <_Z36GB_esp8266_serverdatatoclientcipsendv>
  8a2:	9f ef       	ldi	r25, 0xFF	; 255
  8a4:	e3 ed       	ldi	r30, 0xD3	; 211
 	//if(g==1)
 	{
-		esp8266_serverdatatoclientcipsend();
+		GB_esp8266_serverdatatoclientcipsend();
  8a6:	f0 e3       	ldi	r31, 0x30	; 48
  8a8:	91 50       	subi	r25, 0x01	; 1
 	#else
@@ -1242,12 +1242,12 @@ printString0("\n");
  8ae:	e1 f7       	brne	.-8      	; 0x8a8 <main+0x12c>
  8b0:	00 c0       	rjmp	.+0      	; 0x8b2 <main+0x136>
  8b2:	00 00       	nop
- 8b4:	52 df       	rcall	.-348    	; 0x75a <_Z19esp8266_webpagedatav>
+ 8b4:	52 df       	rcall	.-348    	; 0x75a <_Z22GB_esp8266_webpagedatav>
  8b6:	2f ef       	ldi	r18, 0xFF	; 255
  8b8:	83 ed       	ldi	r24, 0xD3	; 211
  8ba:	90 e3       	ldi	r25, 0x30	; 48
 		_delay_ms(1000);
-	esp8266_webpagedata();
+	GB_esp8266_webpagedata();
  8bc:	21 50       	subi	r18, 0x01	; 1
  8be:	80 40       	sbci	r24, 0x00	; 0
  8c0:	90 40       	sbci	r25, 0x00	; 0

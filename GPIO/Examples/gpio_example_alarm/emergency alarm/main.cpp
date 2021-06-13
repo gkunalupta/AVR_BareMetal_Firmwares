@@ -7,7 +7,8 @@
 
 #include <avr/io.h>
 #include <avr/delay.h>
-#include "uarts.h"
+#include "GB_uarts.h"
+
 
 #include "GPIO.h"
 
@@ -22,10 +23,10 @@
 
 int main(void)
 {
-	UART_Init0();
+	GB_UART_Init0();
 	pinMode(buzzer,&DDRJ, OUTPUT);
 	
-	printString0("Gettobyte Youtube cahnnel GPIO_Example\n");
+	GB_printString0("Gettobyte Youtube cahnnel GPIO_Example\n");
 
 	pinMode(cap_sensor, &DDRJ,INPUT);
 

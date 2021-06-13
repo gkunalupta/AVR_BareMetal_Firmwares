@@ -60,7 +60,8 @@ void bit(uint8_t val)
       
   
 int main(void)
-{   vfprintf ;
+{   
+	vfprintf ;
 	
 	uint16_t iDelay;
      DDRD=  0xff;

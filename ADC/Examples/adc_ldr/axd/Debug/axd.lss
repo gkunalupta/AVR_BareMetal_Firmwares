@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  0000009c  00000000  00000000  00001dd4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000468  00000000  00000000  00001e70  2**0
+  9 .debug_str    00000472  00000000  00000000  00001e70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000017c  00000000  00000000  000022d8  2**0
+ 10 .debug_loc    0000017c  00000000  00000000  000022e2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000038  00000000  00000000  00002454  2**0
+ 11 .debug_ranges 00000038  00000000  00000000  0000245e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -204,11 +204,11 @@ int main(void)
  110:	0f be       	out	0x3f, r0	; 63
  112:	cd bf       	out	0x3d, r28	; 61
 	
-	uint16_t iDelay;
+	uint16_t gb_iDelay;
      DDRD=  0xff;
  114:	8f ef       	ldi	r24, 0xFF	; 255
  116:	8a b9       	out	0x0a, r24	; 10
-    char sbuff[100];
+    char gb_sbuff[100];
     
     UART_Init();
  118:	0e 94 4b 00 	call	0x96	; 0x96 <_Z9UART_Initv>
@@ -243,10 +243,10 @@ int main(void)
  144:	f1 2c       	mov	r15, r1
  146:	f0 2d       	mov	r31, r0
         printString("\n");
-		iDelay = ADCL;
-		iDelay += (ADCH << 8);
+		gb_iDelay = ADCL;
+		gb_iDelay += (ADCH << 8);
         
-        sprintf(sbuff,"%03d\n",ADC);
+        sprintf(gb_sbuff,"%03d\n",ADC);
  148:	0f 2e       	mov	r0, r31
  14a:	f6 e0       	ldi	r31, 0x06	; 6
  14c:	cf 2e       	mov	r12, r31
@@ -256,20 +256,20 @@ int main(void)
  154:	ce 01       	movw	r24, r28
  156:	01 96       	adiw	r24, 0x01	; 1
  158:	4c 01       	movw	r8, r24
-        printString(sbuff);
+        printString(gb_sbuff);
         _delay_ms(1000);
 		
 		if(ADC>500&ADC<600)
  15a:	61 2c       	mov	r6, r1
         bit(ADCL);
         printString("\n");
-		iDelay = ADCL;
-		iDelay += (ADCH << 8);
+		gb_iDelay = ADCL;
+		gb_iDelay += (ADCH << 8);
         
-        sprintf(sbuff,"%03d\n",ADC);
+        sprintf(gb_sbuff,"%03d\n",ADC);
  15c:	48 2e       	mov	r4, r24
  15e:	59 2c       	mov	r5, r9
-        printString(sbuff);
+        printString(gb_sbuff);
         _delay_ms(1000);
 		
 		if(ADC>500&ADC<600)
@@ -314,14 +314,14 @@ int main(void)
  194:	8a e0       	ldi	r24, 0x0A	; 10
  196:	91 e0       	ldi	r25, 0x01	; 1
  198:	0e 94 70 00 	call	0xe0	; 0xe0 <_Z11printStringPc>
-		iDelay = ADCL;
+		gb_iDelay = ADCL;
  19c:	f7 01       	movw	r30, r14
  19e:	80 81       	ld	r24, Z
-		iDelay += (ADCH << 8);
+		gb_iDelay += (ADCH << 8);
  1a0:	f5 01       	movw	r30, r10
  1a2:	80 81       	ld	r24, Z
         
-        sprintf(sbuff,"%03d\n",ADC);
+        sprintf(gb_sbuff,"%03d\n",ADC);
  1a4:	f7 01       	movw	r30, r14
  1a6:	80 81       	ld	r24, Z
  1a8:	91 81       	ldd	r25, Z+1	; 0x01
@@ -332,7 +332,7 @@ int main(void)
  1b2:	9f 92       	push	r9
  1b4:	8f 92       	push	r8
  1b6:	0e 94 3d 01 	call	0x27a	; 0x27a <sprintf>
-        printString(sbuff);
+        printString(gb_sbuff);
  1ba:	84 2d       	mov	r24, r4
  1bc:	95 2d       	mov	r25, r5
  1be:	0e 94 70 00 	call	0xe0	; 0xe0 <_Z11printStringPc>
@@ -342,9 +342,9 @@ int main(void)
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 1c2:	ff e3       	ldi	r31, 0x3F	; 63
- 1c4:	2d e0       	ldi	r18, 0x0D	; 13
- 1c6:	83 e0       	ldi	r24, 0x03	; 3
+ 1c2:	ff ef       	ldi	r31, 0xFF	; 255
+ 1c4:	23 ed       	ldi	r18, 0xD3	; 211
+ 1c6:	80 e3       	ldi	r24, 0x30	; 48
  1c8:	f1 50       	subi	r31, 0x01	; 1
  1ca:	20 40       	sbci	r18, 0x00	; 0
  1cc:	80 40       	sbci	r24, 0x00	; 0

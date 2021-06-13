@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000023d0  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000388  00000000  00000000  00002410  2**0
+  5 .debug_aranges 000003b8  00000000  00000000  00002410  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00005015  00000000  00000000  00002798  2**0
+  6 .debug_info   00005245  00000000  00000000  000027c8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000fd0  00000000  00000000  000077ad  2**0
+  7 .debug_abbrev 00000f80  00000000  00000000  00007a0d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00002149  00000000  00000000  0000877d  2**0
+  8 .debug_line   0000227f  00000000  00000000  0000898d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000d00  00000000  00000000  0000a8c8  2**2
+  9 .debug_frame  00000e40  00000000  00000000  0000ac0c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000015fa  00000000  00000000  0000b5c8  2**0
+ 10 .debug_str    00001afb  00000000  00000000  0000ba4c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00004035  00000000  00000000  0000cbc2  2**0
+ 11 .debug_loc    000045a7  00000000  00000000  0000d547  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000400  00000000  00000000  00010bf7  2**0
+ 12 .debug_ranges 00000430  00000000  00000000  00011aee  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -215,12 +215,12 @@ Disassembly of section .text:
      226:	ec ce       	rjmp	.-552    	; 0x0 <__vectors>
 
 00000228 <__vector_17>:
-		//printString0("3\n");
-		
-	}
+	//printString0("3\n");
 	
-	// decimel0(Menu_State);
-	menu_key_value = 0;
+      }
+	  
+	 // decimel0(Menu_State);
+	 gb_menu_key_value = 0;
      228:	1f 92       	push	r1
      22a:	0f 92       	push	r0
      22c:	0f b6       	in	r0, 0x3f	; 63
@@ -230,17 +230,17 @@ Disassembly of section .text:
      234:	9f 93       	push	r25
      236:	af 93       	push	r26
      238:	bf 93       	push	r27
-     23a:	80 91 b3 09 	lds	r24, 0x09B3	; 0x8009b3 <timer1_millis>
-     23e:	90 91 b4 09 	lds	r25, 0x09B4	; 0x8009b4 <timer1_millis+0x1>
-     242:	a0 91 b5 09 	lds	r26, 0x09B5	; 0x8009b5 <timer1_millis+0x2>
-     246:	b0 91 b6 09 	lds	r27, 0x09B6	; 0x8009b6 <timer1_millis+0x3>
+     23a:	80 91 b3 09 	lds	r24, 0x09B3	; 0x8009b3 <gb_timer1_millis>
+     23e:	90 91 b4 09 	lds	r25, 0x09B4	; 0x8009b4 <gb_timer1_millis+0x1>
+     242:	a0 91 b5 09 	lds	r26, 0x09B5	; 0x8009b5 <gb_timer1_millis+0x2>
+     246:	b0 91 b6 09 	lds	r27, 0x09B6	; 0x8009b6 <gb_timer1_millis+0x3>
      24a:	01 96       	adiw	r24, 0x01	; 1
      24c:	a1 1d       	adc	r26, r1
      24e:	b1 1d       	adc	r27, r1
-     250:	80 93 b3 09 	sts	0x09B3, r24	; 0x8009b3 <timer1_millis>
-     254:	90 93 b4 09 	sts	0x09B4, r25	; 0x8009b4 <timer1_millis+0x1>
-     258:	a0 93 b5 09 	sts	0x09B5, r26	; 0x8009b5 <timer1_millis+0x2>
-     25c:	b0 93 b6 09 	sts	0x09B6, r27	; 0x8009b6 <timer1_millis+0x3>
+     250:	80 93 b3 09 	sts	0x09B3, r24	; 0x8009b3 <gb_timer1_millis>
+     254:	90 93 b4 09 	sts	0x09B4, r25	; 0x8009b4 <gb_timer1_millis+0x1>
+     258:	a0 93 b5 09 	sts	0x09B5, r26	; 0x8009b5 <gb_timer1_millis+0x2>
+     25c:	b0 93 b6 09 	sts	0x09B6, r27	; 0x8009b6 <gb_timer1_millis+0x3>
      260:	bf 91       	pop	r27
      262:	af 91       	pop	r26
      264:	9f 91       	pop	r25
@@ -251,7 +251,7 @@ Disassembly of section .text:
      26e:	1f 90       	pop	r1
      270:	18 95       	reti
 
-00000272 <_Z11init_millism>:
+00000272 <_Z14GB_init_millism>:
      272:	20 e4       	ldi	r18, 0x40	; 64
      274:	3f e1       	ldi	r19, 0x1F	; 31
      276:	40 e0       	ldi	r20, 0x00	; 0
@@ -272,21 +272,21 @@ Disassembly of section .text:
      29c:	80 83       	st	Z, r24
      29e:	08 95       	ret
 
-000002a0 <_Z6millisv>:
+000002a0 <_Z9GB_millisv>:
      2a0:	60 e0       	ldi	r22, 0x00	; 0
      2a2:	74 e2       	ldi	r23, 0x24	; 36
      2a4:	84 ef       	ldi	r24, 0xF4	; 244
      2a6:	90 e0       	ldi	r25, 0x00	; 0
-     2a8:	e4 df       	rcall	.-56     	; 0x272 <_Z11init_millism>
+     2a8:	e4 df       	rcall	.-56     	; 0x272 <_Z14GB_init_millism>
      2aa:	f8 94       	cli
-     2ac:	60 91 b3 09 	lds	r22, 0x09B3	; 0x8009b3 <timer1_millis>
-     2b0:	70 91 b4 09 	lds	r23, 0x09B4	; 0x8009b4 <timer1_millis+0x1>
-     2b4:	80 91 b5 09 	lds	r24, 0x09B5	; 0x8009b5 <timer1_millis+0x2>
-     2b8:	90 91 b6 09 	lds	r25, 0x09B6	; 0x8009b6 <timer1_millis+0x3>
+     2ac:	60 91 b3 09 	lds	r22, 0x09B3	; 0x8009b3 <gb_timer1_millis>
+     2b0:	70 91 b4 09 	lds	r23, 0x09B4	; 0x8009b4 <gb_timer1_millis+0x1>
+     2b4:	80 91 b5 09 	lds	r24, 0x09B5	; 0x8009b5 <gb_timer1_millis+0x2>
+     2b8:	90 91 b6 09 	lds	r25, 0x09B6	; 0x8009b6 <gb_timer1_millis+0x3>
      2bc:	78 94       	sei
      2be:	08 95       	ret
 
-000002c0 <_Z10UART_Init0v>:
+000002c0 <_Z13GB_UART_Init0v>:
      2c0:	87 e6       	ldi	r24, 0x67	; 103
      2c2:	90 e0       	ldi	r25, 0x00	; 0
      2c4:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7c00c5>
@@ -295,33 +295,33 @@ Disassembly of section .text:
      2ce:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
      2d2:	08 95       	ret
 
-000002d4 <_Z12UART_TxChar0j>:
+000002d4 <_Z15GB_UART_TxChar0j>:
      2d4:	e0 ec       	ldi	r30, 0xC0	; 192
      2d6:	f0 e0       	ldi	r31, 0x00	; 0
      2d8:	90 81       	ld	r25, Z
      2da:	95 ff       	sbrs	r25, 5
-     2dc:	fd cf       	rjmp	.-6      	; 0x2d8 <_Z12UART_TxChar0j+0x4>
+     2dc:	fd cf       	rjmp	.-6      	; 0x2d8 <_Z15GB_UART_TxChar0j+0x4>
      2de:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
      2e2:	08 95       	ret
 
-000002e4 <_Z12printString0PKc>:
+000002e4 <_Z15GB_printString0PKc>:
      2e4:	cf 93       	push	r28
      2e6:	df 93       	push	r29
      2e8:	ec 01       	movw	r28, r24
      2ea:	88 81       	ld	r24, Y
      2ec:	88 23       	and	r24, r24
-     2ee:	31 f0       	breq	.+12     	; 0x2fc <_Z12printString0PKc+0x18>
+     2ee:	31 f0       	breq	.+12     	; 0x2fc <_Z15GB_printString0PKc+0x18>
      2f0:	21 96       	adiw	r28, 0x01	; 1
      2f2:	90 e0       	ldi	r25, 0x00	; 0
-     2f4:	ef df       	rcall	.-34     	; 0x2d4 <_Z12UART_TxChar0j>
+     2f4:	ef df       	rcall	.-34     	; 0x2d4 <_Z15GB_UART_TxChar0j>
      2f6:	89 91       	ld	r24, Y+
      2f8:	81 11       	cpse	r24, r1
-     2fa:	fb cf       	rjmp	.-10     	; 0x2f2 <_Z12printString0PKc+0xe>
+     2fa:	fb cf       	rjmp	.-10     	; 0x2f2 <_Z15GB_printString0PKc+0xe>
      2fc:	df 91       	pop	r29
      2fe:	cf 91       	pop	r28
      300:	08 95       	ret
 
-00000302 <_Z8decimel0m>:
+00000302 <_Z11GB_decimel0m>:
      302:	8f 92       	push	r8
      304:	9f 92       	push	r9
      306:	af 92       	push	r10
@@ -332,7 +332,7 @@ Disassembly of section .text:
      310:	1f 93       	push	r17
      312:	cf 93       	push	r28
      314:	df 93       	push	r29
-     316:	00 d0       	rcall	.+0      	; 0x318 <_Z8decimel0m+0x16>
+     316:	00 d0       	rcall	.+0      	; 0x318 <_Z11GB_decimel0m+0x16>
      318:	1f 92       	push	r1
      31a:	1f 92       	push	r1
      31c:	cd b7       	in	r28, 0x3d	; 61
@@ -351,11 +351,11 @@ Disassembly of section .text:
      336:	a1 2c       	mov	r10, r1
      338:	b1 2c       	mov	r11, r1
      33a:	f0 2d       	mov	r31, r0
-     33c:	04 c0       	rjmp	.+8      	; 0x346 <_Z8decimel0m+0x44>
+     33c:	04 c0       	rjmp	.+8      	; 0x346 <_Z11GB_decimel0m+0x44>
      33e:	8d 81       	ldd	r24, Y+5	; 0x05
      340:	80 33       	cpi	r24, 0x30	; 48
-     342:	89 f0       	breq	.+34     	; 0x366 <_Z8decimel0m+0x64>
-     344:	1b c0       	rjmp	.+54     	; 0x37c <_Z8decimel0m+0x7a>
+     342:	89 f0       	breq	.+34     	; 0x366 <_Z11GB_decimel0m+0x64>
+     344:	1b c0       	rjmp	.+54     	; 0x37c <_Z11GB_decimel0m+0x7a>
      346:	a5 01       	movw	r20, r10
      348:	94 01       	movw	r18, r8
      34a:	0e 94 d7 0c 	call	0x19ae	; 0x19ae <__udivmodsi4>
@@ -369,19 +369,19 @@ Disassembly of section .text:
      35c:	95 2f       	mov	r25, r21
      35e:	ee 15       	cp	r30, r14
      360:	ff 05       	cpc	r31, r15
-     362:	89 f7       	brne	.-30     	; 0x346 <_Z8decimel0m+0x44>
-     364:	ec cf       	rjmp	.-40     	; 0x33e <_Z8decimel0m+0x3c>
+     362:	89 f7       	brne	.-30     	; 0x346 <_Z11GB_decimel0m+0x44>
+     364:	ec cf       	rjmp	.-40     	; 0x33e <_Z11GB_decimel0m+0x3c>
      366:	8c 81       	ldd	r24, Y+4	; 0x04
      368:	80 33       	cpi	r24, 0x30	; 48
-     36a:	b9 f4       	brne	.+46     	; 0x39a <_Z8decimel0m+0x98>
+     36a:	b9 f4       	brne	.+46     	; 0x39a <_Z11GB_decimel0m+0x98>
      36c:	8b 81       	ldd	r24, Y+3	; 0x03
      36e:	80 33       	cpi	r24, 0x30	; 48
-     370:	b1 f4       	brne	.+44     	; 0x39e <_Z8decimel0m+0x9c>
+     370:	b1 f4       	brne	.+44     	; 0x39e <_Z11GB_decimel0m+0x9c>
      372:	8a 81       	ldd	r24, Y+2	; 0x02
      374:	80 33       	cpi	r24, 0x30	; 48
-     376:	a9 f4       	brne	.+42     	; 0x3a2 <_Z8decimel0m+0xa0>
+     376:	a9 f4       	brne	.+42     	; 0x3a2 <_Z11GB_decimel0m+0xa0>
      378:	10 e0       	ldi	r17, 0x00	; 0
-     37a:	01 c0       	rjmp	.+2      	; 0x37e <_Z8decimel0m+0x7c>
+     37a:	01 c0       	rjmp	.+2      	; 0x37e <_Z11GB_decimel0m+0x7c>
      37c:	14 e0       	ldi	r17, 0x04	; 4
      37e:	e1 e0       	ldi	r30, 0x01	; 1
      380:	f0 e0       	ldi	r31, 0x00	; 0
@@ -393,16 +393,16 @@ Disassembly of section .text:
      38c:	fa 95       	dec	r31
      38e:	80 81       	ld	r24, Z
      390:	90 e0       	ldi	r25, 0x00	; 0
-     392:	a0 df       	rcall	.-192    	; 0x2d4 <_Z12UART_TxChar0j>
+     392:	a0 df       	rcall	.-192    	; 0x2d4 <_Z15GB_UART_TxChar0j>
      394:	11 50       	subi	r17, 0x01	; 1
-     396:	9a f7       	brpl	.-26     	; 0x37e <_Z8decimel0m+0x7c>
-     398:	06 c0       	rjmp	.+12     	; 0x3a6 <_Z8decimel0m+0xa4>
+     396:	9a f7       	brpl	.-26     	; 0x37e <_Z11GB_decimel0m+0x7c>
+     398:	06 c0       	rjmp	.+12     	; 0x3a6 <_Z11GB_decimel0m+0xa4>
      39a:	13 e0       	ldi	r17, 0x03	; 3
-     39c:	f0 cf       	rjmp	.-32     	; 0x37e <_Z8decimel0m+0x7c>
+     39c:	f0 cf       	rjmp	.-32     	; 0x37e <_Z11GB_decimel0m+0x7c>
      39e:	12 e0       	ldi	r17, 0x02	; 2
-     3a0:	ee cf       	rjmp	.-36     	; 0x37e <_Z8decimel0m+0x7c>
+     3a0:	ee cf       	rjmp	.-36     	; 0x37e <_Z11GB_decimel0m+0x7c>
      3a2:	11 e0       	ldi	r17, 0x01	; 1
-     3a4:	ec cf       	rjmp	.-40     	; 0x37e <_Z8decimel0m+0x7c>
+     3a4:	ec cf       	rjmp	.-40     	; 0x37e <_Z11GB_decimel0m+0x7c>
      3a6:	0f 90       	pop	r0
      3a8:	0f 90       	pop	r0
      3aa:	0f 90       	pop	r0
@@ -420,7 +420,7 @@ Disassembly of section .text:
      3c2:	8f 90       	pop	r8
      3c4:	08 95       	ret
 
-000003c6 <_Z10UART_Init1v>:
+000003c6 <_Z13GB_UART_Init1v>:
      3c6:	88 e0       	ldi	r24, 0x08	; 8
      3c8:	90 e0       	ldi	r25, 0x00	; 0
      3ca:	90 93 cd 00 	sts	0x00CD, r25	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7c00cd>
@@ -429,16 +429,16 @@ Disassembly of section .text:
      3d4:	80 93 c9 00 	sts	0x00C9, r24	; 0x8000c9 <__TEXT_REGION_LENGTH__+0x7c00c9>
      3d8:	08 95       	ret
 
-000003da <_Z12UART_TxChar1h>:
+000003da <_Z15GB_UART_TxChar1h>:
      3da:	e8 ec       	ldi	r30, 0xC8	; 200
      3dc:	f0 e0       	ldi	r31, 0x00	; 0
      3de:	90 81       	ld	r25, Z
      3e0:	95 ff       	sbrs	r25, 5
-     3e2:	fd cf       	rjmp	.-6      	; 0x3de <_Z12UART_TxChar1h+0x4>
+     3e2:	fd cf       	rjmp	.-6      	; 0x3de <_Z15GB_UART_TxChar1h+0x4>
      3e4:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7c00ce>
      3e8:	08 95       	ret
 
-000003ea <_Z12printString1PKc>:
+000003ea <_Z15GB_printString1PKc>:
      3ea:	cf 93       	push	r28
      3ec:	df 93       	push	r29
      3ee:	ec 01       	movw	r28, r24
@@ -446,15 +446,15 @@ Disassembly of section .text:
      3f2:	88 23       	and	r24, r24
      3f4:	29 f0       	breq	.+10     	; 0x400 <__LOCK_REGION_LENGTH__>
      3f6:	21 96       	adiw	r28, 0x01	; 1
-     3f8:	f0 df       	rcall	.-32     	; 0x3da <_Z12UART_TxChar1h>
+     3f8:	f0 df       	rcall	.-32     	; 0x3da <_Z15GB_UART_TxChar1h>
      3fa:	89 91       	ld	r24, Y+
      3fc:	81 11       	cpse	r24, r1
-     3fe:	fc cf       	rjmp	.-8      	; 0x3f8 <_Z12printString1PKc+0xe>
+     3fe:	fc cf       	rjmp	.-8      	; 0x3f8 <_Z15GB_printString1PKc+0xe>
      400:	df 91       	pop	r29
      402:	cf 91       	pop	r28
      404:	08 95       	ret
 
-00000406 <_Z10dht11_initv>:
+00000406 <_Z13GB_dht11_initv>:
      406:	85 b5       	in	r24, 0x25	; 37
      408:	82 60       	ori	r24, 0x02	; 2
      40a:	85 bd       	out	0x25, r24	; 37
@@ -475,8 +475,8 @@ Disassembly of section .text:
      428:	21 50       	subi	r18, 0x01	; 1
      42a:	80 40       	sbci	r24, 0x00	; 0
      42c:	90 40       	sbci	r25, 0x00	; 0
-     42e:	e1 f7       	brne	.-8      	; 0x428 <_Z10dht11_initv+0x22>
-     430:	00 c0       	rjmp	.+0      	; 0x432 <_Z10dht11_initv+0x2c>
+     42e:	e1 f7       	brne	.-8      	; 0x428 <_Z13GB_dht11_initv+0x22>
+     430:	00 c0       	rjmp	.+0      	; 0x432 <_Z13GB_dht11_initv+0x2c>
      432:	00 00       	nop
      434:	80 81       	ld	r24, Z
      436:	80 61       	ori	r24, 0x10	; 16
@@ -484,7 +484,7 @@ Disassembly of section .text:
      43a:	16 bc       	out	0x26, r1	; 38
      43c:	86 b5       	in	r24, 0x26	; 38
      43e:	81 35       	cpi	r24, 0x51	; 81
-     440:	e8 f3       	brcs	.-6      	; 0x43c <_Z10dht11_initv+0x36>
+     440:	e8 f3       	brcs	.-6      	; 0x43c <_Z13GB_dht11_initv+0x36>
      442:	e1 e0       	ldi	r30, 0x01	; 1
      444:	f1 e0       	ldi	r31, 0x01	; 1
      446:	80 81       	ld	r24, Z
@@ -492,21 +492,21 @@ Disassembly of section .text:
      44a:	80 83       	st	Z, r24
      44c:	08 95       	ret
 
-0000044e <_Z19dht11_find_responsev>:
+0000044e <_Z22GB_dht11_find_responsev>:
      44e:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__TEXT_REGION_LENGTH__+0x7c0100>
      452:	84 fd       	sbrc	r24, 4
-     454:	0d c0       	rjmp	.+26     	; 0x470 <_Z19dht11_find_responsev+0x22>
+     454:	0d c0       	rjmp	.+26     	; 0x470 <_Z22GB_dht11_find_responsev+0x22>
      456:	16 bc       	out	0x26, r1	; 38
      458:	86 b5       	in	r24, 0x26	; 38
      45a:	8b 3a       	cpi	r24, 0xAB	; 171
-     45c:	e8 f3       	brcs	.-6      	; 0x458 <_Z19dht11_find_responsev+0xa>
+     45c:	e8 f3       	brcs	.-6      	; 0x458 <_Z22GB_dht11_find_responsev+0xa>
      45e:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__TEXT_REGION_LENGTH__+0x7c0100>
      462:	84 ff       	sbrs	r24, 4
-     464:	08 c0       	rjmp	.+16     	; 0x476 <_Z19dht11_find_responsev+0x28>
+     464:	08 c0       	rjmp	.+16     	; 0x476 <_Z22GB_dht11_find_responsev+0x28>
      466:	16 bc       	out	0x26, r1	; 38
      468:	86 b5       	in	r24, 0x26	; 38
      46a:	8b 3a       	cpi	r24, 0xAB	; 171
-     46c:	e8 f3       	brcs	.-6      	; 0x468 <_Z19dht11_find_responsev+0x1a>
+     46c:	e8 f3       	brcs	.-6      	; 0x468 <_Z22GB_dht11_find_responsev+0x1a>
      46e:	08 95       	ret
      470:	81 e0       	ldi	r24, 0x01	; 1
      472:	90 e0       	ldi	r25, 0x00	; 0
@@ -515,7 +515,7 @@ Disassembly of section .text:
      478:	90 e0       	ldi	r25, 0x00	; 0
      47a:	08 95       	ret
 
-0000047c <_Z16dht11_receivedhtv>:
+0000047c <_Z19GB_dht11_receivedhtv>:
      47c:	0f 93       	push	r16
      47e:	1f 93       	push	r17
      480:	cf 93       	push	r28
@@ -538,96 +538,96 @@ Disassembly of section .text:
      4a2:	16 bc       	out	0x26, r1	; 38
      4a4:	80 81       	ld	r24, Z
      4a6:	84 fd       	sbrc	r24, 4
-     4a8:	0b c0       	rjmp	.+22     	; 0x4c0 <_Z16dht11_receivedhtv+0x44>
+     4a8:	0b c0       	rjmp	.+22     	; 0x4c0 <_Z19GB_dht11_receivedhtv+0x44>
      4aa:	86 b5       	in	r24, 0x26	; 38
      4ac:	88 37       	cpi	r24, 0x78	; 120
-     4ae:	d0 f3       	brcs	.-12     	; 0x4a4 <_Z16dht11_receivedhtv+0x28>
+     4ae:	d0 f3       	brcs	.-12     	; 0x4a4 <_Z19GB_dht11_receivedhtv+0x28>
      4b0:	66 b5       	in	r22, 0x26	; 38
      4b2:	70 e0       	ldi	r23, 0x00	; 0
      4b4:	80 e0       	ldi	r24, 0x00	; 0
      4b6:	90 e0       	ldi	r25, 0x00	; 0
-     4b8:	24 df       	rcall	.-440    	; 0x302 <_Z8decimel0m>
+     4b8:	24 df       	rcall	.-440    	; 0x302 <_Z11GB_decimel0m>
      4ba:	8c e0       	ldi	r24, 0x0C	; 12
      4bc:	90 e0       	ldi	r25, 0x00	; 0
-     4be:	63 c0       	rjmp	.+198    	; 0x586 <_Z16dht11_receivedhtv+0x10a>
+     4be:	63 c0       	rjmp	.+198    	; 0x586 <_Z19GB_dht11_receivedhtv+0x10a>
      4c0:	16 bc       	out	0x26, r1	; 38
      4c2:	80 81       	ld	r24, Z
      4c4:	84 ff       	sbrs	r24, 4
-     4c6:	0f c0       	rjmp	.+30     	; 0x4e6 <_Z16dht11_receivedhtv+0x6a>
+     4c6:	0f c0       	rjmp	.+30     	; 0x4e6 <_Z19GB_dht11_receivedhtv+0x6a>
      4c8:	86 b5       	in	r24, 0x26	; 38
      4ca:	8b 3a       	cpi	r24, 0xAB	; 171
-     4cc:	38 f0       	brcs	.+14     	; 0x4dc <_Z16dht11_receivedhtv+0x60>
+     4cc:	38 f0       	brcs	.+14     	; 0x4dc <_Z19GB_dht11_receivedhtv+0x60>
      4ce:	81 e0       	ldi	r24, 0x01	; 1
      4d0:	90 e0       	ldi	r25, 0x00	; 0
-     4d2:	59 c0       	rjmp	.+178    	; 0x586 <_Z16dht11_receivedhtv+0x10a>
+     4d2:	59 c0       	rjmp	.+178    	; 0x586 <_Z19GB_dht11_receivedhtv+0x10a>
      4d4:	86 b5       	in	r24, 0x26	; 38
      4d6:	8b 3a       	cpi	r24, 0xAB	; 171
-     4d8:	08 f0       	brcs	.+2      	; 0x4dc <_Z16dht11_receivedhtv+0x60>
-     4da:	4d c0       	rjmp	.+154    	; 0x576 <_Z16dht11_receivedhtv+0xfa>
+     4d8:	08 f0       	brcs	.+2      	; 0x4dc <_Z19GB_dht11_receivedhtv+0x60>
+     4da:	4d c0       	rjmp	.+154    	; 0x576 <_Z19GB_dht11_receivedhtv+0xfa>
      4dc:	86 b5       	in	r24, 0x26	; 38
      4de:	89 83       	std	Y+1, r24	; 0x01
      4e0:	80 81       	ld	r24, Z
      4e2:	84 fd       	sbrc	r24, 4
-     4e4:	f7 cf       	rjmp	.-18     	; 0x4d4 <_Z16dht11_receivedhtv+0x58>
+     4e4:	f7 cf       	rjmp	.-18     	; 0x4d4 <_Z19GB_dht11_receivedhtv+0x58>
      4e6:	19 81       	ldd	r17, Y+1	; 0x01
      4e8:	09 81       	ldd	r16, Y+1	; 0x01
      4ea:	89 2f       	mov	r24, r25
      4ec:	18 32       	cpi	r17, 0x28	; 40
-     4ee:	08 f4       	brcc	.+2      	; 0x4f2 <_Z16dht11_receivedhtv+0x76>
+     4ee:	08 f4       	brcc	.+2      	; 0x4f2 <_Z19GB_dht11_receivedhtv+0x76>
      4f0:	80 e0       	ldi	r24, 0x00	; 0
      4f2:	88 23       	and	r24, r24
-     4f4:	91 f0       	breq	.+36     	; 0x51a <_Z16dht11_receivedhtv+0x9e>
+     4f4:	91 f0       	breq	.+36     	; 0x51a <_Z19GB_dht11_receivedhtv+0x9e>
      4f6:	89 2f       	mov	r24, r25
      4f8:	07 34       	cpi	r16, 0x47	; 71
-     4fa:	08 f0       	brcs	.+2      	; 0x4fe <_Z16dht11_receivedhtv+0x82>
+     4fa:	08 f0       	brcs	.+2      	; 0x4fe <_Z19GB_dht11_receivedhtv+0x82>
      4fc:	80 e0       	ldi	r24, 0x00	; 0
      4fe:	88 23       	and	r24, r24
-     500:	61 f0       	breq	.+24     	; 0x51a <_Z16dht11_receivedhtv+0x9e>
+     500:	61 f0       	breq	.+24     	; 0x51a <_Z19GB_dht11_receivedhtv+0x9e>
      502:	8a 01       	movw	r16, r20
      504:	02 2e       	mov	r0, r18
-     506:	02 c0       	rjmp	.+4      	; 0x50c <_Z16dht11_receivedhtv+0x90>
+     506:	02 c0       	rjmp	.+4      	; 0x50c <_Z19GB_dht11_receivedhtv+0x90>
      508:	00 0f       	add	r16, r16
      50a:	11 1f       	adc	r17, r17
      50c:	0a 94       	dec	r0
-     50e:	e2 f7       	brpl	.-8      	; 0x508 <_Z16dht11_receivedhtv+0x8c>
+     50e:	e2 f7       	brpl	.-8      	; 0x508 <_Z19GB_dht11_receivedhtv+0x8c>
      510:	00 95       	com	r16
      512:	8c 91       	ld	r24, X
      514:	08 23       	and	r16, r24
      516:	0c 93       	st	X, r16
-     518:	18 c0       	rjmp	.+48     	; 0x54a <_Z16dht11_receivedhtv+0xce>
+     518:	18 c0       	rjmp	.+48     	; 0x54a <_Z19GB_dht11_receivedhtv+0xce>
      51a:	09 81       	ldd	r16, Y+1	; 0x01
      51c:	19 81       	ldd	r17, Y+1	; 0x01
      51e:	89 2f       	mov	r24, r25
      520:	08 37       	cpi	r16, 0x78	; 120
-     522:	08 f4       	brcc	.+2      	; 0x526 <_Z16dht11_receivedhtv+0xaa>
+     522:	08 f4       	brcc	.+2      	; 0x526 <_Z19GB_dht11_receivedhtv+0xaa>
      524:	80 e0       	ldi	r24, 0x00	; 0
      526:	88 23       	and	r24, r24
-     528:	49 f1       	breq	.+82     	; 0x57c <_Z16dht11_receivedhtv+0x100>
+     528:	49 f1       	breq	.+82     	; 0x57c <_Z19GB_dht11_receivedhtv+0x100>
      52a:	89 2f       	mov	r24, r25
      52c:	1b 3a       	cpi	r17, 0xAB	; 171
-     52e:	08 f0       	brcs	.+2      	; 0x532 <_Z16dht11_receivedhtv+0xb6>
+     52e:	08 f0       	brcs	.+2      	; 0x532 <_Z19GB_dht11_receivedhtv+0xb6>
      530:	80 e0       	ldi	r24, 0x00	; 0
      532:	88 23       	and	r24, r24
-     534:	19 f1       	breq	.+70     	; 0x57c <_Z16dht11_receivedhtv+0x100>
+     534:	19 f1       	breq	.+70     	; 0x57c <_Z19GB_dht11_receivedhtv+0x100>
      536:	8c 91       	ld	r24, X
      538:	8a 01       	movw	r16, r20
      53a:	02 2e       	mov	r0, r18
-     53c:	02 c0       	rjmp	.+4      	; 0x542 <_Z16dht11_receivedhtv+0xc6>
+     53c:	02 c0       	rjmp	.+4      	; 0x542 <_Z19GB_dht11_receivedhtv+0xc6>
      53e:	00 0f       	add	r16, r16
      540:	11 1f       	adc	r17, r17
      542:	0a 94       	dec	r0
-     544:	e2 f7       	brpl	.-8      	; 0x53e <_Z16dht11_receivedhtv+0xc2>
+     544:	e2 f7       	brpl	.-8      	; 0x53e <_Z19GB_dht11_receivedhtv+0xc2>
      546:	08 2b       	or	r16, r24
      548:	0c 93       	st	X, r16
      54a:	21 50       	subi	r18, 0x01	; 1
      54c:	31 09       	sbc	r19, r1
-     54e:	08 f0       	brcs	.+2      	; 0x552 <_Z16dht11_receivedhtv+0xd6>
-     550:	a8 cf       	rjmp	.-176    	; 0x4a2 <_Z16dht11_receivedhtv+0x26>
+     54e:	08 f0       	brcs	.+2      	; 0x552 <_Z19GB_dht11_receivedhtv+0xd6>
+     550:	a8 cf       	rjmp	.-176    	; 0x4a2 <_Z19GB_dht11_receivedhtv+0x26>
      552:	11 96       	adiw	r26, 0x01	; 1
      554:	6a 17       	cp	r22, r26
      556:	7b 07       	cpc	r23, r27
-     558:	09 f0       	breq	.+2      	; 0x55c <_Z16dht11_receivedhtv+0xe0>
-     55a:	a1 cf       	rjmp	.-190    	; 0x49e <_Z16dht11_receivedhtv+0x22>
+     558:	09 f0       	breq	.+2      	; 0x55c <_Z19GB_dht11_receivedhtv+0xe0>
+     55a:	a1 cf       	rjmp	.-190    	; 0x49e <_Z19GB_dht11_receivedhtv+0x22>
      55c:	ee ea       	ldi	r30, 0xAE	; 174
      55e:	f9 e0       	ldi	r31, 0x09	; 9
      560:	90 81       	ld	r25, Z
@@ -639,14 +639,14 @@ Disassembly of section .text:
      56c:	89 0f       	add	r24, r25
      56e:	94 81       	ldd	r25, Z+4	; 0x04
      570:	89 13       	cpse	r24, r25
-     572:	07 c0       	rjmp	.+14     	; 0x582 <_Z16dht11_receivedhtv+0x106>
-     574:	08 c0       	rjmp	.+16     	; 0x586 <_Z16dht11_receivedhtv+0x10a>
+     572:	07 c0       	rjmp	.+14     	; 0x582 <_Z19GB_dht11_receivedhtv+0x106>
+     574:	08 c0       	rjmp	.+16     	; 0x586 <_Z19GB_dht11_receivedhtv+0x10a>
      576:	81 e0       	ldi	r24, 0x01	; 1
      578:	90 e0       	ldi	r25, 0x00	; 0
-     57a:	05 c0       	rjmp	.+10     	; 0x586 <_Z16dht11_receivedhtv+0x10a>
+     57a:	05 c0       	rjmp	.+10     	; 0x586 <_Z19GB_dht11_receivedhtv+0x10a>
      57c:	82 e0       	ldi	r24, 0x02	; 2
      57e:	90 e0       	ldi	r25, 0x00	; 0
-     580:	02 c0       	rjmp	.+4      	; 0x586 <_Z16dht11_receivedhtv+0x10a>
+     580:	02 c0       	rjmp	.+4      	; 0x586 <_Z19GB_dht11_receivedhtv+0x10a>
      582:	83 e0       	ldi	r24, 0x03	; 3
      584:	90 e0       	ldi	r25, 0x00	; 0
      586:	0f 90       	pop	r0
@@ -656,13 +656,13 @@ Disassembly of section .text:
      58e:	0f 91       	pop	r16
      590:	08 95       	ret
 
-00000592 <_Z5dht11v>:
-     592:	39 df       	rcall	.-398    	; 0x406 <_Z10dht11_initv>
-     594:	5c df       	rcall	.-328    	; 0x44e <_Z19dht11_find_responsev>
-     596:	72 cf       	rjmp	.-284    	; 0x47c <_Z16dht11_receivedhtv>
+00000592 <_Z8GB_dht11v>:
+     592:	39 df       	rcall	.-398    	; 0x406 <_Z13GB_dht11_initv>
+     594:	5c df       	rcall	.-328    	; 0x44e <_Z22GB_dht11_find_responsev>
+     596:	72 cf       	rjmp	.-284    	; 0x47c <_Z19GB_dht11_receivedhtv>
      598:	08 95       	ret
 
-0000059a <_Z10dht11_tempv>:
+0000059a <_Z13GB_dht11_tempv>:
      59a:	cf 92       	push	r12
      59c:	df 92       	push	r13
      59e:	ef 92       	push	r14
@@ -701,29 +701,29 @@ Disassembly of section .text:
      5e0:	cf 90       	pop	r12
      5e2:	08 95       	ret
 
-000005e4 <_Z15TWI_init_masterv>:
+000005e4 <_Z18GB_TWI_init_masterv>:
      5e4:	88 e4       	ldi	r24, 0x48	; 72
      5e6:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__TEXT_REGION_LENGTH__+0x7c00b8>
      5ea:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7c00b9>
      5ee:	08 95       	ret
 
-000005f0 <_Z9TWI_startv>:
+000005f0 <_Z12GB_TWI_startv>:
      5f0:	84 ea       	ldi	r24, 0xA4	; 164
      5f2:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
      5f6:	ec eb       	ldi	r30, 0xBC	; 188
      5f8:	f0 e0       	ldi	r31, 0x00	; 0
      5fa:	80 81       	ld	r24, Z
      5fc:	88 23       	and	r24, r24
-     5fe:	ec f7       	brge	.-6      	; 0x5fa <_Z9TWI_startv+0xa>
+     5fe:	ec f7       	brge	.-6      	; 0x5fa <_Z12GB_TWI_startv+0xa>
      600:	e9 eb       	ldi	r30, 0xB9	; 185
      602:	f0 e0       	ldi	r31, 0x00	; 0
      604:	80 81       	ld	r24, Z
      606:	88 7f       	andi	r24, 0xF8	; 248
      608:	88 30       	cpi	r24, 0x08	; 8
-     60a:	e1 f7       	brne	.-8      	; 0x604 <_Z9TWI_startv+0x14>
+     60a:	e1 f7       	brne	.-8      	; 0x604 <_Z12GB_TWI_startv+0x14>
      60c:	08 95       	ret
 
-0000060e <_Z23TWI_write_slave_addressh>:
+0000060e <_Z26GB_TWI_write_slave_addressh>:
      60e:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7c00bb>
      612:	84 e8       	ldi	r24, 0x84	; 132
      614:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
@@ -731,16 +731,16 @@ Disassembly of section .text:
      61a:	f0 e0       	ldi	r31, 0x00	; 0
      61c:	80 81       	ld	r24, Z
      61e:	88 23       	and	r24, r24
-     620:	ec f7       	brge	.-6      	; 0x61c <_Z23TWI_write_slave_addressh+0xe>
+     620:	ec f7       	brge	.-6      	; 0x61c <_Z26GB_TWI_write_slave_addressh+0xe>
      622:	e9 eb       	ldi	r30, 0xB9	; 185
      624:	f0 e0       	ldi	r31, 0x00	; 0
      626:	80 81       	ld	r24, Z
      628:	88 7f       	andi	r24, 0xF8	; 248
      62a:	88 31       	cpi	r24, 0x18	; 24
-     62c:	e1 f7       	brne	.-8      	; 0x626 <_Z23TWI_write_slave_addressh+0x18>
+     62c:	e1 f7       	brne	.-8      	; 0x626 <_Z26GB_TWI_write_slave_addressh+0x18>
      62e:	08 95       	ret
 
-00000630 <_Z14TWI_write_datah>:
+00000630 <_Z17GB_TWI_write_datah>:
      630:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7c00bb>
      634:	84 e8       	ldi	r24, 0x84	; 132
      636:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
@@ -748,180 +748,180 @@ Disassembly of section .text:
      63c:	f0 e0       	ldi	r31, 0x00	; 0
      63e:	80 81       	ld	r24, Z
      640:	88 23       	and	r24, r24
-     642:	ec f7       	brge	.-6      	; 0x63e <_Z14TWI_write_datah+0xe>
+     642:	ec f7       	brge	.-6      	; 0x63e <_Z17GB_TWI_write_datah+0xe>
      644:	e9 eb       	ldi	r30, 0xB9	; 185
      646:	f0 e0       	ldi	r31, 0x00	; 0
      648:	80 81       	ld	r24, Z
      64a:	88 7f       	andi	r24, 0xF8	; 248
      64c:	88 32       	cpi	r24, 0x28	; 40
-     64e:	e1 f7       	brne	.-8      	; 0x648 <_Z14TWI_write_datah+0x18>
+     64e:	e1 f7       	brne	.-8      	; 0x648 <_Z17GB_TWI_write_datah+0x18>
      650:	08 95       	ret
 
-00000652 <_Z8TWI_stopv>:
+00000652 <_Z11GB_TWI_stopv>:
      652:	84 e9       	ldi	r24, 0x94	; 148
      654:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
      658:	ec eb       	ldi	r30, 0xBC	; 188
      65a:	f0 e0       	ldi	r31, 0x00	; 0
      65c:	80 81       	ld	r24, Z
      65e:	84 fd       	sbrc	r24, 4
-     660:	fd cf       	rjmp	.-6      	; 0x65c <_Z8TWI_stopv+0xa>
+     660:	fd cf       	rjmp	.-6      	; 0x65c <_Z11GB_TWI_stopv+0xa>
      662:	08 95       	ret
 
-00000664 <_Z13lcd_ioexanderh>:
+00000664 <_Z16GB_lcd_ioexanderh>:
      664:	cf 93       	push	r28
      666:	c8 2f       	mov	r28, r24
-     668:	c3 df       	rcall	.-122    	; 0x5f0 <_Z9TWI_startv>
+     668:	c3 df       	rcall	.-122    	; 0x5f0 <_Z12GB_TWI_startv>
      66a:	8e e7       	ldi	r24, 0x7E	; 126
-     66c:	d0 df       	rcall	.-96     	; 0x60e <_Z23TWI_write_slave_addressh>
+     66c:	d0 df       	rcall	.-96     	; 0x60e <_Z26GB_TWI_write_slave_addressh>
      66e:	8c 2f       	mov	r24, r28
      670:	88 60       	ori	r24, 0x08	; 8
-     672:	de df       	rcall	.-68     	; 0x630 <_Z14TWI_write_datah>
-     674:	ee df       	rcall	.-36     	; 0x652 <_Z8TWI_stopv>
+     672:	de df       	rcall	.-68     	; 0x630 <_Z17GB_TWI_write_datah>
+     674:	ee df       	rcall	.-36     	; 0x652 <_Z11GB_TWI_stopv>
      676:	cf 91       	pop	r28
      678:	08 95       	ret
 
-0000067a <_Z13lcd_write4bith>:
+0000067a <_Z16GB_lcd_write4bith>:
      67a:	cf 93       	push	r28
-     67c:	c0 91 00 02 	lds	r28, 0x0200	; 0x800200 <Rs>
-     680:	90 91 ad 09 	lds	r25, 0x09AD	; 0x8009ad <Rw>
+     67c:	c0 91 00 02 	lds	r28, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
+     680:	90 91 ad 09 	lds	r25, 0x09AD	; 0x8009ad <gb_LCD_Rw>
      684:	c9 2b       	or	r28, r25
      686:	c8 2b       	or	r28, r24
      688:	8c 2f       	mov	r24, r28
      68a:	84 60       	ori	r24, 0x04	; 4
-     68c:	eb df       	rcall	.-42     	; 0x664 <_Z13lcd_ioexanderh>
+     68c:	eb df       	rcall	.-42     	; 0x664 <_Z16GB_lcd_ioexanderh>
      68e:	8c 2f       	mov	r24, r28
      690:	8b 7f       	andi	r24, 0xFB	; 251
-     692:	e8 df       	rcall	.-48     	; 0x664 <_Z13lcd_ioexanderh>
+     692:	e8 df       	rcall	.-48     	; 0x664 <_Z16GB_lcd_ioexanderh>
      694:	2f ef       	ldi	r18, 0xFF	; 255
      696:	80 e7       	ldi	r24, 0x70	; 112
      698:	92 e0       	ldi	r25, 0x02	; 2
      69a:	21 50       	subi	r18, 0x01	; 1
      69c:	80 40       	sbci	r24, 0x00	; 0
      69e:	90 40       	sbci	r25, 0x00	; 0
-     6a0:	e1 f7       	brne	.-8      	; 0x69a <_Z13lcd_write4bith+0x20>
-     6a2:	00 c0       	rjmp	.+0      	; 0x6a4 <_Z13lcd_write4bith+0x2a>
+     6a0:	e1 f7       	brne	.-8      	; 0x69a <_Z16GB_lcd_write4bith+0x20>
+     6a2:	00 c0       	rjmp	.+0      	; 0x6a4 <_Z16GB_lcd_write4bith+0x2a>
      6a4:	00 00       	nop
      6a6:	cf 91       	pop	r28
      6a8:	08 95       	ret
 
-000006aa <_Z11LCD_commandh>:
+000006aa <_Z14GB_LCD_commandh>:
      6aa:	cf 93       	push	r28
      6ac:	c8 2f       	mov	r28, r24
-     6ae:	10 92 00 02 	sts	0x0200, r1	; 0x800200 <Rs>
-     6b2:	10 92 ad 09 	sts	0x09AD, r1	; 0x8009ad <Rw>
+     6ae:	10 92 00 02 	sts	0x0200, r1	; 0x800200 <__DATA_REGION_ORIGIN__>
+     6b2:	10 92 ad 09 	sts	0x09AD, r1	; 0x8009ad <gb_LCD_Rw>
      6b6:	80 7f       	andi	r24, 0xF0	; 240
-     6b8:	e0 df       	rcall	.-64     	; 0x67a <_Z13lcd_write4bith>
+     6b8:	e0 df       	rcall	.-64     	; 0x67a <_Z16GB_lcd_write4bith>
      6ba:	8c 2f       	mov	r24, r28
      6bc:	82 95       	swap	r24
      6be:	80 7f       	andi	r24, 0xF0	; 240
-     6c0:	dc df       	rcall	.-72     	; 0x67a <_Z13lcd_write4bith>
+     6c0:	dc df       	rcall	.-72     	; 0x67a <_Z16GB_lcd_write4bith>
      6c2:	cf 91       	pop	r28
      6c4:	08 95       	ret
 
-000006c6 <_Z9lcd_clearv>:
+000006c6 <_Z12GB_lcd_clearv>:
      6c6:	81 e0       	ldi	r24, 0x01	; 1
-     6c8:	f0 df       	rcall	.-32     	; 0x6aa <_Z11LCD_commandh>
+     6c8:	f0 df       	rcall	.-32     	; 0x6aa <_Z14GB_LCD_commandh>
      6ca:	2f ef       	ldi	r18, 0xFF	; 255
      6cc:	89 ef       	ldi	r24, 0xF9	; 249
      6ce:	90 e0       	ldi	r25, 0x00	; 0
      6d0:	21 50       	subi	r18, 0x01	; 1
      6d2:	80 40       	sbci	r24, 0x00	; 0
      6d4:	90 40       	sbci	r25, 0x00	; 0
-     6d6:	e1 f7       	brne	.-8      	; 0x6d0 <_Z9lcd_clearv+0xa>
-     6d8:	00 c0       	rjmp	.+0      	; 0x6da <_Z9lcd_clearv+0x14>
+     6d6:	e1 f7       	brne	.-8      	; 0x6d0 <_Z12GB_lcd_clearv+0xa>
+     6d8:	00 c0       	rjmp	.+0      	; 0x6da <_Z12GB_lcd_clearv+0x14>
      6da:	00 00       	nop
      6dc:	08 95       	ret
 
-000006de <_Z8LCD_datah>:
+000006de <_Z11GB_LCD_datah>:
      6de:	cf 93       	push	r28
      6e0:	c8 2f       	mov	r28, r24
      6e2:	81 e0       	ldi	r24, 0x01	; 1
-     6e4:	80 93 00 02 	sts	0x0200, r24	; 0x800200 <Rs>
-     6e8:	10 92 ad 09 	sts	0x09AD, r1	; 0x8009ad <Rw>
+     6e4:	80 93 00 02 	sts	0x0200, r24	; 0x800200 <__DATA_REGION_ORIGIN__>
+     6e8:	10 92 ad 09 	sts	0x09AD, r1	; 0x8009ad <gb_LCD_Rw>
      6ec:	8c 2f       	mov	r24, r28
      6ee:	80 7f       	andi	r24, 0xF0	; 240
-     6f0:	c4 df       	rcall	.-120    	; 0x67a <_Z13lcd_write4bith>
+     6f0:	c4 df       	rcall	.-120    	; 0x67a <_Z16GB_lcd_write4bith>
      6f2:	8c 2f       	mov	r24, r28
      6f4:	82 95       	swap	r24
      6f6:	80 7f       	andi	r24, 0xF0	; 240
-     6f8:	c0 df       	rcall	.-128    	; 0x67a <_Z13lcd_write4bith>
+     6f8:	c0 df       	rcall	.-128    	; 0x67a <_Z16GB_lcd_write4bith>
      6fa:	cf 91       	pop	r28
      6fc:	08 95       	ret
 
-000006fe <_Z10LCD_stringPKc>:
+000006fe <_Z13GB_LCD_stringPKc>:
      6fe:	cf 93       	push	r28
      700:	df 93       	push	r29
      702:	ec 01       	movw	r28, r24
      704:	88 81       	ld	r24, Y
      706:	88 23       	and	r24, r24
-     708:	41 f0       	breq	.+16     	; 0x71a <_Z10LCD_stringPKc+0x1c>
+     708:	41 f0       	breq	.+16     	; 0x71a <_Z13GB_LCD_stringPKc+0x1c>
      70a:	21 96       	adiw	r28, 0x01	; 1
-     70c:	e8 df       	rcall	.-48     	; 0x6de <_Z8LCD_datah>
+     70c:	e8 df       	rcall	.-48     	; 0x6de <_Z11GB_LCD_datah>
      70e:	80 ef       	ldi	r24, 0xF0	; 240
      710:	8a 95       	dec	r24
-     712:	f1 f7       	brne	.-4      	; 0x710 <_Z10LCD_stringPKc+0x12>
+     712:	f1 f7       	brne	.-4      	; 0x710 <_Z13GB_LCD_stringPKc+0x12>
      714:	89 91       	ld	r24, Y+
      716:	81 11       	cpse	r24, r1
-     718:	f9 cf       	rjmp	.-14     	; 0x70c <_Z10LCD_stringPKc+0xe>
+     718:	f9 cf       	rjmp	.-14     	; 0x70c <_Z13GB_LCD_stringPKc+0xe>
      71a:	df 91       	pop	r29
      71c:	cf 91       	pop	r28
      71e:	08 95       	ret
 
-00000720 <_Z8LCD_initv>:
-     720:	61 df       	rcall	.-318    	; 0x5e4 <_Z15TWI_init_masterv>
+00000720 <_Z11GB_LCD_initv>:
+     720:	61 df       	rcall	.-318    	; 0x5e4 <_Z18GB_TWI_init_masterv>
      722:	8f e8       	ldi	r24, 0x8F	; 143
      724:	91 e0       	ldi	r25, 0x01	; 1
      726:	01 97       	sbiw	r24, 0x01	; 1
-     728:	f1 f7       	brne	.-4      	; 0x726 <_Z8LCD_initv+0x6>
-     72a:	00 c0       	rjmp	.+0      	; 0x72c <_Z8LCD_initv+0xc>
+     728:	f1 f7       	brne	.-4      	; 0x726 <_Z11GB_LCD_initv+0x6>
+     72a:	00 c0       	rjmp	.+0      	; 0x72c <_Z11GB_LCD_initv+0xc>
      72c:	00 00       	nop
      72e:	80 e0       	ldi	r24, 0x00	; 0
-     730:	99 df       	rcall	.-206    	; 0x664 <_Z13lcd_ioexanderh>
+     730:	99 df       	rcall	.-206    	; 0x664 <_Z16GB_lcd_ioexanderh>
      732:	9f e7       	ldi	r25, 0x7F	; 127
      734:	28 e3       	ldi	r18, 0x38	; 56
      736:	81 e0       	ldi	r24, 0x01	; 1
      738:	91 50       	subi	r25, 0x01	; 1
      73a:	20 40       	sbci	r18, 0x00	; 0
      73c:	80 40       	sbci	r24, 0x00	; 0
-     73e:	e1 f7       	brne	.-8      	; 0x738 <_Z8LCD_initv+0x18>
-     740:	00 c0       	rjmp	.+0      	; 0x742 <_Z8LCD_initv+0x22>
+     73e:	e1 f7       	brne	.-8      	; 0x738 <_Z11GB_LCD_initv+0x18>
+     740:	00 c0       	rjmp	.+0      	; 0x742 <_Z11GB_LCD_initv+0x22>
      742:	00 00       	nop
      744:	88 e2       	ldi	r24, 0x28	; 40
-     746:	b1 df       	rcall	.-158    	; 0x6aa <_Z11LCD_commandh>
+     746:	b1 df       	rcall	.-158    	; 0x6aa <_Z14GB_LCD_commandh>
      748:	8f e1       	ldi	r24, 0x1F	; 31
      74a:	9e e4       	ldi	r25, 0x4E	; 78
      74c:	01 97       	sbiw	r24, 0x01	; 1
-     74e:	f1 f7       	brne	.-4      	; 0x74c <_Z8LCD_initv+0x2c>
-     750:	00 c0       	rjmp	.+0      	; 0x752 <_Z8LCD_initv+0x32>
+     74e:	f1 f7       	brne	.-4      	; 0x74c <_Z11GB_LCD_initv+0x2c>
+     750:	00 c0       	rjmp	.+0      	; 0x752 <_Z11GB_LCD_initv+0x32>
      752:	00 00       	nop
      754:	88 e2       	ldi	r24, 0x28	; 40
-     756:	a9 df       	rcall	.-174    	; 0x6aa <_Z11LCD_commandh>
+     756:	a9 df       	rcall	.-174    	; 0x6aa <_Z14GB_LCD_commandh>
      758:	8f e7       	ldi	r24, 0x7F	; 127
      75a:	92 e0       	ldi	r25, 0x02	; 2
      75c:	01 97       	sbiw	r24, 0x01	; 1
-     75e:	f1 f7       	brne	.-4      	; 0x75c <_Z8LCD_initv+0x3c>
-     760:	00 c0       	rjmp	.+0      	; 0x762 <_Z8LCD_initv+0x42>
+     75e:	f1 f7       	brne	.-4      	; 0x75c <_Z11GB_LCD_initv+0x3c>
+     760:	00 c0       	rjmp	.+0      	; 0x762 <_Z11GB_LCD_initv+0x42>
      762:	00 00       	nop
      764:	88 e2       	ldi	r24, 0x28	; 40
-     766:	a1 df       	rcall	.-190    	; 0x6aa <_Z11LCD_commandh>
+     766:	a1 df       	rcall	.-190    	; 0x6aa <_Z14GB_LCD_commandh>
      768:	88 e2       	ldi	r24, 0x28	; 40
-     76a:	9f df       	rcall	.-194    	; 0x6aa <_Z11LCD_commandh>
+     76a:	9f df       	rcall	.-194    	; 0x6aa <_Z14GB_LCD_commandh>
      76c:	90 ef       	ldi	r25, 0xF0	; 240
      76e:	9a 95       	dec	r25
-     770:	f1 f7       	brne	.-4      	; 0x76e <_Z8LCD_initv+0x4e>
+     770:	f1 f7       	brne	.-4      	; 0x76e <_Z11GB_LCD_initv+0x4e>
      772:	8c e0       	ldi	r24, 0x0C	; 12
-     774:	9a df       	rcall	.-204    	; 0x6aa <_Z11LCD_commandh>
+     774:	9a df       	rcall	.-204    	; 0x6aa <_Z14GB_LCD_commandh>
      776:	8f e9       	ldi	r24, 0x9F	; 159
      778:	9f e0       	ldi	r25, 0x0F	; 15
      77a:	01 97       	sbiw	r24, 0x01	; 1
-     77c:	f1 f7       	brne	.-4      	; 0x77a <_Z8LCD_initv+0x5a>
-     77e:	00 c0       	rjmp	.+0      	; 0x780 <_Z8LCD_initv+0x60>
+     77c:	f1 f7       	brne	.-4      	; 0x77a <_Z11GB_LCD_initv+0x5a>
+     77e:	00 c0       	rjmp	.+0      	; 0x780 <_Z11GB_LCD_initv+0x60>
      780:	00 00       	nop
      782:	84 e0       	ldi	r24, 0x04	; 4
-     784:	92 df       	rcall	.-220    	; 0x6aa <_Z11LCD_commandh>
+     784:	92 df       	rcall	.-220    	; 0x6aa <_Z14GB_LCD_commandh>
      786:	95 ed       	ldi	r25, 0xD5	; 213
      788:	9a 95       	dec	r25
-     78a:	f1 f7       	brne	.-4      	; 0x788 <_Z8LCD_initv+0x68>
+     78a:	f1 f7       	brne	.-4      	; 0x788 <_Z11GB_LCD_initv+0x68>
      78c:	00 00       	nop
      78e:	08 95       	ret
 
@@ -949,8 +949,8 @@ Disassembly of section .text:
      7b8:	c0 91 c6 00 	lds	r28, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
      7bc:	8c 2f       	mov	r24, r28
      7be:	90 e0       	ldi	r25, 0x00	; 0
-     7c0:	89 dd       	rcall	.-1262   	; 0x2d4 <_Z12UART_TxChar0j>
-     7c2:	80 91 27 09 	lds	r24, 0x0927	; 0x800927 <RX_Wr_Index_UART0>
+     7c0:	89 dd       	rcall	.-1262   	; 0x2d4 <_Z15GB_UART_TxChar0j>
+     7c2:	80 91 27 09 	lds	r24, 0x0927	; 0x800927 <gb_RX_Wr_Index_UART0>
      7c6:	e8 2f       	mov	r30, r24
      7c8:	f0 e0       	ldi	r31, 0x00	; 0
      7ca:	e8 5d       	subi	r30, 0xD8	; 216
@@ -959,19 +959,19 @@ Disassembly of section .text:
      7d0:	8f 5f       	subi	r24, 0xFF	; 255
      7d2:	81 32       	cpi	r24, 0x21	; 33
      7d4:	18 f4       	brcc	.+6      	; 0x7dc <__vector_25+0x4c>
-     7d6:	80 93 27 09 	sts	0x0927, r24	; 0x800927 <RX_Wr_Index_UART0>
+     7d6:	80 93 27 09 	sts	0x0927, r24	; 0x800927 <gb_RX_Wr_Index_UART0>
      7da:	02 c0       	rjmp	.+4      	; 0x7e0 <__vector_25+0x50>
-     7dc:	10 92 27 09 	sts	0x0927, r1	; 0x800927 <RX_Wr_Index_UART0>
-     7e0:	80 91 26 09 	lds	r24, 0x0926	; 0x800926 <RX_Counter_UART0>
+     7dc:	10 92 27 09 	sts	0x0927, r1	; 0x800927 <gb_RX_Wr_Index_UART0>
+     7e0:	80 91 26 09 	lds	r24, 0x0926	; 0x800926 <gb_RX_Counter_UART0>
      7e4:	8f 5f       	subi	r24, 0xFF	; 255
      7e6:	81 32       	cpi	r24, 0x21	; 33
      7e8:	18 f4       	brcc	.+6      	; 0x7f0 <__vector_25+0x60>
-     7ea:	80 93 26 09 	sts	0x0926, r24	; 0x800926 <RX_Counter_UART0>
+     7ea:	80 93 26 09 	sts	0x0926, r24	; 0x800926 <gb_RX_Counter_UART0>
      7ee:	06 c0       	rjmp	.+12     	; 0x7fc <__vector_25+0x6c>
      7f0:	80 e2       	ldi	r24, 0x20	; 32
-     7f2:	80 93 26 09 	sts	0x0926, r24	; 0x800926 <RX_Counter_UART0>
+     7f2:	80 93 26 09 	sts	0x0926, r24	; 0x800926 <gb_RX_Counter_UART0>
      7f6:	81 e0       	ldi	r24, 0x01	; 1
-     7f8:	80 93 25 09 	sts	0x0925, r24	; 0x800925 <RX_Buffer_Overflow_UART0>
+     7f8:	80 93 25 09 	sts	0x0925, r24	; 0x800925 <gb_RX_Buffer_Overflow_UART0>
      7fc:	ff 91       	pop	r31
      7fe:	ef 91       	pop	r30
      800:	cf 91       	pop	r28
@@ -1006,19 +1006,19 @@ Disassembly of section .text:
      836:	ef 93       	push	r30
      838:	ff 93       	push	r31
      83a:	90 91 ce 00 	lds	r25, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7c00ce>
-     83e:	90 93 21 08 	sts	0x0821, r25	; 0x800821 <rx_byte>
-     842:	80 91 25 08 	lds	r24, 0x0825	; 0x800825 <RX_Wr_Index_UART1>
+     83e:	90 93 21 08 	sts	0x0821, r25	; 0x800821 <gb_rx_byte>
+     842:	80 91 25 08 	lds	r24, 0x0825	; 0x800825 <gb_RX_Wr_Index_UART1>
      846:	e8 2f       	mov	r30, r24
      848:	f0 e0       	ldi	r31, 0x00	; 0
      84a:	ea 5d       	subi	r30, 0xDA	; 218
      84c:	f7 4f       	sbci	r31, 0xF7	; 247
      84e:	90 83       	st	Z, r25
      850:	8f 5f       	subi	r24, 0xFF	; 255
-     852:	80 93 25 08 	sts	0x0825, r24	; 0x800825 <RX_Wr_Index_UART1>
-     856:	80 91 23 08 	lds	r24, 0x0823	; 0x800823 <RX_Counter_UART1>
+     852:	80 93 25 08 	sts	0x0825, r24	; 0x800825 <gb_RX_Wr_Index_UART1>
+     856:	80 91 23 08 	lds	r24, 0x0823	; 0x800823 <gb_RX_Counter_UART1>
      85a:	8f 5f       	subi	r24, 0xFF	; 255
-     85c:	80 93 23 08 	sts	0x0823, r24	; 0x800823 <RX_Counter_UART1>
-     860:	80 93 22 08 	sts	0x0822, r24	; 0x800822 <RX_No_of_byte_UART1>
+     85c:	80 93 23 08 	sts	0x0823, r24	; 0x800823 <gb_RX_Counter_UART1>
+     860:	80 93 22 08 	sts	0x0822, r24	; 0x800822 <gb_RX_No_of_byte_UART1>
      864:	ff 91       	pop	r31
      866:	ef 91       	pop	r30
      868:	9f 91       	pop	r25
@@ -1031,34 +1031,34 @@ Disassembly of section .text:
      876:	1f 90       	pop	r1
      878:	18 95       	reti
 
-0000087a <_Z13getchar_UART1v>:
-     87a:	90 91 24 08 	lds	r25, 0x0824	; 0x800824 <RX_Rd_Index_UART1>
+0000087a <_Z16GB_getchar_UART1v>:
+     87a:	90 91 24 08 	lds	r25, 0x0824	; 0x800824 <gb_RX_Rd_Index_UART1>
      87e:	e9 2f       	mov	r30, r25
      880:	f0 e0       	ldi	r31, 0x00	; 0
      882:	ea 5d       	subi	r30, 0xDA	; 218
      884:	f7 4f       	sbci	r31, 0xF7	; 247
      886:	80 81       	ld	r24, Z
      888:	9f 5f       	subi	r25, 0xFF	; 255
-     88a:	90 93 24 08 	sts	0x0824, r25	; 0x800824 <RX_Rd_Index_UART1>
-     88e:	90 91 23 08 	lds	r25, 0x0823	; 0x800823 <RX_Counter_UART1>
+     88a:	90 93 24 08 	sts	0x0824, r25	; 0x800824 <gb_RX_Rd_Index_UART1>
+     88e:	90 91 23 08 	lds	r25, 0x0823	; 0x800823 <gb_RX_Counter_UART1>
      892:	99 23       	and	r25, r25
-     894:	19 f0       	breq	.+6      	; 0x89c <_Z13getchar_UART1v+0x22>
+     894:	19 f0       	breq	.+6      	; 0x89c <_Z16GB_getchar_UART1v+0x22>
      896:	91 50       	subi	r25, 0x01	; 1
-     898:	90 93 23 08 	sts	0x0823, r25	; 0x800823 <RX_Counter_UART1>
+     898:	90 93 23 08 	sts	0x0823, r25	; 0x800823 <gb_RX_Counter_UART1>
      89c:	08 95       	ret
 
-0000089e <_Z13search_bufferPKc>:
+0000089e <_Z16GB_search_bufferPKc>:
      89e:	e2 e2       	ldi	r30, 0x22	; 34
      8a0:	f7 e0       	ldi	r31, 0x07	; 7
      8a2:	01 90       	ld	r0, Z+
      8a4:	00 20       	and	r0, r0
-     8a6:	e9 f7       	brne	.-6      	; 0x8a2 <_Z13search_bufferPKc+0x4>
+     8a6:	e9 f7       	brne	.-6      	; 0x8a2 <_Z16GB_search_bufferPKc+0x4>
      8a8:	31 97       	sbiw	r30, 0x01	; 1
      8aa:	e2 52       	subi	r30, 0x22	; 34
      8ac:	f7 40       	sbci	r31, 0x07	; 7
      8ae:	ef 3f       	cpi	r30, 0xFF	; 255
      8b0:	f1 05       	cpc	r31, r1
-     8b2:	34 f4       	brge	.+12     	; 0x8c0 <_Z13search_bufferPKc+0x22>
+     8b2:	34 f4       	brge	.+12     	; 0x8c0 <_Z16GB_search_bufferPKc+0x22>
      8b4:	bc 01       	movw	r22, r24
      8b6:	82 e2       	ldi	r24, 0x22	; 34
      8b8:	97 e0       	ldi	r25, 0x07	; 7
@@ -1067,7 +1067,7 @@ Disassembly of section .text:
      8c0:	c9 01       	movw	r24, r18
      8c2:	08 95       	ret
 
-000008c4 <_Z9RFR_UART1PKcj>:
+000008c4 <_Z12GB_RFR_UART1PKcj>:
      8c4:	8f 92       	push	r8
      8c6:	9f 92       	push	r9
      8c8:	af 92       	push	r10
@@ -1081,7 +1081,7 @@ Disassembly of section .text:
      8d8:	df 93       	push	r29
      8da:	ec 01       	movw	r28, r24
      8dc:	6b 01       	movw	r12, r22
-     8de:	e0 dc       	rcall	.-1600   	; 0x2a0 <_Z6millisv>
+     8de:	e0 dc       	rcall	.-1600   	; 0x2a0 <_Z9GB_millisv>
      8e0:	4b 01       	movw	r8, r22
      8e2:	5c 01       	movw	r10, r24
      8e4:	8f ef       	ldi	r24, 0xFF	; 255
@@ -1090,11 +1090,11 @@ Disassembly of section .text:
      8ea:	df 01       	movw	r26, r30
      8ec:	1d 92       	st	X+, r1
      8ee:	8a 95       	dec	r24
-     8f0:	e9 f7       	brne	.-6      	; 0x8ec <_Z9RFR_UART1PKcj+0x28>
+     8f0:	e9 f7       	brne	.-6      	; 0x8ec <_Z12GB_RFR_UART1PKcj+0x28>
      8f2:	10 e0       	ldi	r17, 0x00	; 0
      8f4:	e1 2c       	mov	r14, r1
      8f6:	f1 2c       	mov	r15, r1
-     8f8:	d3 dc       	rcall	.-1626   	; 0x2a0 <_Z6millisv>
+     8f8:	d3 dc       	rcall	.-1626   	; 0x2a0 <_Z9GB_millisv>
      8fa:	dc 01       	movw	r26, r24
      8fc:	cb 01       	movw	r24, r22
      8fe:	88 19       	sub	r24, r8
@@ -1105,11 +1105,11 @@ Disassembly of section .text:
      908:	9d 05       	cpc	r25, r13
      90a:	ae 05       	cpc	r26, r14
      90c:	bf 05       	cpc	r27, r15
-     90e:	80 f4       	brcc	.+32     	; 0x930 <_Z9RFR_UART1PKcj+0x6c>
-     910:	80 91 23 08 	lds	r24, 0x0823	; 0x800823 <RX_Counter_UART1>
+     90e:	80 f4       	brcc	.+32     	; 0x930 <_Z12GB_RFR_UART1PKcj+0x6c>
+     910:	80 91 23 08 	lds	r24, 0x0823	; 0x800823 <gb_RX_Counter_UART1>
      914:	88 23       	and	r24, r24
-     916:	81 f3       	breq	.-32     	; 0x8f8 <_Z9RFR_UART1PKcj+0x34>
-     918:	b0 df       	rcall	.-160    	; 0x87a <_Z13getchar_UART1v>
+     916:	81 f3       	breq	.-32     	; 0x8f8 <_Z12GB_RFR_UART1PKcj+0x34>
+     918:	b0 df       	rcall	.-160    	; 0x87a <_Z16GB_getchar_UART1v>
      91a:	e1 2f       	mov	r30, r17
      91c:	f0 e0       	ldi	r31, 0x00	; 0
      91e:	ee 5d       	subi	r30, 0xDE	; 222
@@ -1117,18 +1117,18 @@ Disassembly of section .text:
      922:	80 83       	st	Z, r24
      924:	1f 5f       	subi	r17, 0xFF	; 255
      926:	ce 01       	movw	r24, r28
-     928:	ba df       	rcall	.-140    	; 0x89e <_Z13search_bufferPKc>
+     928:	ba df       	rcall	.-140    	; 0x89e <_Z16GB_search_bufferPKc>
      92a:	89 2b       	or	r24, r25
-     92c:	29 f3       	breq	.-54     	; 0x8f8 <_Z9RFR_UART1PKcj+0x34>
-     92e:	05 c0       	rjmp	.+10     	; 0x93a <_Z9RFR_UART1PKcj+0x76>
+     92c:	29 f3       	breq	.-54     	; 0x8f8 <_Z12GB_RFR_UART1PKcj+0x34>
+     92e:	05 c0       	rjmp	.+10     	; 0x93a <_Z12GB_RFR_UART1PKcj+0x76>
      930:	11 11       	cpse	r17, r1
-     932:	06 c0       	rjmp	.+12     	; 0x940 <_Z9RFR_UART1PKcj+0x7c>
+     932:	06 c0       	rjmp	.+12     	; 0x940 <_Z12GB_RFR_UART1PKcj+0x7c>
      934:	82 e0       	ldi	r24, 0x02	; 2
      936:	90 e0       	ldi	r25, 0x00	; 0
-     938:	05 c0       	rjmp	.+10     	; 0x944 <_Z9RFR_UART1PKcj+0x80>
+     938:	05 c0       	rjmp	.+10     	; 0x944 <_Z12GB_RFR_UART1PKcj+0x80>
      93a:	81 e0       	ldi	r24, 0x01	; 1
      93c:	90 e0       	ldi	r25, 0x00	; 0
-     93e:	02 c0       	rjmp	.+4      	; 0x944 <_Z9RFR_UART1PKcj+0x80>
+     93e:	02 c0       	rjmp	.+4      	; 0x944 <_Z12GB_RFR_UART1PKcj+0x80>
      940:	80 e0       	ldi	r24, 0x00	; 0
      942:	90 e0       	ldi	r25, 0x00	; 0
      944:	df 91       	pop	r29
@@ -1144,94 +1144,94 @@ Disassembly of section .text:
      958:	8f 90       	pop	r8
      95a:	08 95       	ret
 
-0000095c <_Z15esp8266_getmodev>:
+0000095c <_Z18GB_esp8266_getmodev>:
      95c:	81 e3       	ldi	r24, 0x31	; 49
      95e:	92 e0       	ldi	r25, 0x02	; 2
-     960:	44 dd       	rcall	.-1400   	; 0x3ea <_Z12printString1PKc>
+     960:	44 dd       	rcall	.-1400   	; 0x3ea <_Z15GB_printString1PKc>
      962:	68 ee       	ldi	r22, 0xE8	; 232
      964:	73 e0       	ldi	r23, 0x03	; 3
      966:	8e e3       	ldi	r24, 0x3E	; 62
      968:	92 e0       	ldi	r25, 0x02	; 2
-     96a:	ac df       	rcall	.-168    	; 0x8c4 <_Z9RFR_UART1PKcj>
+     96a:	ac df       	rcall	.-168    	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      96c:	01 97       	sbiw	r24, 0x01	; 1
-     96e:	41 f5       	brne	.+80     	; 0x9c0 <_Z15esp8266_getmodev+0x64>
+     96e:	41 f5       	brne	.+80     	; 0x9c0 <_Z18GB_esp8266_getmodev+0x64>
      970:	6a e3       	ldi	r22, 0x3A	; 58
      972:	70 e0       	ldi	r23, 0x00	; 0
      974:	82 e2       	ldi	r24, 0x22	; 34
      976:	97 e0       	ldi	r25, 0x07	; 7
      978:	0e 94 dc 0d 	call	0x1bb8	; 0x1bb8 <strchr>
      97c:	00 97       	sbiw	r24, 0x00	; 0
-     97e:	19 f1       	breq	.+70     	; 0x9c6 <_Z15esp8266_getmodev+0x6a>
+     97e:	19 f1       	breq	.+70     	; 0x9c6 <_Z18GB_esp8266_getmodev+0x6a>
      980:	fc 01       	movw	r30, r24
      982:	81 81       	ldd	r24, Z+1	; 0x01
      984:	90 e0       	ldi	r25, 0x00	; 0
      986:	c0 97       	sbiw	r24, 0x30	; 48
-     988:	90 93 21 07 	sts	0x0721, r25	; 0x800721 <CWMODE+0x1>
-     98c:	80 93 20 07 	sts	0x0720, r24	; 0x800720 <CWMODE>
+     988:	90 93 21 07 	sts	0x0721, r25	; 0x800721 <gb_CWMODE+0x1>
+     98c:	80 93 20 07 	sts	0x0720, r24	; 0x800720 <gb_CWMODE>
      990:	01 97       	sbiw	r24, 0x01	; 1
-     992:	19 f4       	brne	.+6      	; 0x99a <_Z15esp8266_getmodev+0x3e>
+     992:	19 f4       	brne	.+6      	; 0x99a <_Z18GB_esp8266_getmodev+0x3e>
      994:	8e e5       	ldi	r24, 0x5E	; 94
      996:	92 e0       	ldi	r25, 0x02	; 2
-     998:	a5 dc       	rcall	.-1718   	; 0x2e4 <_Z12printString0PKc>
-     99a:	80 91 20 07 	lds	r24, 0x0720	; 0x800720 <CWMODE>
-     99e:	90 91 21 07 	lds	r25, 0x0721	; 0x800721 <CWMODE+0x1>
+     998:	a5 dc       	rcall	.-1718   	; 0x2e4 <_Z15GB_printString0PKc>
+     99a:	80 91 20 07 	lds	r24, 0x0720	; 0x800720 <gb_CWMODE>
+     99e:	90 91 21 07 	lds	r25, 0x0721	; 0x800721 <gb_CWMODE+0x1>
      9a2:	02 97       	sbiw	r24, 0x02	; 2
-     9a4:	19 f4       	brne	.+6      	; 0x9ac <_Z15esp8266_getmodev+0x50>
+     9a4:	19 f4       	brne	.+6      	; 0x9ac <_Z18GB_esp8266_getmodev+0x50>
      9a6:	81 e4       	ldi	r24, 0x41	; 65
      9a8:	92 e0       	ldi	r25, 0x02	; 2
-     9aa:	9c dc       	rcall	.-1736   	; 0x2e4 <_Z12printString0PKc>
-     9ac:	80 91 20 07 	lds	r24, 0x0720	; 0x800720 <CWMODE>
-     9b0:	90 91 21 07 	lds	r25, 0x0721	; 0x800721 <CWMODE+0x1>
+     9aa:	9c dc       	rcall	.-1736   	; 0x2e4 <_Z15GB_printString0PKc>
+     9ac:	80 91 20 07 	lds	r24, 0x0720	; 0x800720 <gb_CWMODE>
+     9b0:	90 91 21 07 	lds	r25, 0x0721	; 0x800721 <gb_CWMODE+0x1>
      9b4:	03 97       	sbiw	r24, 0x03	; 3
-     9b6:	39 f4       	brne	.+14     	; 0x9c6 <_Z15esp8266_getmodev+0x6a>
+     9b6:	39 f4       	brne	.+14     	; 0x9c6 <_Z18GB_esp8266_getmodev+0x6a>
      9b8:	87 e5       	ldi	r24, 0x57	; 87
      9ba:	92 e0       	ldi	r25, 0x02	; 2
-     9bc:	93 cc       	rjmp	.-1754   	; 0x2e4 <_Z12printString0PKc>
+     9bc:	93 cc       	rjmp	.-1754   	; 0x2e4 <_Z15GB_printString0PKc>
      9be:	08 95       	ret
      9c0:	82 e2       	ldi	r24, 0x22	; 34
      9c2:	97 e0       	ldi	r25, 0x07	; 7
-     9c4:	8f cc       	rjmp	.-1762   	; 0x2e4 <_Z12printString0PKc>
+     9c4:	8f cc       	rjmp	.-1762   	; 0x2e4 <_Z15GB_printString0PKc>
      9c6:	08 95       	ret
 
-000009c8 <_Z22esp8266_connectiontypev>:
+000009c8 <_Z25GB_esp8266_connectiontypev>:
      9c8:	85 e7       	ldi	r24, 0x75	; 117
      9ca:	92 e0       	ldi	r25, 0x02	; 2
-     9cc:	0e dd       	rcall	.-1508   	; 0x3ea <_Z12printString1PKc>
+     9cc:	0e dd       	rcall	.-1508   	; 0x3ea <_Z15GB_printString1PKc>
      9ce:	68 ee       	ldi	r22, 0xE8	; 232
      9d0:	73 e0       	ldi	r23, 0x03	; 3
      9d2:	8e e3       	ldi	r24, 0x3E	; 62
      9d4:	92 e0       	ldi	r25, 0x02	; 2
-     9d6:	76 df       	rcall	.-276    	; 0x8c4 <_Z9RFR_UART1PKcj>
+     9d6:	76 df       	rcall	.-276    	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      9d8:	01 97       	sbiw	r24, 0x01	; 1
-     9da:	b9 f4       	brne	.+46     	; 0xa0a <_Z22esp8266_connectiontypev+0x42>
+     9da:	b9 f4       	brne	.+46     	; 0xa0a <_Z25GB_esp8266_connectiontypev+0x42>
      9dc:	6a e3       	ldi	r22, 0x3A	; 58
      9de:	70 e0       	ldi	r23, 0x00	; 0
      9e0:	82 e2       	ldi	r24, 0x22	; 34
      9e2:	97 e0       	ldi	r25, 0x07	; 7
      9e4:	0e 94 dc 0d 	call	0x1bb8	; 0x1bb8 <strchr>
      9e8:	00 97       	sbiw	r24, 0x00	; 0
-     9ea:	91 f0       	breq	.+36     	; 0xa10 <_Z22esp8266_connectiontypev+0x48>
+     9ea:	91 f0       	breq	.+36     	; 0xa10 <_Z25GB_esp8266_connectiontypev+0x48>
      9ec:	fc 01       	movw	r30, r24
      9ee:	81 81       	ldd	r24, Z+1	; 0x01
      9f0:	90 e0       	ldi	r25, 0x00	; 0
      9f2:	c0 97       	sbiw	r24, 0x30	; 48
-     9f4:	21 f4       	brne	.+8      	; 0x9fe <_Z22esp8266_connectiontypev+0x36>
+     9f4:	21 f4       	brne	.+8      	; 0x9fe <_Z25GB_esp8266_connectiontypev+0x36>
      9f6:	82 e8       	ldi	r24, 0x82	; 130
      9f8:	92 e0       	ldi	r25, 0x02	; 2
-     9fa:	74 cc       	rjmp	.-1816   	; 0x2e4 <_Z12printString0PKc>
+     9fa:	74 cc       	rjmp	.-1816   	; 0x2e4 <_Z15GB_printString0PKc>
      9fc:	08 95       	ret
      9fe:	01 97       	sbiw	r24, 0x01	; 1
-     a00:	39 f4       	brne	.+14     	; 0xa10 <_Z22esp8266_connectiontypev+0x48>
+     a00:	39 f4       	brne	.+14     	; 0xa10 <_Z25GB_esp8266_connectiontypev+0x48>
      a02:	8c ea       	ldi	r24, 0xAC	; 172
      a04:	92 e0       	ldi	r25, 0x02	; 2
-     a06:	6e cc       	rjmp	.-1828   	; 0x2e4 <_Z12printString0PKc>
+     a06:	6e cc       	rjmp	.-1828   	; 0x2e4 <_Z15GB_printString0PKc>
      a08:	08 95       	ret
      a0a:	82 e2       	ldi	r24, 0x22	; 34
      a0c:	97 e0       	ldi	r25, 0x07	; 7
-     a0e:	6a cc       	rjmp	.-1836   	; 0x2e4 <_Z12printString0PKc>
+     a0e:	6a cc       	rjmp	.-1836   	; 0x2e4 <_Z15GB_printString0PKc>
      a10:	08 95       	ret
 
-00000a12 <_Z13esp8266_getAPv>:
+00000a12 <_Z16GB_esp8266_getAPv>:
      a12:	0f 93       	push	r16
      a14:	1f 93       	push	r17
      a16:	cf 93       	push	r28
@@ -1246,31 +1246,31 @@ Disassembly of section .text:
      a28:	cd bf       	out	0x3d, r28	; 61
      a2a:	88 ed       	ldi	r24, 0xD8	; 216
      a2c:	92 e0       	ldi	r25, 0x02	; 2
-     a2e:	dd dc       	rcall	.-1606   	; 0x3ea <_Z12printString1PKc>
+     a2e:	dd dc       	rcall	.-1606   	; 0x3ea <_Z15GB_printString1PKc>
      a30:	68 ee       	ldi	r22, 0xE8	; 232
      a32:	73 e0       	ldi	r23, 0x03	; 3
      a34:	8e e3       	ldi	r24, 0x3E	; 62
      a36:	92 e0       	ldi	r25, 0x02	; 2
-     a38:	45 df       	rcall	.-374    	; 0x8c4 <_Z9RFR_UART1PKcj>
+     a38:	45 df       	rcall	.-374    	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      a3a:	01 97       	sbiw	r24, 0x01	; 1
-     a3c:	69 f5       	brne	.+90     	; 0xa98 <_Z13esp8266_getAPv+0x86>
+     a3c:	69 f5       	brne	.+90     	; 0xa98 <_Z16GB_esp8266_getAPv+0x86>
      a3e:	64 ee       	ldi	r22, 0xE4	; 228
      a40:	72 e0       	ldi	r23, 0x02	; 2
      a42:	82 e2       	ldi	r24, 0x22	; 34
      a44:	97 e0       	ldi	r25, 0x07	; 7
      a46:	0e 94 01 0e 	call	0x1c02	; 0x1c02 <strstr>
      a4a:	89 2b       	or	r24, r25
-     a4c:	19 f0       	breq	.+6      	; 0xa54 <_Z13esp8266_getAPv+0x42>
+     a4c:	19 f0       	breq	.+6      	; 0xa54 <_Z16GB_esp8266_getAPv+0x42>
      a4e:	8a ee       	ldi	r24, 0xEA	; 234
      a50:	92 e0       	ldi	r25, 0x02	; 2
-     a52:	48 dc       	rcall	.-1904   	; 0x2e4 <_Z12printString0PKc>
+     a52:	48 dc       	rcall	.-1904   	; 0x2e4 <_Z15GB_printString0PKc>
      a54:	6e ef       	ldi	r22, 0xFE	; 254
      a56:	72 e0       	ldi	r23, 0x02	; 2
      a58:	82 e2       	ldi	r24, 0x22	; 34
      a5a:	97 e0       	ldi	r25, 0x07	; 7
      a5c:	0e 94 01 0e 	call	0x1c02	; 0x1c02 <strstr>
      a60:	00 97       	sbiw	r24, 0x00	; 0
-     a62:	e9 f0       	breq	.+58     	; 0xa9e <_Z13esp8266_getAPv+0x8c>
+     a62:	e9 f0       	breq	.+58     	; 0xa9e <_Z16GB_esp8266_getAPv+0x8c>
      a64:	8c 01       	movw	r16, r24
      a66:	08 5f       	subi	r16, 0xF8	; 248
      a68:	1f 4f       	sbci	r17, 0xFF	; 255
@@ -1287,17 +1287,17 @@ Disassembly of section .text:
      a80:	0e 94 e7 0d 	call	0x1bce	; 0x1bce <strncpy>
      a84:	86 e0       	ldi	r24, 0x06	; 6
      a86:	93 e0       	ldi	r25, 0x03	; 3
-     a88:	2d dc       	rcall	.-1958   	; 0x2e4 <_Z12printString0PKc>
+     a88:	2d dc       	rcall	.-1958   	; 0x2e4 <_Z15GB_printString0PKc>
      a8a:	ce 01       	movw	r24, r28
      a8c:	01 96       	adiw	r24, 0x01	; 1
-     a8e:	2a dc       	rcall	.-1964   	; 0x2e4 <_Z12printString0PKc>
+     a8e:	2a dc       	rcall	.-1964   	; 0x2e4 <_Z15GB_printString0PKc>
      a90:	8c e2       	ldi	r24, 0x2C	; 44
      a92:	93 e0       	ldi	r25, 0x03	; 3
-     a94:	27 dc       	rcall	.-1970   	; 0x2e4 <_Z12printString0PKc>
-     a96:	03 c0       	rjmp	.+6      	; 0xa9e <_Z13esp8266_getAPv+0x8c>
+     a94:	27 dc       	rcall	.-1970   	; 0x2e4 <_Z15GB_printString0PKc>
+     a96:	03 c0       	rjmp	.+6      	; 0xa9e <_Z16GB_esp8266_getAPv+0x8c>
      a98:	82 e2       	ldi	r24, 0x22	; 34
      a9a:	97 e0       	ldi	r25, 0x07	; 7
-     a9c:	23 dc       	rcall	.-1978   	; 0x2e4 <_Z12printString0PKc>
+     a9c:	23 dc       	rcall	.-1978   	; 0x2e4 <_Z15GB_printString0PKc>
      a9e:	64 96       	adiw	r28, 0x14	; 20
      aa0:	0f b6       	in	r0, 0x3f	; 63
      aa2:	f8 94       	cli
@@ -1310,7 +1310,7 @@ Disassembly of section .text:
      ab0:	0f 91       	pop	r16
      ab2:	08 95       	ret
 
-00000ab4 <_Z13esp8266_setAPPKcS0_>:
+00000ab4 <_Z16GB_esp8266_setAPPKcS0_>:
      ab4:	ef 92       	push	r14
      ab6:	ff 92       	push	r15
      ab8:	0f 93       	push	r16
@@ -1342,45 +1342,45 @@ Disassembly of section .text:
      aec:	0f 93       	push	r16
      aee:	0e 94 57 0e 	call	0x1cae	; 0x1cae <sprintf>
      af2:	c8 01       	movw	r24, r16
-     af4:	7a dc       	rcall	.-1804   	; 0x3ea <_Z12printString1PKc>
+     af4:	7a dc       	rcall	.-1804   	; 0x3ea <_Z15GB_printString1PKc>
      af6:	60 e8       	ldi	r22, 0x80	; 128
      af8:	7e e3       	ldi	r23, 0x3E	; 62
      afa:	8e e3       	ldi	r24, 0x3E	; 62
      afc:	92 e0       	ldi	r25, 0x02	; 2
-     afe:	e2 de       	rcall	.-572    	; 0x8c4 <_Z9RFR_UART1PKcj>
+     afe:	e2 de       	rcall	.-572    	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      b00:	0f b6       	in	r0, 0x3f	; 63
      b02:	f8 94       	cli
      b04:	de bf       	out	0x3e, r29	; 62
      b06:	0f be       	out	0x3f, r0	; 63
      b08:	cd bf       	out	0x3d, r28	; 61
      b0a:	01 97       	sbiw	r24, 0x01	; 1
-     b0c:	51 f4       	brne	.+20     	; 0xb22 <_Z13esp8266_setAPPKcS0_+0x6e>
+     b0c:	51 f4       	brne	.+20     	; 0xb22 <_Z16GB_esp8266_setAPPKcS0_+0x6e>
      b0e:	8e e2       	ldi	r24, 0x2E	; 46
      b10:	93 e0       	ldi	r25, 0x03	; 3
-     b12:	e8 db       	rcall	.-2096   	; 0x2e4 <_Z12printString0PKc>
+     b12:	e8 db       	rcall	.-2096   	; 0x2e4 <_Z15GB_printString0PKc>
      b14:	8e 2d       	mov	r24, r14
      b16:	9f 2d       	mov	r25, r15
-     b18:	e5 db       	rcall	.-2102   	; 0x2e4 <_Z12printString0PKc>
+     b18:	e5 db       	rcall	.-2102   	; 0x2e4 <_Z15GB_printString0PKc>
      b1a:	8c e2       	ldi	r24, 0x2C	; 44
      b1c:	93 e0       	ldi	r25, 0x03	; 3
-     b1e:	e2 db       	rcall	.-2108   	; 0x2e4 <_Z12printString0PKc>
-     b20:	31 c0       	rjmp	.+98     	; 0xb84 <_Z13esp8266_setAPPKcS0_+0xd0>
+     b1e:	e2 db       	rcall	.-2108   	; 0x2e4 <_Z15GB_printString0PKc>
+     b20:	31 c0       	rjmp	.+98     	; 0xb84 <_Z16GB_esp8266_setAPPKcS0_+0xd0>
      b22:	86 e4       	ldi	r24, 0x46	; 70
      b24:	93 e0       	ldi	r25, 0x03	; 3
-     b26:	de db       	rcall	.-2116   	; 0x2e4 <_Z12printString0PKc>
+     b26:	de db       	rcall	.-2116   	; 0x2e4 <_Z15GB_printString0PKc>
      b28:	8e 2d       	mov	r24, r14
      b2a:	9f 2d       	mov	r25, r15
-     b2c:	db db       	rcall	.-2122   	; 0x2e4 <_Z12printString0PKc>
+     b2c:	db db       	rcall	.-2122   	; 0x2e4 <_Z15GB_printString0PKc>
      b2e:	8c e2       	ldi	r24, 0x2C	; 44
      b30:	93 e0       	ldi	r25, 0x03	; 3
-     b32:	d8 db       	rcall	.-2128   	; 0x2e4 <_Z12printString0PKc>
+     b32:	d8 db       	rcall	.-2128   	; 0x2e4 <_Z15GB_printString0PKc>
      b34:	6e ef       	ldi	r22, 0xFE	; 254
      b36:	72 e0       	ldi	r23, 0x02	; 2
      b38:	82 e2       	ldi	r24, 0x22	; 34
      b3a:	97 e0       	ldi	r25, 0x07	; 7
      b3c:	0e 94 01 0e 	call	0x1c02	; 0x1c02 <strstr>
      b40:	00 97       	sbiw	r24, 0x00	; 0
-     b42:	01 f1       	breq	.+64     	; 0xb84 <_Z13esp8266_setAPPKcS0_+0xd0>
+     b42:	01 f1       	breq	.+64     	; 0xb84 <_Z16GB_esp8266_setAPPKcS0_+0xd0>
      b44:	fc 01       	movw	r30, r24
      b46:	07 81       	ldd	r16, Z+7	; 0x07
      b48:	10 e0       	ldi	r17, 0x00	; 0
@@ -1388,31 +1388,31 @@ Disassembly of section .text:
      b4c:	11 09       	sbc	r17, r1
      b4e:	01 30       	cpi	r16, 0x01	; 1
      b50:	11 05       	cpc	r17, r1
-     b52:	21 f4       	brne	.+8      	; 0xb5c <_Z13esp8266_setAPPKcS0_+0xa8>
+     b52:	21 f4       	brne	.+8      	; 0xb5c <_Z16GB_esp8266_setAPPKcS0_+0xa8>
      b54:	8f e5       	ldi	r24, 0x5F	; 95
      b56:	93 e0       	ldi	r25, 0x03	; 3
-     b58:	c5 db       	rcall	.-2166   	; 0x2e4 <_Z12printString0PKc>
-     b5a:	0e c0       	rjmp	.+28     	; 0xb78 <_Z13esp8266_setAPPKcS0_+0xc4>
+     b58:	c5 db       	rcall	.-2166   	; 0x2e4 <_Z15GB_printString0PKc>
+     b5a:	0e c0       	rjmp	.+28     	; 0xb78 <_Z16GB_esp8266_setAPPKcS0_+0xc4>
      b5c:	02 30       	cpi	r16, 0x02	; 2
      b5e:	11 05       	cpc	r17, r1
-     b60:	21 f4       	brne	.+8      	; 0xb6a <_Z13esp8266_setAPPKcS0_+0xb6>
+     b60:	21 f4       	brne	.+8      	; 0xb6a <_Z16GB_esp8266_setAPPKcS0_+0xb6>
      b62:	84 e7       	ldi	r24, 0x74	; 116
      b64:	93 e0       	ldi	r25, 0x03	; 3
-     b66:	be db       	rcall	.-2180   	; 0x2e4 <_Z12printString0PKc>
-     b68:	0d c0       	rjmp	.+26     	; 0xb84 <_Z13esp8266_setAPPKcS0_+0xd0>
+     b66:	be db       	rcall	.-2180   	; 0x2e4 <_Z15GB_printString0PKc>
+     b68:	0d c0       	rjmp	.+26     	; 0xb84 <_Z16GB_esp8266_setAPPKcS0_+0xd0>
      b6a:	03 30       	cpi	r16, 0x03	; 3
      b6c:	11 05       	cpc	r17, r1
-     b6e:	21 f4       	brne	.+8      	; 0xb78 <_Z13esp8266_setAPPKcS0_+0xc4>
+     b6e:	21 f4       	brne	.+8      	; 0xb78 <_Z16GB_esp8266_setAPPKcS0_+0xc4>
      b70:	85 e8       	ldi	r24, 0x85	; 133
      b72:	93 e0       	ldi	r25, 0x03	; 3
-     b74:	b7 db       	rcall	.-2194   	; 0x2e4 <_Z12printString0PKc>
-     b76:	06 c0       	rjmp	.+12     	; 0xb84 <_Z13esp8266_setAPPKcS0_+0xd0>
+     b74:	b7 db       	rcall	.-2194   	; 0x2e4 <_Z15GB_printString0PKc>
+     b76:	06 c0       	rjmp	.+12     	; 0xb84 <_Z16GB_esp8266_setAPPKcS0_+0xd0>
      b78:	04 30       	cpi	r16, 0x04	; 4
      b7a:	11 05       	cpc	r17, r1
-     b7c:	19 f4       	brne	.+6      	; 0xb84 <_Z13esp8266_setAPPKcS0_+0xd0>
+     b7c:	19 f4       	brne	.+6      	; 0xb84 <_Z16GB_esp8266_setAPPKcS0_+0xd0>
      b7e:	80 ea       	ldi	r24, 0xA0	; 160
      b80:	93 e0       	ldi	r25, 0x03	; 3
-     b82:	b0 db       	rcall	.-2208   	; 0x2e4 <_Z12printString0PKc>
+     b82:	b0 db       	rcall	.-2208   	; 0x2e4 <_Z15GB_printString0PKc>
      b84:	a8 96       	adiw	r28, 0x28	; 40
      b86:	0f b6       	in	r0, 0x3f	; 63
      b88:	f8 94       	cli
@@ -1427,21 +1427,21 @@ Disassembly of section .text:
      b9a:	ef 90       	pop	r14
      b9c:	08 95       	ret
 
-00000b9e <_Z25esp8266_initialise_clientv>:
-     b9e:	de de       	rcall	.-580    	; 0x95c <_Z15esp8266_getmodev>
-     ba0:	13 df       	rcall	.-474    	; 0x9c8 <_Z22esp8266_connectiontypev>
+00000b9e <_Z28GB_esp8266_initialise_clientv>:
+     b9e:	de de       	rcall	.-580    	; 0x95c <_Z18GB_esp8266_getmodev>
+     ba0:	13 df       	rcall	.-474    	; 0x9c8 <_Z25GB_esp8266_connectiontypev>
      ba2:	64 ef       	ldi	r22, 0xF4	; 244
      ba4:	74 e0       	ldi	r23, 0x04	; 4
      ba6:	8e ef       	ldi	r24, 0xFE	; 254
      ba8:	94 e0       	ldi	r25, 0x04	; 4
-     baa:	84 df       	rcall	.-248    	; 0xab4 <_Z13esp8266_setAPPKcS0_>
-     bac:	32 df       	rcall	.-412    	; 0xa12 <_Z13esp8266_getAPv>
+     baa:	84 df       	rcall	.-248    	; 0xab4 <_Z16GB_esp8266_setAPPKcS0_>
+     bac:	32 df       	rcall	.-412    	; 0xa12 <_Z16GB_esp8266_getAPv>
      bae:	8e e0       	ldi	r24, 0x0E	; 14
      bb0:	95 e0       	ldi	r25, 0x05	; 5
-     bb2:	98 cb       	rjmp	.-2256   	; 0x2e4 <_Z12printString0PKc>
+     bb2:	98 cb       	rjmp	.-2256   	; 0x2e4 <_Z15GB_printString0PKc>
      bb4:	08 95       	ret
 
-00000bb6 <_Z24esp8266_connectTCPserverPKci>:
+00000bb6 <_Z27GB_esp8266_connectTCPserverPKci>:
      bb6:	0f 93       	push	r16
      bb8:	1f 93       	push	r17
      bba:	cf 93       	push	r28
@@ -1470,12 +1470,12 @@ Disassembly of section .text:
      be8:	0f 93       	push	r16
      bea:	0e 94 57 0e 	call	0x1cae	; 0x1cae <sprintf>
      bee:	c8 01       	movw	r24, r16
-     bf0:	fc db       	rcall	.-2056   	; 0x3ea <_Z12printString1PKc>
+     bf0:	fc db       	rcall	.-2056   	; 0x3ea <_Z15GB_printString1PKc>
      bf2:	60 ed       	ldi	r22, 0xD0	; 208
      bf4:	77 e0       	ldi	r23, 0x07	; 7
      bf6:	8e e3       	ldi	r24, 0x3E	; 62
      bf8:	92 e0       	ldi	r25, 0x02	; 2
-     bfa:	64 de       	rcall	.-824    	; 0x8c4 <_Z9RFR_UART1PKcj>
+     bfa:	64 de       	rcall	.-824    	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      bfc:	0f b6       	in	r0, 0x3f	; 63
      bfe:	f8 94       	cli
      c00:	de bf       	out	0x3e, r29	; 62
@@ -1483,16 +1483,16 @@ Disassembly of section .text:
      c04:	cd bf       	out	0x3d, r28	; 61
      c06:	81 30       	cpi	r24, 0x01	; 1
      c08:	91 05       	cpc	r25, r1
-     c0a:	21 f4       	brne	.+8      	; 0xc14 <_Z24esp8266_connectTCPserverPKci+0x5e>
+     c0a:	21 f4       	brne	.+8      	; 0xc14 <_Z27GB_esp8266_connectTCPserverPKci+0x5e>
      c0c:	8a e3       	ldi	r24, 0x3A	; 58
      c0e:	95 e0       	ldi	r25, 0x05	; 5
-     c10:	69 db       	rcall	.-2350   	; 0x2e4 <_Z12printString0PKc>
-     c12:	05 c0       	rjmp	.+10     	; 0xc1e <_Z24esp8266_connectTCPserverPKci+0x68>
+     c10:	69 db       	rcall	.-2350   	; 0x2e4 <_Z15GB_printString0PKc>
+     c12:	05 c0       	rjmp	.+10     	; 0xc1e <_Z27GB_esp8266_connectTCPserverPKci+0x68>
      c14:	89 2b       	or	r24, r25
-     c16:	19 f4       	brne	.+6      	; 0xc1e <_Z24esp8266_connectTCPserverPKci+0x68>
+     c16:	19 f4       	brne	.+6      	; 0xc1e <_Z27GB_esp8266_connectTCPserverPKci+0x68>
      c18:	8f e5       	ldi	r24, 0x5F	; 95
      c1a:	95 e0       	ldi	r25, 0x05	; 5
-     c1c:	63 db       	rcall	.-2362   	; 0x2e4 <_Z12printString0PKc>
+     c1c:	63 db       	rcall	.-2362   	; 0x2e4 <_Z15GB_printString0PKc>
      c1e:	cc 59       	subi	r28, 0x9C	; 156
      c20:	df 4f       	sbci	r29, 0xFF	; 255
      c22:	0f b6       	in	r0, 0x3f	; 63
@@ -1506,14 +1506,14 @@ Disassembly of section .text:
      c32:	0f 91       	pop	r16
      c34:	08 95       	ret
 
-00000c36 <_Z15esp8266_commandPKci>:
+00000c36 <_Z18GB_esp8266_commandPKci>:
      c36:	e9 e4       	ldi	r30, 0x49	; 73
      c38:	f9 e0       	ldi	r31, 0x09	; 9
      c3a:	24 e6       	ldi	r18, 0x64	; 100
      c3c:	df 01       	movw	r26, r30
      c3e:	1d 92       	st	X+, r1
      c40:	2a 95       	dec	r18
-     c42:	e9 f7       	brne	.-6      	; 0xc3e <_Z15esp8266_commandPKci+0x8>
+     c42:	e9 f7       	brne	.-6      	; 0xc3e <_Z18GB_esp8266_commandPKci+0x8>
      c44:	7f 93       	push	r23
      c46:	6f 93       	push	r22
      c48:	9f 93       	push	r25
@@ -1527,10 +1527,10 @@ Disassembly of section .text:
      c58:	0e 94 57 0e 	call	0x1cae	; 0x1cae <sprintf>
      c5c:	89 e4       	ldi	r24, 0x49	; 73
      c5e:	99 e0       	ldi	r25, 0x09	; 9
-     c60:	41 db       	rcall	.-2430   	; 0x2e4 <_Z12printString0PKc>
+     c60:	41 db       	rcall	.-2430   	; 0x2e4 <_Z15GB_printString0PKc>
      c62:	8c e2       	ldi	r24, 0x2C	; 44
      c64:	93 e0       	ldi	r25, 0x03	; 3
-     c66:	3e db       	rcall	.-2436   	; 0x2e4 <_Z12printString0PKc>
+     c66:	3e db       	rcall	.-2436   	; 0x2e4 <_Z15GB_printString0PKc>
      c68:	8d b7       	in	r24, 0x3d	; 61
      c6a:	9e b7       	in	r25, 0x3e	; 62
      c6c:	08 96       	adiw	r24, 0x08	; 8
@@ -1543,7 +1543,7 @@ Disassembly of section .text:
      c7a:	99 e0       	ldi	r25, 0x09	; 9
      c7c:	08 95       	ret
 
-00000c7e <_Z15esp8266_cipsendfPKc>:
+00000c7e <_Z18GB_esp8266_cipsendfPKc>:
      c7e:	0f 93       	push	r16
      c80:	1f 93       	push	r17
      c82:	cf 93       	push	r28
@@ -1559,11 +1559,11 @@ Disassembly of section .text:
      c96:	8a 01       	movw	r16, r20
      c98:	df d1       	rcall	.+958    	; 0x1058 <__fixsfsi>
      c9a:	c8 01       	movw	r24, r16
-     c9c:	cc df       	rcall	.-104    	; 0xc36 <_Z15esp8266_commandPKci>
+     c9c:	cc df       	rcall	.-104    	; 0xc36 <_Z18GB_esp8266_commandPKci>
      c9e:	fc 01       	movw	r30, r24
      ca0:	01 90       	ld	r0, Z+
      ca2:	00 20       	and	r0, r0
-     ca4:	e9 f7       	brne	.-6      	; 0xca0 <_Z15esp8266_cipsendfPKc+0x22>
+     ca4:	e9 f7       	brne	.-6      	; 0xca0 <_Z18GB_esp8266_cipsendfPKc+0x22>
      ca6:	31 97       	sbiw	r30, 0x01	; 1
      ca8:	e8 1b       	sub	r30, r24
      caa:	f9 0b       	sbc	r31, r25
@@ -1580,15 +1580,15 @@ Disassembly of section .text:
      cc0:	0f 93       	push	r16
      cc2:	f5 d7       	rcall	.+4074   	; 0x1cae <sprintf>
      cc4:	c8 01       	movw	r24, r16
-     cc6:	91 db       	rcall	.-2270   	; 0x3ea <_Z12printString1PKc>
+     cc6:	91 db       	rcall	.-2270   	; 0x3ea <_Z15GB_printString1PKc>
      cc8:	60 ed       	ldi	r22, 0xD0	; 208
      cca:	77 e0       	ldi	r23, 0x07	; 7
      ccc:	80 eb       	ldi	r24, 0xB0	; 176
      cce:	95 e0       	ldi	r25, 0x05	; 5
-     cd0:	f9 dd       	rcall	.-1038   	; 0x8c4 <_Z9RFR_UART1PKcj>
+     cd0:	f9 dd       	rcall	.-1038   	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      cd2:	82 e2       	ldi	r24, 0x22	; 34
      cd4:	97 e0       	ldi	r25, 0x07	; 7
-     cd6:	06 db       	rcall	.-2548   	; 0x2e4 <_Z12printString0PKc>
+     cd6:	06 db       	rcall	.-2548   	; 0x2e4 <_Z15GB_printString0PKc>
      cd8:	0f 90       	pop	r0
      cda:	0f 90       	pop	r0
      cdc:	0f 90       	pop	r0
@@ -1607,7 +1607,7 @@ Disassembly of section .text:
      cf6:	0f 91       	pop	r16
      cf8:	08 95       	ret
 
-00000cfa <_Z21esp8266_tcpgetcommandPKci>:
+00000cfa <_Z24GB_esp8266_tcpgetcommandPKci>:
      cfa:	0f 93       	push	r16
      cfc:	1f 93       	push	r17
      cfe:	cf 93       	push	r28
@@ -1628,7 +1628,7 @@ Disassembly of section .text:
      d1c:	f8 01       	movw	r30, r16
      d1e:	11 92       	st	Z+, r1
      d20:	2a 95       	dec	r18
-     d22:	e9 f7       	brne	.-6      	; 0xd1e <_Z21esp8266_tcpgetcommandPKci+0x24>
+     d22:	e9 f7       	brne	.-6      	; 0xd1e <_Z24GB_esp8266_tcpgetcommandPKci+0x24>
      d24:	7f 93       	push	r23
      d26:	6f 93       	push	r22
      d28:	9f 93       	push	r25
@@ -1641,29 +1641,29 @@ Disassembly of section .text:
      d36:	0f 93       	push	r16
      d38:	ba d7       	rcall	.+3956   	; 0x1cae <sprintf>
      d3a:	c8 01       	movw	r24, r16
-     d3c:	d3 da       	rcall	.-2650   	; 0x2e4 <_Z12printString0PKc>
+     d3c:	d3 da       	rcall	.-2650   	; 0x2e4 <_Z15GB_printString0PKc>
      d3e:	c8 01       	movw	r24, r16
-     d40:	54 db       	rcall	.-2392   	; 0x3ea <_Z12printString1PKc>
+     d40:	54 db       	rcall	.-2392   	; 0x3ea <_Z15GB_printString1PKc>
      d42:	60 ed       	ldi	r22, 0xD0	; 208
      d44:	77 e0       	ldi	r23, 0x07	; 7
      d46:	82 eb       	ldi	r24, 0xB2	; 178
      d48:	95 e0       	ldi	r25, 0x05	; 5
-     d4a:	bc dd       	rcall	.-1160   	; 0x8c4 <_Z9RFR_UART1PKcj>
+     d4a:	bc dd       	rcall	.-1160   	; 0x8c4 <_Z12GB_RFR_UART1PKcj>
      d4c:	8c e2       	ldi	r24, 0x2C	; 44
      d4e:	93 e0       	ldi	r25, 0x03	; 3
-     d50:	c9 da       	rcall	.-2670   	; 0x2e4 <_Z12printString0PKc>
+     d50:	c9 da       	rcall	.-2670   	; 0x2e4 <_Z15GB_printString0PKc>
      d52:	ff ef       	ldi	r31, 0xFF	; 255
      d54:	21 ee       	ldi	r18, 0xE1	; 225
      d56:	84 e0       	ldi	r24, 0x04	; 4
      d58:	f1 50       	subi	r31, 0x01	; 1
      d5a:	20 40       	sbci	r18, 0x00	; 0
      d5c:	80 40       	sbci	r24, 0x00	; 0
-     d5e:	e1 f7       	brne	.-8      	; 0xd58 <_Z21esp8266_tcpgetcommandPKci+0x5e>
-     d60:	00 c0       	rjmp	.+0      	; 0xd62 <_Z21esp8266_tcpgetcommandPKci+0x68>
+     d5e:	e1 f7       	brne	.-8      	; 0xd58 <_Z24GB_esp8266_tcpgetcommandPKci+0x5e>
+     d60:	00 c0       	rjmp	.+0      	; 0xd62 <_Z24GB_esp8266_tcpgetcommandPKci+0x68>
      d62:	00 00       	nop
      d64:	82 e2       	ldi	r24, 0x22	; 34
      d66:	97 e0       	ldi	r25, 0x07	; 7
-     d68:	bd da       	rcall	.-2694   	; 0x2e4 <_Z12printString0PKc>
+     d68:	bd da       	rcall	.-2694   	; 0x2e4 <_Z15GB_printString0PKc>
      d6a:	0f b6       	in	r0, 0x3f	; 63
      d6c:	f8 94       	cli
      d6e:	de bf       	out	0x3e, r29	; 62
@@ -1682,14 +1682,14 @@ Disassembly of section .text:
      d88:	0f 91       	pop	r16
      d8a:	08 95       	ret
 
-00000d8c <_Z14menu_pin_setupv>:
+00000d8c <_Z17GB_menu_pin_setupv>:
      d8c:	25 98       	cbi	0x04, 5	; 4
      d8e:	2d 9a       	sbi	0x05, 5	; 5
      d90:	26 98       	cbi	0x04, 6	; 4
      d92:	2e 9a       	sbi	0x05, 6	; 5
      d94:	08 95       	ret
 
-00000d96 <_Z11timer2_initv>:
+00000d96 <_Z14GB_timer2_initv>:
      d96:	e1 eb       	ldi	r30, 0xB1	; 177
      d98:	f0 e0       	ldi	r31, 0x00	; 0
      d9a:	80 81       	ld	r24, Z
@@ -1704,15 +1704,15 @@ Disassembly of section .text:
      dae:	78 94       	sei
      db0:	08 95       	ret
 
-00000db2 <_Z15menu_key_searchv>:
-     db2:	80 91 1f 07 	lds	r24, 0x071F	; 0x80071f <Menu_key_switch>
+00000db2 <_Z18GB_menu_key_searchv>:
+     db2:	80 91 1f 07 	lds	r24, 0x071F	; 0x80071f <gb_Menu_key_switch>
      db6:	88 23       	and	r24, r24
-     db8:	19 f0       	breq	.+6      	; 0xdc0 <_Z15menu_key_searchv+0xe>
+     db8:	19 f0       	breq	.+6      	; 0xdc0 <_Z18GB_menu_key_searchv+0xe>
      dba:	81 30       	cpi	r24, 0x01	; 1
-     dbc:	59 f0       	breq	.+22     	; 0xdd4 <_Z15menu_key_searchv+0x22>
-     dbe:	14 c0       	rjmp	.+40     	; 0xde8 <_Z15menu_key_searchv+0x36>
+     dbc:	59 f0       	breq	.+22     	; 0xdd4 <_Z18GB_menu_key_searchv+0x22>
+     dbe:	14 c0       	rjmp	.+40     	; 0xde8 <_Z18GB_menu_key_searchv+0x36>
      dc0:	1d 99       	sbic	0x03, 5	; 3
-     dc2:	1a c0       	rjmp	.+52     	; 0xdf8 <_Z15menu_key_searchv+0x46>
+     dc2:	1a c0       	rjmp	.+52     	; 0xdf8 <_Z18GB_menu_key_searchv+0x46>
      dc4:	eb e1       	ldi	r30, 0x1B	; 27
      dc6:	f7 e0       	ldi	r31, 0x07	; 7
      dc8:	80 81       	ld	r24, Z
@@ -1720,9 +1720,9 @@ Disassembly of section .text:
      dcc:	01 96       	adiw	r24, 0x01	; 1
      dce:	91 83       	std	Z+1, r25	; 0x01
      dd0:	80 83       	st	Z, r24
-     dd2:	12 c0       	rjmp	.+36     	; 0xdf8 <_Z15menu_key_searchv+0x46>
+     dd2:	12 c0       	rjmp	.+36     	; 0xdf8 <_Z18GB_menu_key_searchv+0x46>
      dd4:	1e 99       	sbic	0x03, 6	; 3
-     dd6:	0d c0       	rjmp	.+26     	; 0xdf2 <_Z15menu_key_searchv+0x40>
+     dd6:	0d c0       	rjmp	.+26     	; 0xdf2 <_Z18GB_menu_key_searchv+0x40>
      dd8:	eb e1       	ldi	r30, 0x1B	; 27
      dda:	f7 e0       	ldi	r31, 0x07	; 7
      ddc:	82 81       	ldd	r24, Z+2	; 0x02
@@ -1730,15 +1730,15 @@ Disassembly of section .text:
      de0:	01 96       	adiw	r24, 0x01	; 1
      de2:	93 83       	std	Z+3, r25	; 0x03
      de4:	82 83       	std	Z+2, r24	; 0x02
-     de6:	05 c0       	rjmp	.+10     	; 0xdf2 <_Z15menu_key_searchv+0x40>
+     de6:	05 c0       	rjmp	.+10     	; 0xdf2 <_Z18GB_menu_key_searchv+0x40>
      de8:	8f 5f       	subi	r24, 0xFF	; 255
-     dea:	80 93 1f 07 	sts	0x071F, r24	; 0x80071f <Menu_key_switch>
+     dea:	80 93 1f 07 	sts	0x071F, r24	; 0x80071f <gb_Menu_key_switch>
      dee:	82 30       	cpi	r24, 0x02	; 2
-     df0:	30 f0       	brcs	.+12     	; 0xdfe <_Z15menu_key_searchv+0x4c>
-     df2:	10 92 1f 07 	sts	0x071F, r1	; 0x80071f <Menu_key_switch>
+     df0:	30 f0       	brcs	.+12     	; 0xdfe <_Z18GB_menu_key_searchv+0x4c>
+     df2:	10 92 1f 07 	sts	0x071F, r1	; 0x80071f <gb_Menu_key_switch>
      df6:	08 95       	ret
      df8:	81 e0       	ldi	r24, 0x01	; 1
-     dfa:	80 93 1f 07 	sts	0x071F, r24	; 0x80071f <Menu_key_switch>
+     dfa:	80 93 1f 07 	sts	0x071F, r24	; 0x80071f <gb_Menu_key_switch>
      dfe:	08 95       	ret
 
 00000e00 <__vector_15>:
@@ -1764,7 +1764,7 @@ Disassembly of section .text:
      e26:	85 b1       	in	r24, 0x05	; 5
      e28:	80 58       	subi	r24, 0x80	; 128
      e2a:	85 b9       	out	0x05, r24	; 5
-     e2c:	c2 df       	rcall	.-124    	; 0xdb2 <_Z15menu_key_searchv>
+     e2c:	c2 df       	rcall	.-124    	; 0xdb2 <_Z18GB_menu_key_searchv>
      e2e:	ff 91       	pop	r31
      e30:	ef 91       	pop	r30
      e32:	bf 91       	pop	r27
@@ -1785,9 +1785,9 @@ Disassembly of section .text:
      e50:	1f 90       	pop	r1
      e52:	18 95       	reti
 
-00000e54 <_Z10ManageHomev>:
-     e54:	9e db       	rcall	.-2244   	; 0x592 <_Z5dht11v>
-     e56:	a1 db       	rcall	.-2238   	; 0x59a <_Z10dht11_tempv>
+00000e54 <_Z13GB_ManageHomev>:
+     e54:	9e db       	rcall	.-2244   	; 0x592 <_Z8GB_dht11v>
+     e56:	a1 db       	rcall	.-2238   	; 0x59a <_Z13GB_dht11_tempv>
      e58:	26 2f       	mov	r18, r22
      e5a:	37 2f       	mov	r19, r23
      e5c:	46 2f       	mov	r20, r22
@@ -1812,32 +1812,32 @@ Disassembly of section .text:
      e8a:	8f 93       	push	r24
      e8c:	10 d7       	rcall	.+3616   	; 0x1cae <sprintf>
      e8e:	80 e8       	ldi	r24, 0x80	; 128
-     e90:	0c dc       	rcall	.-2024   	; 0x6aa <_Z11LCD_commandh>
+     e90:	0c dc       	rcall	.-2024   	; 0x6aa <_Z14GB_LCD_commandh>
      e92:	85 ed       	ldi	r24, 0xD5	; 213
      e94:	8a 95       	dec	r24
-     e96:	f1 f7       	brne	.-4      	; 0xe94 <_Z10ManageHomev+0x40>
+     e96:	f1 f7       	brne	.-4      	; 0xe94 <_Z13GB_ManageHomev+0x40>
      e98:	00 00       	nop
      e9a:	89 ed       	ldi	r24, 0xD9	; 217
      e9c:	95 e0       	ldi	r25, 0x05	; 5
-     e9e:	2f dc       	rcall	.-1954   	; 0x6fe <_Z10LCD_stringPKc>
+     e9e:	2f dc       	rcall	.-1954   	; 0x6fe <_Z13GB_LCD_stringPKc>
      ea0:	80 ec       	ldi	r24, 0xC0	; 192
-     ea2:	03 dc       	rcall	.-2042   	; 0x6aa <_Z11LCD_commandh>
+     ea2:	03 dc       	rcall	.-2042   	; 0x6aa <_Z14GB_LCD_commandh>
      ea4:	95 ed       	ldi	r25, 0xD5	; 213
      ea6:	9a 95       	dec	r25
-     ea8:	f1 f7       	brne	.-4      	; 0xea6 <_Z10ManageHomev+0x52>
+     ea8:	f1 f7       	brne	.-4      	; 0xea6 <_Z13GB_ManageHomev+0x52>
      eaa:	00 00       	nop
      eac:	8a e1       	ldi	r24, 0x1A	; 26
      eae:	97 e0       	ldi	r25, 0x07	; 7
-     eb0:	26 dc       	rcall	.-1972   	; 0x6fe <_Z10LCD_stringPKc>
+     eb0:	26 dc       	rcall	.-1972   	; 0x6fe <_Z13GB_LCD_stringPKc>
      eb2:	85 ec       	ldi	r24, 0xC5	; 197
-     eb4:	fa db       	rcall	.-2060   	; 0x6aa <_Z11LCD_commandh>
+     eb4:	fa db       	rcall	.-2060   	; 0x6aa <_Z14GB_LCD_commandh>
      eb6:	85 ed       	ldi	r24, 0xD5	; 213
      eb8:	8a 95       	dec	r24
-     eba:	f1 f7       	brne	.-4      	; 0xeb8 <_Z10ManageHomev+0x64>
+     eba:	f1 f7       	brne	.-4      	; 0xeb8 <_Z13GB_ManageHomev+0x64>
      ebc:	00 00       	nop
      ebe:	82 ee       	ldi	r24, 0xE2	; 226
      ec0:	95 e0       	ldi	r25, 0x05	; 5
-     ec2:	1d dc       	rcall	.-1990   	; 0x6fe <_Z10LCD_stringPKc>
+     ec2:	1d dc       	rcall	.-1990   	; 0x6fe <_Z13GB_LCD_stringPKc>
      ec4:	8d b7       	in	r24, 0x3d	; 61
      ec6:	9e b7       	in	r25, 0x3e	; 62
      ec8:	08 96       	adiw	r24, 0x08	; 8
@@ -1854,55 +1854,55 @@ Disassembly of section .text:
 int main(void)
 {  
 	
-	init_millis(16000000UL); //frequency the atmega328p is running at
+	GB_init_millis(16000000UL); //frequency the atmega328p is running at
      ed6:	60 e0       	ldi	r22, 0x00	; 0
      ed8:	74 e2       	ldi	r23, 0x24	; 36
      eda:	84 ef       	ldi	r24, 0xF4	; 244
      edc:	90 e0       	ldi	r25, 0x00	; 0
-     ede:	c9 d9       	rcall	.-3182   	; 0x272 <_Z11init_millism>
-   	UART_Init0();
-     ee0:	ef d9       	rcall	.-3106   	; 0x2c0 <_Z10UART_Init0v>
-	UART_Init1();       ///for esp baudrate is selected 115200
-     ee2:	71 da       	rcall	.-2846   	; 0x3c6 <_Z10UART_Init1v>
-	printString0("******************ESP8266 AT Commands firmware (using embedded C)*****************");
+     ede:	c9 d9       	rcall	.-3182   	; 0x272 <_Z14GB_init_millism>
+   	GB_UART_Init0();
+     ee0:	ef d9       	rcall	.-3106   	; 0x2c0 <_Z13GB_UART_Init0v>
+	GB_UART_Init1();       ///for esp baudrate is selected 115200
+     ee2:	71 da       	rcall	.-2846   	; 0x3c6 <_Z13GB_UART_Init1v>
+	GB_printString0("******************ESP8266 AT Commands firmware (using embedded C)*****************");
      ee4:	87 ee       	ldi	r24, 0xE7	; 231
      ee6:	95 e0       	ldi	r25, 0x05	; 5
-     ee8:	fd d9       	rcall	.-3078   	; 0x2e4 <_Z12printString0PKc>
-	printString0("\n");
+     ee8:	fd d9       	rcall	.-3078   	; 0x2e4 <_Z15GB_printString0PKc>
+	GB_printString0("\n");
      eea:	8c e2       	ldi	r24, 0x2C	; 44
      eec:	93 e0       	ldi	r25, 0x03	; 3
-     eee:	fa d9       	rcall	.-3084   	; 0x2e4 <_Z12printString0PKc>
-     ef0:	56 de       	rcall	.-852    	; 0xb9e <_Z25esp8266_initialise_clientv>
-	esp8266_initialise_client();
+     eee:	fa d9       	rcall	.-3084   	; 0x2e4 <_Z15GB_printString0PKc>
+     ef0:	56 de       	rcall	.-852    	; 0xb9e <_Z28GB_esp8266_initialise_clientv>
+	GB_esp8266_initialise_client();
      ef2:	eb e1       	ldi	r30, 0x1B	; 27
      ef4:	f7 e0       	ldi	r31, 0x07	; 7
 	
 	
-	keys[0] = 0,keys[1] = 0;
+	gb_keys[0] = 0,gb_keys[1] = 0;
      ef6:	11 82       	std	Z+1, r1	; 0x01
      ef8:	10 82       	st	Z, r1
      efa:	13 82       	std	Z+3, r1	; 0x03
 	//DDRB |= (1 << 7);
-	timer2_init();
+	GB_timer2_init();
      efc:	12 82       	std	Z+2, r1	; 0x02
 	
-	LCD_init();
-     efe:	4b df       	rcall	.-362    	; 0xd96 <_Z11timer2_initv>
-     f00:	0f dc       	rcall	.-2018   	; 0x720 <_Z8LCD_initv>
-	lcd_clear();
-     f02:	e1 db       	rcall	.-2110   	; 0x6c6 <_Z9lcd_clearv>
+	GB_LCD_init();
+     efe:	4b df       	rcall	.-362    	; 0xd96 <_Z14GB_timer2_initv>
+     f00:	0f dc       	rcall	.-2018   	; 0x720 <_Z11GB_LCD_initv>
+	GB_lcd_clear();
+     f02:	e1 db       	rcall	.-2110   	; 0x6c6 <_Z12GB_lcd_clearv>
      f04:	8a e3       	ldi	r24, 0x3A	; 58
-	LCD_string("Gettobyte:");
+	GB_LCD_string("Gettobyte:");
      f06:	96 e0       	ldi	r25, 0x06	; 6
-     f08:	fa db       	rcall	.-2060   	; 0x6fe <_Z10LCD_stringPKc>
+     f08:	fa db       	rcall	.-2060   	; 0x6fe <_Z13GB_LCD_stringPKc>
      f0a:	80 ec       	ldi	r24, 0xC0	; 192
 }
-void lcd_setcursor(uint8_t col, uint8_t row)
+void GB_lcd_setcursor(uint8_t gb_col, uint8_t gb_row)
 {
-	static uint8_t offsets[] = {0x00,0x40,0x14,0x54 };
+	static uint8_t gb_offsets[] = {0x00,0x40,0x14,0x54 };
 	//LCD_command(lcd_SETDDRAMADDR | (col + offsets[row]));
-	LCD_command((0x80|(row<<6))+col);
-     f0c:	ce db       	rcall	.-2148   	; 0x6aa <_Z11LCD_commandh>
+	GB_LCD_command((0x80|(gb_row<<6))+gb_col);
+     f0c:	ce db       	rcall	.-2148   	; 0x6aa <_Z14GB_LCD_commandh>
      f0e:	25 ed       	ldi	r18, 0xD5	; 213
      f10:	2a 95       	dec	r18
 	#else
@@ -1915,9 +1915,9 @@ void lcd_setcursor(uint8_t col, uint8_t row)
      f14:	00 00       	nop
      f16:	85 e4       	ldi	r24, 0x45	; 69
      f18:	96 e0       	ldi	r25, 0x06	; 6
-	lcd_setcursor(0,1);
-	LCD_string("LCD_I2C");
-     f1a:	f1 db       	rcall	.-2078   	; 0x6fe <_Z10LCD_stringPKc>
+	GB_lcd_setcursor(0,1);
+	GB_LCD_string("LCD_I2C");
+     f1a:	f1 db       	rcall	.-2078   	; 0x6fe <_Z13GB_LCD_stringPKc>
      f1c:	8f ef       	ldi	r24, 0xFF	; 255
 	#else
 		//round up by default
@@ -1933,63 +1933,63 @@ void lcd_setcursor(uint8_t col, uint8_t row)
      f28:	e1 f7       	brne	.-8      	; 0xf22 <main+0x4c>
 	_delay_ms(1000);
 	
-	menu_pin_setup();
+	GB_menu_pin_setup();
      f2a:	00 c0       	rjmp	.+0      	; 0xf2c <main+0x56>
      f2c:	00 00       	nop
-	lcd_clear();
-     f2e:	2e df       	rcall	.-420    	; 0xd8c <_Z14menu_pin_setupv>
+	GB_lcd_clear();
+     f2e:	2e df       	rcall	.-420    	; 0xd8c <_Z17GB_menu_pin_setupv>
 	
     sei();
-     f30:	ca db       	rcall	.-2156   	; 0x6c6 <_Z9lcd_clearv>
+     f30:	ca db       	rcall	.-2156   	; 0x6c6 <_Z12GB_lcd_clearv>
 		*/
 		
 		//FOR sENDING dATA TO SERVER CONFIGURES AS CLIENT
 		//{
 			//UInterface();
-			ManageHome();
+			GB_ManageHome();
      f32:	78 94       	sei
-     f34:	8f df       	rcall	.-226    	; 0xe54 <_Z10ManageHomev>
+     f34:	8f df       	rcall	.-226    	; 0xe54 <_Z13GB_ManageHomev>
 			//t = dht11_temp();
 			//if(t<50)
 			//memset(mystr,'\0',sizeof(mystr));
 			//sprintf(mystr,"%u.%u",data[2],data[3]);
 			//sprintf(mystr,"%f",t);
-			printString0(mystr);
+			GB_printString0(gb_mystr);
      f36:	8a e1       	ldi	r24, 0x1A	; 26
      f38:	97 e0       	ldi	r25, 0x07	; 7
-     f3a:	d4 d9       	rcall	.-3160   	; 0x2e4 <_Z12printString0PKc>
+     f3a:	d4 d9       	rcall	.-3160   	; 0x2e4 <_Z15GB_printString0PKc>
      f3c:	8c e2       	ldi	r24, 0x2C	; 44
-			printString0("\n");
+			GB_printString0("\n");
      f3e:	93 e0       	ldi	r25, 0x03	; 3
-     f40:	d1 d9       	rcall	.-3166   	; 0x2e4 <_Z12printString0PKc>
+     f40:	d1 d9       	rcall	.-3166   	; 0x2e4 <_Z15GB_printString0PKc>
      f42:	60 e5       	ldi	r22, 0x50	; 80
 			//	printString0("Temp ");
 				//decimel0(t);
 				//printString0("\n");
 				
 				
-				esp8266_connectTCPserver(url,80);
+				GB_esp8266_connectTCPserver(gb_url,80);
      f44:	70 e0       	ldi	r23, 0x00	; 0
      f46:	8d e4       	ldi	r24, 0x4D	; 77
      f48:	96 e0       	ldi	r25, 0x06	; 6
-     f4a:	35 de       	rcall	.-918    	; 0xbb6 <_Z24esp8266_connectTCPserverPKci>
+     f4a:	35 de       	rcall	.-918    	; 0xbb6 <_Z27GB_esp8266_connectTCPserverPKci>
      f4c:	60 91 16 07 	lds	r22, 0x0716	; 0x800716 <__data_end>
-				esp8266_cipsend(t,urlpath);
+				GB_esp8266_cipsend(gb_t,gb_urlpath);
      f50:	70 91 17 07 	lds	r23, 0x0717	; 0x800717 <__data_end+0x1>
      f54:	80 91 18 07 	lds	r24, 0x0718	; 0x800718 <__data_end+0x2>
      f58:	90 91 19 07 	lds	r25, 0x0719	; 0x800719 <__data_end+0x3>
      f5c:	41 eb       	ldi	r20, 0xB1	; 177
      f5e:	56 e0       	ldi	r21, 0x06	; 6
-     f60:	8e de       	rcall	.-740    	; 0xc7e <_Z15esp8266_cipsendfPKc>
+     f60:	8e de       	rcall	.-740    	; 0xc7e <_Z18GB_esp8266_cipsendfPKc>
      f62:	60 91 16 07 	lds	r22, 0x0716	; 0x800716 <__data_end>
-				esp8266_tcpgetcommand(urlpath,t);
+				GB_esp8266_tcpgetcommand(gb_urlpath,gb_t);
      f66:	70 91 17 07 	lds	r23, 0x0717	; 0x800717 <__data_end+0x1>
      f6a:	80 91 18 07 	lds	r24, 0x0718	; 0x800718 <__data_end+0x2>
      f6e:	90 91 19 07 	lds	r25, 0x0719	; 0x800719 <__data_end+0x3>
      f72:	72 d0       	rcall	.+228    	; 0x1058 <__fixsfsi>
      f74:	81 eb       	ldi	r24, 0xB1	; 177
      f76:	96 e0       	ldi	r25, 0x06	; 6
-     f78:	c0 de       	rcall	.-640    	; 0xcfa <_Z21esp8266_tcpgetcommandPKci>
+     f78:	c0 de       	rcall	.-640    	; 0xcfa <_Z24GB_esp8266_tcpgetcommandPKci>
      f7a:	8f ef       	ldi	r24, 0xFF	; 255
      f7c:	93 ed       	ldi	r25, 0xD3	; 211
      f7e:	20 e3       	ldi	r18, 0x30	; 48

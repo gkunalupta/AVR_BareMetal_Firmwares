@@ -9,26 +9,26 @@
 #include <util/delay.h>
 #include <stdio.h>
 #include "math.h"
-#include "uarts.h"
+#include "GB_uarts.h"
 
-#include "adc.h"
+#include "GB_adc.h"
 
 
 int main(void)
 {  
-	float val;
-	ADC_setup();
-	UART_Init0();
+	float gb_val;
+	GB_ADC_setup();
+	GB_UART_Init0();
 while (1)
 {
-	int potien_value = ADC_select(ADC1);
+	int gb_potien_value = GB_ADC_select(ADC1);
 	//float potien_voltage = (332 * 5)/1023;
 	
-	float potien_voltage = (static_cast<float>(potien_value) * 4)/1023;
-	printString0("\npotientiometer value:");
-	decimel0(potien_value);
-	printString0("\npotientiometer voltage value:");
-	float_value0(potien_voltage);
+	float gb_potien_voltage = (static_cast<float>(gb_potien_value) * 4)/1023;
+	GB_printString0("\npotientiometer value:");
+	GB_decimel0(gb_potien_value);
+	GB_printString0("\npotientiometer voltage value:");
+	GB_float_value0(gb_potien_voltage);
 	
 //ADC_select(ADC2);
 //printString0(" navigation keys \n");

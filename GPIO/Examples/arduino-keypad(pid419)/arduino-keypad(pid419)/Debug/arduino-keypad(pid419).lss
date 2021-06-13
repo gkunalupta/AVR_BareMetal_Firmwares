@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000524  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000128  00000000  00000000  00000564  2**0
+  5 .debug_aranges 00000158  00000000  00000000  00000564  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000186e  00000000  00000000  0000068c  2**0
+  6 .debug_info   00001a73  00000000  00000000  000006bc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000e83  00000000  00000000  00001efa  2**0
+  7 .debug_abbrev 00000e4d  00000000  00000000  0000212f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000c69  00000000  00000000  00002d7d  2**0
+  8 .debug_line   00000d7d  00000000  00000000  00002f7c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000424  00000000  00000000  000039e8  2**2
+  9 .debug_frame  00000564  00000000  00000000  00003cfc  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000009a5  00000000  00000000  00003e0c  2**0
+ 10 .debug_str    00000bb0  00000000  00000000  00004260  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000015b9  00000000  00000000  000047b1  2**0
+ 11 .debug_loc    00001b2b  00000000  00000000  00004e10  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000118  00000000  00000000  00005d6a  2**0
+ 12 .debug_ranges 00000148  00000000  00000000  0000693b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -248,12 +248,12 @@ Disassembly of section .text:
 00000192 <__bad_interrupt>:
  192:	36 cf       	rjmp	.-404    	; 0x0 <__vectors>
 
-00000194 <_Z10UART_Init0v>:
-	for(i=0; intarra[i]!='\n'; i++)
+00000194 <_Z13GB_UART_Init0v>:
+	for(gb_i=0; gb_intarra[gb_i]!='\n'; gb_i++)
 	{
-		k = ((10 * k) + (intarra[i]-48));
+		gb_k = ((10 * gb_k) + (gb_intarra[gb_i]-48));
 	}
-	return k;
+	return gb_k;
 }
  194:	87 e6       	ldi	r24, 0x67	; 103
  196:	90 e0       	ldi	r25, 0x00	; 0
@@ -263,33 +263,33 @@ Disassembly of section .text:
  1a2:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
  1a6:	08 95       	ret
 
-000001a8 <_Z12UART_TxChar0j>:
+000001a8 <_Z15GB_UART_TxChar0j>:
  1a8:	e0 ec       	ldi	r30, 0xC0	; 192
  1aa:	f0 e0       	ldi	r31, 0x00	; 0
  1ac:	90 81       	ld	r25, Z
  1ae:	95 ff       	sbrs	r25, 5
- 1b0:	fd cf       	rjmp	.-6      	; 0x1ac <_Z12UART_TxChar0j+0x4>
+ 1b0:	fd cf       	rjmp	.-6      	; 0x1ac <_Z15GB_UART_TxChar0j+0x4>
  1b2:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
  1b6:	08 95       	ret
 
-000001b8 <_Z12printString0PKc>:
+000001b8 <_Z15GB_printString0PKc>:
  1b8:	cf 93       	push	r28
  1ba:	df 93       	push	r29
  1bc:	ec 01       	movw	r28, r24
  1be:	88 81       	ld	r24, Y
  1c0:	88 23       	and	r24, r24
- 1c2:	31 f0       	breq	.+12     	; 0x1d0 <_Z12printString0PKc+0x18>
+ 1c2:	31 f0       	breq	.+12     	; 0x1d0 <_Z15GB_printString0PKc+0x18>
  1c4:	21 96       	adiw	r28, 0x01	; 1
  1c6:	90 e0       	ldi	r25, 0x00	; 0
- 1c8:	ef df       	rcall	.-34     	; 0x1a8 <_Z12UART_TxChar0j>
+ 1c8:	ef df       	rcall	.-34     	; 0x1a8 <_Z15GB_UART_TxChar0j>
  1ca:	89 91       	ld	r24, Y+
  1cc:	81 11       	cpse	r24, r1
- 1ce:	fb cf       	rjmp	.-10     	; 0x1c6 <_Z12printString0PKc+0xe>
+ 1ce:	fb cf       	rjmp	.-10     	; 0x1c6 <_Z15GB_printString0PKc+0xe>
  1d0:	df 91       	pop	r29
  1d2:	cf 91       	pop	r28
  1d4:	08 95       	ret
 
-000001d6 <_Z8decimel0m>:
+000001d6 <_Z11GB_decimel0m>:
  1d6:	8f 92       	push	r8
  1d8:	9f 92       	push	r9
  1da:	af 92       	push	r10
@@ -300,7 +300,7 @@ Disassembly of section .text:
  1e4:	1f 93       	push	r17
  1e6:	cf 93       	push	r28
  1e8:	df 93       	push	r29
- 1ea:	00 d0       	rcall	.+0      	; 0x1ec <_Z8decimel0m+0x16>
+ 1ea:	00 d0       	rcall	.+0      	; 0x1ec <_Z11GB_decimel0m+0x16>
  1ec:	1f 92       	push	r1
  1ee:	1f 92       	push	r1
  1f0:	cd b7       	in	r28, 0x3d	; 61
@@ -319,11 +319,11 @@ Disassembly of section .text:
  20a:	a1 2c       	mov	r10, r1
  20c:	b1 2c       	mov	r11, r1
  20e:	f0 2d       	mov	r31, r0
- 210:	04 c0       	rjmp	.+8      	; 0x21a <_Z8decimel0m+0x44>
+ 210:	04 c0       	rjmp	.+8      	; 0x21a <_Z11GB_decimel0m+0x44>
  212:	8d 81       	ldd	r24, Y+5	; 0x05
  214:	80 33       	cpi	r24, 0x30	; 48
- 216:	81 f0       	breq	.+32     	; 0x238 <_Z8decimel0m+0x62>
- 218:	1a c0       	rjmp	.+52     	; 0x24e <_Z8decimel0m+0x78>
+ 216:	81 f0       	breq	.+32     	; 0x238 <_Z11GB_decimel0m+0x62>
+ 218:	1a c0       	rjmp	.+52     	; 0x24e <_Z11GB_decimel0m+0x78>
  21a:	a5 01       	movw	r20, r10
  21c:	94 01       	movw	r18, r8
  21e:	ea d0       	rcall	.+468    	; 0x3f4 <__udivmodsi4>
@@ -337,19 +337,19 @@ Disassembly of section .text:
  22e:	95 2f       	mov	r25, r21
  230:	ee 15       	cp	r30, r14
  232:	ff 05       	cpc	r31, r15
- 234:	91 f7       	brne	.-28     	; 0x21a <_Z8decimel0m+0x44>
- 236:	ed cf       	rjmp	.-38     	; 0x212 <_Z8decimel0m+0x3c>
+ 234:	91 f7       	brne	.-28     	; 0x21a <_Z11GB_decimel0m+0x44>
+ 236:	ed cf       	rjmp	.-38     	; 0x212 <_Z11GB_decimel0m+0x3c>
  238:	8c 81       	ldd	r24, Y+4	; 0x04
  23a:	80 33       	cpi	r24, 0x30	; 48
- 23c:	b9 f4       	brne	.+46     	; 0x26c <_Z8decimel0m+0x96>
+ 23c:	b9 f4       	brne	.+46     	; 0x26c <_Z11GB_decimel0m+0x96>
  23e:	8b 81       	ldd	r24, Y+3	; 0x03
  240:	80 33       	cpi	r24, 0x30	; 48
- 242:	b1 f4       	brne	.+44     	; 0x270 <_Z8decimel0m+0x9a>
+ 242:	b1 f4       	brne	.+44     	; 0x270 <_Z11GB_decimel0m+0x9a>
  244:	8a 81       	ldd	r24, Y+2	; 0x02
  246:	80 33       	cpi	r24, 0x30	; 48
- 248:	a9 f4       	brne	.+42     	; 0x274 <_Z8decimel0m+0x9e>
+ 248:	a9 f4       	brne	.+42     	; 0x274 <_Z11GB_decimel0m+0x9e>
  24a:	10 e0       	ldi	r17, 0x00	; 0
- 24c:	01 c0       	rjmp	.+2      	; 0x250 <_Z8decimel0m+0x7a>
+ 24c:	01 c0       	rjmp	.+2      	; 0x250 <_Z11GB_decimel0m+0x7a>
  24e:	14 e0       	ldi	r17, 0x04	; 4
  250:	e1 e0       	ldi	r30, 0x01	; 1
  252:	f0 e0       	ldi	r31, 0x00	; 0
@@ -361,16 +361,16 @@ Disassembly of section .text:
  25e:	fa 95       	dec	r31
  260:	80 81       	ld	r24, Z
  262:	90 e0       	ldi	r25, 0x00	; 0
- 264:	a1 df       	rcall	.-190    	; 0x1a8 <_Z12UART_TxChar0j>
+ 264:	a1 df       	rcall	.-190    	; 0x1a8 <_Z15GB_UART_TxChar0j>
  266:	11 50       	subi	r17, 0x01	; 1
- 268:	9a f7       	brpl	.-26     	; 0x250 <_Z8decimel0m+0x7a>
- 26a:	06 c0       	rjmp	.+12     	; 0x278 <_Z8decimel0m+0xa2>
+ 268:	9a f7       	brpl	.-26     	; 0x250 <_Z11GB_decimel0m+0x7a>
+ 26a:	06 c0       	rjmp	.+12     	; 0x278 <_Z11GB_decimel0m+0xa2>
  26c:	13 e0       	ldi	r17, 0x03	; 3
- 26e:	f0 cf       	rjmp	.-32     	; 0x250 <_Z8decimel0m+0x7a>
+ 26e:	f0 cf       	rjmp	.-32     	; 0x250 <_Z11GB_decimel0m+0x7a>
  270:	12 e0       	ldi	r17, 0x02	; 2
- 272:	ee cf       	rjmp	.-36     	; 0x250 <_Z8decimel0m+0x7a>
+ 272:	ee cf       	rjmp	.-36     	; 0x250 <_Z11GB_decimel0m+0x7a>
  274:	11 e0       	ldi	r17, 0x01	; 1
- 276:	ec cf       	rjmp	.-40     	; 0x250 <_Z8decimel0m+0x7a>
+ 276:	ec cf       	rjmp	.-40     	; 0x250 <_Z11GB_decimel0m+0x7a>
  278:	0f 90       	pop	r0
  27a:	0f 90       	pop	r0
  27c:	0f 90       	pop	r0
@@ -388,7 +388,7 @@ Disassembly of section .text:
  294:	8f 90       	pop	r8
  296:	08 95       	ret
 
-00000298 <_Z6getKeyv>:
+00000298 <_Z9GB_getKeyv>:
  298:	4f e0       	ldi	r20, 0x0F	; 15
  29a:	30 ef       	ldi	r19, 0xF0	; 240
  29c:	21 e0       	ldi	r18, 0x01	; 1
@@ -397,28 +397,28 @@ Disassembly of section .text:
  2a2:	8f e9       	ldi	r24, 0x9F	; 159
  2a4:	9f e0       	ldi	r25, 0x0F	; 15
  2a6:	01 97       	sbiw	r24, 0x01	; 1
- 2a8:	f1 f7       	brne	.-4      	; 0x2a6 <_Z6getKeyv+0xe>
- 2aa:	00 c0       	rjmp	.+0      	; 0x2ac <_Z6getKeyv+0x14>
+ 2a8:	f1 f7       	brne	.-4      	; 0x2a6 <_Z9GB_getKeyv+0xe>
+ 2aa:	00 c0       	rjmp	.+0      	; 0x2ac <_Z9GB_getKeyv+0x14>
  2ac:	00 00       	nop
  2ae:	38 b9       	out	0x08, r19	; 8
  2b0:	8f e9       	ldi	r24, 0x9F	; 159
  2b2:	9f e0       	ldi	r25, 0x0F	; 15
  2b4:	01 97       	sbiw	r24, 0x01	; 1
- 2b6:	f1 f7       	brne	.-4      	; 0x2b4 <_Z6getKeyv+0x1c>
- 2b8:	00 c0       	rjmp	.+0      	; 0x2ba <_Z6getKeyv+0x22>
+ 2b6:	f1 f7       	brne	.-4      	; 0x2b4 <_Z9GB_getKeyv+0x1c>
+ 2b8:	00 c0       	rjmp	.+0      	; 0x2ba <_Z9GB_getKeyv+0x22>
  2ba:	00 00       	nop
  2bc:	86 b1       	in	r24, 0x06	; 6
  2be:	92 2f       	mov	r25, r18
  2c0:	80 3f       	cpi	r24, 0xF0	; 240
- 2c2:	09 f4       	brne	.+2      	; 0x2c6 <_Z6getKeyv+0x2e>
+ 2c2:	09 f4       	brne	.+2      	; 0x2c6 <_Z9GB_getKeyv+0x2e>
  2c4:	95 2f       	mov	r25, r21
  2c6:	99 23       	and	r25, r25
- 2c8:	09 f4       	brne	.+2      	; 0x2cc <_Z6getKeyv+0x34>
- 2ca:	58 c0       	rjmp	.+176    	; 0x37c <_Z6getKeyv+0xe4>
+ 2c8:	09 f4       	brne	.+2      	; 0x2cc <_Z9GB_getKeyv+0x34>
+ 2ca:	58 c0       	rjmp	.+176    	; 0x37c <_Z9GB_getKeyv+0xe4>
  2cc:	90 91 12 02 	lds	r25, 0x0212	; 0x800212 <__data_end>
  2d0:	99 23       	and	r25, r25
- 2d2:	09 f4       	brne	.+2      	; 0x2d6 <_Z6getKeyv+0x3e>
- 2d4:	53 c0       	rjmp	.+166    	; 0x37c <_Z6getKeyv+0xe4>
+ 2d2:	09 f4       	brne	.+2      	; 0x2d6 <_Z9GB_getKeyv+0x3e>
+ 2d4:	53 c0       	rjmp	.+166    	; 0x37c <_Z9GB_getKeyv+0xe4>
  2d6:	86 b1       	in	r24, 0x06	; 6
  2d8:	e6 b1       	in	r30, 0x06	; 6
  2da:	80 e7       	ldi	r24, 0x70	; 112
@@ -426,16 +426,16 @@ Disassembly of section .text:
  2de:	8f e9       	ldi	r24, 0x9F	; 159
  2e0:	9f e0       	ldi	r25, 0x0F	; 15
  2e2:	01 97       	sbiw	r24, 0x01	; 1
- 2e4:	f1 f7       	brne	.-4      	; 0x2e2 <_Z6getKeyv+0x4a>
- 2e6:	00 c0       	rjmp	.+0      	; 0x2e8 <_Z6getKeyv+0x50>
+ 2e4:	f1 f7       	brne	.-4      	; 0x2e2 <_Z9GB_getKeyv+0x4a>
+ 2e6:	00 c0       	rjmp	.+0      	; 0x2e8 <_Z9GB_getKeyv+0x50>
  2e8:	00 00       	nop
  2ea:	8f e8       	ldi	r24, 0x8F	; 143
  2ec:	88 b9       	out	0x08, r24	; 8
  2ee:	8f e9       	ldi	r24, 0x9F	; 159
  2f0:	9f e0       	ldi	r25, 0x0F	; 15
  2f2:	01 97       	sbiw	r24, 0x01	; 1
- 2f4:	f1 f7       	brne	.-4      	; 0x2f2 <_Z6getKeyv+0x5a>
- 2f6:	00 c0       	rjmp	.+0      	; 0x2f8 <_Z6getKeyv+0x60>
+ 2f4:	f1 f7       	brne	.-4      	; 0x2f2 <_Z9GB_getKeyv+0x5a>
+ 2f6:	00 c0       	rjmp	.+0      	; 0x2f8 <_Z9GB_getKeyv+0x60>
  2f8:	00 00       	nop
  2fa:	86 b1       	in	r24, 0x06	; 6
  2fc:	e8 2b       	or	r30, r24
@@ -446,7 +446,7 @@ Disassembly of section .text:
  306:	f1 09       	sbc	r31, r1
  308:	e8 33       	cpi	r30, 0x38	; 56
  30a:	f1 05       	cpc	r31, r1
- 30c:	a8 f5       	brcc	.+106    	; 0x378 <_Z6getKeyv+0xe0>
+ 30c:	a8 f5       	brcc	.+106    	; 0x378 <_Z9GB_getKeyv+0xe0>
  30e:	88 27       	eor	r24, r24
  310:	ee 58       	subi	r30, 0x8E	; 142
  312:	ff 4f       	sbci	r31, 0xFF	; 255
@@ -491,47 +491,47 @@ Disassembly of section .text:
  378:	80 e0       	ldi	r24, 0x00	; 0
  37a:	08 95       	ret
  37c:	80 3f       	cpi	r24, 0xF0	; 240
- 37e:	19 f4       	brne	.+6      	; 0x386 <_Z6getKeyv+0xee>
+ 37e:	19 f4       	brne	.+6      	; 0x386 <_Z9GB_getKeyv+0xee>
  380:	20 93 12 02 	sts	0x0212, r18	; 0x800212 <__data_end>
- 384:	8d cf       	rjmp	.-230    	; 0x2a0 <_Z6getKeyv+0x8>
+ 384:	8d cf       	rjmp	.-230    	; 0x2a0 <_Z9GB_getKeyv+0x8>
  386:	50 93 12 02 	sts	0x0212, r21	; 0x800212 <__data_end>
- 38a:	8a cf       	rjmp	.-236    	; 0x2a0 <_Z6getKeyv+0x8>
+ 38a:	8a cf       	rjmp	.-236    	; 0x2a0 <_Z9GB_getKeyv+0x8>
 
 0000038c <main>:
 
 int main()
 {
 
-	UART_Init0();
- 38c:	03 df       	rcall	.-506    	; 0x194 <_Z10UART_Init0v>
-	uint8_t firstnum[3];
-	uint8_t r=0;
-    int num =0;
+	GB_UART_Init0();
+ 38c:	03 df       	rcall	.-506    	; 0x194 <_Z13GB_UART_Init0v>
+	uint8_t gb_firstnum[3];
+	uint8_t gb_r=0;
+    int gb_num =0;
 	while (1)
 	{   
-		uint16_t k=0;
+		uint16_t gb_k=0;
  38e:	00 e0       	ldi	r16, 0x00	; 0
  390:	10 e0       	ldi	r17, 0x00	; 0
-		printString0("\nenter Number\n");
+		GB_printString0("\nenter Number\n");
  392:	83 e0       	ldi	r24, 0x03	; 3
  394:	92 e0       	ldi	r25, 0x02	; 2
- 396:	10 df       	rcall	.-480    	; 0x1b8 <_Z12printString0PKc>
+ 396:	10 df       	rcall	.-480    	; 0x1b8 <_Z15GB_printString0PKc>
  398:	c4 e0       	ldi	r28, 0x04	; 4
  39a:	d0 e0       	ldi	r29, 0x00	; 0
-	uint8_t firstnum[3];
-	uint8_t r=0;
-    int num =0;
+	uint8_t gb_firstnum[3];
+	uint8_t gb_r=0;
+    int gb_num =0;
 	while (1)
 	{   
-		uint16_t k=0;
+		uint16_t gb_k=0;
  39c:	e0 2e       	mov	r14, r16
-		printString0("\nenter Number\n");
-		for(int a=0;a<4;a++)
+		GB_printString0("\nenter Number\n");
+		for(int gb_a=0;gb_a<4;gb_a++)
 		{
-			r = getKey();
+			gb_r = GB_getKey();
  39e:	f1 2e       	mov	r15, r17
- 3a0:	7b df       	rcall	.-266    	; 0x298 <_Z6getKeyv>
-			k = ((10 * k) + (r-48));
+ 3a0:	7b df       	rcall	.-266    	; 0x298 <_Z9GB_getKeyv>
+			gb_k = ((10 * gb_k) + (gb_r-48));
  3a2:	90 e0       	ldi	r25, 0x00	; 0
  3a4:	97 01       	movw	r18, r14
  3a6:	22 0f       	add	r18, r18
@@ -549,35 +549,35 @@ int main()
  3be:	71 09       	sbc	r23, r1
  3c0:	7c 01       	movw	r14, r24
  3c2:	e6 0e       	add	r14, r22
-			UART_TxChar0(r);
+			GB_UART_TxChar0(gb_r);
  3c4:	f7 1e       	adc	r15, r23
- 3c6:	f0 de       	rcall	.-544    	; 0x1a8 <_Z12UART_TxChar0j>
-    int num =0;
+ 3c6:	f0 de       	rcall	.-544    	; 0x1a8 <_Z15GB_UART_TxChar0j>
+    int gb_num =0;
 	while (1)
 	{   
-		uint16_t k=0;
-		printString0("\nenter Number\n");
-		for(int a=0;a<4;a++)
+		uint16_t gb_k=0;
+		GB_printString0("\nenter Number\n");
+		for(int gb_a=0;gb_a<4;gb_a++)
  3c8:	21 97       	sbiw	r28, 0x01	; 1
 		{
-			r = getKey();
-			k = ((10 * k) + (r-48));
-			UART_TxChar0(r);
+			gb_r = GB_getKey();
+			gb_k = ((10 * gb_k) + (gb_r-48));
+			GB_UART_TxChar0(gb_r);
 		}
-		printString0("\n");
+		GB_printString0("\n");
  3ca:	51 f7       	brne	.-44     	; 0x3a0 <main+0x14>
  3cc:	80 e1       	ldi	r24, 0x10	; 16
  3ce:	92 e0       	ldi	r25, 0x02	; 2
-		decimel0(k);
- 3d0:	f3 de       	rcall	.-538    	; 0x1b8 <_Z12printString0PKc>
+		GB_decimel0(gb_k);
+ 3d0:	f3 de       	rcall	.-538    	; 0x1b8 <_Z15GB_printString0PKc>
  3d2:	b7 01       	movw	r22, r14
  3d4:	80 e0       	ldi	r24, 0x00	; 0
  3d6:	90 e0       	ldi	r25, 0x00	; 0
-		printString0("\n");
- 3d8:	fe de       	rcall	.-516    	; 0x1d6 <_Z8decimel0m>
+		GB_printString0("\n");
+ 3d8:	fe de       	rcall	.-516    	; 0x1d6 <_Z11GB_decimel0m>
  3da:	80 e1       	ldi	r24, 0x10	; 16
  3dc:	92 e0       	ldi	r25, 0x02	; 2
- 3de:	ec de       	rcall	.-552    	; 0x1b8 <_Z12printString0PKc>
+ 3de:	ec de       	rcall	.-552    	; 0x1b8 <_Z15GB_printString0PKc>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));

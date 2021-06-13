@@ -8,8 +8,8 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "stdlib.h"
-#include "keypad.h"
-#include <uarts.h>
+#include "GB_keypad.h"
+#include <GB_uarts.h>
 
 
 /*
@@ -18,36 +18,36 @@ when using this last element of given array should have
 for loop
 
 */
-int intarray_to_integer(uint8_t intarra [])
+int GB_intarray_to_integer(uint8_t gb_intarra [])
 {
-	int i,k=0;
-	for(i=0; intarra[i]!='\n'; i++)
+	int gb_i,gb_k=0;
+	for(gb_i=0; gb_intarra[gb_i]!='\n'; gb_i++)
 	{
-		k = ((10 * k) + (intarra[i]-48));
+		gb_k = ((10 * gb_k) + (gb_intarra[gb_i]-48));
 	}
-	return k;
+	return gb_k;
 }
 
 int main()
 {
 
-	UART_Init0();
-	uint8_t firstnum[3];
-	uint8_t r=0;
-    int num =0;
+	GB_UART_Init0();
+	uint8_t gb_firstnum[3];
+	uint8_t gb_r=0;
+    int gb_num =0;
 	while (1)
 	{   
-		uint16_t k=0;
-		printString0("\nenter Number\n");
-		for(int a=0;a<4;a++)
+		uint16_t gb_k=0;
+		GB_printString0("\nenter Number\n");
+		for(int gb_a=0;gb_a<4;gb_a++)
 		{
-			r = getKey();
-			k = ((10 * k) + (r-48));
-			UART_TxChar0(r);
+			gb_r = GB_getKey();
+			gb_k = ((10 * gb_k) + (gb_r-48));
+			GB_UART_TxChar0(gb_r);
 		}
-		printString0("\n");
-		decimel0(k);
-		printString0("\n");
+		GB_printString0("\n");
+		GB_decimel0(gb_k);
+		GB_printString0("\n");
 		_delay_ms(1000);
 	}
 }

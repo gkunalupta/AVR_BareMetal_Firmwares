@@ -32,110 +32,114 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text._Z12UART_TxChar0j
+ .text._Z15GB_UART_TxChar0j
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar0v
+ .text._Z15GB_UART_RxChar0v
                 0x00000000       0x10 main.o
- .text._Z9rxstring0Pc
+ .text._Z12GB_rxstring0Pc
                 0x00000000       0x54 main.o
- .text._Z12printString0PKc
+ .text._Z15GB_printString0PKc
                 0x00000000       0x20 main.o
- .text._Z9printint0Ph
+ .text._Z12GB_printint0Ph
                 0x00000000       0x20 main.o
- .text._Z4bit0m
+ .text._Z7GB_bit0m
                 0x00000000       0x6a main.o
- .text._Z8decimel0m
+ .text._Z11GB_decimel0m
                 0x00000000       0xc6 main.o
  .rodata.str1.1
                 0x00000000        0x3 main.o
- .text._Z12float_value0f
+ .text._Z15GB_float_value0f
                 0x00000000       0x5c main.o
- .text._Z10UART_Init1v
+ .text._Z13GB_UART_Init1v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar1h
+ .text._Z15GB_UART_TxChar1h
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar1v
+ .text._Z15GB_UART_RxChar1v
                 0x00000000       0x10 main.o
- .text._Z9rxstring1Pc
+ .text._Z12GB_rxstring1Pc
                 0x00000000       0x54 main.o
- .text._Z12printString1PKc
+ .text._Z15GB_printString1PKc
                 0x00000000       0x1e main.o
- .text._Z4bit1j
-                0x00000000       0x4c main.o
- .text._Z8decimel1j
-                0x00000000       0xd0 main.o
- .text._Z10UART_Init2v
+ .text._Z12GB_printint1Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit1m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel1m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value1f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init2v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar2h
+ .text._Z15GB_UART_TxChar2h
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar2v
+ .text._Z15GB_UART_RxChar2v
                 0x00000000       0x10 main.o
- .text._Z9rxstring2Pc
+ .text._Z12GB_rxstring2Pc
                 0x00000000       0x54 main.o
- .text._Z12printString2PKc
-                0x00000000       0x2c main.o
- .text._Z4bit2j
-                0x00000000       0x4c main.o
- .text._Z8decimel2j
-                0x00000000       0xd0 main.o
- .text._Z10UART_Init3v
+ .text._Z15GB_printString2PKc
+                0x00000000       0x1e main.o
+ .text._Z12GB_printint2Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit2m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel2m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value2f
+                0x00000000       0x5c main.o
+ .text._Z13GB_UART_Init3v
                 0x00000000       0x14 main.o
- .text._Z12UART_TxChar3c
+ .text._Z15GB_UART_TxChar3c
                 0x00000000       0x10 main.o
- .text._Z12UART_RxChar3v
+ .text._Z15GB_UART_RxChar3v
                 0x00000000       0x10 main.o
- .text._Z9rxstring3Pc
+ .text._Z12GB_rxstring3Pc
                 0x00000000       0x1e main.o
- .text._Z12printString3Pc
+ .text._Z15GB_printString3PKc
                 0x00000000       0x1e main.o
- .text._Z4bit3j
-                0x00000000       0x4c main.o
- .text._Z8decimel3j
-                0x00000000       0xd0 main.o
- .text._Z24MA_SPI0_INTRPT_read_bytev
+ .text._Z12GB_printint3Ph
+                0x00000000       0x1e main.o
+ .text._Z7GB_bit3m
+                0x00000000       0x66 main.o
+ .text._Z11GB_decimel3m
+                0x00000000       0xc4 main.o
+ .text._Z15GB_float_value3f
+                0x00000000       0x5c main.o
+ .text._Z27GB_MA_SPI0_INTRPT_read_bytev
                 0x00000000       0x24 main.o
- .text._Z26MA_SPI0_INTRPT_read_stringv
+ .text._Z29GB_MA_SPI0_INTRPT_read_stringv
                 0x00000000       0x3e main.o
- .text._Z25MA_SPI0_INTRPT_read_blockPch
+ .text._Z28GB_MA_SPI0_INTRPT_read_blockPch
                 0x00000000       0x2c main.o
- .text._Z19MA_slave_select_lowh
+ .text._Z22GB_MA_slave_select_lowh
                 0x00000000       0x18 main.o
- .text._Z20MA_slave_select_highh
+ .text._Z23GB_MA_slave_select_highh
                 0x00000000       0x16 main.o
- .text._Z24MA_SPI0_enable_interruptv
+ .text._Z27GB_MA_SPI0_enable_interruptv
                 0x00000000        0x8 main.o
- .text._Z25MA_SPI0_disable_interruptv
+ .text._Z28GB_MA_SPI0_disable_interruptv
                 0x00000000        0x8 main.o
- .text._Z21MA_SPI0_exchange_byteh
-                0x00000000        0xc main.o
- .text._Z17MA_SPI0_send_byteh
+ .text._Z24GB_MA_SPI0_exchange_bytej
                 0x00000000        0xe main.o
- .text._Z19MA_SPI0_send_stringPKc
+ .text._Z20GB_MA_SPI0_send_byteh
+                0x00000000        0xe main.o
+ .text._Z22GB_MA_SPI0_send_stringPKc
                 0x00000000       0x1e main.o
- .text._Z16MA_SPI0_send_intj
+ .text._Z19GB_MA_SPI0_send_intj
                 0x00000000       0xd0 main.o
- .text._Z21MA_SPI0_send_intarrayPKj
+ .text._Z24GB_MA_SPI0_send_intarrayPKj
                 0x00000000       0x26 main.o
- .text._Z18MA_SPI0_read_blockPch
+ .text._Z21GB_MA_SPI0_read_blockPch
                 0x00000000       0x64 main.o
- .text._Z16nrf_trans_configv
+ .text._Z19GB_nrf_trans_configv
                 0x00000000       0x1e main.o
- .bss.RECV_DATA_SPI0
+ .bss.gb_RECV_DATA_SPI0
                 0x00000000       0xff main.o
- .bss.rx_byte   0x00000000        0x1 main.o
- .bss.RECV_Buffer_Overflow_SPI0
+ .bss.gb_RECV_Buffer_Overflow_SPI0
                 0x00000000        0x1 main.o
- .bss.RECV_No_of_bytes_SPI0
+ .bss.gb_RECV_Rd_Index_SPI0
                 0x00000000        0x1 main.o
- .bss.RECV_Counter_SPI0
+ .bss.gb_myValue
                 0x00000000        0x1 main.o
- .bss.RECV_Rd_Index_SPI0
-                0x00000000        0x1 main.o
- .bss.RECV_Wr_Index_SPI0
-                0x00000000        0x1 main.o
- .bss.RECV_BUFFER_SPI0
-                0x00000000       0xff main.o
- .bss.myValue   0x00000000        0x1 main.o
  .text          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
  .data          0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
  .bss           0x00000000        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
@@ -383,7 +387,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x1a2
+.text           0x00000000      0x1e4
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -448,7 +452,6 @@ END GROUP
                 0x00000122                __vector_1
                 0x00000122                __vector_32
                 0x00000122                __vector_34
-                0x00000122                __vector_24
                 0x00000122                __vector_12
                 0x00000122                __vector_55
                 0x00000122                __vector_46
@@ -501,25 +504,28 @@ END GROUP
                 0x00000122                __vector_42
                 0x00000124                . = ALIGN (0x2)
  *(.text.*)
- .text._Z10UART_Init0v
+ .text._Z13GB_UART_Init0v
                 0x00000124       0x14 main.o
-                0x00000124                _Z10UART_Init0v
- .text._Z19MA_SPI0_init_masterv
-                0x00000138       0x1a main.o
-                0x00000138                _Z19MA_SPI0_init_masterv
- .text._Z23MA_SPI0_send_byte_contih
-                0x00000152        0xa main.o
-                0x00000152                _Z23MA_SPI0_send_byte_contih
- .text._Z17MA_SPI0_read_bytev
-                0x0000015c        0xe main.o
-                0x0000015c                _Z17MA_SPI0_read_bytev
- .text.main     0x0000016a       0x34 main.o
-                0x0000016a                main
-                0x0000019e                . = ALIGN (0x2)
+                0x00000124                _Z13GB_UART_Init0v
+ .text.__vector_24
+                0x00000138       0x54 main.o
+                0x00000138                __vector_24
+ .text._Z22GB_MA_SPI0_init_masterv
+                0x0000018c        0xa main.o
+                0x0000018c                _Z22GB_MA_SPI0_init_masterv
+ .text._Z26GB_MA_SPI0_send_byte_contih
+                0x00000196        0xa main.o
+                0x00000196                _Z26GB_MA_SPI0_send_byte_contih
+ .text._Z20GB_MA_SPI0_read_bytev
+                0x000001a0        0xc main.o
+                0x000001a0                _Z20GB_MA_SPI0_read_bytev
+ .text.main     0x000001ac       0x34 main.o
+                0x000001ac                main
+                0x000001e0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000019e        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x0000019e                _exit
-                0x0000019e                exit
+ .fini9         0x000001e0        0x0 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x000001e0                _exit
+                0x000001e0                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -538,11 +544,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000019e        0x4 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x000001e0        0x4 c:/avr atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x000001a2                _etext = .
+                0x000001e4                _etext = .
 
-.data           0x00800200        0x0 load address 0x000001a2
+.data           0x00800200        0x0 load address 0x000001e4
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -554,20 +560,35 @@ END GROUP
                 0x00800200                _edata = .
                 0x00800200                PROVIDE (__data_end, .)
 
-.bss            0x00800200        0x0
+.bss            0x00800200      0x103
                 0x00800200                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.gb_rx_byte
+                0x00800200        0x1 main.o
+                0x00800200                gb_rx_byte
+ .bss.gb_RECV_No_of_bytes_SPI0
+                0x00800201        0x1 main.o
+                0x00800201                gb_RECV_No_of_bytes_SPI0
+ .bss.gb_RECV_Counter_SPI0
+                0x00800202        0x1 main.o
+                0x00800202                gb_RECV_Counter_SPI0
+ .bss.gb_RECV_Wr_Index_SPI0
+                0x00800203        0x1 main.o
+                0x00800203                gb_RECV_Wr_Index_SPI0
+ .bss.gb_RECV_BUFFER_SPI0
+                0x00800204       0xff main.o
+                0x00800204                gb_RECV_BUFFER_SPI0
  *(COMMON)
-                0x00800200                PROVIDE (__bss_end, .)
-                0x000001a2                __data_load_start = LOADADDR (.data)
-                0x000001a2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800303                PROVIDE (__bss_end, .)
+                0x000001e4                __data_load_start = LOADADDR (.data)
+                0x000001e4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800200        0x0
+.noinit         0x00800303        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800200                _end = .
+                0x00800303                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -632,42 +653,42 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x198
+.debug_aranges  0x00000000      0x1d0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x198 main.o
+                0x00000000      0x1d0 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1a77
+.debug_info     0x00000000     0x1c95
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_info    0x00000bbc      0xebb main.o
+ .debug_info    0x00000bbc     0x10d9 main.o
 
-.debug_abbrev   0x00000000      0xe99
+.debug_abbrev   0x00000000      0xe6a
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_abbrev  0x00000b1a      0x37f main.o
+ .debug_abbrev  0x00000b1a      0x350 main.o
 
-.debug_line     0x00000000      0xd18
+.debug_line     0x00000000      0xe55
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1fa C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_line    0x000001fa      0xb1e main.o
+ .debug_line    0x000001fa      0xc5b main.o
 
-.debug_frame    0x00000000      0x558
+.debug_frame    0x00000000      0x6c8
  *(.debug_frame)
- .debug_frame   0x00000000      0x558 main.o
+ .debug_frame   0x00000000      0x6c8 main.o
 
-.debug_str      0x00000000      0xd19
+.debug_str      0x00000000      0xfa9
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/avr atmel studio/7.0/Packs/atmel/ATmega_DFP/1.5.362/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6      0x933 main.o
-                                0x97e (size before relaxing)
+ .debug_str     0x000003e6      0xbc3 main.o
+                                0xc03 (size before relaxing)
 
-.debug_loc      0x00000000     0x1625
+.debug_loc      0x00000000     0x1c01
  *(.debug_loc)
- .debug_loc     0x00000000     0x1625 main.o
+ .debug_loc     0x00000000     0x1c01 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -687,9 +708,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x188
+.debug_ranges   0x00000000      0x1c0
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x188 main.o
+ .debug_ranges  0x00000000      0x1c0 main.o
 
 .debug_macro
  *(.debug_macro)

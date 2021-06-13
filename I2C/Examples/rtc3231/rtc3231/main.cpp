@@ -8,40 +8,40 @@
 #include <avr/io.h>
 
 
-#include "i2c master.h"
+#include "GB_i2c master.h"
 
-#include "uarts.h"
+#include "GB_uarts.h"
 
-#include "rtc3231.h"
+#include "GB_rtc3231.h"
 
 int main(void)
 {   
 	
 		
-	UART_Init0();
-	rtc3231_init();
-	printString0("***********rtcds3231********************");
-	float a;
-	rtc_time rt;
-	rtc_date rd;
-	setdatetime(&rt,&rd);
+	GB_UART_Init0();
+	GB_rtc3231_init();
+	GB_printString0("***********rtcds3231********************");
+	float gb_a;
+	gb_rtc_time gb_rt;
+	gb_rtc_date gb_rd;
+	GB_setdatetime(&gb_rt,&gb_rd);
 	
 	//rtc3231_32khz_output();
 	    /* Replace with your application code */
     while (1) 
     {    
-		  printString0("Temperature : ");
-		  a=DS3231_getTemperature();
-	      decimel0(a);
-		  printString0("\n");
+		  GB_printString0("Temperature : ");
+		  gb_a=GB_DS3231_getTemperature();
+	      GB_decimel0(gb_a);
+		  GB_printString0("\n");
 		  
 // 		  rtc3231_read_date(&rd);
 // 		 displaydate((&rd));
 		  
-		  rtc3231_read_datetime(&rt,&rd);
-		  dispalytimedate(&rt,&rd);
+		 GB_rtc3231_read_datetime(&gb_rt,&gb_rd);
+		  GB_dispalytimedate(&gb_rt,&gb_rd);
 		  
-		  printString0("\n");
+		  GB_printString0("\n");
 		  _delay_ms(1000);
 	}
 }

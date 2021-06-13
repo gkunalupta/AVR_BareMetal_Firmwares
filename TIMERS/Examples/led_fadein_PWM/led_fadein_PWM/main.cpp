@@ -7,18 +7,13 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include "timer_pwm.h"
-#include "uarts.h"
 
-
-
-
-
-
+#include "GB_timer_pwm.h"
+#include "GB_uarts.h"
 
 int main(void)
 {
-	FAST_PWM_Init(PWMpin);
+	GB_FAST_PWM_Init(gb_PWMpin);
     //pinMode(PB7,&DDRB,OUTPUT);
 //DDRB |=(1<<PB7);
 
@@ -33,15 +28,17 @@ int main(void)
 		//OCR1C =2000;
 		//duty_cycle(90);
 		
-		for(int i=0;i<100;i++)
+		
+		
+		for(int gb_i=0;gb_i<100;gb_i++)
 			 		{
-				 		duty_cycle(i);
+				 		GB_duty_cycle(gb_i);
 				 		_delay_ms(100);
 			 		}
 			 		_delay_ms(500);
-			 		for(int i=100;i>0;i--)
+			 		for(int gb_i=100;gb_i>0;gb_i--)
 			 		{
-				 		duty_cycle(i);
+				 		GB_duty_cycle(gb_i);
 				 		_delay_ms(100);
 			 		}
 			 		_delay_ms(500);

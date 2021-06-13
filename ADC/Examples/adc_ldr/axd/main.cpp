@@ -69,9 +69,9 @@ void bit(uint8_t val)
 int main(void)
 {   vfprintf ;
 	
-	uint16_t iDelay;
+	uint16_t gb_iDelay;
      DDRD=  0xff;
-    char sbuff[100];
+    char gb_sbuff[100];
     
     UART_Init();
     ADCSRA=0x87;
@@ -86,11 +86,11 @@ int main(void)
         bit(ADCH);
         bit(ADCL);
         printString("\n");
-		iDelay = ADCL;
-		iDelay += (ADCH << 8);
+		gb_iDelay = ADCL;
+		gb_iDelay += (ADCH << 8);
         
-        sprintf(sbuff,"%03d\n",ADC);
-        printString(sbuff);
+        sprintf(gb_sbuff,"%03d\n",ADC);
+        printString(gb_sbuff);
         _delay_ms(1000);
 		
 		if(ADC>500&ADC<600)

@@ -11,25 +11,25 @@
  */ 
 #define F_CPU 16000000
 #include <avr/io.h>
-#include "dht11.h"
+#include "GB_dht11.h"
 #include "stdio.h"
 #include "math.h"
 #define test true
 
 int main(void)
 {  
-	 UART_Init0();
-	uint8_t x[5];
+	 GB_UART_Init0();
+	uint8_t gb_x[5];
 	
-	char mystr[30]  = {0};
-	float t  = 0;
+	char gb_mystr[30]  = {0};
+	float gb_t  = 0;
     while (1) 
     {
 		
-		dht11();
+		GB_dht11();
 		
-		t = dht11_temp();
-		sprintf(mystr,"%f",t);
+		gb_t = GB_dht11_temp();
+		sprintf(gb_mystr,"%f",gb_t);
 		
 		/*
 			dht11_init();
@@ -40,7 +40,7 @@ int main(void)
 			//gcvt(t, 4 , mystr);
 			//sprintf(mystr,"%f",t);
 			//ftoa(t,mystr,2);
-			printString0(mystr);
+			GB_printString0(gb_mystr);
 			
 			//decimel0(t);
 		//	printString0("\n");
@@ -60,7 +60,7 @@ int main(void)
 			decimel0(x[3]);
 			*/
 			_delay_ms(2000);
-			printString0("\n");
+			GB_printString0("\n");
 			
 			
 // 			y[0]=0; y[1]=0,y[2]=0,y[3]=0,y[4]=0;

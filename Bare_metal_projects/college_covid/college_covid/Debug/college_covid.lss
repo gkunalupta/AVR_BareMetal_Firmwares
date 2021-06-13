@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000130c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000290  00000000  00000000  0000134c  2**0
+  5 .debug_aranges 000002c0  00000000  00000000  0000134c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002f36  00000000  00000000  000015dc  2**0
+  6 .debug_info   00003146  00000000  00000000  0000160c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000f52  00000000  00000000  00004512  2**0
+  7 .debug_abbrev 00000efe  00000000  00000000  00004752  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001697  00000000  00000000  00005464  2**0
+  8 .debug_line   000017c0  00000000  00000000  00005650  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000008a4  00000000  00000000  00006afc  2**2
+  9 .debug_frame  000009e4  00000000  00000000  00006e10  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001029  00000000  00000000  000073a0  2**0
+ 10 .debug_str    000013c8  00000000  00000000  000077f4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002bc6  00000000  00000000  000083c9  2**0
+ 11 .debug_loc    00003138  00000000  00000000  00008bbc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000308  00000000  00000000  0000af8f  2**0
+ 12 .debug_ranges 00000338  00000000  00000000  0000bcf4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -192,11 +192,11 @@ Disassembly of section .text:
 00000124 <__bad_interrupt>:
      124:	6d cf       	rjmp	.-294    	; 0x0 <__vectors>
 
-00000126 <_Z15TWI_init_masterv>:
-	 lcd_setcursor(0,0);
-	 LCD_string("Gettobyte");
-	 lcd_setcursor(0,1);
-	 LCD_string("Sparrow");
+00000126 <_Z18GB_TWI_init_masterv>:
+	 GB_lcd_setcursor(0,0);
+	 GB_LCD_string("Gettobyte");
+	 GB_lcd_setcursor(0,1);
+	 GB_LCD_string("Sparrow");
 	 return 1;
  }
      126:	88 e4       	ldi	r24, 0x48	; 72
@@ -204,23 +204,23 @@ Disassembly of section .text:
      12c:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7c00b9>
      130:	08 95       	ret
 
-00000132 <_Z9TWI_startv>:
+00000132 <_Z12GB_TWI_startv>:
      132:	84 ea       	ldi	r24, 0xA4	; 164
      134:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
      138:	ec eb       	ldi	r30, 0xBC	; 188
      13a:	f0 e0       	ldi	r31, 0x00	; 0
      13c:	80 81       	ld	r24, Z
      13e:	88 23       	and	r24, r24
-     140:	ec f7       	brge	.-6      	; 0x13c <_Z9TWI_startv+0xa>
+     140:	ec f7       	brge	.-6      	; 0x13c <_Z12GB_TWI_startv+0xa>
      142:	e9 eb       	ldi	r30, 0xB9	; 185
      144:	f0 e0       	ldi	r31, 0x00	; 0
      146:	80 81       	ld	r24, Z
      148:	88 7f       	andi	r24, 0xF8	; 248
      14a:	88 30       	cpi	r24, 0x08	; 8
-     14c:	e1 f7       	brne	.-8      	; 0x146 <_Z9TWI_startv+0x14>
+     14c:	e1 f7       	brne	.-8      	; 0x146 <_Z12GB_TWI_startv+0x14>
      14e:	08 95       	ret
 
-00000150 <_Z23TWI_write_slave_addressh>:
+00000150 <_Z26GB_TWI_write_slave_addressh>:
      150:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7c00bb>
      154:	84 e8       	ldi	r24, 0x84	; 132
      156:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
@@ -228,16 +228,16 @@ Disassembly of section .text:
      15c:	f0 e0       	ldi	r31, 0x00	; 0
      15e:	80 81       	ld	r24, Z
      160:	88 23       	and	r24, r24
-     162:	ec f7       	brge	.-6      	; 0x15e <_Z23TWI_write_slave_addressh+0xe>
+     162:	ec f7       	brge	.-6      	; 0x15e <_Z26GB_TWI_write_slave_addressh+0xe>
      164:	e9 eb       	ldi	r30, 0xB9	; 185
      166:	f0 e0       	ldi	r31, 0x00	; 0
      168:	80 81       	ld	r24, Z
      16a:	88 7f       	andi	r24, 0xF8	; 248
      16c:	88 31       	cpi	r24, 0x18	; 24
-     16e:	e1 f7       	brne	.-8      	; 0x168 <_Z23TWI_write_slave_addressh+0x18>
+     16e:	e1 f7       	brne	.-8      	; 0x168 <_Z26GB_TWI_write_slave_addressh+0x18>
      170:	08 95       	ret
 
-00000172 <_Z14TWI_write_datah>:
+00000172 <_Z17GB_TWI_write_datah>:
      172:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7c00bb>
      176:	84 e8       	ldi	r24, 0x84	; 132
      178:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
@@ -245,107 +245,107 @@ Disassembly of section .text:
      17e:	f0 e0       	ldi	r31, 0x00	; 0
      180:	80 81       	ld	r24, Z
      182:	88 23       	and	r24, r24
-     184:	ec f7       	brge	.-6      	; 0x180 <_Z14TWI_write_datah+0xe>
+     184:	ec f7       	brge	.-6      	; 0x180 <_Z17GB_TWI_write_datah+0xe>
      186:	e9 eb       	ldi	r30, 0xB9	; 185
      188:	f0 e0       	ldi	r31, 0x00	; 0
      18a:	80 81       	ld	r24, Z
      18c:	88 7f       	andi	r24, 0xF8	; 248
      18e:	88 32       	cpi	r24, 0x28	; 40
-     190:	e1 f7       	brne	.-8      	; 0x18a <_Z14TWI_write_datah+0x18>
+     190:	e1 f7       	brne	.-8      	; 0x18a <_Z17GB_TWI_write_datah+0x18>
      192:	08 95       	ret
 
-00000194 <_Z8TWI_stopv>:
+00000194 <_Z11GB_TWI_stopv>:
      194:	84 e9       	ldi	r24, 0x94	; 148
      196:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7c00bc>
      19a:	ec eb       	ldi	r30, 0xBC	; 188
      19c:	f0 e0       	ldi	r31, 0x00	; 0
      19e:	80 81       	ld	r24, Z
      1a0:	84 fd       	sbrc	r24, 4
-     1a2:	fd cf       	rjmp	.-6      	; 0x19e <_Z8TWI_stopv+0xa>
+     1a2:	fd cf       	rjmp	.-6      	; 0x19e <_Z11GB_TWI_stopv+0xa>
      1a4:	08 95       	ret
 
-000001a6 <_Z13lcd_ioexanderh>:
+000001a6 <_Z16GB_lcd_ioexanderh>:
      1a6:	cf 93       	push	r28
      1a8:	c8 2f       	mov	r28, r24
-     1aa:	c3 df       	rcall	.-122    	; 0x132 <_Z9TWI_startv>
+     1aa:	c3 df       	rcall	.-122    	; 0x132 <_Z12GB_TWI_startv>
      1ac:	8e e7       	ldi	r24, 0x7E	; 126
-     1ae:	d0 df       	rcall	.-96     	; 0x150 <_Z23TWI_write_slave_addressh>
+     1ae:	d0 df       	rcall	.-96     	; 0x150 <_Z26GB_TWI_write_slave_addressh>
      1b0:	8c 2f       	mov	r24, r28
      1b2:	88 60       	ori	r24, 0x08	; 8
-     1b4:	de df       	rcall	.-68     	; 0x172 <_Z14TWI_write_datah>
-     1b6:	ee df       	rcall	.-36     	; 0x194 <_Z8TWI_stopv>
+     1b4:	de df       	rcall	.-68     	; 0x172 <_Z17GB_TWI_write_datah>
+     1b6:	ee df       	rcall	.-36     	; 0x194 <_Z11GB_TWI_stopv>
      1b8:	cf 91       	pop	r28
      1ba:	08 95       	ret
 
-000001bc <_Z13lcd_write4bith>:
+000001bc <_Z16GB_lcd_write4bith>:
      1bc:	cf 93       	push	r28
-     1be:	c0 91 00 02 	lds	r28, 0x0200	; 0x800200 <Rs>
-     1c2:	90 91 68 02 	lds	r25, 0x0268	; 0x800268 <Rw>
+     1be:	c0 91 00 02 	lds	r28, 0x0200	; 0x800200 <__DATA_REGION_ORIGIN__>
+     1c2:	90 91 68 02 	lds	r25, 0x0268	; 0x800268 <gb_LCD_Rw>
      1c6:	c9 2b       	or	r28, r25
      1c8:	c8 2b       	or	r28, r24
      1ca:	8c 2f       	mov	r24, r28
      1cc:	84 60       	ori	r24, 0x04	; 4
-     1ce:	eb df       	rcall	.-42     	; 0x1a6 <_Z13lcd_ioexanderh>
+     1ce:	eb df       	rcall	.-42     	; 0x1a6 <_Z16GB_lcd_ioexanderh>
      1d0:	8c 2f       	mov	r24, r28
      1d2:	8b 7f       	andi	r24, 0xFB	; 251
-     1d4:	e8 df       	rcall	.-48     	; 0x1a6 <_Z13lcd_ioexanderh>
+     1d4:	e8 df       	rcall	.-48     	; 0x1a6 <_Z16GB_lcd_ioexanderh>
      1d6:	2f ef       	ldi	r18, 0xFF	; 255
      1d8:	80 e7       	ldi	r24, 0x70	; 112
      1da:	92 e0       	ldi	r25, 0x02	; 2
      1dc:	21 50       	subi	r18, 0x01	; 1
      1de:	80 40       	sbci	r24, 0x00	; 0
      1e0:	90 40       	sbci	r25, 0x00	; 0
-     1e2:	e1 f7       	brne	.-8      	; 0x1dc <_Z13lcd_write4bith+0x20>
-     1e4:	00 c0       	rjmp	.+0      	; 0x1e6 <_Z13lcd_write4bith+0x2a>
+     1e2:	e1 f7       	brne	.-8      	; 0x1dc <_Z16GB_lcd_write4bith+0x20>
+     1e4:	00 c0       	rjmp	.+0      	; 0x1e6 <_Z16GB_lcd_write4bith+0x2a>
      1e6:	00 00       	nop
      1e8:	cf 91       	pop	r28
      1ea:	08 95       	ret
 
-000001ec <_Z11LCD_commandh>:
+000001ec <_Z14GB_LCD_commandh>:
      1ec:	cf 93       	push	r28
      1ee:	c8 2f       	mov	r28, r24
-     1f0:	10 92 00 02 	sts	0x0200, r1	; 0x800200 <Rs>
-     1f4:	10 92 68 02 	sts	0x0268, r1	; 0x800268 <Rw>
+     1f0:	10 92 00 02 	sts	0x0200, r1	; 0x800200 <__DATA_REGION_ORIGIN__>
+     1f4:	10 92 68 02 	sts	0x0268, r1	; 0x800268 <gb_LCD_Rw>
      1f8:	80 7f       	andi	r24, 0xF0	; 240
-     1fa:	e0 df       	rcall	.-64     	; 0x1bc <_Z13lcd_write4bith>
+     1fa:	e0 df       	rcall	.-64     	; 0x1bc <_Z16GB_lcd_write4bith>
      1fc:	8c 2f       	mov	r24, r28
      1fe:	82 95       	swap	r24
      200:	80 7f       	andi	r24, 0xF0	; 240
-     202:	dc df       	rcall	.-72     	; 0x1bc <_Z13lcd_write4bith>
+     202:	dc df       	rcall	.-72     	; 0x1bc <_Z16GB_lcd_write4bith>
      204:	cf 91       	pop	r28
      206:	08 95       	ret
 
-00000208 <_Z9lcd_clearv>:
+00000208 <_Z12GB_lcd_clearv>:
      208:	81 e0       	ldi	r24, 0x01	; 1
-     20a:	f0 df       	rcall	.-32     	; 0x1ec <_Z11LCD_commandh>
+     20a:	f0 df       	rcall	.-32     	; 0x1ec <_Z14GB_LCD_commandh>
      20c:	2f ef       	ldi	r18, 0xFF	; 255
      20e:	89 ef       	ldi	r24, 0xF9	; 249
      210:	90 e0       	ldi	r25, 0x00	; 0
      212:	21 50       	subi	r18, 0x01	; 1
      214:	80 40       	sbci	r24, 0x00	; 0
      216:	90 40       	sbci	r25, 0x00	; 0
-     218:	e1 f7       	brne	.-8      	; 0x212 <_Z9lcd_clearv+0xa>
-     21a:	00 c0       	rjmp	.+0      	; 0x21c <_Z9lcd_clearv+0x14>
+     218:	e1 f7       	brne	.-8      	; 0x212 <_Z12GB_lcd_clearv+0xa>
+     21a:	00 c0       	rjmp	.+0      	; 0x21c <_Z12GB_lcd_clearv+0x14>
      21c:	00 00       	nop
      21e:	08 95       	ret
 
-00000220 <_Z8LCD_datah>:
+00000220 <_Z11GB_LCD_datah>:
      220:	cf 93       	push	r28
      222:	c8 2f       	mov	r28, r24
      224:	81 e0       	ldi	r24, 0x01	; 1
-     226:	80 93 00 02 	sts	0x0200, r24	; 0x800200 <Rs>
-     22a:	10 92 68 02 	sts	0x0268, r1	; 0x800268 <Rw>
+     226:	80 93 00 02 	sts	0x0200, r24	; 0x800200 <__DATA_REGION_ORIGIN__>
+     22a:	10 92 68 02 	sts	0x0268, r1	; 0x800268 <gb_LCD_Rw>
      22e:	8c 2f       	mov	r24, r28
      230:	80 7f       	andi	r24, 0xF0	; 240
-     232:	c4 df       	rcall	.-120    	; 0x1bc <_Z13lcd_write4bith>
+     232:	c4 df       	rcall	.-120    	; 0x1bc <_Z16GB_lcd_write4bith>
      234:	8c 2f       	mov	r24, r28
      236:	82 95       	swap	r24
      238:	80 7f       	andi	r24, 0xF0	; 240
-     23a:	c0 df       	rcall	.-128    	; 0x1bc <_Z13lcd_write4bith>
+     23a:	c0 df       	rcall	.-128    	; 0x1bc <_Z16GB_lcd_write4bith>
      23c:	cf 91       	pop	r28
      23e:	08 95       	ret
 
-00000240 <_Z16lcd_printint_numi>:
+00000240 <_Z19GB_lcd_printint_numi>:
      240:	1f 93       	push	r17
      242:	cf 93       	push	r28
      244:	df 93       	push	r29
@@ -355,10 +355,10 @@ Disassembly of section .text:
      24c:	96 d4       	rcall	.+2348   	; 0xb7a <__divmodhi4>
      24e:	16 2f       	mov	r17, r22
      250:	66 23       	and	r22, r22
-     252:	19 f0       	breq	.+6      	; 0x25a <_Z16lcd_printint_numi+0x1a>
+     252:	19 f0       	breq	.+6      	; 0x25a <_Z19GB_lcd_printint_numi+0x1a>
      254:	80 e3       	ldi	r24, 0x30	; 48
      256:	86 0f       	add	r24, r22
-     258:	e3 df       	rcall	.-58     	; 0x220 <_Z8LCD_datah>
+     258:	e3 df       	rcall	.-58     	; 0x220 <_Z11GB_LCD_datah>
      25a:	28 e1       	ldi	r18, 0x18	; 24
      25c:	3c ef       	ldi	r19, 0xFC	; 252
      25e:	12 9f       	mul	r17, r18
@@ -373,10 +373,10 @@ Disassembly of section .text:
      270:	70 e0       	ldi	r23, 0x00	; 0
      272:	83 d4       	rcall	.+2310   	; 0xb7a <__divmodhi4>
      274:	66 23       	and	r22, r22
-     276:	19 f0       	breq	.+6      	; 0x27e <_Z16lcd_printint_numi+0x3e>
+     276:	19 f0       	breq	.+6      	; 0x27e <_Z19GB_lcd_printint_numi+0x3e>
      278:	80 e3       	ldi	r24, 0x30	; 48
      27a:	86 0f       	add	r24, r22
-     27c:	d1 df       	rcall	.-94     	; 0x220 <_Z8LCD_datah>
+     27c:	d1 df       	rcall	.-94     	; 0x220 <_Z11GB_LCD_datah>
      27e:	ce 01       	movw	r24, r28
      280:	64 e6       	ldi	r22, 0x64	; 100
      282:	70 e0       	ldi	r23, 0x00	; 0
@@ -385,99 +385,99 @@ Disassembly of section .text:
      288:	70 e0       	ldi	r23, 0x00	; 0
      28a:	77 d4       	rcall	.+2286   	; 0xb7a <__divmodhi4>
      28c:	66 23       	and	r22, r22
-     28e:	19 f0       	breq	.+6      	; 0x296 <_Z16lcd_printint_numi+0x56>
+     28e:	19 f0       	breq	.+6      	; 0x296 <_Z19GB_lcd_printint_numi+0x56>
      290:	80 e3       	ldi	r24, 0x30	; 48
      292:	86 0f       	add	r24, r22
-     294:	c5 df       	rcall	.-118    	; 0x220 <_Z8LCD_datah>
+     294:	c5 df       	rcall	.-118    	; 0x220 <_Z11GB_LCD_datah>
      296:	ce 01       	movw	r24, r28
      298:	6a e0       	ldi	r22, 0x0A	; 10
      29a:	70 e0       	ldi	r23, 0x00	; 0
      29c:	6e d4       	rcall	.+2268   	; 0xb7a <__divmodhi4>
      29e:	80 5d       	subi	r24, 0xD0	; 208
-     2a0:	bf df       	rcall	.-130    	; 0x220 <_Z8LCD_datah>
+     2a0:	bf df       	rcall	.-130    	; 0x220 <_Z11GB_LCD_datah>
      2a2:	df 91       	pop	r29
      2a4:	cf 91       	pop	r28
      2a6:	1f 91       	pop	r17
      2a8:	08 95       	ret
 
-000002aa <_Z10LCD_stringPKc>:
+000002aa <_Z13GB_LCD_stringPKc>:
      2aa:	cf 93       	push	r28
      2ac:	df 93       	push	r29
      2ae:	ec 01       	movw	r28, r24
      2b0:	88 81       	ld	r24, Y
      2b2:	88 23       	and	r24, r24
-     2b4:	41 f0       	breq	.+16     	; 0x2c6 <_Z10LCD_stringPKc+0x1c>
+     2b4:	41 f0       	breq	.+16     	; 0x2c6 <_Z13GB_LCD_stringPKc+0x1c>
      2b6:	21 96       	adiw	r28, 0x01	; 1
-     2b8:	b3 df       	rcall	.-154    	; 0x220 <_Z8LCD_datah>
+     2b8:	b3 df       	rcall	.-154    	; 0x220 <_Z11GB_LCD_datah>
      2ba:	80 ef       	ldi	r24, 0xF0	; 240
      2bc:	8a 95       	dec	r24
-     2be:	f1 f7       	brne	.-4      	; 0x2bc <_Z10LCD_stringPKc+0x12>
+     2be:	f1 f7       	brne	.-4      	; 0x2bc <_Z13GB_LCD_stringPKc+0x12>
      2c0:	89 91       	ld	r24, Y+
      2c2:	81 11       	cpse	r24, r1
-     2c4:	f9 cf       	rjmp	.-14     	; 0x2b8 <_Z10LCD_stringPKc+0xe>
+     2c4:	f9 cf       	rjmp	.-14     	; 0x2b8 <_Z13GB_LCD_stringPKc+0xe>
      2c6:	df 91       	pop	r29
      2c8:	cf 91       	pop	r28
      2ca:	08 95       	ret
 
-000002cc <_Z8LCD_initv>:
-     2cc:	2c df       	rcall	.-424    	; 0x126 <_Z15TWI_init_masterv>
+000002cc <_Z11GB_LCD_initv>:
+     2cc:	2c df       	rcall	.-424    	; 0x126 <_Z18GB_TWI_init_masterv>
      2ce:	8f e8       	ldi	r24, 0x8F	; 143
      2d0:	91 e0       	ldi	r25, 0x01	; 1
      2d2:	01 97       	sbiw	r24, 0x01	; 1
-     2d4:	f1 f7       	brne	.-4      	; 0x2d2 <_Z8LCD_initv+0x6>
-     2d6:	00 c0       	rjmp	.+0      	; 0x2d8 <_Z8LCD_initv+0xc>
+     2d4:	f1 f7       	brne	.-4      	; 0x2d2 <_Z11GB_LCD_initv+0x6>
+     2d6:	00 c0       	rjmp	.+0      	; 0x2d8 <_Z11GB_LCD_initv+0xc>
      2d8:	00 00       	nop
      2da:	80 e0       	ldi	r24, 0x00	; 0
-     2dc:	64 df       	rcall	.-312    	; 0x1a6 <_Z13lcd_ioexanderh>
+     2dc:	64 df       	rcall	.-312    	; 0x1a6 <_Z16GB_lcd_ioexanderh>
      2de:	9f e7       	ldi	r25, 0x7F	; 127
      2e0:	28 e3       	ldi	r18, 0x38	; 56
      2e2:	81 e0       	ldi	r24, 0x01	; 1
      2e4:	91 50       	subi	r25, 0x01	; 1
      2e6:	20 40       	sbci	r18, 0x00	; 0
      2e8:	80 40       	sbci	r24, 0x00	; 0
-     2ea:	e1 f7       	brne	.-8      	; 0x2e4 <_Z8LCD_initv+0x18>
-     2ec:	00 c0       	rjmp	.+0      	; 0x2ee <_Z8LCD_initv+0x22>
+     2ea:	e1 f7       	brne	.-8      	; 0x2e4 <_Z11GB_LCD_initv+0x18>
+     2ec:	00 c0       	rjmp	.+0      	; 0x2ee <_Z11GB_LCD_initv+0x22>
      2ee:	00 00       	nop
      2f0:	88 e2       	ldi	r24, 0x28	; 40
-     2f2:	7c df       	rcall	.-264    	; 0x1ec <_Z11LCD_commandh>
+     2f2:	7c df       	rcall	.-264    	; 0x1ec <_Z14GB_LCD_commandh>
      2f4:	8f e1       	ldi	r24, 0x1F	; 31
      2f6:	9e e4       	ldi	r25, 0x4E	; 78
      2f8:	01 97       	sbiw	r24, 0x01	; 1
-     2fa:	f1 f7       	brne	.-4      	; 0x2f8 <_Z8LCD_initv+0x2c>
-     2fc:	00 c0       	rjmp	.+0      	; 0x2fe <_Z8LCD_initv+0x32>
+     2fa:	f1 f7       	brne	.-4      	; 0x2f8 <_Z11GB_LCD_initv+0x2c>
+     2fc:	00 c0       	rjmp	.+0      	; 0x2fe <_Z11GB_LCD_initv+0x32>
      2fe:	00 00       	nop
      300:	88 e2       	ldi	r24, 0x28	; 40
-     302:	74 df       	rcall	.-280    	; 0x1ec <_Z11LCD_commandh>
+     302:	74 df       	rcall	.-280    	; 0x1ec <_Z14GB_LCD_commandh>
      304:	8f e7       	ldi	r24, 0x7F	; 127
      306:	92 e0       	ldi	r25, 0x02	; 2
      308:	01 97       	sbiw	r24, 0x01	; 1
-     30a:	f1 f7       	brne	.-4      	; 0x308 <_Z8LCD_initv+0x3c>
-     30c:	00 c0       	rjmp	.+0      	; 0x30e <_Z8LCD_initv+0x42>
+     30a:	f1 f7       	brne	.-4      	; 0x308 <_Z11GB_LCD_initv+0x3c>
+     30c:	00 c0       	rjmp	.+0      	; 0x30e <_Z11GB_LCD_initv+0x42>
      30e:	00 00       	nop
      310:	88 e2       	ldi	r24, 0x28	; 40
-     312:	6c df       	rcall	.-296    	; 0x1ec <_Z11LCD_commandh>
+     312:	6c df       	rcall	.-296    	; 0x1ec <_Z14GB_LCD_commandh>
      314:	88 e2       	ldi	r24, 0x28	; 40
-     316:	6a df       	rcall	.-300    	; 0x1ec <_Z11LCD_commandh>
+     316:	6a df       	rcall	.-300    	; 0x1ec <_Z14GB_LCD_commandh>
      318:	90 ef       	ldi	r25, 0xF0	; 240
      31a:	9a 95       	dec	r25
-     31c:	f1 f7       	brne	.-4      	; 0x31a <_Z8LCD_initv+0x4e>
+     31c:	f1 f7       	brne	.-4      	; 0x31a <_Z11GB_LCD_initv+0x4e>
      31e:	8c e0       	ldi	r24, 0x0C	; 12
-     320:	65 df       	rcall	.-310    	; 0x1ec <_Z11LCD_commandh>
+     320:	65 df       	rcall	.-310    	; 0x1ec <_Z14GB_LCD_commandh>
      322:	8f e9       	ldi	r24, 0x9F	; 159
      324:	9f e0       	ldi	r25, 0x0F	; 15
      326:	01 97       	sbiw	r24, 0x01	; 1
-     328:	f1 f7       	brne	.-4      	; 0x326 <_Z8LCD_initv+0x5a>
-     32a:	00 c0       	rjmp	.+0      	; 0x32c <_Z8LCD_initv+0x60>
+     328:	f1 f7       	brne	.-4      	; 0x326 <_Z11GB_LCD_initv+0x5a>
+     32a:	00 c0       	rjmp	.+0      	; 0x32c <_Z11GB_LCD_initv+0x60>
      32c:	00 00       	nop
      32e:	84 e0       	ldi	r24, 0x04	; 4
-     330:	5d df       	rcall	.-326    	; 0x1ec <_Z11LCD_commandh>
+     330:	5d df       	rcall	.-326    	; 0x1ec <_Z14GB_LCD_commandh>
      332:	95 ed       	ldi	r25, 0xD5	; 213
      334:	9a 95       	dec	r25
-     336:	f1 f7       	brne	.-4      	; 0x334 <_Z8LCD_initv+0x68>
+     336:	f1 f7       	brne	.-4      	; 0x334 <_Z11GB_LCD_initv+0x68>
      338:	00 00       	nop
      33a:	08 95       	ret
 
-0000033c <_Z10UART_Init0v>:
+0000033c <_Z13GB_UART_Init0v>:
      33c:	87 e6       	ldi	r24, 0x67	; 103
      33e:	90 e0       	ldi	r25, 0x00	; 0
      340:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7c00c5>
@@ -486,16 +486,16 @@ Disassembly of section .text:
      34a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
      34e:	08 95       	ret
 
-00000350 <_Z12UART_TxChar0j>:
+00000350 <_Z15GB_UART_TxChar0j>:
      350:	e0 ec       	ldi	r30, 0xC0	; 192
      352:	f0 e0       	ldi	r31, 0x00	; 0
      354:	90 81       	ld	r25, Z
      356:	95 ff       	sbrs	r25, 5
-     358:	fd cf       	rjmp	.-6      	; 0x354 <_Z12UART_TxChar0j+0x4>
+     358:	fd cf       	rjmp	.-6      	; 0x354 <_Z15GB_UART_TxChar0j+0x4>
      35a:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
      35e:	08 95       	ret
 
-00000360 <_Z8decimel0m>:
+00000360 <_Z11GB_decimel0m>:
      360:	8f 92       	push	r8
      362:	9f 92       	push	r9
      364:	af 92       	push	r10
@@ -506,7 +506,7 @@ Disassembly of section .text:
      36e:	1f 93       	push	r17
      370:	cf 93       	push	r28
      372:	df 93       	push	r29
-     374:	00 d0       	rcall	.+0      	; 0x376 <_Z8decimel0m+0x16>
+     374:	00 d0       	rcall	.+0      	; 0x376 <_Z11GB_decimel0m+0x16>
      376:	1f 92       	push	r1
      378:	1f 92       	push	r1
      37a:	cd b7       	in	r28, 0x3d	; 61
@@ -525,11 +525,11 @@ Disassembly of section .text:
      394:	a1 2c       	mov	r10, r1
      396:	b1 2c       	mov	r11, r1
      398:	f0 2d       	mov	r31, r0
-     39a:	04 c0       	rjmp	.+8      	; 0x3a4 <_Z8decimel0m+0x44>
+     39a:	04 c0       	rjmp	.+8      	; 0x3a4 <_Z11GB_decimel0m+0x44>
      39c:	8d 81       	ldd	r24, Y+5	; 0x05
      39e:	80 33       	cpi	r24, 0x30	; 48
-     3a0:	81 f0       	breq	.+32     	; 0x3c2 <_Z8decimel0m+0x62>
-     3a2:	1a c0       	rjmp	.+52     	; 0x3d8 <_Z8decimel0m+0x78>
+     3a0:	81 f0       	breq	.+32     	; 0x3c2 <_Z11GB_decimel0m+0x62>
+     3a2:	1a c0       	rjmp	.+52     	; 0x3d8 <_Z11GB_decimel0m+0x78>
      3a4:	a5 01       	movw	r20, r10
      3a6:	94 01       	movw	r18, r8
      3a8:	fb d3       	rcall	.+2038   	; 0xba0 <__udivmodsi4>
@@ -543,19 +543,19 @@ Disassembly of section .text:
      3b8:	95 2f       	mov	r25, r21
      3ba:	ee 15       	cp	r30, r14
      3bc:	ff 05       	cpc	r31, r15
-     3be:	91 f7       	brne	.-28     	; 0x3a4 <_Z8decimel0m+0x44>
-     3c0:	ed cf       	rjmp	.-38     	; 0x39c <_Z8decimel0m+0x3c>
+     3be:	91 f7       	brne	.-28     	; 0x3a4 <_Z11GB_decimel0m+0x44>
+     3c0:	ed cf       	rjmp	.-38     	; 0x39c <_Z11GB_decimel0m+0x3c>
      3c2:	8c 81       	ldd	r24, Y+4	; 0x04
      3c4:	80 33       	cpi	r24, 0x30	; 48
-     3c6:	b9 f4       	brne	.+46     	; 0x3f6 <_Z8decimel0m+0x96>
+     3c6:	b9 f4       	brne	.+46     	; 0x3f6 <_Z11GB_decimel0m+0x96>
      3c8:	8b 81       	ldd	r24, Y+3	; 0x03
      3ca:	80 33       	cpi	r24, 0x30	; 48
-     3cc:	b1 f4       	brne	.+44     	; 0x3fa <_Z8decimel0m+0x9a>
+     3cc:	b1 f4       	brne	.+44     	; 0x3fa <_Z11GB_decimel0m+0x9a>
      3ce:	8a 81       	ldd	r24, Y+2	; 0x02
      3d0:	80 33       	cpi	r24, 0x30	; 48
-     3d2:	a9 f4       	brne	.+42     	; 0x3fe <_Z8decimel0m+0x9e>
+     3d2:	a9 f4       	brne	.+42     	; 0x3fe <_Z11GB_decimel0m+0x9e>
      3d4:	10 e0       	ldi	r17, 0x00	; 0
-     3d6:	01 c0       	rjmp	.+2      	; 0x3da <_Z8decimel0m+0x7a>
+     3d6:	01 c0       	rjmp	.+2      	; 0x3da <_Z11GB_decimel0m+0x7a>
      3d8:	14 e0       	ldi	r17, 0x04	; 4
      3da:	e1 e0       	ldi	r30, 0x01	; 1
      3dc:	f0 e0       	ldi	r31, 0x00	; 0
@@ -567,16 +567,16 @@ Disassembly of section .text:
      3e8:	fa 95       	dec	r31
      3ea:	80 81       	ld	r24, Z
      3ec:	90 e0       	ldi	r25, 0x00	; 0
-     3ee:	b0 df       	rcall	.-160    	; 0x350 <_Z12UART_TxChar0j>
+     3ee:	b0 df       	rcall	.-160    	; 0x350 <_Z15GB_UART_TxChar0j>
      3f0:	11 50       	subi	r17, 0x01	; 1
-     3f2:	9a f7       	brpl	.-26     	; 0x3da <_Z8decimel0m+0x7a>
+     3f2:	9a f7       	brpl	.-26     	; 0x3da <_Z11GB_decimel0m+0x7a>
      3f4:	06 c0       	rjmp	.+12     	; 0x402 <__LOCK_REGION_LENGTH__+0x2>
      3f6:	13 e0       	ldi	r17, 0x03	; 3
-     3f8:	f0 cf       	rjmp	.-32     	; 0x3da <_Z8decimel0m+0x7a>
+     3f8:	f0 cf       	rjmp	.-32     	; 0x3da <_Z11GB_decimel0m+0x7a>
      3fa:	12 e0       	ldi	r17, 0x02	; 2
-     3fc:	ee cf       	rjmp	.-36     	; 0x3da <_Z8decimel0m+0x7a>
+     3fc:	ee cf       	rjmp	.-36     	; 0x3da <_Z11GB_decimel0m+0x7a>
      3fe:	11 e0       	ldi	r17, 0x01	; 1
-     400:	ec cf       	rjmp	.-40     	; 0x3da <_Z8decimel0m+0x7a>
+     400:	ec cf       	rjmp	.-40     	; 0x3da <_Z11GB_decimel0m+0x7a>
      402:	0f 90       	pop	r0
      404:	0f 90       	pop	r0
      406:	0f 90       	pop	r0
@@ -594,7 +594,7 @@ Disassembly of section .text:
      41e:	8f 90       	pop	r8
      420:	08 95       	ret
 
-00000422 <_Z10dht11_initv>:
+00000422 <_Z13GB_dht11_initv>:
      422:	85 b5       	in	r24, 0x25	; 37
      424:	82 60       	ori	r24, 0x02	; 2
      426:	85 bd       	out	0x25, r24	; 37
@@ -615,8 +615,8 @@ Disassembly of section .text:
      444:	21 50       	subi	r18, 0x01	; 1
      446:	80 40       	sbci	r24, 0x00	; 0
      448:	90 40       	sbci	r25, 0x00	; 0
-     44a:	e1 f7       	brne	.-8      	; 0x444 <_Z10dht11_initv+0x22>
-     44c:	00 c0       	rjmp	.+0      	; 0x44e <_Z10dht11_initv+0x2c>
+     44a:	e1 f7       	brne	.-8      	; 0x444 <_Z13GB_dht11_initv+0x22>
+     44c:	00 c0       	rjmp	.+0      	; 0x44e <_Z13GB_dht11_initv+0x2c>
      44e:	00 00       	nop
      450:	80 81       	ld	r24, Z
      452:	80 61       	ori	r24, 0x10	; 16
@@ -624,7 +624,7 @@ Disassembly of section .text:
      456:	16 bc       	out	0x26, r1	; 38
      458:	86 b5       	in	r24, 0x26	; 38
      45a:	81 35       	cpi	r24, 0x51	; 81
-     45c:	e8 f3       	brcs	.-6      	; 0x458 <_Z10dht11_initv+0x36>
+     45c:	e8 f3       	brcs	.-6      	; 0x458 <_Z13GB_dht11_initv+0x36>
      45e:	e1 e0       	ldi	r30, 0x01	; 1
      460:	f1 e0       	ldi	r31, 0x01	; 1
      462:	80 81       	ld	r24, Z
@@ -632,21 +632,21 @@ Disassembly of section .text:
      466:	80 83       	st	Z, r24
      468:	08 95       	ret
 
-0000046a <_Z19dht11_find_responsev>:
+0000046a <_Z22GB_dht11_find_responsev>:
      46a:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__TEXT_REGION_LENGTH__+0x7c0100>
      46e:	84 fd       	sbrc	r24, 4
-     470:	0d c0       	rjmp	.+26     	; 0x48c <_Z19dht11_find_responsev+0x22>
+     470:	0d c0       	rjmp	.+26     	; 0x48c <_Z22GB_dht11_find_responsev+0x22>
      472:	16 bc       	out	0x26, r1	; 38
      474:	86 b5       	in	r24, 0x26	; 38
      476:	8b 3a       	cpi	r24, 0xAB	; 171
-     478:	e8 f3       	brcs	.-6      	; 0x474 <_Z19dht11_find_responsev+0xa>
+     478:	e8 f3       	brcs	.-6      	; 0x474 <_Z22GB_dht11_find_responsev+0xa>
      47a:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__TEXT_REGION_LENGTH__+0x7c0100>
      47e:	84 ff       	sbrs	r24, 4
-     480:	08 c0       	rjmp	.+16     	; 0x492 <_Z19dht11_find_responsev+0x28>
+     480:	08 c0       	rjmp	.+16     	; 0x492 <_Z22GB_dht11_find_responsev+0x28>
      482:	16 bc       	out	0x26, r1	; 38
      484:	86 b5       	in	r24, 0x26	; 38
      486:	8b 3a       	cpi	r24, 0xAB	; 171
-     488:	e8 f3       	brcs	.-6      	; 0x484 <_Z19dht11_find_responsev+0x1a>
+     488:	e8 f3       	brcs	.-6      	; 0x484 <_Z22GB_dht11_find_responsev+0x1a>
      48a:	08 95       	ret
      48c:	81 e0       	ldi	r24, 0x01	; 1
      48e:	90 e0       	ldi	r25, 0x00	; 0
@@ -655,7 +655,7 @@ Disassembly of section .text:
      494:	90 e0       	ldi	r25, 0x00	; 0
      496:	08 95       	ret
 
-00000498 <_Z16dht11_receivedhtv>:
+00000498 <_Z19GB_dht11_receivedhtv>:
      498:	0f 93       	push	r16
      49a:	1f 93       	push	r17
      49c:	cf 93       	push	r28
@@ -678,96 +678,96 @@ Disassembly of section .text:
      4be:	16 bc       	out	0x26, r1	; 38
      4c0:	80 81       	ld	r24, Z
      4c2:	84 fd       	sbrc	r24, 4
-     4c4:	0b c0       	rjmp	.+22     	; 0x4dc <_Z16dht11_receivedhtv+0x44>
+     4c4:	0b c0       	rjmp	.+22     	; 0x4dc <_Z19GB_dht11_receivedhtv+0x44>
      4c6:	86 b5       	in	r24, 0x26	; 38
      4c8:	88 37       	cpi	r24, 0x78	; 120
-     4ca:	d0 f3       	brcs	.-12     	; 0x4c0 <_Z16dht11_receivedhtv+0x28>
+     4ca:	d0 f3       	brcs	.-12     	; 0x4c0 <_Z19GB_dht11_receivedhtv+0x28>
      4cc:	66 b5       	in	r22, 0x26	; 38
      4ce:	70 e0       	ldi	r23, 0x00	; 0
      4d0:	80 e0       	ldi	r24, 0x00	; 0
      4d2:	90 e0       	ldi	r25, 0x00	; 0
-     4d4:	45 df       	rcall	.-374    	; 0x360 <_Z8decimel0m>
+     4d4:	45 df       	rcall	.-374    	; 0x360 <_Z11GB_decimel0m>
      4d6:	8c e0       	ldi	r24, 0x0C	; 12
      4d8:	90 e0       	ldi	r25, 0x00	; 0
-     4da:	63 c0       	rjmp	.+198    	; 0x5a2 <_Z16dht11_receivedhtv+0x10a>
+     4da:	63 c0       	rjmp	.+198    	; 0x5a2 <_Z19GB_dht11_receivedhtv+0x10a>
      4dc:	16 bc       	out	0x26, r1	; 38
      4de:	80 81       	ld	r24, Z
      4e0:	84 ff       	sbrs	r24, 4
-     4e2:	0f c0       	rjmp	.+30     	; 0x502 <_Z16dht11_receivedhtv+0x6a>
+     4e2:	0f c0       	rjmp	.+30     	; 0x502 <_Z19GB_dht11_receivedhtv+0x6a>
      4e4:	86 b5       	in	r24, 0x26	; 38
      4e6:	8b 3a       	cpi	r24, 0xAB	; 171
-     4e8:	38 f0       	brcs	.+14     	; 0x4f8 <_Z16dht11_receivedhtv+0x60>
+     4e8:	38 f0       	brcs	.+14     	; 0x4f8 <_Z19GB_dht11_receivedhtv+0x60>
      4ea:	81 e0       	ldi	r24, 0x01	; 1
      4ec:	90 e0       	ldi	r25, 0x00	; 0
-     4ee:	59 c0       	rjmp	.+178    	; 0x5a2 <_Z16dht11_receivedhtv+0x10a>
+     4ee:	59 c0       	rjmp	.+178    	; 0x5a2 <_Z19GB_dht11_receivedhtv+0x10a>
      4f0:	86 b5       	in	r24, 0x26	; 38
      4f2:	8b 3a       	cpi	r24, 0xAB	; 171
-     4f4:	08 f0       	brcs	.+2      	; 0x4f8 <_Z16dht11_receivedhtv+0x60>
-     4f6:	4d c0       	rjmp	.+154    	; 0x592 <_Z16dht11_receivedhtv+0xfa>
+     4f4:	08 f0       	brcs	.+2      	; 0x4f8 <_Z19GB_dht11_receivedhtv+0x60>
+     4f6:	4d c0       	rjmp	.+154    	; 0x592 <_Z19GB_dht11_receivedhtv+0xfa>
      4f8:	86 b5       	in	r24, 0x26	; 38
      4fa:	89 83       	std	Y+1, r24	; 0x01
      4fc:	80 81       	ld	r24, Z
      4fe:	84 fd       	sbrc	r24, 4
-     500:	f7 cf       	rjmp	.-18     	; 0x4f0 <_Z16dht11_receivedhtv+0x58>
+     500:	f7 cf       	rjmp	.-18     	; 0x4f0 <_Z19GB_dht11_receivedhtv+0x58>
      502:	19 81       	ldd	r17, Y+1	; 0x01
      504:	09 81       	ldd	r16, Y+1	; 0x01
      506:	89 2f       	mov	r24, r25
      508:	18 32       	cpi	r17, 0x28	; 40
-     50a:	08 f4       	brcc	.+2      	; 0x50e <_Z16dht11_receivedhtv+0x76>
+     50a:	08 f4       	brcc	.+2      	; 0x50e <_Z19GB_dht11_receivedhtv+0x76>
      50c:	80 e0       	ldi	r24, 0x00	; 0
      50e:	88 23       	and	r24, r24
-     510:	91 f0       	breq	.+36     	; 0x536 <_Z16dht11_receivedhtv+0x9e>
+     510:	91 f0       	breq	.+36     	; 0x536 <_Z19GB_dht11_receivedhtv+0x9e>
      512:	89 2f       	mov	r24, r25
      514:	07 34       	cpi	r16, 0x47	; 71
-     516:	08 f0       	brcs	.+2      	; 0x51a <_Z16dht11_receivedhtv+0x82>
+     516:	08 f0       	brcs	.+2      	; 0x51a <_Z19GB_dht11_receivedhtv+0x82>
      518:	80 e0       	ldi	r24, 0x00	; 0
      51a:	88 23       	and	r24, r24
-     51c:	61 f0       	breq	.+24     	; 0x536 <_Z16dht11_receivedhtv+0x9e>
+     51c:	61 f0       	breq	.+24     	; 0x536 <_Z19GB_dht11_receivedhtv+0x9e>
      51e:	8a 01       	movw	r16, r20
      520:	02 2e       	mov	r0, r18
-     522:	02 c0       	rjmp	.+4      	; 0x528 <_Z16dht11_receivedhtv+0x90>
+     522:	02 c0       	rjmp	.+4      	; 0x528 <_Z19GB_dht11_receivedhtv+0x90>
      524:	00 0f       	add	r16, r16
      526:	11 1f       	adc	r17, r17
      528:	0a 94       	dec	r0
-     52a:	e2 f7       	brpl	.-8      	; 0x524 <_Z16dht11_receivedhtv+0x8c>
+     52a:	e2 f7       	brpl	.-8      	; 0x524 <_Z19GB_dht11_receivedhtv+0x8c>
      52c:	00 95       	com	r16
      52e:	8c 91       	ld	r24, X
      530:	08 23       	and	r16, r24
      532:	0c 93       	st	X, r16
-     534:	18 c0       	rjmp	.+48     	; 0x566 <_Z16dht11_receivedhtv+0xce>
+     534:	18 c0       	rjmp	.+48     	; 0x566 <_Z19GB_dht11_receivedhtv+0xce>
      536:	09 81       	ldd	r16, Y+1	; 0x01
      538:	19 81       	ldd	r17, Y+1	; 0x01
      53a:	89 2f       	mov	r24, r25
      53c:	08 37       	cpi	r16, 0x78	; 120
-     53e:	08 f4       	brcc	.+2      	; 0x542 <_Z16dht11_receivedhtv+0xaa>
+     53e:	08 f4       	brcc	.+2      	; 0x542 <_Z19GB_dht11_receivedhtv+0xaa>
      540:	80 e0       	ldi	r24, 0x00	; 0
      542:	88 23       	and	r24, r24
-     544:	49 f1       	breq	.+82     	; 0x598 <_Z16dht11_receivedhtv+0x100>
+     544:	49 f1       	breq	.+82     	; 0x598 <_Z19GB_dht11_receivedhtv+0x100>
      546:	89 2f       	mov	r24, r25
      548:	1b 3a       	cpi	r17, 0xAB	; 171
-     54a:	08 f0       	brcs	.+2      	; 0x54e <_Z16dht11_receivedhtv+0xb6>
+     54a:	08 f0       	brcs	.+2      	; 0x54e <_Z19GB_dht11_receivedhtv+0xb6>
      54c:	80 e0       	ldi	r24, 0x00	; 0
      54e:	88 23       	and	r24, r24
-     550:	19 f1       	breq	.+70     	; 0x598 <_Z16dht11_receivedhtv+0x100>
+     550:	19 f1       	breq	.+70     	; 0x598 <_Z19GB_dht11_receivedhtv+0x100>
      552:	8c 91       	ld	r24, X
      554:	8a 01       	movw	r16, r20
      556:	02 2e       	mov	r0, r18
-     558:	02 c0       	rjmp	.+4      	; 0x55e <_Z16dht11_receivedhtv+0xc6>
+     558:	02 c0       	rjmp	.+4      	; 0x55e <_Z19GB_dht11_receivedhtv+0xc6>
      55a:	00 0f       	add	r16, r16
      55c:	11 1f       	adc	r17, r17
      55e:	0a 94       	dec	r0
-     560:	e2 f7       	brpl	.-8      	; 0x55a <_Z16dht11_receivedhtv+0xc2>
+     560:	e2 f7       	brpl	.-8      	; 0x55a <_Z19GB_dht11_receivedhtv+0xc2>
      562:	08 2b       	or	r16, r24
      564:	0c 93       	st	X, r16
      566:	21 50       	subi	r18, 0x01	; 1
      568:	31 09       	sbc	r19, r1
-     56a:	08 f0       	brcs	.+2      	; 0x56e <_Z16dht11_receivedhtv+0xd6>
-     56c:	a8 cf       	rjmp	.-176    	; 0x4be <_Z16dht11_receivedhtv+0x26>
+     56a:	08 f0       	brcs	.+2      	; 0x56e <_Z19GB_dht11_receivedhtv+0xd6>
+     56c:	a8 cf       	rjmp	.-176    	; 0x4be <_Z19GB_dht11_receivedhtv+0x26>
      56e:	11 96       	adiw	r26, 0x01	; 1
      570:	6a 17       	cp	r22, r26
      572:	7b 07       	cpc	r23, r27
-     574:	09 f0       	breq	.+2      	; 0x578 <_Z16dht11_receivedhtv+0xe0>
-     576:	a1 cf       	rjmp	.-190    	; 0x4ba <_Z16dht11_receivedhtv+0x22>
+     574:	09 f0       	breq	.+2      	; 0x578 <_Z19GB_dht11_receivedhtv+0xe0>
+     576:	a1 cf       	rjmp	.-190    	; 0x4ba <_Z19GB_dht11_receivedhtv+0x22>
      578:	e3 e6       	ldi	r30, 0x63	; 99
      57a:	f2 e0       	ldi	r31, 0x02	; 2
      57c:	90 81       	ld	r25, Z
@@ -779,14 +779,14 @@ Disassembly of section .text:
      588:	89 0f       	add	r24, r25
      58a:	94 81       	ldd	r25, Z+4	; 0x04
      58c:	89 13       	cpse	r24, r25
-     58e:	07 c0       	rjmp	.+14     	; 0x59e <_Z16dht11_receivedhtv+0x106>
-     590:	08 c0       	rjmp	.+16     	; 0x5a2 <_Z16dht11_receivedhtv+0x10a>
+     58e:	07 c0       	rjmp	.+14     	; 0x59e <_Z19GB_dht11_receivedhtv+0x106>
+     590:	08 c0       	rjmp	.+16     	; 0x5a2 <_Z19GB_dht11_receivedhtv+0x10a>
      592:	81 e0       	ldi	r24, 0x01	; 1
      594:	90 e0       	ldi	r25, 0x00	; 0
-     596:	05 c0       	rjmp	.+10     	; 0x5a2 <_Z16dht11_receivedhtv+0x10a>
+     596:	05 c0       	rjmp	.+10     	; 0x5a2 <_Z19GB_dht11_receivedhtv+0x10a>
      598:	82 e0       	ldi	r24, 0x02	; 2
      59a:	90 e0       	ldi	r25, 0x00	; 0
-     59c:	02 c0       	rjmp	.+4      	; 0x5a2 <_Z16dht11_receivedhtv+0x10a>
+     59c:	02 c0       	rjmp	.+4      	; 0x5a2 <_Z19GB_dht11_receivedhtv+0x10a>
      59e:	83 e0       	ldi	r24, 0x03	; 3
      5a0:	90 e0       	ldi	r25, 0x00	; 0
      5a2:	0f 90       	pop	r0
@@ -796,13 +796,13 @@ Disassembly of section .text:
      5aa:	0f 91       	pop	r16
      5ac:	08 95       	ret
 
-000005ae <_Z5dht11v>:
-     5ae:	39 df       	rcall	.-398    	; 0x422 <_Z10dht11_initv>
-     5b0:	5c df       	rcall	.-328    	; 0x46a <_Z19dht11_find_responsev>
-     5b2:	72 cf       	rjmp	.-284    	; 0x498 <_Z16dht11_receivedhtv>
+000005ae <_Z8GB_dht11v>:
+     5ae:	39 df       	rcall	.-398    	; 0x422 <_Z13GB_dht11_initv>
+     5b0:	5c df       	rcall	.-328    	; 0x46a <_Z22GB_dht11_find_responsev>
+     5b2:	72 cf       	rjmp	.-284    	; 0x498 <_Z19GB_dht11_receivedhtv>
      5b4:	08 95       	ret
 
-000005b6 <_Z10dht11_tempv>:
+000005b6 <_Z13GB_dht11_tempv>:
      5b6:	cf 92       	push	r12
      5b8:	df 92       	push	r13
      5ba:	ef 92       	push	r14
@@ -841,14 +841,14 @@ Disassembly of section .text:
      5fc:	cf 90       	pop	r12
      5fe:	08 95       	ret
 
-00000600 <_Z14menu_pin_setupv>:
+00000600 <_Z17GB_menu_pin_setupv>:
      600:	25 98       	cbi	0x04, 5	; 4
      602:	2d 9a       	sbi	0x05, 5	; 5
      604:	26 98       	cbi	0x04, 6	; 4
      606:	2e 9a       	sbi	0x05, 6	; 5
      608:	08 95       	ret
 
-0000060a <_Z11timer2_initv>:
+0000060a <_Z14GB_timer2_initv>:
      60a:	e1 eb       	ldi	r30, 0xB1	; 177
      60c:	f0 e0       	ldi	r31, 0x00	; 0
      60e:	80 81       	ld	r24, Z
@@ -863,15 +863,15 @@ Disassembly of section .text:
      622:	78 94       	sei
      624:	08 95       	ret
 
-00000626 <_Z15menu_key_searchv>:
-     626:	80 91 62 02 	lds	r24, 0x0262	; 0x800262 <Menu_key_switch>
+00000626 <_Z18GB_menu_key_searchv>:
+     626:	80 91 62 02 	lds	r24, 0x0262	; 0x800262 <gb_Menu_key_switch>
      62a:	88 23       	and	r24, r24
-     62c:	19 f0       	breq	.+6      	; 0x634 <_Z15menu_key_searchv+0xe>
+     62c:	19 f0       	breq	.+6      	; 0x634 <_Z18GB_menu_key_searchv+0xe>
      62e:	81 30       	cpi	r24, 0x01	; 1
-     630:	59 f0       	breq	.+22     	; 0x648 <_Z15menu_key_searchv+0x22>
-     632:	14 c0       	rjmp	.+40     	; 0x65c <_Z15menu_key_searchv+0x36>
+     630:	59 f0       	breq	.+22     	; 0x648 <_Z18GB_menu_key_searchv+0x22>
+     632:	14 c0       	rjmp	.+40     	; 0x65c <_Z18GB_menu_key_searchv+0x36>
      634:	1d 99       	sbic	0x03, 5	; 3
-     636:	1a c0       	rjmp	.+52     	; 0x66c <_Z15menu_key_searchv+0x46>
+     636:	1a c0       	rjmp	.+52     	; 0x66c <_Z18GB_menu_key_searchv+0x46>
      638:	ed e5       	ldi	r30, 0x5D	; 93
      63a:	f2 e0       	ldi	r31, 0x02	; 2
      63c:	80 81       	ld	r24, Z
@@ -879,9 +879,9 @@ Disassembly of section .text:
      640:	01 96       	adiw	r24, 0x01	; 1
      642:	91 83       	std	Z+1, r25	; 0x01
      644:	80 83       	st	Z, r24
-     646:	12 c0       	rjmp	.+36     	; 0x66c <_Z15menu_key_searchv+0x46>
+     646:	12 c0       	rjmp	.+36     	; 0x66c <_Z18GB_menu_key_searchv+0x46>
      648:	1e 99       	sbic	0x03, 6	; 3
-     64a:	0d c0       	rjmp	.+26     	; 0x666 <_Z15menu_key_searchv+0x40>
+     64a:	0d c0       	rjmp	.+26     	; 0x666 <_Z18GB_menu_key_searchv+0x40>
      64c:	ed e5       	ldi	r30, 0x5D	; 93
      64e:	f2 e0       	ldi	r31, 0x02	; 2
      650:	82 81       	ldd	r24, Z+2	; 0x02
@@ -889,15 +889,15 @@ Disassembly of section .text:
      654:	01 96       	adiw	r24, 0x01	; 1
      656:	93 83       	std	Z+3, r25	; 0x03
      658:	82 83       	std	Z+2, r24	; 0x02
-     65a:	05 c0       	rjmp	.+10     	; 0x666 <_Z15menu_key_searchv+0x40>
+     65a:	05 c0       	rjmp	.+10     	; 0x666 <_Z18GB_menu_key_searchv+0x40>
      65c:	8f 5f       	subi	r24, 0xFF	; 255
-     65e:	80 93 62 02 	sts	0x0262, r24	; 0x800262 <Menu_key_switch>
+     65e:	80 93 62 02 	sts	0x0262, r24	; 0x800262 <gb_Menu_key_switch>
      662:	82 30       	cpi	r24, 0x02	; 2
-     664:	30 f0       	brcs	.+12     	; 0x672 <_Z15menu_key_searchv+0x4c>
-     666:	10 92 62 02 	sts	0x0262, r1	; 0x800262 <Menu_key_switch>
+     664:	30 f0       	brcs	.+12     	; 0x672 <_Z18GB_menu_key_searchv+0x4c>
+     666:	10 92 62 02 	sts	0x0262, r1	; 0x800262 <gb_Menu_key_switch>
      66a:	08 95       	ret
      66c:	81 e0       	ldi	r24, 0x01	; 1
-     66e:	80 93 62 02 	sts	0x0262, r24	; 0x800262 <Menu_key_switch>
+     66e:	80 93 62 02 	sts	0x0262, r24	; 0x800262 <gb_Menu_key_switch>
      672:	08 95       	ret
 
 00000674 <__vector_15>:
@@ -923,7 +923,7 @@ Disassembly of section .text:
      69a:	85 b1       	in	r24, 0x05	; 5
      69c:	80 58       	subi	r24, 0x80	; 128
      69e:	85 b9       	out	0x05, r24	; 5
-     6a0:	c2 df       	rcall	.-124    	; 0x626 <_Z15menu_key_searchv>
+     6a0:	c2 df       	rcall	.-124    	; 0x626 <_Z18GB_menu_key_searchv>
      6a2:	ff 91       	pop	r31
      6a4:	ef 91       	pop	r30
      6a6:	bf 91       	pop	r27
@@ -944,20 +944,20 @@ Disassembly of section .text:
      6c4:	1f 90       	pop	r1
      6c6:	18 95       	reti
 
-000006c8 <_Z17GetMenukeypressedv>:
-     6c8:	80 91 5d 02 	lds	r24, 0x025D	; 0x80025d <keys>
-     6cc:	90 91 5e 02 	lds	r25, 0x025E	; 0x80025e <keys+0x1>
+000006c8 <_Z20GB_GetMenukeypressedv>:
+     6c8:	80 91 5d 02 	lds	r24, 0x025D	; 0x80025d <gb_keys>
+     6cc:	90 91 5e 02 	lds	r25, 0x025E	; 0x80025e <gb_keys+0x1>
      6d0:	45 97       	sbiw	r24, 0x15	; 21
-     6d2:	44 f4       	brge	.+16     	; 0x6e4 <_Z17GetMenukeypressedv+0x1c>
-     6d4:	80 91 5f 02 	lds	r24, 0x025F	; 0x80025f <keys+0x2>
-     6d8:	90 91 60 02 	lds	r25, 0x0260	; 0x800260 <keys+0x3>
+     6d2:	44 f4       	brge	.+16     	; 0x6e4 <_Z20GB_GetMenukeypressedv+0x1c>
+     6d4:	80 91 5f 02 	lds	r24, 0x025F	; 0x80025f <gb_keys+0x2>
+     6d8:	90 91 60 02 	lds	r25, 0x0260	; 0x800260 <gb_keys+0x3>
      6dc:	45 97       	sbiw	r24, 0x15	; 21
-     6de:	64 f0       	brlt	.+24     	; 0x6f8 <_Z17GetMenukeypressedv+0x30>
+     6de:	64 f0       	brlt	.+24     	; 0x6f8 <_Z20GB_GetMenukeypressedv+0x30>
      6e0:	81 e0       	ldi	r24, 0x01	; 1
-     6e2:	01 c0       	rjmp	.+2      	; 0x6e6 <_Z17GetMenukeypressedv+0x1e>
+     6e2:	01 c0       	rjmp	.+2      	; 0x6e6 <_Z20GB_GetMenukeypressedv+0x1e>
      6e4:	80 e0       	ldi	r24, 0x00	; 0
      6e6:	8f 5f       	subi	r24, 0xFF	; 255
-     6e8:	80 93 61 02 	sts	0x0261, r24	; 0x800261 <menu_key_value>
+     6e8:	80 93 61 02 	sts	0x0261, r24	; 0x800261 <gb_menu_key_value>
      6ec:	ed e5       	ldi	r30, 0x5D	; 93
      6ee:	f2 e0       	ldi	r31, 0x02	; 2
      6f0:	11 82       	std	Z+1, r1	; 0x01
@@ -966,50 +966,50 @@ Disassembly of section .text:
      6f6:	12 82       	std	Z+2, r1	; 0x02
      6f8:	08 95       	ret
 
-000006fa <_Z4menuv>:
+000006fa <_Z7GB_menuv>:
      6fa:	80 e8       	ldi	r24, 0x80	; 128
-     6fc:	77 dd       	rcall	.-1298   	; 0x1ec <_Z11LCD_commandh>
+     6fc:	77 dd       	rcall	.-1298   	; 0x1ec <_Z14GB_LCD_commandh>
      6fe:	85 ed       	ldi	r24, 0xD5	; 213
      700:	8a 95       	dec	r24
-     702:	f1 f7       	brne	.-4      	; 0x700 <_Z4menuv+0x6>
+     702:	f1 f7       	brne	.-4      	; 0x700 <_Z7GB_menuv+0x6>
      704:	00 00       	nop
      706:	81 e1       	ldi	r24, 0x11	; 17
      708:	92 e0       	ldi	r25, 0x02	; 2
-     70a:	cf dd       	rcall	.-1122   	; 0x2aa <_Z10LCD_stringPKc>
+     70a:	cf dd       	rcall	.-1122   	; 0x2aa <_Z13GB_LCD_stringPKc>
      70c:	80 ec       	ldi	r24, 0xC0	; 192
-     70e:	6e dd       	rcall	.-1316   	; 0x1ec <_Z11LCD_commandh>
+     70e:	6e dd       	rcall	.-1316   	; 0x1ec <_Z14GB_LCD_commandh>
      710:	85 ed       	ldi	r24, 0xD5	; 213
      712:	8a 95       	dec	r24
-     714:	f1 f7       	brne	.-4      	; 0x712 <_Z4menuv+0x18>
+     714:	f1 f7       	brne	.-4      	; 0x712 <_Z7GB_menuv+0x18>
      716:	00 00       	nop
-     718:	80 91 5a 02 	lds	r24, 0x025A	; 0x80025a <ff_temp_to_cal>
+     718:	80 91 5a 02 	lds	r24, 0x025A	; 0x80025a <gb_ff_temp_to_cal>
      71c:	90 e0       	ldi	r25, 0x00	; 0
-     71e:	90 cd       	rjmp	.-1248   	; 0x240 <_Z16lcd_printint_numi>
+     71e:	90 cd       	rjmp	.-1248   	; 0x240 <_Z19GB_lcd_printint_numi>
      720:	08 95       	ret
 
-00000722 <_Z10ManageHomev>:
-  float t  = 0;
- void ManageHome()
+00000722 <_Z13GB_ManageHomev>:
+  float gb_t  = 0;
+ void GB_ManageHome()
  {
 	 
 	 
-	 dht11();
-     722:	45 df       	rcall	.-374    	; 0x5ae <_Z5dht11v>
+	 GB_dht11();
+     722:	45 df       	rcall	.-374    	; 0x5ae <_Z8GB_dht11v>
 	 
-	 t = dht11_temp();
-     724:	48 df       	rcall	.-368    	; 0x5b6 <_Z10dht11_tempv>
+	 gb_t = GB_dht11_temp();
+     724:	48 df       	rcall	.-368    	; 0x5b6 <_Z13GB_dht11_tempv>
      726:	26 2f       	mov	r18, r22
      728:	37 2f       	mov	r19, r23
      72a:	46 2f       	mov	r20, r22
      72c:	57 2f       	mov	r21, r23
      72e:	68 2f       	mov	r22, r24
      730:	79 2f       	mov	r23, r25
-     732:	40 93 55 02 	sts	0x0255, r20	; 0x800255 <t>
-     736:	50 93 56 02 	sts	0x0256, r21	; 0x800256 <t+0x1>
-     73a:	60 93 57 02 	sts	0x0257, r22	; 0x800257 <t+0x2>
-     73e:	70 93 58 02 	sts	0x0258, r23	; 0x800258 <t+0x3>
+     732:	40 93 55 02 	sts	0x0255, r20	; 0x800255 <gb_t>
+     736:	50 93 56 02 	sts	0x0256, r21	; 0x800256 <gb_t+0x1>
+     73a:	60 93 57 02 	sts	0x0257, r22	; 0x800257 <gb_t+0x2>
+     73e:	70 93 58 02 	sts	0x0258, r23	; 0x800258 <gb_t+0x3>
      742:	9f 93       	push	r25
-	 sprintf(mystr,"%f",t);
+	 sprintf(gb_mystr,"%f",gb_t);
      744:	8f 93       	push	r24
      746:	3f 93       	push	r19
      748:	2f 93       	push	r18
@@ -1023,13 +1023,13 @@ Disassembly of section .text:
      758:	8f 93       	push	r24
      75a:	58 d2       	rcall	.+1200   	; 0xc0c <sprintf>
 }
-void lcd_setcursor(uint8_t col, uint8_t row)
+void GB_lcd_setcursor(uint8_t gb_col, uint8_t gb_row)
 {
-	static uint8_t offsets[] = {0x00,0x40,0x14,0x54 };
+	static uint8_t gb_offsets[] = {0x00,0x40,0x14,0x54 };
 	//LCD_command(lcd_SETDDRAMADDR | (col + offsets[row]));
-	LCD_command((0x80|(row<<6))+col);
+	GB_LCD_command((0x80|(gb_row<<6))+gb_col);
      75c:	80 e8       	ldi	r24, 0x80	; 128
-     75e:	46 dd       	rcall	.-1396   	; 0x1ec <_Z11LCD_commandh>
+     75e:	46 dd       	rcall	.-1396   	; 0x1ec <_Z14GB_LCD_commandh>
      760:	85 ed       	ldi	r24, 0xD5	; 213
 	#else
 		//round up by default
@@ -1038,38 +1038,38 @@ void lcd_setcursor(uint8_t col, uint8_t row)
 
 	__builtin_avr_delay_cycles(__ticks_dc);
      762:	8a 95       	dec	r24
-     764:	f1 f7       	brne	.-4      	; 0x762 <_Z10ManageHomev+0x40>
+     764:	f1 f7       	brne	.-4      	; 0x762 <_Z13GB_ManageHomev+0x40>
      766:	00 00       	nop
 	 
-	 lcd_setcursor(0,0);
-	 LCD_string("Temper: ");
+	 GB_lcd_setcursor(0,0);
+	 GB_LCD_string("Temper: ");
      768:	82 e3       	ldi	r24, 0x32	; 50
      76a:	92 e0       	ldi	r25, 0x02	; 2
-     76c:	9e dd       	rcall	.-1220   	; 0x2aa <_Z10LCD_stringPKc>
+     76c:	9e dd       	rcall	.-1220   	; 0x2aa <_Z13GB_LCD_stringPKc>
      76e:	80 ec       	ldi	r24, 0xC0	; 192
-     770:	3d dd       	rcall	.-1414   	; 0x1ec <_Z11LCD_commandh>
+     770:	3d dd       	rcall	.-1414   	; 0x1ec <_Z14GB_LCD_commandh>
      772:	95 ed       	ldi	r25, 0xD5	; 213
      774:	9a 95       	dec	r25
-     776:	f1 f7       	brne	.-4      	; 0x774 <_Z10ManageHomev+0x52>
+     776:	f1 f7       	brne	.-4      	; 0x774 <_Z13GB_ManageHomev+0x52>
 	 //lcd_printint_num(t);
-	 lcd_setcursor(0,1);
-	 LCD_string(mystr);
+	 GB_lcd_setcursor(0,1);
+	 GB_LCD_string(gb_mystr);
      778:	00 00       	nop
      77a:	89 e5       	ldi	r24, 0x59	; 89
      77c:	92 e0       	ldi	r25, 0x02	; 2
-     77e:	95 dd       	rcall	.-1238   	; 0x2aa <_Z10LCD_stringPKc>
+     77e:	95 dd       	rcall	.-1238   	; 0x2aa <_Z13GB_LCD_stringPKc>
      780:	85 ec       	ldi	r24, 0xC5	; 197
-     782:	34 dd       	rcall	.-1432   	; 0x1ec <_Z11LCD_commandh>
+     782:	34 dd       	rcall	.-1432   	; 0x1ec <_Z14GB_LCD_commandh>
      784:	85 ed       	ldi	r24, 0xD5	; 213
      786:	8a 95       	dec	r24
-     788:	f1 f7       	brne	.-4      	; 0x786 <_Z10ManageHomev+0x64>
+     788:	f1 f7       	brne	.-4      	; 0x786 <_Z13GB_ManageHomev+0x64>
      78a:	00 00       	nop
 	 
-	 lcd_setcursor(5,1);
-	 LCD_string("    ");
+	 GB_lcd_setcursor(5,1);
+	 GB_LCD_string("    ");
      78c:	8b e3       	ldi	r24, 0x3B	; 59
      78e:	92 e0       	ldi	r25, 0x02	; 2
-     790:	8c dd       	rcall	.-1256   	; 0x2aa <_Z10LCD_stringPKc>
+     790:	8c dd       	rcall	.-1256   	; 0x2aa <_Z13GB_LCD_stringPKc>
      792:	8d b7       	in	r24, 0x3d	; 61
 	 
 	// lcd_printint_num(t);
@@ -1086,82 +1086,82 @@ void lcd_setcursor(uint8_t col, uint8_t row)
      7a0:	8d bf       	out	0x3d, r24	; 61
      7a2:	08 95       	ret
 
-000007a4 <_Z10UInterfacev>:
-     7a4:	91 df       	rcall	.-222    	; 0x6c8 <_Z17GetMenukeypressedv>
+000007a4 <_Z13GB_UInterfacev>:
+     7a4:	91 df       	rcall	.-222    	; 0x6c8 <_Z20GB_GetMenukeypressedv>
 	//lcd_printint_num(menu_key_value);
 	//_delay_ms(1);
-	GetMenukeypressed();
+	GB_GetMenukeypressed();
 	//printString0("1\n");
 	
-	switch(Menu_State)
-     7a6:	80 91 5c 02 	lds	r24, 0x025C	; 0x80025c <Menu_State>
+	switch(gb_Menu_State)
+     7a6:	80 91 5c 02 	lds	r24, 0x025C	; 0x80025c <gb_Menu_State>
      7aa:	81 30       	cpi	r24, 0x01	; 1
-     7ac:	a1 f0       	breq	.+40     	; 0x7d6 <_Z10UInterfacev+0x32>
-     7ae:	18 f0       	brcs	.+6      	; 0x7b6 <_Z10UInterfacev+0x12>
+     7ac:	a1 f0       	breq	.+40     	; 0x7d6 <_Z13GB_UInterfacev+0x32>
+     7ae:	18 f0       	brcs	.+6      	; 0x7b6 <_Z13GB_UInterfacev+0x12>
      7b0:	82 30       	cpi	r24, 0x02	; 2
-     7b2:	41 f1       	breq	.+80     	; 0x804 <_Z10UInterfacev+0x60>
+     7b2:	41 f1       	breq	.+80     	; 0x804 <_Z13GB_UInterfacev+0x60>
 		{
 			//decimel0(Menu_State);
 			//lcd_printint_num(menu_key_value);
 			//printString0(" idle2\n");
 		    //lcd_clear();
-			ManageHome();
-     7b4:	66 c0       	rjmp	.+204    	; 0x882 <_Z10UInterfacev+0xde>
-     7b6:	b5 df       	rcall	.-150    	; 0x722 <_Z10ManageHomev>
+			GB_ManageHome();
+     7b4:	66 c0       	rjmp	.+204    	; 0x882 <_Z13GB_UInterfacev+0xde>
+     7b6:	b5 df       	rcall	.-150    	; 0x722 <_Z13GB_ManageHomev>
 			//lcd_printint_num(menu_key_value);
-			if(menu_key_value == Mode_button)
-     7b8:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <menu_key_value>
+			if(gb_menu_key_value == gb_Mode_button)
+     7b8:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <gb_menu_key_value>
      7bc:	81 30       	cpi	r24, 0x01	; 1
-     7be:	19 f4       	brne	.+6      	; 0x7c6 <_Z10UInterfacev+0x22>
+     7be:	19 f4       	brne	.+6      	; 0x7c6 <_Z13GB_UInterfacev+0x22>
 			{
-				Menu_State = Mode_menu;
-     7c0:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <Menu_State>
+				gb_Menu_State = gb_Mode_menu;
+     7c0:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <gb_Menu_State>
 				//beep sound function to be added
-				lcd_clear();
-     7c4:	21 dd       	rcall	.-1470   	; 0x208 <_Z9lcd_clearv>
+				GB_lcd_clear();
+     7c4:	21 dd       	rcall	.-1470   	; 0x208 <_Z12GB_lcd_clearv>
 			}
-			if(menu_key_value == Arrow_button)
-     7c6:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <menu_key_value>
+			if(gb_menu_key_value == gb_Arrow_button)
+     7c6:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <gb_menu_key_value>
      7ca:	82 30       	cpi	r24, 0x02	; 2
-     7cc:	09 f0       	breq	.+2      	; 0x7d0 <_Z10UInterfacev+0x2c>
-     7ce:	59 c0       	rjmp	.+178    	; 0x882 <_Z10UInterfacev+0xde>
+     7cc:	09 f0       	breq	.+2      	; 0x7d0 <_Z13GB_UInterfacev+0x2c>
+     7ce:	59 c0       	rjmp	.+178    	; 0x882 <_Z13GB_UInterfacev+0xde>
 			{
-				Menu_State = Menu_state_idle;
-     7d0:	10 92 5c 02 	sts	0x025C, r1	; 0x80025c <Menu_State>
-		case Mode_menu:
+				gb_Menu_State = gb_Menu_state_idle;
+     7d0:	10 92 5c 02 	sts	0x025C, r1	; 0x80025c <gb_Menu_State>
+		case gb_Mode_menu:
 		{
 			//decimel0(Menu_State);
 			//lcd_printint_num(menu_key_value);
 			//printString0(" mode4\n");
-			menu();
-     7d4:	56 c0       	rjmp	.+172    	; 0x882 <_Z10UInterfacev+0xde>
-     7d6:	91 df       	rcall	.-222    	; 0x6fa <_Z4menuv>
-			if((menu_key_value == Mode_button))     // enter OK
-     7d8:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <menu_key_value>
+			GB_menu();
+     7d4:	56 c0       	rjmp	.+172    	; 0x882 <_Z13GB_UInterfacev+0xde>
+     7d6:	91 df       	rcall	.-222    	; 0x6fa <_Z7GB_menuv>
+			if((gb_menu_key_value == gb_Mode_button))     // enter OK
+     7d8:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <gb_menu_key_value>
      7dc:	81 30       	cpi	r24, 0x01	; 1
-     7de:	39 f4       	brne	.+14     	; 0x7ee <_Z10UInterfacev+0x4a>
+     7de:	39 f4       	brne	.+14     	; 0x7ee <_Z13GB_UInterfacev+0x4a>
 			{
-				ff_temp_to_cal = cali_temp;        //to be used with fan PWM
-     7e0:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <cali_temp>
-     7e4:	80 93 5a 02 	sts	0x025A, r24	; 0x80025a <ff_temp_to_cal>
-				Menu_State = Menu_state_idle;
-     7e8:	10 92 5c 02 	sts	0x025C, r1	; 0x80025c <Menu_State>
+				gb_ff_temp_to_cal = gb_cali_temp;        //to be used with fan PWM
+     7e0:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <gb_cali_temp>
+     7e4:	80 93 5a 02 	sts	0x025A, r24	; 0x80025a <gb_ff_temp_to_cal>
+				gb_Menu_State = gb_Menu_state_idle;
+     7e8:	10 92 5c 02 	sts	0x025C, r1	; 0x80025c <gb_Menu_State>
 				// beep sound with longer delay
-				lcd_clear();
-     7ec:	0d dd       	rcall	.-1510   	; 0x208 <_Z9lcd_clearv>
+				GB_lcd_clear();
+     7ec:	0d dd       	rcall	.-1510   	; 0x208 <_Z12GB_lcd_clearv>
 			}
-			if((menu_key_value == Arrow_button))    //increment the number
-     7ee:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <menu_key_value>
+			if((gb_menu_key_value == gb_Arrow_button))    //increment the number
+     7ee:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <gb_menu_key_value>
      7f2:	82 30       	cpi	r24, 0x02	; 2
-     7f4:	09 f0       	breq	.+2      	; 0x7f8 <_Z10UInterfacev+0x54>
-     7f6:	45 c0       	rjmp	.+138    	; 0x882 <_Z10UInterfacev+0xde>
+     7f4:	09 f0       	breq	.+2      	; 0x7f8 <_Z13GB_UInterfacev+0x54>
+     7f6:	45 c0       	rjmp	.+138    	; 0x882 <_Z13GB_UInterfacev+0xde>
 			{
-				Menu_State = Arrow_menu;
-     7f8:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <Menu_State>
-				arrow_flag = 1;
+				gb_Menu_State = gb_Arrow_menu;
+     7f8:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <gb_Menu_State>
+				gb_arrow_flag = 1;
      7fc:	81 e0       	ldi	r24, 0x01	; 1
      7fe:	80 93 54 02 	sts	0x0254, r24	; 0x800254 <__data_end>
-     802:	3f c0       	rjmp	.+126    	; 0x882 <_Z10UInterfacev+0xde>
+     802:	3f c0       	rjmp	.+126    	; 0x882 <_Z13GB_UInterfacev+0xde>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
@@ -1174,20 +1174,20 @@ void lcd_setcursor(uint8_t col, uint8_t row)
      80a:	21 50       	subi	r18, 0x01	; 1
      80c:	80 40       	sbci	r24, 0x00	; 0
      80e:	90 40       	sbci	r25, 0x00	; 0
-     810:	e1 f7       	brne	.-8      	; 0x80a <_Z10UInterfacev+0x66>
-     812:	00 c0       	rjmp	.+0      	; 0x814 <_Z10UInterfacev+0x70>
+     810:	e1 f7       	brne	.-8      	; 0x80a <_Z13GB_UInterfacev+0x66>
+     812:	00 c0       	rjmp	.+0      	; 0x814 <_Z13GB_UInterfacev+0x70>
      814:	00 00       	nop
 			//printString0(" arrow5\n");
 				//if((arrow()))
 				_delay_ms(1000);
 			//	{}
 				//lcd_printint_num(ff_temp_to_cal++);
-				if(arrow_flag == 1)
+				if(gb_arrow_flag == 1)
      816:	80 91 54 02 	lds	r24, 0x0254	; 0x800254 <__data_end>
      81a:	81 30       	cpi	r24, 0x01	; 1
-     81c:	91 f4       	brne	.+36     	; 0x842 <_Z10UInterfacev+0x9e>
+     81c:	91 f4       	brne	.+36     	; 0x842 <_Z13GB_UInterfacev+0x9e>
      81e:	80 ec       	ldi	r24, 0xC0	; 192
-     820:	e5 dc       	rcall	.-1590   	; 0x1ec <_Z11LCD_commandh>
+     820:	e5 dc       	rcall	.-1590   	; 0x1ec <_Z14GB_LCD_commandh>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
@@ -1196,71 +1196,71 @@ void lcd_setcursor(uint8_t col, uint8_t row)
 	__builtin_avr_delay_cycles(__ticks_dc);
      822:	25 ed       	ldi	r18, 0xD5	; 213
      824:	2a 95       	dec	r18
-     826:	f1 f7       	brne	.-4      	; 0x824 <_Z10UInterfacev+0x80>
+     826:	f1 f7       	brne	.-4      	; 0x824 <_Z13GB_UInterfacev+0x80>
      828:	00 00       	nop
 				{
-					lcd_setcursor(0,1);
-				    cali_temp = cali_temp + 1;
-     82a:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <cali_temp>
+					GB_lcd_setcursor(0,1);
+				    gb_cali_temp = gb_cali_temp + 1;
+     82a:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <gb_cali_temp>
      82e:	8f 5f       	subi	r24, 0xFF	; 255
-     830:	80 93 5b 02 	sts	0x025B, r24	; 0x80025b <cali_temp>
-				    lcd_printint_num(cali_temp);
+     830:	80 93 5b 02 	sts	0x025B, r24	; 0x80025b <gb_cali_temp>
+				    GB_lcd_printint_num(gb_cali_temp);
      834:	90 e0       	ldi	r25, 0x00	; 0
-     836:	04 dd       	rcall	.-1528   	; 0x240 <_Z16lcd_printint_numi>
-					Menu_State = Arrow_menu;
+     836:	04 dd       	rcall	.-1528   	; 0x240 <_Z19GB_lcd_printint_numi>
+					gb_Menu_State = gb_Arrow_menu;
      838:	82 e0       	ldi	r24, 0x02	; 2
-     83a:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <Menu_State>
-					arrow_flag = 0;
+     83a:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <gb_Menu_State>
+					gb_arrow_flag = 0;
      83e:	10 92 54 02 	sts	0x0254, r1	; 0x800254 <__data_end>
 				}
 				
-				if((menu_key_value == Mode_button))
-     842:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <menu_key_value>
+				if((gb_menu_key_value == gb_Mode_button))
+     842:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <gb_menu_key_value>
      846:	81 30       	cpi	r24, 0x01	; 1
-     848:	41 f4       	brne	.+16     	; 0x85a <_Z10UInterfacev+0xb6>
+     848:	41 f4       	brne	.+16     	; 0x85a <_Z13GB_UInterfacev+0xb6>
 				{
-					ff_temp_to_cal = cali_temp;
-     84a:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <cali_temp>
-     84e:	80 93 5a 02 	sts	0x025A, r24	; 0x80025a <ff_temp_to_cal>
-					Menu_State = Mode_menu;
+					gb_ff_temp_to_cal = gb_cali_temp;
+     84a:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <gb_cali_temp>
+     84e:	80 93 5a 02 	sts	0x025A, r24	; 0x80025a <gb_ff_temp_to_cal>
+					gb_Menu_State = gb_Mode_menu;
      852:	81 e0       	ldi	r24, 0x01	; 1
 					
-				    lcd_clear();
-     854:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <Menu_State>
+				    GB_lcd_clear();
+     854:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <gb_Menu_State>
 					//beep sound function
 				}
 				
 				
-				if ((menu_key_value == Arrow_button))
-     858:	d7 dc       	rcall	.-1618   	; 0x208 <_Z9lcd_clearv>
-     85a:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <menu_key_value>
+				if ((gb_menu_key_value == gb_Arrow_button))
+     858:	d7 dc       	rcall	.-1618   	; 0x208 <_Z12GB_lcd_clearv>
+     85a:	80 91 61 02 	lds	r24, 0x0261	; 0x800261 <gb_menu_key_value>
      85e:	82 30       	cpi	r24, 0x02	; 2
-     860:	81 f4       	brne	.+32     	; 0x882 <_Z10UInterfacev+0xde>
+     860:	81 f4       	brne	.+32     	; 0x882 <_Z13GB_UInterfacev+0xde>
      862:	80 ec       	ldi	r24, 0xC0	; 192
-     864:	c3 dc       	rcall	.-1658   	; 0x1ec <_Z11LCD_commandh>
+     864:	c3 dc       	rcall	.-1658   	; 0x1ec <_Z14GB_LCD_commandh>
      866:	85 ed       	ldi	r24, 0xD5	; 213
      868:	8a 95       	dec	r24
-     86a:	f1 f7       	brne	.-4      	; 0x868 <_Z10UInterfacev+0xc4>
+     86a:	f1 f7       	brne	.-4      	; 0x868 <_Z13GB_UInterfacev+0xc4>
 				{
-					lcd_setcursor(0,1);
-					cali_temp = cali_temp + 1;
+					GB_lcd_setcursor(0,1);
+					gb_cali_temp = gb_cali_temp + 1;
      86c:	00 00       	nop
-     86e:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <cali_temp>
+     86e:	80 91 5b 02 	lds	r24, 0x025B	; 0x80025b <gb_cali_temp>
      872:	8f 5f       	subi	r24, 0xFF	; 255
-     874:	80 93 5b 02 	sts	0x025B, r24	; 0x80025b <cali_temp>
-					lcd_printint_num(cali_temp);
+     874:	80 93 5b 02 	sts	0x025B, r24	; 0x80025b <gb_cali_temp>
+					GB_lcd_printint_num(gb_cali_temp);
      878:	90 e0       	ldi	r25, 0x00	; 0
-     87a:	e2 dc       	rcall	.-1596   	; 0x240 <_Z16lcd_printint_numi>
-					Menu_State = Arrow_menu;//lcd_clear();
+     87a:	e2 dc       	rcall	.-1596   	; 0x240 <_Z19GB_lcd_printint_numi>
+					gb_Menu_State = gb_Arrow_menu;//lcd_clear();
      87c:	82 e0       	ldi	r24, 0x02	; 2
-     87e:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <Menu_State>
+     87e:	80 93 5c 02 	sts	0x025C, r24	; 0x80025c <gb_Menu_State>
 	//printString0("3\n");
 	
       }
 	  
 	 // decimel0(Menu_State);
-	 menu_key_value = 0;
-     882:	10 92 61 02 	sts	0x0261, r1	; 0x800261 <menu_key_value>
+	 gb_menu_key_value = 0;
+     882:	10 92 61 02 	sts	0x0261, r1	; 0x800261 <gb_menu_key_value>
      886:	08 95       	ret
 
 00000888 <main>:
@@ -1269,7 +1269,7 @@ void lcd_setcursor(uint8_t col, uint8_t row)
 
 int main(void)
 {
-	keys[0] = 0,keys[1] = 0;
+	gb_keys[0] = 0,gb_keys[1] = 0;
      888:	ed e5       	ldi	r30, 0x5D	; 93
      88a:	f2 e0       	ldi	r31, 0x02	; 2
      88c:	11 82       	std	Z+1, r1	; 0x01
@@ -1277,30 +1277,30 @@ int main(void)
      890:	13 82       	std	Z+3, r1	; 0x03
      892:	12 82       	std	Z+2, r1	; 0x02
 	//DDRB |= (1 << 7);
-	timer2_init();
-     894:	ba de       	rcall	.-652    	; 0x60a <_Z11timer2_initv>
-	UART_Init0();
-     896:	52 dd       	rcall	.-1372   	; 0x33c <_Z10UART_Init0v>
-	LCD_init();
-     898:	19 dd       	rcall	.-1486   	; 0x2cc <_Z8LCD_initv>
-     89a:	b6 dc       	rcall	.-1684   	; 0x208 <_Z9lcd_clearv>
-	lcd_clear();
+	GB_timer2_init();
+     894:	ba de       	rcall	.-652    	; 0x60a <_Z14GB_timer2_initv>
+	GB_UART_Init0();
+     896:	52 dd       	rcall	.-1372   	; 0x33c <_Z13GB_UART_Init0v>
+	GB_LCD_init();
+     898:	19 dd       	rcall	.-1486   	; 0x2cc <_Z11GB_LCD_initv>
+     89a:	b6 dc       	rcall	.-1684   	; 0x208 <_Z12GB_lcd_clearv>
+	GB_lcd_clear();
      89c:	80 e4       	ldi	r24, 0x40	; 64
 	
-	LCD_string("Gettobyte:");
+	GB_LCD_string("Gettobyte:");
      89e:	92 e0       	ldi	r25, 0x02	; 2
-     8a0:	04 dd       	rcall	.-1528   	; 0x2aa <_Z10LCD_stringPKc>
+     8a0:	04 dd       	rcall	.-1528   	; 0x2aa <_Z13GB_LCD_stringPKc>
      8a2:	80 ec       	ldi	r24, 0xC0	; 192
-     8a4:	a3 dc       	rcall	.-1722   	; 0x1ec <_Z11LCD_commandh>
+     8a4:	a3 dc       	rcall	.-1722   	; 0x1ec <_Z14GB_LCD_commandh>
      8a6:	25 ed       	ldi	r18, 0xD5	; 213
      8a8:	2a 95       	dec	r18
      8aa:	f1 f7       	brne	.-4      	; 0x8a8 <main+0x20>
      8ac:	00 00       	nop
      8ae:	8b e4       	ldi	r24, 0x4B	; 75
-	lcd_setcursor(0,1);
-	LCD_string("LCD_I2C");
+	GB_lcd_setcursor(0,1);
+	GB_LCD_string("LCD_I2C");
      8b0:	92 e0       	ldi	r25, 0x02	; 2
-     8b2:	fb dc       	rcall	.-1546   	; 0x2aa <_Z10LCD_stringPKc>
+     8b2:	fb dc       	rcall	.-1546   	; 0x2aa <_Z13GB_LCD_stringPKc>
      8b4:	8f ef       	ldi	r24, 0xFF	; 255
      8b6:	93 ed       	ldi	r25, 0xD3	; 211
 	#else
@@ -1317,16 +1317,16 @@ int main(void)
      8c2:	00 c0       	rjmp	.+0      	; 0x8c4 <main+0x3c>
 	_delay_ms(1000);
     
-	menu_pin_setup();
+	GB_menu_pin_setup();
      8c4:	00 00       	nop
-     8c6:	9c de       	rcall	.-712    	; 0x600 <_Z14menu_pin_setupv>
-	lcd_clear();
-     8c8:	9f dc       	rcall	.-1730   	; 0x208 <_Z9lcd_clearv>
-     8ca:	6c df       	rcall	.-296    	; 0x7a4 <_Z10UInterfacev>
+     8c6:	9c de       	rcall	.-712    	; 0x600 <_Z17GB_menu_pin_setupv>
+	GB_lcd_clear();
+     8c8:	9f dc       	rcall	.-1730   	; 0x208 <_Z12GB_lcd_clearv>
+     8ca:	6c df       	rcall	.-296    	; 0x7a4 <_Z13GB_UInterfacev>
     while (1) 
     {
 		
-		UInterface();
+		GB_UInterface();
      8cc:	fe cf       	rjmp	.-4      	; 0x8ca <main+0x42>
 
 000008ce <__subsf3>:

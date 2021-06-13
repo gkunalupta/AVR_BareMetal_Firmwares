@@ -25,10 +25,10 @@
 #include <avr/io.h>
 #include <stdlib.h>
 #include <util/delay.h>
-#include "uarts.h"
-#include "lcd.h"
+#include "GB_uarts.h"
+#include "GB_lcd.h"
 
-uint8_t Character[8] =
+uint8_t gb_Character[8] =
 {
 	0b00100,
 	0b00100,
@@ -42,24 +42,24 @@ uint8_t Character[8] =
 
 
 int main(void)
-{    int a = 0;
-	UART_Init0();
-	LCD_init();
+{    int gb_a = 0;
+	GB_UART_Init0();
+	GB_LCD_init();
 	_delay_ms(20);
-	LCD_string("LCD Datasheet ");
-	lcd_setcursor(0,1);    //col,row
-	lcd_printint(0);
-	LCD_string(" ");
-	LCD_data(a);
-	LCD_string(" ");
-	lcd_printint_num(1);
+	GB_LCD_string("LCD Datasheet ");
+	GB_lcd_setcursor(0,1);    //col,row
+	GB_lcd_printint(0);
+	GB_LCD_string(" ");
+	GB_LCD_data(gb_a);
+	GB_LCD_string(" ");
+	GB_lcd_printint_num(1);
 // 	LCD_string("ST7066 ");
 //     LCD_string("GETOBYTE");
 	//_delay_ms(3000);
 	//lcd_clear();
 	//_delay_ms(1000);
 	//LCD_string("Subs Channel");
-	LCD_sendpattern(0,Bell);
+	GB_LCD_sendpattern(0,gb_Bell);
 // 	LCD_sendpattern(1,Alien);
 // 	LCD_sendpattern(2,Lock);
 // 	LCD_sendpattern(3,Sound);
@@ -67,8 +67,8 @@ int main(void)
 // 	LCD_sendpattern(5,Heart);
 // 	LCD_sendpattern(6,Speaker);
 // 	LCD_sendpattern(7,Check);
-	lcd_setcursor(15,1);
-	LCD_printpattern(0);
+	GB_lcd_setcursor(15,1);
+	GB_LCD_printpattern(0);
 // 	LCD_printpattern(1);
 // 	LCD_printpattern(2);
 // 	LCD_printpattern(3);

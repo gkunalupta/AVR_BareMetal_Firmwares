@@ -3,29 +3,31 @@ nrf24l01-transmit.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800200  00800200  0000020e  2**0
+  0 .data         00000000  00800200  00800200  00000270  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000001ba  00000000  00000000  00000054  2**1
+  1 .text         000001fc  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  0000020e  2**0
+  2 .bss          00000103  00800200  00800200  00000270  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000270  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000240  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000002a0  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000198  00000000  00000000  00000280  2**0
+  5 .debug_aranges 000001d0  00000000  00000000  000002e0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001b23  00000000  00000000  00000418  2**0
+  6 .debug_info   00001d41  00000000  00000000  000004b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e99  00000000  00000000  00001f3b  2**0
+  7 .debug_abbrev 00000e6a  00000000  00000000  000021f1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000d48  00000000  00000000  00002dd4  2**0
+  8 .debug_line   00000e85  00000000  00000000  0000305b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000558  00000000  00000000  00003b1c  2**2
+  9 .debug_frame  000006c8  00000000  00000000  00003ee0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000d19  00000000  00000000  00004074  2**0
+ 10 .debug_str    00000fa9  00000000  00000000  000045a8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000016f4  00000000  00000000  00004d8d  2**0
+ 11 .debug_loc    00001cd0  00000000  00000000  00005551  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000188  00000000  00000000  00006481  2**0
+ 12 .debug_ranges 000001c0  00000000  00000000  00007221  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -79,7 +81,7 @@ Disassembly of section .text:
   5a:	00 00       	nop
   5c:	62 c0       	rjmp	.+196    	; 0x122 <__bad_interrupt>
   5e:	00 00       	nop
-  60:	60 c0       	rjmp	.+192    	; 0x122 <__bad_interrupt>
+  60:	6b c0       	rjmp	.+214    	; 0x138 <__vector_24>
   62:	00 00       	nop
   64:	5e c0       	rjmp	.+188    	; 0x122 <__bad_interrupt>
   66:	00 00       	nop
@@ -160,7 +162,7 @@ Disassembly of section .text:
   f4:	12 e0       	ldi	r17, 0x02	; 2
   f6:	a0 e0       	ldi	r26, 0x00	; 0
   f8:	b2 e0       	ldi	r27, 0x02	; 2
-  fa:	ea eb       	ldi	r30, 0xBA	; 186
+  fa:	ec ef       	ldi	r30, 0xFC	; 252
   fc:	f1 e0       	ldi	r31, 0x01	; 1
   fe:	00 e0       	ldi	r16, 0x00	; 0
  100:	0b bf       	out	0x3b, r16	; 59
@@ -172,7 +174,7 @@ Disassembly of section .text:
  10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
 
 0000010e <__do_clear_bss>:
- 10e:	22 e0       	ldi	r18, 0x02	; 2
+ 10e:	23 e0       	ldi	r18, 0x03	; 3
  110:	a0 e0       	ldi	r26, 0x00	; 0
  112:	b2 e0       	ldi	r27, 0x02	; 2
  114:	01 c0       	rjmp	.+2      	; 0x118 <.do_clear_bss_start>
@@ -181,22 +183,22 @@ Disassembly of section .text:
  116:	1d 92       	st	X+, r1
 
 00000118 <.do_clear_bss_start>:
- 118:	a0 30       	cpi	r26, 0x00	; 0
+ 118:	a3 30       	cpi	r26, 0x03	; 3
  11a:	b2 07       	cpc	r27, r18
  11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
- 11e:	25 d0       	rcall	.+74     	; 0x16a <main>
- 120:	4a c0       	rjmp	.+148    	; 0x1b6 <_exit>
+ 11e:	46 d0       	rcall	.+140    	; 0x1ac <main>
+ 120:	6b c0       	rjmp	.+214    	; 0x1f8 <_exit>
 
 00000122 <__bad_interrupt>:
  122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
 
-00000124 <_Z10UART_Init0v>:
+00000124 <_Z13GB_UART_Init0v>:
 {
 	_delay_ms(200);
 	
-	nrf_ss_enable;
-	MA_SPI0_send_byte_conti(write_command | config_reg);
-	nrf_ss_disable;
+	gb_nrf_ss_enable;
+	GB_MA_SPI0_send_byte_conti(gb_write_command | gb_config_reg);
+	gb_nrf_ss_disable;
  124:	87 e6       	ldi	r24, 0x67	; 103
  126:	90 e0       	ldi	r25, 0x00	; 0
  128:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7c00c5>
@@ -205,114 +207,143 @@ Disassembly of section .text:
  132:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
  136:	08 95       	ret
 
-00000138 <_Z19MA_SPI0_init_masterv>:
- 138:	84 b1       	in	r24, 0x04	; 4
- 13a:	87 60       	ori	r24, 0x07	; 7
- 13c:	84 b9       	out	0x04, r24	; 4
- 13e:	8c b5       	in	r24, 0x2c	; 44
- 140:	81 65       	ori	r24, 0x51	; 81
- 142:	8c bd       	out	0x2c, r24	; 44
- 144:	8c b5       	in	r24, 0x2c	; 44
- 146:	80 62       	ori	r24, 0x20	; 32
- 148:	8c bd       	out	0x2c, r24	; 44
- 14a:	8c b5       	in	r24, 0x2c	; 44
- 14c:	83 7f       	andi	r24, 0xF3	; 243
- 14e:	8c bd       	out	0x2c, r24	; 44
- 150:	08 95       	ret
+00000138 <__vector_24>:
+ 138:	1f 92       	push	r1
+ 13a:	0f 92       	push	r0
+ 13c:	0f b6       	in	r0, 0x3f	; 63
+ 13e:	0f 92       	push	r0
+ 140:	11 24       	eor	r1, r1
+ 142:	0b b6       	in	r0, 0x3b	; 59
+ 144:	0f 92       	push	r0
+ 146:	8f 93       	push	r24
+ 148:	9f 93       	push	r25
+ 14a:	ef 93       	push	r30
+ 14c:	ff 93       	push	r31
+ 14e:	9e b5       	in	r25, 0x2e	; 46
+ 150:	90 93 00 02 	sts	0x0200, r25	; 0x800200 <__DATA_REGION_ORIGIN__>
+ 154:	80 91 03 02 	lds	r24, 0x0203	; 0x800203 <gb_RECV_Wr_Index_SPI0>
+ 158:	e8 2f       	mov	r30, r24
+ 15a:	f0 e0       	ldi	r31, 0x00	; 0
+ 15c:	ec 5f       	subi	r30, 0xFC	; 252
+ 15e:	fd 4f       	sbci	r31, 0xFD	; 253
+ 160:	90 83       	st	Z, r25
+ 162:	8f 5f       	subi	r24, 0xFF	; 255
+ 164:	80 93 03 02 	sts	0x0203, r24	; 0x800203 <gb_RECV_Wr_Index_SPI0>
+ 168:	80 91 02 02 	lds	r24, 0x0202	; 0x800202 <gb_RECV_Counter_SPI0>
+ 16c:	8f 5f       	subi	r24, 0xFF	; 255
+ 16e:	80 93 02 02 	sts	0x0202, r24	; 0x800202 <gb_RECV_Counter_SPI0>
+ 172:	80 93 01 02 	sts	0x0201, r24	; 0x800201 <gb_RECV_No_of_bytes_SPI0>
+ 176:	ff 91       	pop	r31
+ 178:	ef 91       	pop	r30
+ 17a:	9f 91       	pop	r25
+ 17c:	8f 91       	pop	r24
+ 17e:	0f 90       	pop	r0
+ 180:	0b be       	out	0x3b, r0	; 59
+ 182:	0f 90       	pop	r0
+ 184:	0f be       	out	0x3f, r0	; 63
+ 186:	0f 90       	pop	r0
+ 188:	1f 90       	pop	r1
+ 18a:	18 95       	reti
 
-00000152 <_Z23MA_SPI0_send_byte_contih>:
- 152:	8e bd       	out	0x2e, r24	; 46
- 154:	0d b4       	in	r0, 0x2d	; 45
- 156:	07 fe       	sbrs	r0, 7
- 158:	fd cf       	rjmp	.-6      	; 0x154 <_Z23MA_SPI0_send_byte_contih+0x2>
- 15a:	08 95       	ret
+0000018c <_Z22GB_MA_SPI0_init_masterv>:
+ 18c:	87 e0       	ldi	r24, 0x07	; 7
+ 18e:	84 b9       	out	0x04, r24	; 4
+ 190:	81 e5       	ldi	r24, 0x51	; 81
+ 192:	8c bd       	out	0x2c, r24	; 44
+ 194:	08 95       	ret
 
-0000015c <_Z17MA_SPI0_read_bytev>:
- 15c:	8f ef       	ldi	r24, 0xFF	; 255
- 15e:	8e bd       	out	0x2e, r24	; 46
- 160:	0d b4       	in	r0, 0x2d	; 45
- 162:	07 fe       	sbrs	r0, 7
- 164:	fd cf       	rjmp	.-6      	; 0x160 <_Z17MA_SPI0_read_bytev+0x4>
- 166:	8e b5       	in	r24, 0x2e	; 46
- 168:	08 95       	ret
+00000196 <_Z26GB_MA_SPI0_send_byte_contih>:
+ 196:	8e bd       	out	0x2e, r24	; 46
+ 198:	0d b4       	in	r0, 0x2d	; 45
+ 19a:	07 fe       	sbrs	r0, 7
+ 19c:	fd cf       	rjmp	.-6      	; 0x198 <_Z26GB_MA_SPI0_send_byte_contih+0x2>
+ 19e:	08 95       	ret
 
-0000016a <main>:
+000001a0 <_Z20GB_MA_SPI0_read_bytev>:
+ 1a0:	1e bc       	out	0x2e, r1	; 46
+ 1a2:	0d b4       	in	r0, 0x2d	; 45
+ 1a4:	07 fe       	sbrs	r0, 7
+ 1a6:	fd cf       	rjmp	.-6      	; 0x1a2 <_Z20GB_MA_SPI0_read_bytev+0x2>
+ 1a8:	8e b5       	in	r24, 0x2e	; 46
+ 1aa:	08 95       	ret
+
+000001ac <main>:
 
 
 
 int main(void)
 {
-	UART_Init0();
- 16a:	dc df       	rcall	.-72     	; 0x124 <_Z10UART_Init0v>
-	MA_SPI0_init_master();
- 16c:	e5 df       	rcall	.-54     	; 0x138 <_Z19MA_SPI0_init_masterv>
- 16e:	2f ef       	ldi	r18, 0xFF	; 255
+	GB_UART_Init0();
+ 1ac:	bb df       	rcall	.-138    	; 0x124 <_Z13GB_UART_Init0v>
+	GB_MA_SPI0_init_master();
+ 1ae:	ee df       	rcall	.-36     	; 0x18c <_Z22GB_MA_SPI0_init_masterv>
+ 1b0:	2f ef       	ldi	r18, 0xFF	; 255
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 170:	81 ee       	ldi	r24, 0xE1	; 225
- 172:	94 e0       	ldi	r25, 0x04	; 4
- 174:	21 50       	subi	r18, 0x01	; 1
- 176:	80 40       	sbci	r24, 0x00	; 0
- 178:	90 40       	sbci	r25, 0x00	; 0
- 17a:	e1 f7       	brne	.-8      	; 0x174 <main+0xa>
- 17c:	00 c0       	rjmp	.+0      	; 0x17e <main+0x14>
- 17e:	00 00       	nop
- 180:	28 98       	cbi	0x05, 0	; 5
+ 1b2:	81 ee       	ldi	r24, 0xE1	; 225
+ 1b4:	94 e0       	ldi	r25, 0x04	; 4
+ 1b6:	21 50       	subi	r18, 0x01	; 1
+ 1b8:	80 40       	sbci	r24, 0x00	; 0
+ 1ba:	90 40       	sbci	r25, 0x00	; 0
+ 1bc:	e1 f7       	brne	.-8      	; 0x1b6 <main+0xa>
+ 1be:	00 c0       	rjmp	.+0      	; 0x1c0 <main+0x14>
+ 1c0:	00 00       	nop
+ 1c2:	28 98       	cbi	0x05, 0	; 5
     while (1) 
     {
 		_delay_ms(100);
-		nrf_ss_enable;
- 182:	25 e3       	ldi	r18, 0x35	; 53
+		gb_nrf_ss_enable;
+ 1c4:	25 e3       	ldi	r18, 0x35	; 53
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 184:	2a 95       	dec	r18
- 186:	f1 f7       	brne	.-4      	; 0x184 <main+0x1a>
- 188:	00 00       	nop
+ 1c6:	2a 95       	dec	r18
+ 1c8:	f1 f7       	brne	.-4      	; 0x1c6 <main+0x1a>
+ 1ca:	00 00       	nop
 		_delay_us(10);
-		MA_SPI0_send_byte_conti(write_command |  (config_reg+1));
- 18a:	81 e2       	ldi	r24, 0x21	; 33
- 18c:	e2 df       	rcall	.-60     	; 0x152 <_Z23MA_SPI0_send_byte_contih>
- 18e:	85 e3       	ldi	r24, 0x35	; 53
- 190:	8a 95       	dec	r24
- 192:	f1 f7       	brne	.-4      	; 0x190 <main+0x26>
- 194:	00 00       	nop
+		GB_MA_SPI0_send_byte_conti(gb_write_command |  (gb_config_reg+1));
+ 1cc:	81 e2       	ldi	r24, 0x21	; 33
+ 1ce:	e3 df       	rcall	.-58     	; 0x196 <_Z26GB_MA_SPI0_send_byte_contih>
+ 1d0:	85 e3       	ldi	r24, 0x35	; 53
+ 1d2:	8a 95       	dec	r24
+ 1d4:	f1 f7       	brne	.-4      	; 0x1d2 <main+0x26>
+ 1d6:	00 00       	nop
 		_delay_us(10);
-		MA_SPI0_read_byte();
- 196:	e2 df       	rcall	.-60     	; 0x15c <_Z17MA_SPI0_read_bytev>
- 198:	95 e3       	ldi	r25, 0x35	; 53
- 19a:	9a 95       	dec	r25
- 19c:	f1 f7       	brne	.-4      	; 0x19a <main+0x30>
- 19e:	00 00       	nop
- 1a0:	28 9a       	sbi	0x05, 0	; 5
+		GB_MA_SPI0_read_byte();
+ 1d8:	e3 df       	rcall	.-58     	; 0x1a0 <_Z20GB_MA_SPI0_read_bytev>
+ 1da:	95 e3       	ldi	r25, 0x35	; 53
+ 1dc:	9a 95       	dec	r25
+ 1de:	f1 f7       	brne	.-4      	; 0x1dc <main+0x30>
+ 1e0:	00 00       	nop
+ 1e2:	28 9a       	sbi	0x05, 0	; 5
 	_delay_us(10);
-		nrf_ss_disable;
- 1a2:	2f ef       	ldi	r18, 0xFF	; 255
+		gb_nrf_ss_disable;
+ 1e4:	2f ef       	ldi	r18, 0xFF	; 255
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 1a4:	81 ee       	ldi	r24, 0xE1	; 225
- 1a6:	94 e0       	ldi	r25, 0x04	; 4
- 1a8:	21 50       	subi	r18, 0x01	; 1
- 1aa:	80 40       	sbci	r24, 0x00	; 0
- 1ac:	90 40       	sbci	r25, 0x00	; 0
- 1ae:	e1 f7       	brne	.-8      	; 0x1a8 <main+0x3e>
- 1b0:	00 c0       	rjmp	.+0      	; 0x1b2 <main+0x48>
- 1b2:	00 00       	nop
- 1b4:	dc cf       	rjmp	.-72     	; 0x16e <main+0x4>
+ 1e6:	81 ee       	ldi	r24, 0xE1	; 225
+ 1e8:	94 e0       	ldi	r25, 0x04	; 4
+ 1ea:	21 50       	subi	r18, 0x01	; 1
+ 1ec:	80 40       	sbci	r24, 0x00	; 0
+ 1ee:	90 40       	sbci	r25, 0x00	; 0
+ 1f0:	e1 f7       	brne	.-8      	; 0x1ea <main+0x3e>
+ 1f2:	00 c0       	rjmp	.+0      	; 0x1f4 <main+0x48>
+ 1f4:	00 00       	nop
+ 1f6:	dc cf       	rjmp	.-72     	; 0x1b0 <main+0x4>
 
-000001b6 <_exit>:
- 1b6:	f8 94       	cli
+000001f8 <_exit>:
+ 1f8:	f8 94       	cli
 
-000001b8 <__stop_program>:
- 1b8:	ff cf       	rjmp	.-2      	; 0x1b8 <__stop_program>
+000001fa <__stop_program>:
+ 1fa:	ff cf       	rjmp	.-2      	; 0x1fa <__stop_program>

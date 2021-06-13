@@ -10,20 +10,22 @@ main.d main.o: .././main.cpp \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\uarts.h \
+ c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\gb_uarts.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\uarts.cpp \
- c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\i2c\ master.h \
+ c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gb_uarts.cpp \
+ c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\gb_i2c\ master.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\i2c\ master.cpp \
+ c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gb_i2c\ master.cpp \
  c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\gpio.h \
- c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gpio.cpp
+ c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gpio.cpp \
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\gb_lcd_i2c.h \
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\GB_lcd_i2c.cpp
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -47,7 +49,7 @@ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\uarts.h:
+c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\gb_uarts.h:
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
@@ -59,9 +61,9 @@ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\in
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\uarts.cpp:
+c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gb_uarts.cpp:
 
-c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\i2c\ master.h:
+c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\gb_i2c\ master.h:
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -69,8 +71,12 @@ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\del
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\i2c\ master.cpp:
+c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gb_i2c\ master.cpp:
 
 c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~1\gpio.h:
 
 c:\avratm~1\7.0\toolch~1\avr8\avr8-g~1\avr\avr_dr~2\gpio.cpp:
+
+c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\gb_lcd_i2c.h:
+
+c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\GB_lcd_i2c.cpp:

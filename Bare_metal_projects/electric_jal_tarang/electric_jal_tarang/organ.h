@@ -9,27 +9,27 @@
 //#include "pinDefines.h"
 // Plays a note for the given duration.  None of these times are
 //  calibrated to actual notes or tempi.  It's all relative to TIMEBASE.
-void playNote(uint16_t period, uint16_t duration);
+void GB_playNote(uint16_t gb_period, uint16_t gb_duration);
 
 // Does nothing for a time equal to the passed duration.
-void rest(uint16_t duration);
+void GB_rest(uint16_t gb_duration);
 
 
-void playNote(uint16_t period, uint16_t duration) {
-	uint16_t elapsed;
-	uint16_t i;
-	for (elapsed = 0; elapsed < duration; elapsed += period) {
+void GB_playNote(uint16_t gb_period, uint16_t gb_duration) {
+	uint16_t gb_elapsed;
+	uint16_t gb_i;
+	for (gb_elapsed = 0; gb_elapsed < gb_duration; gb_elapsed += gb_period) {
 		/* For loop with variable delay selects the pitch */
-		for (i = 0; i < period; i++) {
+		for (gb_i = 0; gb_i < gb_period; gb_i++) {
 			_delay_us(1);
 		}
 		SPEAKER_PORT ^= (1 << SPEAKER);
 	}
 }
 
-void rest(uint16_t duration) {
+void GB_rest(uint16_t gb_duration) {
 	do {
 		_delay_us(1);
-	} while (--duration);
+	} while (--gb_duration);
 }// ------------- Function prototypes -------------- //
 

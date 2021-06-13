@@ -3,29 +3,29 @@ ServoMg90s.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000001e  00800200  000006dc  00000750  2**0
+  0 .data         00000022  00800200  000006dc  00000750  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         000006dc  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  0000076e  2**0
+  2 .comment      00000030  00000000  00000000  00000772  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000007a0  2**2
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000007a4  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000110  00000000  00000000  000007e0  2**0
+  4 .debug_aranges 00000148  00000000  00000000  000007e4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001794  00000000  00000000  000008f0  2**0
+  5 .debug_info   00001a0b  00000000  00000000  0000092c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e22  00000000  00000000  00002084  2**0
+  6 .debug_abbrev 00000e0d  00000000  00000000  00002337  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000a0c  00000000  00000000  00002ea6  2**0
+  7 .debug_line   00000bc4  00000000  00000000  00003144  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000003d0  00000000  00000000  000038b4  2**2
+  8 .debug_frame  0000053c  00000000  00000000  00003d08  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000008e8  00000000  00000000  00003c84  2**0
+  9 .debug_str    00000b08  00000000  00000000  00004244  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00001210  00000000  00000000  0000456c  2**0
+ 10 .debug_loc    00001811  00000000  00000000  00004d4c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000100  00000000  00000000  0000577c  2**0
+ 11 .debug_ranges 00000138  00000000  00000000  0000655d  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -167,13 +167,13 @@ Disassembly of section .text:
  102:	02 c0       	rjmp	.+4      	; 0x108 <__do_copy_data+0x14>
  104:	07 90       	elpm	r0, Z+
  106:	0d 92       	st	X+, r0
- 108:	ae 31       	cpi	r26, 0x1E	; 30
+ 108:	a2 32       	cpi	r26, 0x22	; 34
  10a:	b1 07       	cpc	r27, r17
  10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
 
 0000010e <__do_clear_bss>:
  10e:	22 e0       	ldi	r18, 0x02	; 2
- 110:	ae e1       	ldi	r26, 0x1E	; 30
+ 110:	a2 e2       	ldi	r26, 0x22	; 34
  112:	b2 e0       	ldi	r27, 0x02	; 2
  114:	01 c0       	rjmp	.+2      	; 0x118 <.do_clear_bss_start>
 
@@ -181,7 +181,7 @@ Disassembly of section .text:
  116:	1d 92       	st	X+, r1
 
 00000118 <.do_clear_bss_start>:
- 118:	ae 31       	cpi	r26, 0x1E	; 30
+ 118:	a2 32       	cpi	r26, 0x22	; 34
  11a:	b2 07       	cpc	r27, r18
  11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
  11e:	a0 d0       	rcall	.+320    	; 0x260 <main>
@@ -190,12 +190,13 @@ Disassembly of section .text:
 00000122 <__bad_interrupt>:
  122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
 
-00000124 <_Z10UART_Init0v>:
-		if (buf[ptr] != '0') break;
-	}
-	for(;ptr>=0;--ptr) {
-		UART_TxChar3(buf[ptr]);
-	}
+00000124 <_Z13GB_UART_Init0v>:
+{
+	char gb_float_buff[10];
+	sprintf(gb_float_buff,"%f",gb_value);
+	GB_printString3(gb_float_buff);
+	
+}
  124:	87 e6       	ldi	r24, 0x67	; 103
  126:	90 e0       	ldi	r25, 0x00	; 0
  128:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7c00c5>
@@ -204,33 +205,33 @@ Disassembly of section .text:
  132:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
  136:	08 95       	ret
 
-00000138 <_Z12UART_TxChar0j>:
+00000138 <_Z15GB_UART_TxChar0j>:
  138:	e0 ec       	ldi	r30, 0xC0	; 192
  13a:	f0 e0       	ldi	r31, 0x00	; 0
  13c:	90 81       	ld	r25, Z
  13e:	95 ff       	sbrs	r25, 5
- 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z12UART_TxChar0j+0x4>
+ 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z15GB_UART_TxChar0j+0x4>
  142:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
  146:	08 95       	ret
 
-00000148 <_Z12printString0PKc>:
+00000148 <_Z15GB_printString0PKc>:
  148:	cf 93       	push	r28
  14a:	df 93       	push	r29
  14c:	ec 01       	movw	r28, r24
  14e:	88 81       	ld	r24, Y
  150:	88 23       	and	r24, r24
- 152:	31 f0       	breq	.+12     	; 0x160 <_Z12printString0PKc+0x18>
+ 152:	31 f0       	breq	.+12     	; 0x160 <_Z15GB_printString0PKc+0x18>
  154:	21 96       	adiw	r28, 0x01	; 1
  156:	90 e0       	ldi	r25, 0x00	; 0
- 158:	ef df       	rcall	.-34     	; 0x138 <_Z12UART_TxChar0j>
+ 158:	ef df       	rcall	.-34     	; 0x138 <_Z15GB_UART_TxChar0j>
  15a:	89 91       	ld	r24, Y+
  15c:	81 11       	cpse	r24, r1
- 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z12printString0PKc+0xe>
+ 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z15GB_printString0PKc+0xe>
  160:	df 91       	pop	r29
  162:	cf 91       	pop	r28
  164:	08 95       	ret
 
-00000166 <_Z8decimel0m>:
+00000166 <_Z11GB_decimel0m>:
  166:	8f 92       	push	r8
  168:	9f 92       	push	r9
  16a:	af 92       	push	r10
@@ -241,7 +242,7 @@ Disassembly of section .text:
  174:	1f 93       	push	r17
  176:	cf 93       	push	r28
  178:	df 93       	push	r29
- 17a:	00 d0       	rcall	.+0      	; 0x17c <_Z8decimel0m+0x16>
+ 17a:	00 d0       	rcall	.+0      	; 0x17c <_Z11GB_decimel0m+0x16>
  17c:	1f 92       	push	r1
  17e:	1f 92       	push	r1
  180:	cd b7       	in	r28, 0x3d	; 61
@@ -260,11 +261,11 @@ Disassembly of section .text:
  19a:	a1 2c       	mov	r10, r1
  19c:	b1 2c       	mov	r11, r1
  19e:	f0 2d       	mov	r31, r0
- 1a0:	04 c0       	rjmp	.+8      	; 0x1aa <_Z8decimel0m+0x44>
+ 1a0:	04 c0       	rjmp	.+8      	; 0x1aa <_Z11GB_decimel0m+0x44>
  1a2:	8d 81       	ldd	r24, Y+5	; 0x05
  1a4:	80 33       	cpi	r24, 0x30	; 48
- 1a6:	81 f0       	breq	.+32     	; 0x1c8 <_Z8decimel0m+0x62>
- 1a8:	1a c0       	rjmp	.+52     	; 0x1de <_Z8decimel0m+0x78>
+ 1a6:	81 f0       	breq	.+32     	; 0x1c8 <_Z11GB_decimel0m+0x62>
+ 1a8:	1a c0       	rjmp	.+52     	; 0x1de <_Z11GB_decimel0m+0x78>
  1aa:	a5 01       	movw	r20, r10
  1ac:	94 01       	movw	r18, r8
  1ae:	72 d2       	rcall	.+1252   	; 0x694 <__udivmodsi4>
@@ -278,19 +279,19 @@ Disassembly of section .text:
  1be:	95 2f       	mov	r25, r21
  1c0:	ee 15       	cp	r30, r14
  1c2:	ff 05       	cpc	r31, r15
- 1c4:	91 f7       	brne	.-28     	; 0x1aa <_Z8decimel0m+0x44>
- 1c6:	ed cf       	rjmp	.-38     	; 0x1a2 <_Z8decimel0m+0x3c>
+ 1c4:	91 f7       	brne	.-28     	; 0x1aa <_Z11GB_decimel0m+0x44>
+ 1c6:	ed cf       	rjmp	.-38     	; 0x1a2 <_Z11GB_decimel0m+0x3c>
  1c8:	8c 81       	ldd	r24, Y+4	; 0x04
  1ca:	80 33       	cpi	r24, 0x30	; 48
- 1cc:	b9 f4       	brne	.+46     	; 0x1fc <_Z8decimel0m+0x96>
+ 1cc:	b9 f4       	brne	.+46     	; 0x1fc <_Z11GB_decimel0m+0x96>
  1ce:	8b 81       	ldd	r24, Y+3	; 0x03
  1d0:	80 33       	cpi	r24, 0x30	; 48
- 1d2:	b1 f4       	brne	.+44     	; 0x200 <_Z8decimel0m+0x9a>
+ 1d2:	b1 f4       	brne	.+44     	; 0x200 <_Z11GB_decimel0m+0x9a>
  1d4:	8a 81       	ldd	r24, Y+2	; 0x02
  1d6:	80 33       	cpi	r24, 0x30	; 48
- 1d8:	a9 f4       	brne	.+42     	; 0x204 <_Z8decimel0m+0x9e>
+ 1d8:	a9 f4       	brne	.+42     	; 0x204 <_Z11GB_decimel0m+0x9e>
  1da:	10 e0       	ldi	r17, 0x00	; 0
- 1dc:	01 c0       	rjmp	.+2      	; 0x1e0 <_Z8decimel0m+0x7a>
+ 1dc:	01 c0       	rjmp	.+2      	; 0x1e0 <_Z11GB_decimel0m+0x7a>
  1de:	14 e0       	ldi	r17, 0x04	; 4
  1e0:	e1 e0       	ldi	r30, 0x01	; 1
  1e2:	f0 e0       	ldi	r31, 0x00	; 0
@@ -302,16 +303,16 @@ Disassembly of section .text:
  1ee:	fa 95       	dec	r31
  1f0:	80 81       	ld	r24, Z
  1f2:	90 e0       	ldi	r25, 0x00	; 0
- 1f4:	a1 df       	rcall	.-190    	; 0x138 <_Z12UART_TxChar0j>
+ 1f4:	a1 df       	rcall	.-190    	; 0x138 <_Z15GB_UART_TxChar0j>
  1f6:	11 50       	subi	r17, 0x01	; 1
- 1f8:	9a f7       	brpl	.-26     	; 0x1e0 <_Z8decimel0m+0x7a>
- 1fa:	06 c0       	rjmp	.+12     	; 0x208 <_Z8decimel0m+0xa2>
+ 1f8:	9a f7       	brpl	.-26     	; 0x1e0 <_Z11GB_decimel0m+0x7a>
+ 1fa:	06 c0       	rjmp	.+12     	; 0x208 <_Z11GB_decimel0m+0xa2>
  1fc:	13 e0       	ldi	r17, 0x03	; 3
- 1fe:	f0 cf       	rjmp	.-32     	; 0x1e0 <_Z8decimel0m+0x7a>
+ 1fe:	f0 cf       	rjmp	.-32     	; 0x1e0 <_Z11GB_decimel0m+0x7a>
  200:	12 e0       	ldi	r17, 0x02	; 2
- 202:	ee cf       	rjmp	.-36     	; 0x1e0 <_Z8decimel0m+0x7a>
+ 202:	ee cf       	rjmp	.-36     	; 0x1e0 <_Z11GB_decimel0m+0x7a>
  204:	11 e0       	ldi	r17, 0x01	; 1
- 206:	ec cf       	rjmp	.-40     	; 0x1e0 <_Z8decimel0m+0x7a>
+ 206:	ec cf       	rjmp	.-40     	; 0x1e0 <_Z11GB_decimel0m+0x7a>
  208:	0f 90       	pop	r0
  20a:	0f 90       	pop	r0
  20c:	0f 90       	pop	r0
@@ -329,13 +330,13 @@ Disassembly of section .text:
  224:	8f 90       	pop	r8
  226:	08 95       	ret
 
-00000228 <_Z4fun1j>:
+00000228 <_Z7GB_fun1j>:
 }
 
-void fun1(uint16_t angle)
+void GB_fun1(uint16_t gb_angle)
 {   //uint16_t count =count_maximum-count_minimum;
 	
-	OCR4C=(angle*22.22)+1000;
+	OCR4C=(gb_angle*22.22)+1000;
  228:	bc 01       	movw	r22, r24
  22a:	80 e0       	ldi	r24, 0x00	; 0
  22c:	90 e0       	ldi	r25, 0x00	; 0
@@ -355,16 +356,16 @@ void fun1(uint16_t angle)
  248:	f0 e0       	ldi	r31, 0x00	; 0
  24a:	71 83       	std	Z+1, r23	; 0x01
  24c:	60 83       	st	Z, r22
-	decimel0(OCR4C);
+	GB_decimel0(OCR4C);
  24e:	60 81       	ld	r22, Z
  250:	71 81       	ldd	r23, Z+1	; 0x01
  252:	80 e0       	ldi	r24, 0x00	; 0
  254:	90 e0       	ldi	r25, 0x00	; 0
-	printString0("\n");
- 256:	87 df       	rcall	.-242    	; 0x166 <_Z8decimel0m>
- 258:	8c e1       	ldi	r24, 0x1C	; 28
+	GB_printString0("\n");
+ 256:	87 df       	rcall	.-242    	; 0x166 <_Z11GB_decimel0m>
+ 258:	8f e1       	ldi	r24, 0x1F	; 31
  25a:	92 e0       	ldi	r25, 0x02	; 2
- 25c:	75 cf       	rjmp	.-278    	; 0x148 <_Z12printString0PKc>
+ 25c:	75 cf       	rjmp	.-278    	; 0x148 <_Z15GB_printString0PKc>
  25e:	08 95       	ret
 
 00000260 <main>:
@@ -412,22 +413,22 @@ void fun1(uint16_t angle)
  290:	80 81       	ld	r24, Z
  292:	80 62       	ori	r24, 0x20	; 32
  294:	80 83       	st	Z, r24
-}
+
 
 int main(void)
 {  
-	initServo();
-	UART_Init0();
- 296:	46 df       	rcall	.-372    	; 0x124 <_Z10UART_Init0v>
+	GB_initServo();
+	GB_UART_Init0();
+ 296:	46 df       	rcall	.-372    	; 0x124 <_Z13GB_UART_Init0v>
 
-	printString0("\r\nWelcome to the Servo Demo\r\n");
- 298:	80 e0       	ldi	r24, 0x00	; 0
+	GB_printString0("\r\nWelcome to the Servo Demo\r\n");
+ 298:	83 e0       	ldi	r24, 0x03	; 3
  29a:	92 e0       	ldi	r25, 0x02	; 2
- 29c:	55 df       	rcall	.-342    	; 0x148 <_Z12printString0PKc>
-	fun1(0);
+ 29c:	55 df       	rcall	.-342    	; 0x148 <_Z15GB_printString0PKc>
+	GB_fun1(0);
  29e:	80 e0       	ldi	r24, 0x00	; 0
  2a0:	90 e0       	ldi	r25, 0x00	; 0
- 2a2:	c2 df       	rcall	.-124    	; 0x228 <_Z4fun1j>
+ 2a2:	c2 df       	rcall	.-124    	; 0x228 <_Z7GB_fun1j>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
@@ -445,11 +446,11 @@ int main(void)
 	_delay_ms(100);
 	while (1)
 	{
-		fun1(0);
+		GB_fun1(0);
  2b4:	00 00       	nop
  2b6:	80 e0       	ldi	r24, 0x00	; 0
  2b8:	90 e0       	ldi	r25, 0x00	; 0
- 2ba:	b6 df       	rcall	.-148    	; 0x228 <_Z4fun1j>
+ 2ba:	b6 df       	rcall	.-148    	; 0x228 <_Z7GB_fun1j>
  2bc:	2f ef       	ldi	r18, 0xFF	; 255
  2be:	83 ed       	ldi	r24, 0xD3	; 211
  2c0:	90 e3       	ldi	r25, 0x30	; 48
@@ -460,11 +461,11 @@ int main(void)
  2ca:	00 c0       	rjmp	.+0      	; 0x2cc <main+0x6c>
 		_delay_ms(1000);
 		
-		fun1(45);
+		GB_fun1(45);
  2cc:	00 00       	nop
  2ce:	8d e2       	ldi	r24, 0x2D	; 45
  2d0:	90 e0       	ldi	r25, 0x00	; 0
- 2d2:	aa df       	rcall	.-172    	; 0x228 <_Z4fun1j>
+ 2d2:	aa df       	rcall	.-172    	; 0x228 <_Z7GB_fun1j>
  2d4:	2f ef       	ldi	r18, 0xFF	; 255
  2d6:	83 ed       	ldi	r24, 0xD3	; 211
  2d8:	90 e3       	ldi	r25, 0x30	; 48
@@ -475,11 +476,11 @@ int main(void)
  2e2:	00 c0       	rjmp	.+0      	; 0x2e4 <main+0x84>
 		_delay_ms(1000);
 		
-		fun1(90);
+		GB_fun1(90);
  2e4:	00 00       	nop
  2e6:	8a e5       	ldi	r24, 0x5A	; 90
  2e8:	90 e0       	ldi	r25, 0x00	; 0
- 2ea:	9e df       	rcall	.-196    	; 0x228 <_Z4fun1j>
+ 2ea:	9e df       	rcall	.-196    	; 0x228 <_Z7GB_fun1j>
  2ec:	2f ef       	ldi	r18, 0xFF	; 255
  2ee:	83 ed       	ldi	r24, 0xD3	; 211
  2f0:	90 e3       	ldi	r25, 0x30	; 48
@@ -490,11 +491,11 @@ int main(void)
  2fa:	00 c0       	rjmp	.+0      	; 0x2fc <main+0x9c>
 		_delay_ms(1000);
 		
-		fun1(135);
+		GB_fun1(135);
  2fc:	00 00       	nop
  2fe:	87 e8       	ldi	r24, 0x87	; 135
  300:	90 e0       	ldi	r25, 0x00	; 0
- 302:	92 df       	rcall	.-220    	; 0x228 <_Z4fun1j>
+ 302:	92 df       	rcall	.-220    	; 0x228 <_Z7GB_fun1j>
  304:	2f ef       	ldi	r18, 0xFF	; 255
  306:	83 ed       	ldi	r24, 0xD3	; 211
  308:	90 e3       	ldi	r25, 0x30	; 48
@@ -505,11 +506,11 @@ int main(void)
  312:	00 c0       	rjmp	.+0      	; 0x314 <main+0xb4>
 		_delay_ms(1000);
 		
-		fun1(180);
+		GB_fun1(180);
  314:	00 00       	nop
  316:	84 eb       	ldi	r24, 0xB4	; 180
  318:	90 e0       	ldi	r25, 0x00	; 0
- 31a:	86 df       	rcall	.-244    	; 0x228 <_Z4fun1j>
+ 31a:	86 df       	rcall	.-244    	; 0x228 <_Z7GB_fun1j>
  31c:	2f ef       	ldi	r18, 0xFF	; 255
  31e:	83 ed       	ldi	r24, 0xD3	; 211
  320:	90 e3       	ldi	r25, 0x30	; 48
@@ -520,11 +521,11 @@ int main(void)
  32a:	00 c0       	rjmp	.+0      	; 0x32c <main+0xcc>
 		_delay_ms(1000);
 		
-		fun1(135);
+		GB_fun1(135);
  32c:	00 00       	nop
  32e:	87 e8       	ldi	r24, 0x87	; 135
  330:	90 e0       	ldi	r25, 0x00	; 0
- 332:	7a df       	rcall	.-268    	; 0x228 <_Z4fun1j>
+ 332:	7a df       	rcall	.-268    	; 0x228 <_Z7GB_fun1j>
  334:	2f ef       	ldi	r18, 0xFF	; 255
  336:	83 ed       	ldi	r24, 0xD3	; 211
  338:	90 e3       	ldi	r25, 0x30	; 48
@@ -535,11 +536,11 @@ int main(void)
  342:	00 c0       	rjmp	.+0      	; 0x344 <main+0xe4>
 		_delay_ms(1000);
 		
-		fun1(90);
+		GB_fun1(90);
  344:	00 00       	nop
  346:	8a e5       	ldi	r24, 0x5A	; 90
  348:	90 e0       	ldi	r25, 0x00	; 0
- 34a:	6e df       	rcall	.-292    	; 0x228 <_Z4fun1j>
+ 34a:	6e df       	rcall	.-292    	; 0x228 <_Z7GB_fun1j>
  34c:	2f ef       	ldi	r18, 0xFF	; 255
  34e:	83 ed       	ldi	r24, 0xD3	; 211
  350:	90 e3       	ldi	r25, 0x30	; 48
@@ -550,11 +551,11 @@ int main(void)
  35a:	00 c0       	rjmp	.+0      	; 0x35c <main+0xfc>
 		_delay_ms(1000);
 		
-		fun1(45);
+		GB_fun1(45);
  35c:	00 00       	nop
  35e:	8d e2       	ldi	r24, 0x2D	; 45
  360:	90 e0       	ldi	r25, 0x00	; 0
- 362:	62 df       	rcall	.-316    	; 0x228 <_Z4fun1j>
+ 362:	62 df       	rcall	.-316    	; 0x228 <_Z7GB_fun1j>
  364:	2f ef       	ldi	r18, 0xFF	; 255
  366:	83 ed       	ldi	r24, 0xD3	; 211
  368:	90 e3       	ldi	r25, 0x30	; 48
@@ -565,11 +566,11 @@ int main(void)
  372:	00 c0       	rjmp	.+0      	; 0x374 <main+0x114>
 		_delay_ms(1000);
 		
-		fun1(0);
+		GB_fun1(0);
  374:	00 00       	nop
  376:	80 e0       	ldi	r24, 0x00	; 0
  378:	90 e0       	ldi	r25, 0x00	; 0
- 37a:	56 df       	rcall	.-340    	; 0x228 <_Z4fun1j>
+ 37a:	56 df       	rcall	.-340    	; 0x228 <_Z7GB_fun1j>
  37c:	2f ef       	ldi	r18, 0xFF	; 255
  37e:	83 ed       	ldi	r24, 0xD3	; 211
  380:	90 e3       	ldi	r25, 0x30	; 48

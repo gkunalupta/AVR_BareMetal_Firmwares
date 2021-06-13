@@ -38,37 +38,37 @@ for re-enabling SPI master MODE
 #ifndef F_CPU
 #define F_CPU 16000000UL
 #endif
-#include "uarts.h"
+#include "GB_uarts.h"
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#include "SPI_master.h"
+#include "GB_SPI_master.h"
 
 int main(void)
 {   
-	UART_Init0();
-	MA_SPI0_init_master();                     //Initialize SPI Master
-	MA_SPI0_disable_interrupt();
-    char ch[30],bh[30];
-	memset(ch, '\0', 30);
-	memset(bh, '\0', 30);
-	printString0("SPI-master-sending\n");
+	GB_UART_Init0();
+	GB_MA_SPI0_init_master();                     //Initialize SPI Master
+	GB_MA_SPI0_disable_interrupt();
+    char gb_ch[30],gb_bh[30];
+	memset(gb_ch, '\0', 30);
+	memset(gb_bh, '\0', 30);
+	GB_printString0("SPI-master-sending\n");
 	sei();
-	int8_t c=0;
+	int8_t gb_c=0;
 	while(1)
 	{
 		  
 	
-		  if(c<1)
+		  if(gb_c<1)
 		  {
 
-			  printString0("SPI-master-Sending\n");
-			  MA_SPI0_send_string("Subscribe Gettobyte");
-			  MA_SPI0_send_string("Kunal Gupta");
-			  MA_SPI0_send_byte('p');
-			  printString0("\n");
+			  GB_printString0("SPI-master-Sending\n");
+			  GB_MA_SPI0_send_string("Subscribe Gettobyte");
+			  GB_MA_SPI0_send_string("Kunal Gupta");
+			  GB_MA_SPI0_send_byte('p');
+			  GB_printString0("\n");
 			  _delay_ms(100);
-			  c++;
+			  gb_c++;
 			  break;
 		  }
 		  
@@ -83,32 +83,32 @@ int main(void)
 
 //For master sending
 /*
-if(c<1)
+if(gb_c<1)
 {
 
-printString0("SPI-master-Sending\n");
-MA_SPI0_send_string("Subscribe Gettobyte");
-MA_SPI0_send_string("Kunal Gupta");
-MA_SPI0_send_byte('p');
-printString0("\n");
+GB_printString0("SPI-master-Sending\n");
+GB_MA_SPI0_send_string("Subscribe Gettobyte");
+GB_MA_SPI0_send_string("Kunal Gupta");
+GB_MA_SPI0_send_byte('p');
+GB_printString0("\n");
 _delay_ms(100);
-c++;
+gb_c++;
 break;
 }
 */
 
 //For Master Receiving
 /*
-		  MA_SPI0_read_block(ch,19);
-		  MA_SPI0_read_block(bh,11);
-		  uint8_t a = MA_SPI0_read_byte();
+		 GB_MA_SPI0_read_block(gb_ch,19);
+		  GB_MA_SPI0_read_block(gb_bh,11);
+		  uint8_t gb_a = GB_MA_SPI0_read_byte();
 		  
-		  printString0(ch);
-		  printString0("\n");
-		  printString0(bh);
-		  printString0("\n");
-		  UART_TxChar0(a);
-		  printString0("\n");
+		  GB_printString0(gb_ch);
+		 GB_printString0("\n");
+		  GB_printString0(gb_bh);
+		  GB_printString0("\n");
+		  GB_UART_TxChar0(gb_a);
+		  GB_printString0("\n");
 		  
 		  _delay_ms(100);
 */

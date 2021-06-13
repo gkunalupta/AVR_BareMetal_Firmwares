@@ -8,12 +8,12 @@
 //#include <uarts.h>
 #include <avr/interrupt.h>
 #include <string.h>
-#include <millis.h>
-#include "dht11.h"
-#include "lcd_i2c.h"
+#include <GB_millis.h>
+#include "GB_dht11.h"
+#include "GB_lcd_i2c.h"
 #include "GPIO.h"
-#include "esp8266_comman.h"
-#include "esp8266_client.h"
+#include "GB_esp8266_comman.h"
+#include "GB_esp8266_client.h"
 
 //#include "uarts.h"
 
@@ -23,31 +23,32 @@
   
   //const char urlpath[100] ="/data/2.5/weather?q=delhi&appid=885e9149105e8901c9809ac018ce8658";
   //const char url[100] = "api.openweathermap.org";
-  const char urlpath[100] ="/update?api_key=K86PTN9OPANWW8MF&field1";
-  const char url[100] = "api.thingspeak.com";
+  const char gb_urlpath[100] ="/update?api_key=K86PTN9OPANWW8MF&field1";
+  const char gb_url[100] = "api.thingspeak.com";
 
 
 uint8_t x[5]= {0,0,0,0,0};
 	
 	
 //macros for lcd,sensor
-#define Mode PB5  //11
-#define Arrow PB6 //12
-#define Menu_total_keys 2
-uint8_t Menu_key_switch = 0;
-uint8_t menu_key_value = 0;
-int keys[2] = {0};
+#define gb_Mode PB5  //11
+#define gb_Arrow PB6 //12
+#define gb_Menu_total_keys 2
+uint8_t gb_Menu_key_switch = 0;
+uint8_t gb_menu_key_value = 0;
+int gb_keys[2] = {0};
 	
-	void menu_pin_setup()
-	{
-	pinMode(Mode,&DDRB,INPUT);
-	digitalWrite(Mode,&PORTB,HIGH);
 	
-	pinMode(Arrow,&DDRB,INPUT);
-	digitalWrite(Arrow,&PORTB,HIGH);
+void GB_menu_pin_setup()
+{
+	pinMode(gb_Mode,&DDRB,INPUT);
+	digitalWrite(gb_Mode,&PORTB,HIGH);
+	
+	pinMode(gb_Arrow,&DDRB,INPUT);
+	digitalWrite(gb_Arrow,&PORTB,HIGH);
 }
 
-void timer2_init()
+void GB_timer2_init()
 {
 	// set up timer0 with prescaler = 256, MAx delay = 4.09 ms
 	TCCR2B |= (1 << CS21);
@@ -64,32 +65,32 @@ void timer2_init()
 	// initialize overflow counter variable of timer 0
 
 }
-void menu_key_search()
+void GB_menu_key_search()
 {
 	//keys[0] = 0,keys[1] = 0;
-	switch(Menu_key_switch)
+	switch(gb_Menu_key_switch)
 	{
 		case 0:
 		{
-			if(!(digitalRead(Mode,&PINB)))
+			if(!(digitalRead(gb_Mode,&PINB)))
 			{
-				keys[0]++;                      //Mode button
+				gb_keys[0]++;                      //Mode button
 			}
 			break;
 		}
 		case 1:
 		{
-			if(!(digitalRead(Arrow,&PINB)))
+			if(!(digitalRead(gb_Arrow,&PINB)))
 			{
-				keys[1]++;                       //Arrow button
+				gb_keys[1]++;                       //Arrow button
 			}
 			break;
 		}
 	}
 	
-	Menu_key_switch++;
-	if(Menu_key_switch > Menu_total_keys-1)
-	Menu_key_switch = 0;
+	gb_Menu_key_switch++;
+	if(gb_Menu_key_switch > gb_Menu_total_keys-1)
+	gb_Menu_key_switch = 0;
 	
 }
  //uint8_t t = 0;
@@ -102,26 +103,26 @@ ISR(TIMER2_OVF_vect)
 	
 	
 	//TCNT1 = 0;
-	menu_key_search();
+	GB_menu_key_search();
 	
 }
 
-void GetMenukeypressed()
+void GB_GetMenukeypressed()
 {
-	uint8_t i;
+	uint8_t gb_i;
 	//menu_key_value = 0;
 	//decimel0(menu_key_value);
 	//printString0("z\n");
-	for(i =0; i<Menu_total_keys; i++)
+	for(gb_i =0; gb_i<gb_Menu_total_keys; gb_i++)
 	{
 		//decimel0(keys[i]);
 		//printString0("p\n");
 		
-		if(keys[i] > 20)
+		if(gb_keys[gb_i] > 20)
 		{
-			menu_key_value = i+1;    // 1- mode menu, 2- arrow menu
-			for (i=0; i<Menu_total_keys; i++)
-			{	keys[i]=0;}
+			gb_menu_key_value = gb_i+1;    // 1- mode menu, 2- arrow menu
+			for (gb_i=0; gb_i<gb_Menu_total_keys; gb_i++)
+			{	gb_keys[gb_i]=0;}
 			//decimel0(menu_key_value);
 			//printString0("k\n");
 			break;
@@ -129,25 +130,25 @@ void GetMenukeypressed()
 	}
 }
 
-uint8_t Menu_State = 0;
-#define Mode_button 1
-#define Arrow_button 2
+uint8_t gb_Menu_State = 0;
+#define gb_Mode_button 1
+#define gb_Arrow_button 2
 
-#define  Menu_state_idle 0
-#define Mode_menu 1
-#define Arrow_menu 2
+#define  gb_Menu_state_idle 0
+#define gb_Mode_menu 1
+#define gb_Arrow_menu 2
 
 
-uint8_t cali_temp = 0;
-uint8_t ff_temp_to_cal = 0;
-uint8_t temp_dht11;
- uint8_t menu()
+uint8_t gb_cali_temp = 0;
+uint8_t gb_ff_temp_to_cal = 0;
+
+ uint8_t GB_menu()
  {
-	 lcd_setcursor(0,0);
-	 LCD_string("Temp Calibrat ");
-	 lcd_setcursor(0,1);
+	 GB_lcd_setcursor(0,0);
+	 GB_LCD_string("Temp Calibrat ");
+	 GB_lcd_setcursor(0,1);
 	// cali_temp = 0;
-	 lcd_printint_num(ff_temp_to_cal);
+	 GB_lcd_printint_num(gb_ff_temp_to_cal);
 	 
 	 /*
 	 LCD_string("screen1")
@@ -157,200 +158,176 @@ uint8_t temp_dht11;
 	 return 1;
 	 */
  }
- uint8_t arrow()
+ uint8_t GB_arrow()
  {
-	 lcd_setcursor(0,0);
-	 LCD_string("Gettobyte");
-	 lcd_setcursor(0,1);
-	 LCD_string("Sparrow");
+	 GB_lcd_setcursor(0,0);
+	 GB_LCD_string("Gettobyte");
+	 GB_lcd_setcursor(0,1);
+	 GB_LCD_string("Sparrow");
 	 return 1;
  }
- 	
-	 char mystr[1]  = {0};
- 	float t  = 0;
- void ManageHome()
+  char gb_mystr[1]  = {0};
+  float gb_t  = 0;
+ void GB_ManageHome()
  {
 	 
 	 
+	 GB_dht11();
 	 
-	  dht11();
-	  
-	  t = dht11_temp();
-	  sprintf(mystr,"%f",t);
-	  
-	  lcd_setcursor(0,0);
-	  LCD_string("Temper: ");
-	  //lcd_printint_num(t);
-	  lcd_setcursor(0,1);
-	  LCD_string(mystr);
-	  
-	  		  lcd_setcursor(5,1);
-	  		  LCD_string("    ");
-	  
+	 gb_t = GB_dht11_temp();
+	 sprintf(gb_mystr,"%f",gb_t);
+	 
+	 GB_lcd_setcursor(0,0);
+	 GB_LCD_string("Temper: ");
+	 //lcd_printint_num(t);
+	 GB_lcd_setcursor(0,1);
+	 GB_LCD_string(gb_mystr);
+	 
+	 GB_lcd_setcursor(5,1);
+	 GB_LCD_string("    ");
 	 /*
-	 lcd_setcursor(0,0);
-	 LCD_string("Embedded");
-	 lcd_setcursor(0,1);
-	 LCD_string("LCD_I2C");
-	 _delay_ms(1000);
-	 */
 	 //lcd_clear();
 	 
-	 /*
 	 dht11();
-	 
-	 t = dht11_temp();
-	 sprintf(mystr,"%f",t);
-	 
-	  lcd_setcursor(0,0);
-	  LCD_string("Temper: ");
-	  //lcd_printint_num(t);
-	  
-	 LCD_string(mystr);
-	 //printString0(mystr);
-	  
-	 /*
-	 dht11();
-	//temp_dht11 = dht11_temp();
+	// uint8_t t = dht11_temp();
 	 lcd_setcursor(0,0);
 	 LCD_string("Temper: ");
 	 
-	 lcd_printint(data[2]);
+	 lcd_printint_num(data[2]);
 	 LCD_string(".");
 	 lcd_printint_num(data[3]);
-	 */
+	 
 	// lcd_printint_num(t);
 	 
-	 
+	 */
 	 
  }
-
- uint8_t arrow_flag = 0;
-void UInterface(void)
+ uint8_t gb_arrow_flag = 0;
+void GB_UInterface(void)
 {
 	//lcd_printint_num(menu_key_value);
 	//_delay_ms(1);
-	GetMenukeypressed();
+	GB_GetMenukeypressed();
 	//printString0("1\n");
 	
-	switch(Menu_State)
+	switch(gb_Menu_State)
 	{
-		case Menu_state_idle:
+		case gb_Menu_state_idle:
 		{
 			//decimel0(Menu_State);
 			//lcd_printint_num(menu_key_value);
 			//printString0(" idle2\n");
-			//lcd_clear();
-			ManageHome();
+		    //lcd_clear();
+			GB_ManageHome();
 			//lcd_printint_num(menu_key_value);
-			if(menu_key_value == Mode_button)
+			if(gb_menu_key_value == gb_Mode_button)
 			{
-				Menu_State = Mode_menu;
+				gb_Menu_State = gb_Mode_menu;
 				//beep sound function to be added
-				lcd_clear();
+				GB_lcd_clear();
 			}
-			if(menu_key_value == Arrow_button)
+			if(gb_menu_key_value == gb_Arrow_button)
 			{
-				Menu_State = Menu_state_idle;
+				gb_Menu_State = gb_Menu_state_idle;
 				//beep sound function to be added
 				//lcd_clear();
 			}
 			break;
 		}
-		case Mode_menu:
+		case gb_Mode_menu:
 		{
 			//decimel0(Menu_State);
 			//lcd_printint_num(menu_key_value);
 			//printString0(" mode4\n");
-			menu();
-			if((menu_key_value == Mode_button))     // enter OK
+			GB_menu();
+			if((gb_menu_key_value == gb_Mode_button))     // enter OK
 			{
-				ff_temp_to_cal = cali_temp;        //to be used with fan PWM
-				Menu_State = Menu_state_idle;
+				gb_ff_temp_to_cal = gb_cali_temp;        //to be used with fan PWM
+				gb_Menu_State = gb_Menu_state_idle;
 				// beep sound with longer delay
-				lcd_clear();
+				GB_lcd_clear();
 			}
-			if((menu_key_value == Arrow_button))    //increment the number
+			if((gb_menu_key_value == gb_Arrow_button))    //increment the number
 			{
-				Menu_State = Arrow_menu;
-				arrow_flag = 1;
+				gb_Menu_State = gb_Arrow_menu;
+				gb_arrow_flag = 1;
 				//beep function sound
-				//lcd_clear();
+			    //lcd_clear();
 			}
 			break;
 		}
-		case Arrow_menu:
+		case gb_Arrow_menu:
 		{
 			//decimel0(Menu_State);
 			//lcd_printint_num(menu_key_value);
 			//printString0(" arrow5\n");
-			//if((arrow()))
-			_delay_ms(1000);
+				//if((arrow()))
+				_delay_ms(1000);
 			//	{}
-			//lcd_printint_num(ff_temp_to_cal++);
-			if(arrow_flag == 1)
-			{
-				lcd_setcursor(0,1);
-				cali_temp = cali_temp + 1;
-				lcd_printint_num(cali_temp);
-				Menu_State = Arrow_menu;
-				arrow_flag = 0;
-			}
-			
-			if((menu_key_value == Mode_button))
-			{
-				ff_temp_to_cal = cali_temp;
-				Menu_State = Mode_menu;
+				//lcd_printint_num(ff_temp_to_cal++);
+				if(gb_arrow_flag == 1)
+				{
+					GB_lcd_setcursor(0,1);
+				    gb_cali_temp = gb_cali_temp + 1;
+				    GB_lcd_printint_num(gb_cali_temp);
+					gb_Menu_State = gb_Arrow_menu;
+					gb_arrow_flag = 0;
+				}
 				
-				lcd_clear();
-				//beep sound function
-			}
-			
-			
-			if ((menu_key_value == Arrow_button))
-			{
-				lcd_setcursor(0,1);
-				cali_temp = cali_temp + 1;
-				lcd_printint_num(cali_temp);
-				Menu_State = Arrow_menu;//lcd_clear();
-				//lcd_clear();
-			}
-			
-			break;
+				if((gb_menu_key_value == gb_Mode_button))
+				{
+					gb_ff_temp_to_cal = gb_cali_temp;
+					gb_Menu_State = gb_Mode_menu;
+					
+				    GB_lcd_clear();
+					//beep sound function
+				}
+				
+				
+				if ((gb_menu_key_value == gb_Arrow_button))
+				{
+					GB_lcd_setcursor(0,1);
+					gb_cali_temp = gb_cali_temp + 1;
+					GB_lcd_printint_num(gb_cali_temp);
+					gb_Menu_State = gb_Arrow_menu;//lcd_clear();
+				  //lcd_clear();
+				}
+				
+				break;
 		}
-		//printString0("3\n");
-		
-	}
+	//printString0("3\n");
 	
-	// decimel0(Menu_State);
-	menu_key_value = 0;
-	
+      }
+	  
+	 // decimel0(Menu_State);
+	 gb_menu_key_value = 0;
+	  
 }
 
 int main(void)
 {  
 	
-	init_millis(16000000UL); //frequency the atmega328p is running at
-   	UART_Init0();
-	UART_Init1();       ///for esp baudrate is selected 115200
-	printString0("******************ESP8266 AT Commands firmware (using embedded C)*****************");
-	printString0("\n");
-	esp8266_initialise_client();
+	GB_init_millis(16000000UL); //frequency the atmega328p is running at
+   	GB_UART_Init0();
+	GB_UART_Init1();       ///for esp baudrate is selected 115200
+	GB_printString0("******************ESP8266 AT Commands firmware (using embedded C)*****************");
+	GB_printString0("\n");
+	GB_esp8266_initialise_client();
 	
 	
-	keys[0] = 0,keys[1] = 0;
+	gb_keys[0] = 0,gb_keys[1] = 0;
 	//DDRB |= (1 << 7);
-	timer2_init();
+	GB_timer2_init();
 	
-	LCD_init();
-	lcd_clear();
-	LCD_string("Gettobyte:");
-	lcd_setcursor(0,1);
-	LCD_string("LCD_I2C");
+	GB_LCD_init();
+	GB_lcd_clear();
+	GB_LCD_string("Gettobyte:");
+	GB_lcd_setcursor(0,1);
+	GB_LCD_string("LCD_I2C");
 	_delay_ms(1000);
 	
-	menu_pin_setup();
-	lcd_clear();
+	GB_menu_pin_setup();
+	GB_lcd_clear();
 	
     sei();
 	while(1)
@@ -385,7 +362,7 @@ int main(void)
 		//FOR sENDING dATA TO SERVER CONFIGURES AS CLIENT
 		//{
 			//UInterface();
-			ManageHome();
+			GB_ManageHome();
 	//	memset(mystr,'\0',sizeof(mystr));
 	/*
 			 dht11();
@@ -410,8 +387,8 @@ int main(void)
 			//memset(mystr,'\0',sizeof(mystr));
 			//sprintf(mystr,"%u.%u",data[2],data[3]);
 			//sprintf(mystr,"%f",t);
-			printString0(mystr);
-			printString0("\n");
+			GB_printString0(gb_mystr);
+			GB_printString0("\n");
 		//	_delay_ms(1000);
 			
 			{
@@ -424,9 +401,9 @@ int main(void)
 				//printString0("\n");
 				
 				
-				esp8266_connectTCPserver(url,80);
-				esp8266_cipsend(t,urlpath);
-				esp8266_tcpgetcommand(urlpath,t);
+				GB_esp8266_connectTCPserver(gb_url,80);
+				GB_esp8266_cipsend(gb_t,gb_urlpath);
+				GB_esp8266_tcpgetcommand(gb_urlpath,gb_t);
 				_delay_ms(1000);
 			
 		}

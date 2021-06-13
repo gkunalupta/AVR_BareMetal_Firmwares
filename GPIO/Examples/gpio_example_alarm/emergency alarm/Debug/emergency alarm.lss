@@ -11,21 +11,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000270  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000128  00000000  00000000  000002b0  2**0
+  4 .debug_aranges 00000158  00000000  00000000  000002b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001639  00000000  00000000  000003d8  2**0
+  5 .debug_info   00001832  00000000  00000000  00000408  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e21  00000000  00000000  00001a11  2**0
+  6 .debug_abbrev 00000deb  00000000  00000000  00001c3a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000009b4  00000000  00000000  00002832  2**0
+  7 .debug_line   00000ac2  00000000  00000000  00002a25  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  0000041c  00000000  00000000  000031e8  2**2
+  8 .debug_frame  0000055c  00000000  00000000  000034e8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000097f  00000000  00000000  00003604  2**0
+  9 .debug_str    00000b5a  00000000  00000000  00003a44  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000011d8  00000000  00000000  00003f83  2**0
+ 10 .debug_loc    0000174a  00000000  00000000  0000459e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000148  00000000  00000000  0000515b  2**0
+ 11 .debug_ranges 00000178  00000000  00000000  00005ce8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -190,7 +190,7 @@ Disassembly of section .text:
 00000122 <__bad_interrupt>:
  122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
 
-00000124 <_Z10UART_Init0v>:
+00000124 <_Z13GB_UART_Init0v>:
 }
 //PINx
 uint8_t digitalRead( uint8_t pin , uint8_t volatile *port_input_pin_register)
@@ -204,28 +204,28 @@ uint8_t digitalRead( uint8_t pin , uint8_t volatile *port_input_pin_register)
  132:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7000c1>
  136:	08 95       	ret
 
-00000138 <_Z12UART_TxChar0j>:
+00000138 <_Z15GB_UART_TxChar0j>:
  138:	e0 ec       	ldi	r30, 0xC0	; 192
  13a:	f0 e0       	ldi	r31, 0x00	; 0
  13c:	90 81       	ld	r25, Z
  13e:	95 ff       	sbrs	r25, 5
- 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z12UART_TxChar0j+0x4>
+ 140:	fd cf       	rjmp	.-6      	; 0x13c <_Z15GB_UART_TxChar0j+0x4>
  142:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7000c6>
  146:	08 95       	ret
 
-00000148 <_Z12printString0PKc>:
+00000148 <_Z15GB_printString0PKc>:
  148:	cf 93       	push	r28
  14a:	df 93       	push	r29
  14c:	ec 01       	movw	r28, r24
  14e:	88 81       	ld	r24, Y
  150:	88 23       	and	r24, r24
- 152:	31 f0       	breq	.+12     	; 0x160 <_Z12printString0PKc+0x18>
+ 152:	31 f0       	breq	.+12     	; 0x160 <_Z15GB_printString0PKc+0x18>
  154:	21 96       	adiw	r28, 0x01	; 1
  156:	90 e0       	ldi	r25, 0x00	; 0
- 158:	ef df       	rcall	.-34     	; 0x138 <_Z12UART_TxChar0j>
+ 158:	ef df       	rcall	.-34     	; 0x138 <_Z15GB_UART_TxChar0j>
  15a:	89 91       	ld	r24, Y+
  15c:	81 11       	cpse	r24, r1
- 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z12printString0PKc+0xe>
+ 15e:	fb cf       	rjmp	.-10     	; 0x156 <_Z15GB_printString0PKc+0xe>
  160:	df 91       	pop	r29
  162:	cf 91       	pop	r28
  164:	08 95       	ret
@@ -236,8 +236,8 @@ uint8_t digitalRead( uint8_t pin , uint8_t volatile *port_input_pin_register)
 
 int main(void)
 {
-	UART_Init0();
- 166:	de df       	rcall	.-68     	; 0x124 <_Z10UART_Init0v>
+	GB_UART_Init0();
+ 166:	de df       	rcall	.-68     	; 0x124 <_Z13GB_UART_Init0v>
 ﻿void pinMode( uint8_t pin , uint8_t volatile *pin_data_direction_register, bool Mode )
 {
 	if(Mode==OUTPUT)
@@ -249,10 +249,10 @@ int main(void)
  170:	88 83       	st	Y, r24
 	pinMode(buzzer,&DDRJ, OUTPUT);
 	
-	printString0("Gettobyte Youtube cahnnel GPIO_Example\n");
+	GB_printString0("Gettobyte Youtube cahnnel GPIO_Example\n");
  172:	83 e0       	ldi	r24, 0x03	; 3
  174:	92 e0       	ldi	r25, 0x02	; 2
- 176:	e8 df       	rcall	.-48     	; 0x148 <_Z12printString0PKc>
+ 176:	e8 df       	rcall	.-48     	; 0x148 <_Z15GB_printString0PKc>
 	else if(Mode==INPUT)
 	*pin_data_direction_register&= ~(1 << pin);
  178:	88 81       	ld	r24, Y

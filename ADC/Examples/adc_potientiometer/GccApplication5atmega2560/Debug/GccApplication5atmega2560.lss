@@ -11,21 +11,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001294  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000128  00000000  00000000  000012d4  2**0
+  4 .debug_aranges 00000158  00000000  00000000  000012d4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001607  00000000  00000000  000013fc  2**0
+  5 .debug_info   00001800  00000000  00000000  0000142c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000e2f  00000000  00000000  00002a03  2**0
+  6 .debug_abbrev 00000dec  00000000  00000000  00002c2c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000a15  00000000  00000000  00003832  2**0
+  7 .debug_line   00000b29  00000000  00000000  00003a18  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  0000041c  00000000  00000000  00004248  2**2
+  8 .debug_frame  0000055c  00000000  00000000  00004544  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000988  00000000  00000000  00004664  2**0
+  9 .debug_str    00000b92  00000000  00000000  00004aa0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000106e  00000000  00000000  00004fec  2**0
+ 10 .debug_loc    000015e0  00000000  00000000  00005632  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000118  00000000  00000000  0000605a  2**0
+ 11 .debug_ranges 00000148  00000000  00000000  00006c12  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -212,13 +212,13 @@ Disassembly of section .text:
 00000224 <__bad_interrupt>:
      224:	ed ce       	rjmp	.-550    	; 0x0 <__vectors>
 
-00000226 <_Z10UART_Init0v>:
+00000226 <_Z13GB_UART_Init0v>:
 
-void ADC_read(void)
+void GB_ADC_read(void)
 {
 	//bit(ADCSRA);
 	
-	decimel0(ADCW);
+	GB_decimel0(ADCW);
      226:	87 e6       	ldi	r24, 0x67	; 103
      228:	90 e0       	ldi	r25, 0x00	; 0
      22a:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7000c5>
@@ -227,33 +227,33 @@ void ADC_read(void)
      234:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7000c1>
      238:	08 95       	ret
 
-0000023a <_Z12UART_TxChar0j>:
+0000023a <_Z15GB_UART_TxChar0j>:
      23a:	e0 ec       	ldi	r30, 0xC0	; 192
      23c:	f0 e0       	ldi	r31, 0x00	; 0
      23e:	90 81       	ld	r25, Z
      240:	95 ff       	sbrs	r25, 5
-     242:	fd cf       	rjmp	.-6      	; 0x23e <_Z12UART_TxChar0j+0x4>
+     242:	fd cf       	rjmp	.-6      	; 0x23e <_Z15GB_UART_TxChar0j+0x4>
      244:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7000c6>
      248:	08 95       	ret
 
-0000024a <_Z12printString0PKc>:
+0000024a <_Z15GB_printString0PKc>:
      24a:	cf 93       	push	r28
      24c:	df 93       	push	r29
      24e:	ec 01       	movw	r28, r24
      250:	88 81       	ld	r24, Y
      252:	88 23       	and	r24, r24
-     254:	31 f0       	breq	.+12     	; 0x262 <_Z12printString0PKc+0x18>
+     254:	31 f0       	breq	.+12     	; 0x262 <_Z15GB_printString0PKc+0x18>
      256:	21 96       	adiw	r28, 0x01	; 1
      258:	90 e0       	ldi	r25, 0x00	; 0
-     25a:	ef df       	rcall	.-34     	; 0x23a <_Z12UART_TxChar0j>
+     25a:	ef df       	rcall	.-34     	; 0x23a <_Z15GB_UART_TxChar0j>
      25c:	89 91       	ld	r24, Y+
      25e:	81 11       	cpse	r24, r1
-     260:	fb cf       	rjmp	.-10     	; 0x258 <_Z12printString0PKc+0xe>
+     260:	fb cf       	rjmp	.-10     	; 0x258 <_Z15GB_printString0PKc+0xe>
      262:	df 91       	pop	r29
      264:	cf 91       	pop	r28
      266:	08 95       	ret
 
-00000268 <_Z8decimel0m>:
+00000268 <_Z11GB_decimel0m>:
      268:	8f 92       	push	r8
      26a:	9f 92       	push	r9
      26c:	af 92       	push	r10
@@ -264,7 +264,7 @@ void ADC_read(void)
      276:	1f 93       	push	r17
      278:	cf 93       	push	r28
      27a:	df 93       	push	r29
-     27c:	00 d0       	rcall	.+0      	; 0x27e <_Z8decimel0m+0x16>
+     27c:	00 d0       	rcall	.+0      	; 0x27e <_Z11GB_decimel0m+0x16>
      27e:	1f 92       	push	r1
      280:	1f 92       	push	r1
      282:	cd b7       	in	r28, 0x3d	; 61
@@ -283,11 +283,11 @@ void ADC_read(void)
      29c:	a1 2c       	mov	r10, r1
      29e:	b1 2c       	mov	r11, r1
      2a0:	f0 2d       	mov	r31, r0
-     2a2:	04 c0       	rjmp	.+8      	; 0x2ac <_Z8decimel0m+0x44>
+     2a2:	04 c0       	rjmp	.+8      	; 0x2ac <_Z11GB_decimel0m+0x44>
      2a4:	8d 81       	ldd	r24, Y+5	; 0x05
      2a6:	80 33       	cpi	r24, 0x30	; 48
-     2a8:	81 f0       	breq	.+32     	; 0x2ca <_Z8decimel0m+0x62>
-     2aa:	1a c0       	rjmp	.+52     	; 0x2e0 <_Z8decimel0m+0x78>
+     2a8:	81 f0       	breq	.+32     	; 0x2ca <_Z11GB_decimel0m+0x62>
+     2aa:	1a c0       	rjmp	.+52     	; 0x2e0 <_Z11GB_decimel0m+0x78>
      2ac:	a5 01       	movw	r20, r10
      2ae:	94 01       	movw	r18, r8
      2b0:	91 d5       	rcall	.+2850   	; 0xdd4 <__udivmodsi4>
@@ -301,19 +301,19 @@ void ADC_read(void)
      2c0:	95 2f       	mov	r25, r21
      2c2:	ee 15       	cp	r30, r14
      2c4:	ff 05       	cpc	r31, r15
-     2c6:	91 f7       	brne	.-28     	; 0x2ac <_Z8decimel0m+0x44>
-     2c8:	ed cf       	rjmp	.-38     	; 0x2a4 <_Z8decimel0m+0x3c>
+     2c6:	91 f7       	brne	.-28     	; 0x2ac <_Z11GB_decimel0m+0x44>
+     2c8:	ed cf       	rjmp	.-38     	; 0x2a4 <_Z11GB_decimel0m+0x3c>
      2ca:	8c 81       	ldd	r24, Y+4	; 0x04
      2cc:	80 33       	cpi	r24, 0x30	; 48
-     2ce:	b9 f4       	brne	.+46     	; 0x2fe <_Z8decimel0m+0x96>
+     2ce:	b9 f4       	brne	.+46     	; 0x2fe <_Z11GB_decimel0m+0x96>
      2d0:	8b 81       	ldd	r24, Y+3	; 0x03
      2d2:	80 33       	cpi	r24, 0x30	; 48
-     2d4:	b1 f4       	brne	.+44     	; 0x302 <_Z8decimel0m+0x9a>
+     2d4:	b1 f4       	brne	.+44     	; 0x302 <_Z11GB_decimel0m+0x9a>
      2d6:	8a 81       	ldd	r24, Y+2	; 0x02
      2d8:	80 33       	cpi	r24, 0x30	; 48
-     2da:	a9 f4       	brne	.+42     	; 0x306 <_Z8decimel0m+0x9e>
+     2da:	a9 f4       	brne	.+42     	; 0x306 <_Z11GB_decimel0m+0x9e>
      2dc:	10 e0       	ldi	r17, 0x00	; 0
-     2de:	01 c0       	rjmp	.+2      	; 0x2e2 <_Z8decimel0m+0x7a>
+     2de:	01 c0       	rjmp	.+2      	; 0x2e2 <_Z11GB_decimel0m+0x7a>
      2e0:	14 e0       	ldi	r17, 0x04	; 4
      2e2:	e1 e0       	ldi	r30, 0x01	; 1
      2e4:	f0 e0       	ldi	r31, 0x00	; 0
@@ -325,16 +325,16 @@ void ADC_read(void)
      2f0:	fa 95       	dec	r31
      2f2:	80 81       	ld	r24, Z
      2f4:	90 e0       	ldi	r25, 0x00	; 0
-     2f6:	a1 df       	rcall	.-190    	; 0x23a <_Z12UART_TxChar0j>
+     2f6:	a1 df       	rcall	.-190    	; 0x23a <_Z15GB_UART_TxChar0j>
      2f8:	11 50       	subi	r17, 0x01	; 1
-     2fa:	9a f7       	brpl	.-26     	; 0x2e2 <_Z8decimel0m+0x7a>
-     2fc:	06 c0       	rjmp	.+12     	; 0x30a <_Z8decimel0m+0xa2>
+     2fa:	9a f7       	brpl	.-26     	; 0x2e2 <_Z11GB_decimel0m+0x7a>
+     2fc:	06 c0       	rjmp	.+12     	; 0x30a <_Z11GB_decimel0m+0xa2>
      2fe:	13 e0       	ldi	r17, 0x03	; 3
-     300:	f0 cf       	rjmp	.-32     	; 0x2e2 <_Z8decimel0m+0x7a>
+     300:	f0 cf       	rjmp	.-32     	; 0x2e2 <_Z11GB_decimel0m+0x7a>
      302:	12 e0       	ldi	r17, 0x02	; 2
-     304:	ee cf       	rjmp	.-36     	; 0x2e2 <_Z8decimel0m+0x7a>
+     304:	ee cf       	rjmp	.-36     	; 0x2e2 <_Z11GB_decimel0m+0x7a>
      306:	11 e0       	ldi	r17, 0x01	; 1
-     308:	ec cf       	rjmp	.-40     	; 0x2e2 <_Z8decimel0m+0x7a>
+     308:	ec cf       	rjmp	.-40     	; 0x2e2 <_Z11GB_decimel0m+0x7a>
      30a:	0f 90       	pop	r0
      30c:	0f 90       	pop	r0
      30e:	0f 90       	pop	r0
@@ -352,7 +352,7 @@ void ADC_read(void)
      326:	8f 90       	pop	r8
      328:	08 95       	ret
 
-0000032a <_Z12float_value0f>:
+0000032a <_Z15GB_float_value0f>:
      32a:	0f 93       	push	r16
      32c:	1f 93       	push	r17
      32e:	cf 93       	push	r28
@@ -380,7 +380,7 @@ void ADC_read(void)
      35a:	0f 93       	push	r16
      35c:	87 d6       	rcall	.+3342   	; 0x106c <sprintf>
      35e:	c8 01       	movw	r24, r16
-     360:	74 df       	rcall	.-280    	; 0x24a <_Z12printString0PKc>
+     360:	74 df       	rcall	.-280    	; 0x24a <_Z15GB_printString0PKc>
      362:	0f b6       	in	r0, 0x3f	; 63
      364:	f8 94       	cli
      366:	de bf       	out	0x3e, r29	; 62
@@ -398,14 +398,14 @@ void ADC_read(void)
      37e:	0f 91       	pop	r16
      380:	08 95       	ret
 
-00000382 <_Z9ADC_setupv>:
+00000382 <_Z12GB_ADC_setupv>:
      382:	80 ec       	ldi	r24, 0xC0	; 192
      384:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x70007c>
      388:	87 e8       	ldi	r24, 0x87	; 135
      38a:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x70007a>
      38e:	08 95       	ret
 
-00000390 <_Z10ADC_selecth>:
+00000390 <_Z13GB_ADC_selecth>:
      390:	ec e7       	ldi	r30, 0x7C	; 124
      392:	f0 e0       	ldi	r31, 0x00	; 0
      394:	90 81       	ld	r25, Z
@@ -432,37 +432,37 @@ void ADC_read(void)
 
 int main(void)
 {  
-	float val;
-	ADC_setup();
-     3bc:	e2 df       	rcall	.-60     	; 0x382 <_Z9ADC_setupv>
-	UART_Init0();
-     3be:	33 df       	rcall	.-410    	; 0x226 <_Z10UART_Init0v>
+	float gb_val;
+	GB_ADC_setup();
+     3bc:	e2 df       	rcall	.-60     	; 0x382 <_Z12GB_ADC_setupv>
+	GB_UART_Init0();
+     3be:	33 df       	rcall	.-410    	; 0x226 <_Z13GB_UART_Init0v>
 while (1)
 {
-	int potien_value = ADC_select(ADC1);
+	int gb_potien_value = GB_ADC_select(ADC1);
      3c0:	81 e0       	ldi	r24, 0x01	; 1
-     3c2:	e6 df       	rcall	.-52     	; 0x390 <_Z10ADC_selecth>
+     3c2:	e6 df       	rcall	.-52     	; 0x390 <_Z13GB_ADC_selecth>
      3c4:	6c 01       	movw	r12, r24
 	//float potien_voltage = (332 * 5)/1023;
 	
-	float potien_voltage = (static_cast<float>(potien_value) * 4)/1023;
-	printString0("\npotientiometer value:");
+	float gb_potien_voltage = (static_cast<float>(gb_potien_value) * 4)/1023;
+	GB_printString0("\npotientiometer value:");
      3c6:	83 e0       	ldi	r24, 0x03	; 3
      3c8:	92 e0       	ldi	r25, 0x02	; 2
-     3ca:	3f df       	rcall	.-386    	; 0x24a <_Z12printString0PKc>
+     3ca:	3f df       	rcall	.-386    	; 0x24a <_Z15GB_printString0PKc>
      3cc:	0d 2c       	mov	r0, r13
-	decimel0(potien_value);
+	GB_decimel0(gb_potien_value);
      3ce:	00 0c       	add	r0, r0
      3d0:	ee 08       	sbc	r14, r14
      3d2:	ff 08       	sbc	r15, r15
      3d4:	c7 01       	movw	r24, r14
      3d6:	b6 01       	movw	r22, r12
-     3d8:	47 df       	rcall	.-370    	; 0x268 <_Z8decimel0m>
-	printString0("\npotientiometer voltage value:");
+     3d8:	47 df       	rcall	.-370    	; 0x268 <_Z11GB_decimel0m>
+	GB_printString0("\npotientiometer voltage value:");
      3da:	8a e1       	ldi	r24, 0x1A	; 26
      3dc:	92 e0       	ldi	r25, 0x02	; 2
-     3de:	35 df       	rcall	.-406    	; 0x24a <_Z12printString0PKc>
-	float_value0(potien_voltage);
+     3de:	35 df       	rcall	.-406    	; 0x24a <_Z15GB_printString0PKc>
+	GB_float_value0(gb_potien_voltage);
      3e0:	c7 01       	movw	r24, r14
      3e2:	b6 01       	movw	r22, r12
      3e4:	7f d0       	rcall	.+254    	; 0x4e4 <__floatsisf>
@@ -476,7 +476,7 @@ while (1)
      3f4:	4f e7       	ldi	r20, 0x7F	; 127
      3f6:	54 e4       	ldi	r21, 0x44	; 68
      3f8:	0b d0       	rcall	.+22     	; 0x410 <__divsf3>
-     3fa:	97 df       	rcall	.-210    	; 0x32a <_Z12float_value0f>
+     3fa:	97 df       	rcall	.-210    	; 0x32a <_Z15GB_float_value0f>
      3fc:	2f ef       	ldi	r18, 0xFF	; 255
 	#else
 		//round up by default

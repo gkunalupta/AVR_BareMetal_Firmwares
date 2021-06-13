@@ -6,21 +6,20 @@
  */ 
 
 #include <avr/io.h>
-#include "uarts.h"
+#include "GB_uarts.h"
 #include <avr/delay.h>
 
 void f()__attribute__
 {
-	UART_TxChar0("i greater then 0\n");
-	
+	GB_UART_TxChar0("i greater then 0\n");
 }
 
 int main(void)
 {
-	UART_Init0();
-	uint8_t i =0;
+	GB_UART_Init0();
+	uint8_t gb_i =0;
     /* Replace with your application code */
-	UART_TxChar0("code for understanding attribute keyword\n")
+	GB_UART_TxChar0("code for understanding attribute keyword\n")
     while (1) 
     {
 		f();

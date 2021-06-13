@@ -7,11 +7,11 @@ if to change the speed for displaying  characters of a string then
 change second delay(lower the value: fast it print)
                     (Higher the value: Slower it prints)
 */
-void lcd_enable_pulse()
+void GB_lcd_enable_pulse()
 {
-	LCD_command_port |= (1<<EN);
+	LCD_command_port |= (1<<gb_LCD_EN);
 	_delay_ms(1);
-	LCD_command_port &= ~(1<<EN);
+	LCD_command_port &= ~(1<<gb_LCD_EN);
 	_delay_ms(1); // change this to vary the speed for printing characters of a string
 }
 /*
@@ -22,11 +22,11 @@ So GPIO pins are set as OUTPUT and then value is equated to them
 Then for final execution Enable pulse is send
 if enable pulse is not send then data/command will not be executed
 */
-void lcd_write8bit(uint8_t value)
+void GB_lcd_write8bit(uint8_t gb_value)
 {   
-    LCD_data_dir |=(1<<LCD_D0)|(1<<LCD_D1)|(1<<LCD_D2)|(1<<LCD_D3)|(1<<LCD_D4)|(1<<LCD_D5)|(1<<LCD_D6)|(1<<LCD_D7);    // Data pins of MCU(Which are connected to LCD) are set as output 
-	LCD_data_port = (value&0b11111111);
-	lcd_enable_pulse();
+    gb_LCD_data_dir |=(1<<gb_LCD_D0)|(1<<gb_LCD_D1)|(1<<gb_LCD_D2)|(1<<gb_LCD_D3)|(1<<gb_LCD_D4)|(1<<gb_LCD_D5)|(1<<gb_LCD_D6)|(1<<gb_LCD_D7);    // Data pins of MCU(Which are connected to LCD) are set as output 
+	gb_LCD_data_port = (gb_value&0b11111111);
+	GB_lcd_enable_pulse();
 }
 /*
 4-bit mode writing function
@@ -37,13 +37,13 @@ first HIGHER 4 bits are send , then Followed by LOWER 4 bits
 Then for final execution Enable pulse is send
 if enable pulse is not send then data/command will not be executed
 */
-void lcd_write4bit(uint8_t value)
+void GB_lcd_write4bit(uint8_t gb_value)
 {
-	LCD_data_dir |= (1<<LCD_D4)|(1<<LCD_D5)|(1<<LCD_D6)|(1<<LCD_D7);    // Data pins of MCU(Which are connected to lcd) are set as output
-	LCD_data_port = (value&0b11110000);    // Sending Higher 4 bits(D7,D6,D5,D4) first
-	lcd_enable_pulse();
-	LCD_data_port = ((value&0b00001111)<<4);    //Sending LOWER 4 bits(D3,D2,D1,D0)
-	lcd_enable_pulse();
+	gb_LCD_data_dir |= (1<<gb_LCD_D4)|(1<<gb_LCD_D5)|(1<<gb_LCD_D6)|(1<<gb_LCD_D7);    // Data pins of MCU(Which are connected to lcd) are set as output
+	gb_LCD_data_port = (value&0b11110000);    // Sending Higher 4 bits(D7,D6,D5,D4) first
+	GB_lcd_enable_pulse();
+	gb_LCD_data_port = ((value&0b00001111)<<4);    //Sending LOWER 4 bits(D3,D2,D1,D0)
+	GB_lcd_enable_pulse();
 }
 /*
 Read Busy flag/address:
@@ -56,17 +56,17 @@ is stored in Variable by reading PIN value of Data port
 BF Flag output is given at &the bit
 Enable pulse is Important
 */
-uint8_t read_BF_adress()
+uint8_t GB_read_BF_adress()
 {  
-	LCD_data_dir = 0x00;  //  data pins input
-	LCD_command_port &= ~(1<<RS);
-	LCD_command_port |= (1<<RW);
-	LCD_command_port |= (1<<EN);
+	gb_LCD_data_dir = 0x00;  //  data pins input
+	gb_LCD_command_port &= ~(1<<gb_LCD_RS);
+	gb_LCD_command_port |= (1<<gb_LCD_RW);
+	gb_LCD_command_port |= (1<<gb_LCD_EN);
 	_delay_ms(1);
-	address_counter = LCD_PIN;
-	LCD_command_port &= ~(1<<EN);
+	gb_address_counter = gb_LCD_PIN;
+	gb_LCD_command_port &= ~(1<<gb_LCD_EN);
 	_delay_ms(1);
-	return address_counter;
+	return gb_address_counter;
 }
 /*
 LCD_wait():
@@ -76,11 +76,11 @@ BF=1(Internal operation is happening), BF=0(Internal Operation is completed)
 by the end of lcd_wait function : 
 R/W will be 1, RS will be 0 and data ports will be input
 */
-int LCD_wait(void)
+int GB_LCD_wait(void)
 {
 	//get address and busy flag
 	//and loop until busy flag (bit7) cleared
-	while((read_BF_adress() & 0x80) == 0x80);
+	while((GB_read_BF_adress() & 0x80) == 0x80);
 	return 1;
 	
 }
@@ -92,59 +92,59 @@ clear display, display on/off, cursor blink ,
 scroll of text , cursor/display shift all such features are set by 
 Selecting Instruction Register.
 */
-void LCD_command(uint8_t cmnd)
+void GB_LCD_command(uint8_t gb_cmnd)
 {   
 	
-	 if(LCD_wait())
+	 if(GB_LCD_wait())
 	 {
-	LCD_command_port &= ~(1<<RS);
-	LCD_command_port &= ~(1<<RW);
-	lcd_write8bit(cmnd);            //this function takes care of enable pulse also
+	gb_LCD_command_port &= ~(1<<gb_LCD_RS);
+	gb_LCD_command_port &= ~(1<<gb_LCD_RW);
+	GB_lcd_write8bit(gb_cmnd);            //this function takes care of enable pulse also
 	 }
 	 else
 	 {
-		 bit0(address_counter);
-		 printString0("\n");
+		 GB_bit0(gb_address_counter);
+		 GB_printString0("\n");
 		 
 	 }
 }
-void lcd_clear()
+void GB_lcd_clear()
 {
-	LCD_command(lcd_clear_all); //clear display
+	GB_LCD_command(gb_lcd_clear_all); //clear display
 	_delay_ms(2);
 }
-void lcd_Rethome()
+void GB_lcd_Rethome()
 {
-	LCD_command(lcd_rhome);
+	GB_LCD_command(gb_lcd_rhome);
 	_delay_ms(2);
 }
-void lcd_setcursor(uint8_t col, uint8_t row)
+void GB_lcd_setcursor(uint8_t gb_col, uint8_t gb_row)
 {
-	LCD_command((0x80|(row<<6))+col);
+	GB_LCD_command((0x80|(gb_row<<6))+gb_col);
 	_delay_us(40);
 }
-void LCD_init()
+void GB_LCD_init()
 {
-	LCD_command_dir |= (1<<RS)|(1<<RW)|(1<<EN); //  command pins of LCD will be controlled by Avr digital pins , so digitals pins will be set high or low thus these pins are set as output.
+	gb_LCD_command_dir |= (1<<gb_LCD_RS)|(1<<gb_LCD_RW)|(1<<gb_LCD_EN); //  command pins of LCD will be controlled by Avr digital pins , so digitals pins will be set high or low thus these pins are set as output.
 	
 	_delay_ms(50);  // LCD Power ON delay always >15ms
 	{
-		LCD_command(lcd_8bit_2line); //Function set -->8-bit mode is selected,2lines
+		GB_LCD_command(gb_lcd_8bit_2line); //Function set -->8-bit mode is selected,2lines
 		_delay_us(50);
-		LCD_command(lcd_8bit_2line); //Function set -->8-bit mode is selected,2lines
+		GB_LCD_command(gb_lcd_8bit_2line); //Function set -->8-bit mode is selected,2lines
 		_delay_us(50);
 	}
-	LCD_command(lcd_DN_CF_BF); // Display ON/OFF control -->dispaly is on ,cursor is on and cursor blink is off
+	GB_LCD_command(gb_lcd_DN_CF_BF); // Display ON/OFF control -->dispaly is on ,cursor is on and cursor blink is off
 	_delay_us(45);
-	LCD_command(lcd_CMR_DMF); // Entry mode set --> cursor moves to right and DRAM is incremented by 1 , shift of display is off
+	GB_LCD_command(gb_lcd_CMR_DMF); // Entry mode set --> cursor moves to right and DRAM is incremented by 1 , shift of display is off
 	_delay_us(45);
-	lcd_clear();
+	GB_lcd_clear();
 	_delay_ms(5);
 }
 
-void setramaddr(uint8_t address)
+void GB_setramaddr(uint8_t gb_address)
 {
-	LCD_command(address);
+	GB_LCD_command(gb_address);
 	_delay_us(50);
 	
 }
@@ -156,72 +156,72 @@ to know that data register is being used
 -->EN pin is set to 1 for finaly execution of command and then some
  delay and then again set pin to 0.
  */
-void LCD_data(uint8_t data)
+void GB_LCD_data(uint8_t gb_data)
 {   
-	LCD_command_port |= (1<<RS);
-	LCD_command_port &= ~(1<<RW);
-	lcd_write8bit(data);           //this function takes care of enable pulse also
+	gb_LCD_command_port |= (1<<gb_LCD_RS);
+	gb_LCD_command_port &= ~(1<<gb_LCD_RW);
+	GB_lcd_write8bit(gb_data);           //this function takes care of enable pulse also
 }
 /* 
 for printing integers in form 001,023,015,006,007
 */
-void lcd_printint(int value)
+void GB_lcd_printint(int gb_value)
 {
 
-		unsigned char thousands,hundreds,tens,ones;
+		unsigned char gb_thousands,gb_hundreds,gb_tens,gb_ones;
 		
-		thousands = value / 1000;
-        if(thousands!=0)
-		LCD_data(thousands + 0x30);
+		gb_thousands = gb_value / 1000;
+        if(gb_thousands!=0)
+		GB_LCD_data(gb_thousands + 0x30);
 
-		hundreds = ((value - thousands*1000)-1) / 100;
+		gb_hundreds = ((gb_value - gb_thousands*1000)-1) / 100;
         //if(hundreds!=0)
-		LCD_data( hundreds + 0x30);
+		GB_LCD_data( gb_hundreds + 0x30);
 		
-		tens=(value%100)/10;
+		gb_tens=(gb_value%100)/10;
         //if(tens!=0)
-		LCD_data( tens + 0x30);
+		GB_LCD_data( gb_tens + 0x30);
 		
-		ones=value%10;
+		gb_ones=gb_value%10;
         //if(ones!=0)
-		LCD_data( ones + 0x30);
+		GB_LCD_data( gb_ones + 0x30);
 	
 }
 /*
  for printing integers in form 1,23,15,6,7
  */
-void lcd_printint_num(int value)
+void GB_lcd_printint_num(int gb_value)
 {
 
-	unsigned char thousands,hundreds,tens,ones;
+	unsigned char gb_thousands,gb_hundreds,gb_tensgb_,ones;
 	
-	thousands = value / 1000;
-	if(thousands!=0)
-	LCD_data(thousands + 0x30);
+	gb_thousands = gb_value / 1000;
+	if(gb_thousands!=0)
+	GB_LCD_data(gb_thousands + 0x30);
 
-	hundreds = ((value - thousands*1000)-1) / 100;
-	if(hundreds!=0)
-	LCD_data( hundreds + 0x30);
+	gb_hundreds = ((gb_value - gb_thousands*1000)-1) / 100;
+	if(gb_hundreds!=0)
+	GB_LCD_data( gb_hundreds + 0x30);
 	
-	tens=(value%100)/10;
-	if(tens!=0)
-	LCD_data( tens + 0x30);
+	gb_tens=(gb_value%100)/10;
+	if(gb_tens!=0)
+	GB_LCD_data( gb_tens + 0x30);
 	
-	ones=value%10;
+	gb_ones=gb_value%10;
 	//if(ones!=0)
-	LCD_data( ones + 0x30);
+	GB_LCD_data( gb_ones + 0x30);
 	
 }
 /* 
 send string function
 */
-void LCD_string(const char*str)
+void GB_LCD_string(const char*gb_str)
 {
-	int i;
-	for(i=0;str[i]!=0;i++)
+	int gb_i;
+	for(gb_i=0;gb_str[gb_i]!=0;gb_i++)
 	{
 		
-		LCD_data(str[i]);
+		GB_LCD_data(gb_str[gb_i]);
 		_delay_us(45);
 	}
 }
@@ -241,57 +241,57 @@ we have to SET CGRAM address to any of these:
 (0x40,0x48,0x50,0x58,0x60,0x68,0x70,0x78).That is done by command 
 setramaddr((lcd_SETCGRAMADDR)) in the main function
 */
-void LCD_sendpattern(uint8_t loc,  uint8_t pattern[])
+void GB_LCD_sendpattern(uint8_t gb_loc,  uint8_t gb_pattern[])
 {
-	int i;
-	if(loc<8)
+	int gb_i;
+	if(gb_loc<8)
 	{
-	setramaddr((lcd_SETCGRAMADDR+(loc*8)));
-	for(i=0;i<8;i++)
-	LCD_data(pattern[i]);
+	GB_setramaddr((gb_lcd_SETCGRAMADDR+(gb_loc*8)));
+	for(gb_i=0;gb_i<8;gb_i++)
+	GB_LCD_data(gb_pattern[gb_i]);
 		//_delay_us(45);
 	}
 }
-void LCD_printpattern(uint8_t loc)
+void GB_LCD_printpattern(uint8_t gb_loc)
 {
 	
-	LCD_data((0x00+loc));
+	GB_LCD_data((0x00+gb_loc));
 }
-void lcd_print1line(const char *buff)
+void GB_lcd_print1line(const char *gb_buff)
 {
-	lcd_setcursor(0,0);
-	LCD_string(buff);
+	GB_lcd_setcursor(0,0);
+	GB_LCD_string(gb_buff);
 }
-void lcd_print2line(const char *buff)
+void GB_lcd_print2line(const char *gb_buff)
 {
 
-	lcd_setcursor(0,1);
-	LCD_string(buff);
+	GB_lcd_setcursor(0,1);
+	GB_LCD_string(gb_buff);
 }
-void lcd_bit(unsigned char val)
+void GB_lcd_bit(unsigned char gb_val)
 {
 	//lcd_setcursor(0,1);
 	//_delay_us(40);
-	int  ptr;
-	for(ptr=7;ptr>=0;ptr--)
+	int  gb_ptr;
+	for(gb_ptr=7;gb_ptr>=0;gb_ptr--)
 	{
-		if ((val & (1<<ptr))==0)
+		if ((gb_val & (1<<gb_ptr))==0)
 		{
-			LCD_string("0");
+			GB_LCD_string("0");
 		}
 		else
 		{
-			LCD_string("1");
+			GB_LCD_string("1");
 		}
 	}
 }
-uint8_t ReadDDRAM()
+uint8_t GB_ReadDDRAM()
 {
-	uint8_t data;
+	uint8_t gb_data;
 	//LCD_data_dir = 0x00;
-	LCD_command_port |= (1<<RS);
-	LCD_command_port |= (1<<RW);
-	data = LCD_PIN;
+	gb_LCD_command_port |= (1<<gb_LCD_RS);
+	gb_LCD_command_port |= (1<<gb_LCD_RW);
+	gb_data = gb_LCD_PIN;
 	//lcd_enable_pulse();
-	return data;
+	return gb_data;
 }

@@ -15,21 +15,21 @@ Author: Monoclecat, https://github.com/monoclecat/avr-millis-function
 REMEMBER: Add sei(); after init_millis() to enable global interrupts!
  */
 
-#include <millis.h>
-#include <uarts.h>
+#include <GB_millis.h>
+#include <GB_uarts.h>
 int main(void)
-{   UART_Init0();
-	init_millis(16000000UL); //frequency the atmega328p is running at
-	unsigned long prev_millis; //the last time the led was toggled
-	prev_millis = millis();
+{   GB_UART_Init0();
+	GB_init_millis(16000000UL); //frequency the atmega328p is running at
+	unsigned long gb_prev_millis; //the last time the led was toggled
+	gb_prev_millis = GB_millis();
 	sei();
 	for(;;)
 	{
-		if (millis() - prev_millis < 1000)
+		if (GB_millis() - gb_prev_millis < 1000)
 		{
 			//printString0("kunal");
-			decimel0(millis());
-			printString0("\n");
+			GB_decimel0(GB_millis());
+			GB_printString0("\n");
 			//prev_millis = millis();
 		}
 		//prev_millis = millis();
