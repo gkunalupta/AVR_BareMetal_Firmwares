@@ -16,5 +16,9 @@ GPIO Application Codes --> Keypad(419), LCD screen, internal PushPull resistor a
 
 External Interrupt --> Counter, Menu based codes
 
+Full Playlist for Tuturials on above Repo: https://www.youtube.com/watch?v=JvriqtXeDY8&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c
+
 
 Also 5 bare metal Projects whose Firmware are written from scratch using above device drivers and Application Codes
+
+
