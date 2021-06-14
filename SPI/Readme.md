@@ -1,3 +1,7 @@
+# Full AVR Peripherals and Device Drivers  Youtube Video:
+https://youtube.com/playlist?list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c
+
+
 # SPI Device Drivers youtube Videos:
 1) https://www.youtube.com/watch?v=mNnRLdTYzH0&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c&index=31
 2) https://www.youtube.com/watch?v=RB5ln8WKjEA&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c&index=32
