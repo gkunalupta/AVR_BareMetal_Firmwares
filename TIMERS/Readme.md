@@ -1,3 +1,7 @@
+# Full AVR Peripherals and Device Drivers  Youtube Video:
+https://youtube.com/playlist?list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c
+
+
 # Timers Drivers Youtube Videos
 1) https://www.youtube.com/watch?v=tvkM9Pugti8&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c&index=41
 2) https://www.youtube.com/watch?v=FPgijXRENdA&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c&index=42
