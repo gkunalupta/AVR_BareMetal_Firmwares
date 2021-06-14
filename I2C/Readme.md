@@ -1,3 +1,6 @@
+# Full AVR Peripherals and Device Drivers  Youtube Video:
+https://youtube.com/playlist?list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c
+
 #I2C Device Drivers Youtube Videos:
 
 1) https://www.youtube.com/watch?v=N7sxScQGBJw&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c&index=39&t=118s
