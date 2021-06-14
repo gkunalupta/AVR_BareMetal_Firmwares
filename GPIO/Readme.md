@@ -1,3 +1,7 @@
+
+# Full AVR Peripherals and Device Drivers  Youtube Video:
+https://youtube.com/playlist?list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c
+
 # GPIO peripehral in MCU( AVR MCU) Youtube Video:
 1) https://www.youtube.com/watch?v=87zKKmbJ3K8&list=PLb_Q-Ps0nJott7zs9HhiGrfT5xAiO-z5c&index=2&t=6s
 
