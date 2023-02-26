@@ -1,0 +1,1315 @@
+
+Atmega256_RFID_BareMetal.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000094  00800200  0000076c  00000800  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000076c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000107  00800294  00800294  00000894  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000894  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000008c4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000270  00000000  00000000  00000904  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002c39  00000000  00000000  00000b74  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000f20  00000000  00000000  000037ad  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000015ac  00000000  00000000  000046cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000860  00000000  00000000  00005c7c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000019a4  00000000  00000000  000064dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000021d0  00000000  00000000  00007e80  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000290  00000000  00000000  0000a050  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	71 c0       	rjmp	.+226    	; 0xe4 <__ctors_end>
+   2:	00 00       	nop
+   4:	8e c0       	rjmp	.+284    	; 0x122 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	8c c0       	rjmp	.+280    	; 0x122 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	8a c0       	rjmp	.+276    	; 0x122 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	88 c0       	rjmp	.+272    	; 0x122 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	86 c0       	rjmp	.+268    	; 0x122 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	84 c0       	rjmp	.+264    	; 0x122 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	82 c0       	rjmp	.+260    	; 0x122 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	80 c0       	rjmp	.+256    	; 0x122 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	7e c0       	rjmp	.+252    	; 0x122 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	7c c0       	rjmp	.+248    	; 0x122 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	7a c0       	rjmp	.+244    	; 0x122 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	78 c0       	rjmp	.+240    	; 0x122 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	76 c0       	rjmp	.+236    	; 0x122 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	74 c0       	rjmp	.+232    	; 0x122 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	72 c0       	rjmp	.+228    	; 0x122 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	70 c0       	rjmp	.+224    	; 0x122 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	33 c1       	rjmp	.+614    	; 0x2ac <__vector_17>
+  46:	00 00       	nop
+  48:	6c c0       	rjmp	.+216    	; 0x122 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	6a c0       	rjmp	.+212    	; 0x122 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	68 c0       	rjmp	.+208    	; 0x122 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	66 c0       	rjmp	.+204    	; 0x122 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	64 c0       	rjmp	.+200    	; 0x122 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	62 c0       	rjmp	.+196    	; 0x122 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	c7 c0       	rjmp	.+398    	; 0x1f0 <__vector_24>
+  62:	00 00       	nop
+  64:	5e c0       	rjmp	.+188    	; 0x122 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	5c c0       	rjmp	.+184    	; 0x122 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	5a c0       	rjmp	.+180    	; 0x122 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	58 c0       	rjmp	.+176    	; 0x122 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	56 c0       	rjmp	.+172    	; 0x122 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	54 c0       	rjmp	.+168    	; 0x122 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	52 c0       	rjmp	.+164    	; 0x122 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	50 c0       	rjmp	.+160    	; 0x122 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	4e c0       	rjmp	.+156    	; 0x122 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	4c c0       	rjmp	.+152    	; 0x122 <__bad_interrupt>
+  8a:	00 00       	nop
+  8c:	4a c0       	rjmp	.+148    	; 0x122 <__bad_interrupt>
+  8e:	00 00       	nop
+  90:	48 c0       	rjmp	.+144    	; 0x122 <__bad_interrupt>
+  92:	00 00       	nop
+  94:	46 c0       	rjmp	.+140    	; 0x122 <__bad_interrupt>
+  96:	00 00       	nop
+  98:	44 c0       	rjmp	.+136    	; 0x122 <__bad_interrupt>
+  9a:	00 00       	nop
+  9c:	42 c0       	rjmp	.+132    	; 0x122 <__bad_interrupt>
+  9e:	00 00       	nop
+  a0:	40 c0       	rjmp	.+128    	; 0x122 <__bad_interrupt>
+  a2:	00 00       	nop
+  a4:	3e c0       	rjmp	.+124    	; 0x122 <__bad_interrupt>
+  a6:	00 00       	nop
+  a8:	3c c0       	rjmp	.+120    	; 0x122 <__bad_interrupt>
+  aa:	00 00       	nop
+  ac:	3a c0       	rjmp	.+116    	; 0x122 <__bad_interrupt>
+  ae:	00 00       	nop
+  b0:	38 c0       	rjmp	.+112    	; 0x122 <__bad_interrupt>
+  b2:	00 00       	nop
+  b4:	36 c0       	rjmp	.+108    	; 0x122 <__bad_interrupt>
+  b6:	00 00       	nop
+  b8:	34 c0       	rjmp	.+104    	; 0x122 <__bad_interrupt>
+  ba:	00 00       	nop
+  bc:	32 c0       	rjmp	.+100    	; 0x122 <__bad_interrupt>
+  be:	00 00       	nop
+  c0:	30 c0       	rjmp	.+96     	; 0x122 <__bad_interrupt>
+  c2:	00 00       	nop
+  c4:	2e c0       	rjmp	.+92     	; 0x122 <__bad_interrupt>
+  c6:	00 00       	nop
+  c8:	2c c0       	rjmp	.+88     	; 0x122 <__bad_interrupt>
+  ca:	00 00       	nop
+  cc:	2a c0       	rjmp	.+84     	; 0x122 <__bad_interrupt>
+  ce:	00 00       	nop
+  d0:	28 c0       	rjmp	.+80     	; 0x122 <__bad_interrupt>
+  d2:	00 00       	nop
+  d4:	26 c0       	rjmp	.+76     	; 0x122 <__bad_interrupt>
+  d6:	00 00       	nop
+  d8:	24 c0       	rjmp	.+72     	; 0x122 <__bad_interrupt>
+  da:	00 00       	nop
+  dc:	22 c0       	rjmp	.+68     	; 0x122 <__bad_interrupt>
+  de:	00 00       	nop
+  e0:	20 c0       	rjmp	.+64     	; 0x122 <__bad_interrupt>
+	...
+
+000000e4 <__ctors_end>:
+  e4:	11 24       	eor	r1, r1
+  e6:	1f be       	out	0x3f, r1	; 63
+  e8:	cf ef       	ldi	r28, 0xFF	; 255
+  ea:	d1 e2       	ldi	r29, 0x21	; 33
+  ec:	de bf       	out	0x3e, r29	; 62
+  ee:	cd bf       	out	0x3d, r28	; 61
+  f0:	00 e0       	ldi	r16, 0x00	; 0
+  f2:	0c bf       	out	0x3c, r16	; 60
+
+000000f4 <__do_copy_data>:
+  f4:	12 e0       	ldi	r17, 0x02	; 2
+  f6:	a0 e0       	ldi	r26, 0x00	; 0
+  f8:	b2 e0       	ldi	r27, 0x02	; 2
+  fa:	ec e6       	ldi	r30, 0x6C	; 108
+  fc:	f7 e0       	ldi	r31, 0x07	; 7
+  fe:	00 e0       	ldi	r16, 0x00	; 0
+ 100:	0b bf       	out	0x3b, r16	; 59
+ 102:	02 c0       	rjmp	.+4      	; 0x108 <__do_copy_data+0x14>
+ 104:	07 90       	elpm	r0, Z+
+ 106:	0d 92       	st	X+, r0
+ 108:	a4 39       	cpi	r26, 0x94	; 148
+ 10a:	b1 07       	cpc	r27, r17
+ 10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
+
+0000010e <__do_clear_bss>:
+ 10e:	23 e0       	ldi	r18, 0x03	; 3
+ 110:	a4 e9       	ldi	r26, 0x94	; 148
+ 112:	b2 e0       	ldi	r27, 0x02	; 2
+ 114:	01 c0       	rjmp	.+2      	; 0x118 <.do_clear_bss_start>
+
+00000116 <.do_clear_bss_loop>:
+ 116:	1d 92       	st	X+, r1
+
+00000118 <.do_clear_bss_start>:
+ 118:	ab 39       	cpi	r26, 0x9B	; 155
+ 11a:	b2 07       	cpc	r27, r18
+ 11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
+ 11e:	e2 d2       	rcall	.+1476   	; 0x6e4 <main>
+ 120:	23 c3       	rjmp	.+1606   	; 0x768 <_exit>
+
+00000122 <__bad_interrupt>:
+ 122:	6e cf       	rjmp	.-292    	; 0x0 <__vectors>
+
+00000124 <_Z13GB_UART_Init0v>:
+	gb_MFRC522_CE_pin_high;
+	return gb_x;
+}
+
+void GB_MFRC522_ReadRegister(PCD_Register reg, byte count, byte *values, byte rxalign)
+{
+ 124:	87 e6       	ldi	r24, 0x67	; 103
+ 126:	90 e0       	ldi	r25, 0x00	; 0
+ 128:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7c00c5>
+ 12c:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7c00c4>
+ 130:	88 e9       	ldi	r24, 0x98	; 152
+ 132:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7c00c1>
+ 136:	08 95       	ret
+
+00000138 <_Z15GB_UART_TxChar0j>:
+ 138:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7c00c0>
+ 13c:	95 ff       	sbrs	r25, 5
+ 13e:	fc cf       	rjmp	.-8      	; 0x138 <_Z15GB_UART_TxChar0j>
+ 140:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7c00c6>
+ 144:	08 95       	ret
+
+00000146 <_Z15GB_printString0PKc>:
+ 146:	cf 93       	push	r28
+ 148:	df 93       	push	r29
+ 14a:	ec 01       	movw	r28, r24
+ 14c:	88 81       	ld	r24, Y
+ 14e:	88 23       	and	r24, r24
+ 150:	21 f0       	breq	.+8      	; 0x15a <_Z15GB_printString0PKc+0x14>
+ 152:	21 96       	adiw	r28, 0x01	; 1
+ 154:	90 e0       	ldi	r25, 0x00	; 0
+ 156:	f0 df       	rcall	.-32     	; 0x138 <_Z15GB_UART_TxChar0j>
+ 158:	f9 cf       	rjmp	.-14     	; 0x14c <_Z15GB_printString0PKc+0x6>
+ 15a:	df 91       	pop	r29
+ 15c:	cf 91       	pop	r28
+ 15e:	08 95       	ret
+
+00000160 <_Z11GB_decimel0m>:
+ 160:	1f 93       	push	r17
+ 162:	cf 93       	push	r28
+ 164:	df 93       	push	r29
+ 166:	00 d0       	rcall	.+0      	; 0x168 <_Z11GB_decimel0m+0x8>
+ 168:	1f 92       	push	r1
+ 16a:	1f 92       	push	r1
+ 16c:	cd b7       	in	r28, 0x3d	; 61
+ 16e:	de b7       	in	r29, 0x3e	; 62
+ 170:	10 e0       	ldi	r17, 0x00	; 0
+ 172:	15 30       	cpi	r17, 0x05	; 5
+ 174:	ac f4       	brge	.+42     	; 0x1a0 <_Z11GB_decimel0m+0x40>
+ 176:	2a e0       	ldi	r18, 0x0A	; 10
+ 178:	30 e0       	ldi	r19, 0x00	; 0
+ 17a:	40 e0       	ldi	r20, 0x00	; 0
+ 17c:	50 e0       	ldi	r21, 0x00	; 0
+ 17e:	d2 d2       	rcall	.+1444   	; 0x724 <__udivmodsi4>
+ 180:	e1 e0       	ldi	r30, 0x01	; 1
+ 182:	f0 e0       	ldi	r31, 0x00	; 0
+ 184:	ec 0f       	add	r30, r28
+ 186:	fd 1f       	adc	r31, r29
+ 188:	e1 0f       	add	r30, r17
+ 18a:	f1 1d       	adc	r31, r1
+ 18c:	17 fd       	sbrc	r17, 7
+ 18e:	fa 95       	dec	r31
+ 190:	60 5d       	subi	r22, 0xD0	; 208
+ 192:	60 83       	st	Z, r22
+ 194:	62 2f       	mov	r22, r18
+ 196:	73 2f       	mov	r23, r19
+ 198:	84 2f       	mov	r24, r20
+ 19a:	95 2f       	mov	r25, r21
+ 19c:	1f 5f       	subi	r17, 0xFF	; 255
+ 19e:	e9 cf       	rjmp	.-46     	; 0x172 <_Z11GB_decimel0m+0x12>
+ 1a0:	14 e0       	ldi	r17, 0x04	; 4
+ 1a2:	11 16       	cp	r1, r17
+ 1a4:	6c f4       	brge	.+26     	; 0x1c0 <_Z11GB_decimel0m+0x60>
+ 1a6:	e1 e0       	ldi	r30, 0x01	; 1
+ 1a8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1aa:	ec 0f       	add	r30, r28
+ 1ac:	fd 1f       	adc	r31, r29
+ 1ae:	e1 0f       	add	r30, r17
+ 1b0:	f1 1d       	adc	r31, r1
+ 1b2:	17 fd       	sbrc	r17, 7
+ 1b4:	fa 95       	dec	r31
+ 1b6:	80 81       	ld	r24, Z
+ 1b8:	80 33       	cpi	r24, 0x30	; 48
+ 1ba:	11 f4       	brne	.+4      	; 0x1c0 <_Z11GB_decimel0m+0x60>
+ 1bc:	11 50       	subi	r17, 0x01	; 1
+ 1be:	f1 cf       	rjmp	.-30     	; 0x1a2 <_Z11GB_decimel0m+0x42>
+ 1c0:	11 23       	and	r17, r17
+ 1c2:	6c f0       	brlt	.+26     	; 0x1de <_Z11GB_decimel0m+0x7e>
+ 1c4:	e1 e0       	ldi	r30, 0x01	; 1
+ 1c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 1c8:	ec 0f       	add	r30, r28
+ 1ca:	fd 1f       	adc	r31, r29
+ 1cc:	e1 0f       	add	r30, r17
+ 1ce:	f1 1d       	adc	r31, r1
+ 1d0:	17 fd       	sbrc	r17, 7
+ 1d2:	fa 95       	dec	r31
+ 1d4:	80 81       	ld	r24, Z
+ 1d6:	90 e0       	ldi	r25, 0x00	; 0
+ 1d8:	af df       	rcall	.-162    	; 0x138 <_Z15GB_UART_TxChar0j>
+ 1da:	11 50       	subi	r17, 0x01	; 1
+ 1dc:	f1 cf       	rjmp	.-30     	; 0x1c0 <_Z11GB_decimel0m+0x60>
+ 1de:	0f 90       	pop	r0
+ 1e0:	0f 90       	pop	r0
+ 1e2:	0f 90       	pop	r0
+ 1e4:	0f 90       	pop	r0
+ 1e6:	0f 90       	pop	r0
+ 1e8:	df 91       	pop	r29
+ 1ea:	cf 91       	pop	r28
+ 1ec:	1f 91       	pop	r17
+ 1ee:	08 95       	ret
+
+000001f0 <__vector_24>:
+ 1f0:	1f 92       	push	r1
+ 1f2:	0f 92       	push	r0
+ 1f4:	0f b6       	in	r0, 0x3f	; 63
+ 1f6:	0f 92       	push	r0
+ 1f8:	11 24       	eor	r1, r1
+ 1fa:	0b b6       	in	r0, 0x3b	; 59
+ 1fc:	0f 92       	push	r0
+ 1fe:	8f 93       	push	r24
+ 200:	9f 93       	push	r25
+ 202:	ef 93       	push	r30
+ 204:	ff 93       	push	r31
+ 206:	9e b5       	in	r25, 0x2e	; 46
+ 208:	90 93 98 02 	sts	0x0298, r25	; 0x800298 <gb_rx_byte>
+ 20c:	80 91 9b 02 	lds	r24, 0x029B	; 0x80029b <gb_RECV_Wr_Index_SPI0>
+ 210:	e8 2f       	mov	r30, r24
+ 212:	f0 e0       	ldi	r31, 0x00	; 0
+ 214:	e4 56       	subi	r30, 0x64	; 100
+ 216:	fd 4f       	sbci	r31, 0xFD	; 253
+ 218:	90 83       	st	Z, r25
+ 21a:	8f 5f       	subi	r24, 0xFF	; 255
+ 21c:	80 93 9b 02 	sts	0x029B, r24	; 0x80029b <gb_RECV_Wr_Index_SPI0>
+ 220:	80 91 9a 02 	lds	r24, 0x029A	; 0x80029a <gb_RECV_Counter_SPI0>
+ 224:	8f 5f       	subi	r24, 0xFF	; 255
+ 226:	80 93 9a 02 	sts	0x029A, r24	; 0x80029a <gb_RECV_Counter_SPI0>
+ 22a:	80 93 99 02 	sts	0x0299, r24	; 0x800299 <gb_RECV_No_of_bytes_SPI0>
+ 22e:	ff 91       	pop	r31
+ 230:	ef 91       	pop	r30
+ 232:	9f 91       	pop	r25
+ 234:	8f 91       	pop	r24
+ 236:	0f 90       	pop	r0
+ 238:	0b be       	out	0x3b, r0	; 59
+ 23a:	0f 90       	pop	r0
+ 23c:	0f be       	out	0x3f, r0	; 63
+ 23e:	0f 90       	pop	r0
+ 240:	1f 90       	pop	r1
+ 242:	18 95       	reti
+
+00000244 <_Z22GB_MA_SPI0_init_masterv>:
+ 244:	87 e0       	ldi	r24, 0x07	; 7
+ 246:	84 b9       	out	0x04, r24	; 4
+ 248:	81 e5       	ldi	r24, 0x51	; 81
+ 24a:	8c bd       	out	0x2c, r24	; 44
+ 24c:	08 95       	ret
+
+0000024e <_Z24GB_MA_SPI0_exchange_bytej>:
+ 24e:	8e bd       	out	0x2e, r24	; 46
+ 250:	0d b4       	in	r0, 0x2d	; 45
+ 252:	07 fe       	sbrs	r0, 7
+ 254:	fd cf       	rjmp	.-6      	; 0x250 <_Z24GB_MA_SPI0_exchange_bytej+0x2>
+ 256:	8e b5       	in	r24, 0x2e	; 46
+ 258:	90 e0       	ldi	r25, 0x00	; 0
+ 25a:	08 95       	ret
+
+0000025c <_Z26GB_MA_SPI0_send_byte_contih>:
+ 25c:	8e bd       	out	0x2e, r24	; 46
+ 25e:	0d b4       	in	r0, 0x2d	; 45
+ 260:	07 fe       	sbrs	r0, 7
+ 262:	fd cf       	rjmp	.-6      	; 0x25e <_Z26GB_MA_SPI0_send_byte_contih+0x2>
+ 264:	08 95       	ret
+
+00000266 <_Z7pinModehPVhb>:
+ 266:	44 23       	and	r20, r20
+ 268:	79 f0       	breq	.+30     	; 0x288 <_Z7pinModehPVhb+0x22>
+ 26a:	fb 01       	movw	r30, r22
+ 26c:	40 81       	ld	r20, Z
+ 26e:	21 e0       	ldi	r18, 0x01	; 1
+ 270:	30 e0       	ldi	r19, 0x00	; 0
+ 272:	f9 01       	movw	r30, r18
+ 274:	02 c0       	rjmp	.+4      	; 0x27a <_Z7pinModehPVhb+0x14>
+ 276:	ee 0f       	add	r30, r30
+ 278:	ff 1f       	adc	r31, r31
+ 27a:	8a 95       	dec	r24
+ 27c:	e2 f7       	brpl	.-8      	; 0x276 <_Z7pinModehPVhb+0x10>
+ 27e:	cf 01       	movw	r24, r30
+ 280:	84 2b       	or	r24, r20
+ 282:	fb 01       	movw	r30, r22
+ 284:	80 83       	st	Z, r24
+ 286:	08 95       	ret
+ 288:	41 11       	cpse	r20, r1
+ 28a:	0f c0       	rjmp	.+30     	; 0x2aa <_Z7pinModehPVhb+0x44>
+ 28c:	fb 01       	movw	r30, r22
+ 28e:	40 81       	ld	r20, Z
+ 290:	21 e0       	ldi	r18, 0x01	; 1
+ 292:	30 e0       	ldi	r19, 0x00	; 0
+ 294:	f9 01       	movw	r30, r18
+ 296:	02 c0       	rjmp	.+4      	; 0x29c <_Z7pinModehPVhb+0x36>
+ 298:	ee 0f       	add	r30, r30
+ 29a:	ff 1f       	adc	r31, r31
+ 29c:	8a 95       	dec	r24
+ 29e:	e2 f7       	brpl	.-8      	; 0x298 <_Z7pinModehPVhb+0x32>
+ 2a0:	cf 01       	movw	r24, r30
+ 2a2:	80 95       	com	r24
+ 2a4:	84 23       	and	r24, r20
+ 2a6:	fb 01       	movw	r30, r22
+ 2a8:	80 83       	st	Z, r24
+ 2aa:	08 95       	ret
+
+000002ac <__vector_17>:
+ 2ac:	1f 92       	push	r1
+ 2ae:	0f 92       	push	r0
+ 2b0:	0f b6       	in	r0, 0x3f	; 63
+ 2b2:	0f 92       	push	r0
+ 2b4:	11 24       	eor	r1, r1
+ 2b6:	8f 93       	push	r24
+ 2b8:	9f 93       	push	r25
+ 2ba:	af 93       	push	r26
+ 2bc:	bf 93       	push	r27
+ 2be:	80 91 94 02 	lds	r24, 0x0294	; 0x800294 <__data_end>
+ 2c2:	90 91 95 02 	lds	r25, 0x0295	; 0x800295 <__data_end+0x1>
+ 2c6:	a0 91 96 02 	lds	r26, 0x0296	; 0x800296 <__data_end+0x2>
+ 2ca:	b0 91 97 02 	lds	r27, 0x0297	; 0x800297 <__data_end+0x3>
+ 2ce:	01 96       	adiw	r24, 0x01	; 1
+ 2d0:	a1 1d       	adc	r26, r1
+ 2d2:	b1 1d       	adc	r27, r1
+ 2d4:	80 93 94 02 	sts	0x0294, r24	; 0x800294 <__data_end>
+ 2d8:	90 93 95 02 	sts	0x0295, r25	; 0x800295 <__data_end+0x1>
+ 2dc:	a0 93 96 02 	sts	0x0296, r26	; 0x800296 <__data_end+0x2>
+ 2e0:	b0 93 97 02 	sts	0x0297, r27	; 0x800297 <__data_end+0x3>
+ 2e4:	bf 91       	pop	r27
+ 2e6:	af 91       	pop	r26
+ 2e8:	9f 91       	pop	r25
+ 2ea:	8f 91       	pop	r24
+ 2ec:	0f 90       	pop	r0
+ 2ee:	0f be       	out	0x3f, r0	; 63
+ 2f0:	0f 90       	pop	r0
+ 2f2:	1f 90       	pop	r1
+ 2f4:	18 95       	reti
+
+000002f6 <_Z14GB_init_millism>:
+ 2f6:	20 e4       	ldi	r18, 0x40	; 64
+ 2f8:	3f e1       	ldi	r19, 0x1F	; 31
+ 2fa:	40 e0       	ldi	r20, 0x00	; 0
+ 2fc:	50 e0       	ldi	r21, 0x00	; 0
+ 2fe:	12 d2       	rcall	.+1060   	; 0x724 <__udivmodsi4>
+ 300:	8a e0       	ldi	r24, 0x0A	; 10
+ 302:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7c0081>
+ 306:	bb 27       	eor	r27, r27
+ 308:	a5 2f       	mov	r26, r21
+ 30a:	94 2f       	mov	r25, r20
+ 30c:	83 2f       	mov	r24, r19
+ 30e:	80 93 89 00 	sts	0x0089, r24	; 0x800089 <__TEXT_REGION_LENGTH__+0x7c0089>
+ 312:	20 93 88 00 	sts	0x0088, r18	; 0x800088 <__TEXT_REGION_LENGTH__+0x7c0088>
+ 316:	ef e6       	ldi	r30, 0x6F	; 111
+ 318:	f0 e0       	ldi	r31, 0x00	; 0
+ 31a:	80 81       	ld	r24, Z
+ 31c:	82 60       	ori	r24, 0x02	; 2
+ 31e:	80 83       	st	Z, r24
+ 320:	08 95       	ret
+
+00000322 <_Z9GB_millisv>:
+ 322:	60 e0       	ldi	r22, 0x00	; 0
+ 324:	74 e2       	ldi	r23, 0x24	; 36
+ 326:	84 ef       	ldi	r24, 0xF4	; 244
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	e5 df       	rcall	.-54     	; 0x2f6 <_Z14GB_init_millism>
+ 32c:	f8 94       	cli
+ 32e:	21 e0       	ldi	r18, 0x01	; 1
+ 330:	60 e0       	ldi	r22, 0x00	; 0
+ 332:	70 e0       	ldi	r23, 0x00	; 0
+ 334:	cb 01       	movw	r24, r22
+ 336:	22 23       	and	r18, r18
+ 338:	51 f0       	breq	.+20     	; 0x34e <_Z9GB_millisv+0x2c>
+ 33a:	60 91 94 02 	lds	r22, 0x0294	; 0x800294 <__data_end>
+ 33e:	70 91 95 02 	lds	r23, 0x0295	; 0x800295 <__data_end+0x1>
+ 342:	80 91 96 02 	lds	r24, 0x0296	; 0x800296 <__data_end+0x2>
+ 346:	90 91 97 02 	lds	r25, 0x0297	; 0x800297 <__data_end+0x3>
+ 34a:	20 e0       	ldi	r18, 0x00	; 0
+ 34c:	f4 cf       	rjmp	.-24     	; 0x336 <_Z9GB_millisv+0x14>
+ 34e:	78 94       	sei
+ 350:	08 95       	ret
+
+00000352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>:
+ 352:	cf 93       	push	r28
+ 354:	c6 2f       	mov	r28, r22
+ 356:	95 b1       	in	r25, 0x05	; 5
+ 358:	9e 7f       	andi	r25, 0xFE	; 254
+ 35a:	95 b9       	out	0x05, r25	; 5
+ 35c:	7f df       	rcall	.-258    	; 0x25c <_Z26GB_MA_SPI0_send_byte_contih>
+ 35e:	8c 2f       	mov	r24, r28
+ 360:	7d df       	rcall	.-262    	; 0x25c <_Z26GB_MA_SPI0_send_byte_contih>
+ 362:	85 b1       	in	r24, 0x05	; 5
+ 364:	81 60       	ori	r24, 0x01	; 1
+ 366:	85 b9       	out	0x05, r24	; 5
+ 368:	cf 91       	pop	r28
+ 36a:	08 95       	ret
+
+0000036c <_Z24GB_MFRC522_WriteRegister12PCD_RegisterhPh>:
+ 36c:	0f 93       	push	r16
+ 36e:	1f 93       	push	r17
+ 370:	cf 93       	push	r28
+ 372:	df 93       	push	r29
+ 374:	d6 2f       	mov	r29, r22
+ 376:	8a 01       	movw	r16, r20
+ 378:	95 b1       	in	r25, 0x05	; 5
+ 37a:	9e 7f       	andi	r25, 0xFE	; 254
+ 37c:	95 b9       	out	0x05, r25	; 5
+ 37e:	6e df       	rcall	.-292    	; 0x25c <_Z26GB_MA_SPI0_send_byte_contih>
+ 380:	c0 e0       	ldi	r28, 0x00	; 0
+ 382:	cd 17       	cp	r28, r29
+ 384:	38 f4       	brcc	.+14     	; 0x394 <_Z24GB_MFRC522_WriteRegister12PCD_RegisterhPh+0x28>
+ 386:	f8 01       	movw	r30, r16
+ 388:	ec 0f       	add	r30, r28
+ 38a:	f1 1d       	adc	r31, r1
+ 38c:	80 81       	ld	r24, Z
+ 38e:	66 df       	rcall	.-308    	; 0x25c <_Z26GB_MA_SPI0_send_byte_contih>
+ 390:	cf 5f       	subi	r28, 0xFF	; 255
+ 392:	f7 cf       	rjmp	.-18     	; 0x382 <_Z24GB_MFRC522_WriteRegister12PCD_RegisterhPh+0x16>
+ 394:	85 b1       	in	r24, 0x05	; 5
+ 396:	81 60       	ori	r24, 0x01	; 1
+ 398:	85 b9       	out	0x05, r24	; 5
+ 39a:	df 91       	pop	r29
+ 39c:	cf 91       	pop	r28
+ 39e:	1f 91       	pop	r17
+ 3a0:	0f 91       	pop	r16
+ 3a2:	08 95       	ret
+
+000003a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>:
+ 3a4:	95 b1       	in	r25, 0x05	; 5
+ 3a6:	9e 7f       	andi	r25, 0xFE	; 254
+ 3a8:	95 b9       	out	0x05, r25	; 5
+ 3aa:	80 68       	ori	r24, 0x80	; 128
+ 3ac:	90 e0       	ldi	r25, 0x00	; 0
+ 3ae:	4f df       	rcall	.-354    	; 0x24e <_Z24GB_MA_SPI0_exchange_bytej>
+ 3b0:	80 e0       	ldi	r24, 0x00	; 0
+ 3b2:	90 e0       	ldi	r25, 0x00	; 0
+ 3b4:	4c df       	rcall	.-360    	; 0x24e <_Z24GB_MA_SPI0_exchange_bytej>
+ 3b6:	95 b1       	in	r25, 0x05	; 5
+ 3b8:	91 60       	ori	r25, 0x01	; 1
+ 3ba:	95 b9       	out	0x05, r25	; 5
+ 3bc:	08 95       	ret
+
+000003be <_Z31GB_MFRC522_ClearRegisterBitMask12PCD_Registerh>:
+	
+}
+
+void GB_MFRC522_ClearRegisterBitMask(PCD_Register gb_reg, byte mask)
+{
+ 3be:	cf 93       	push	r28
+ 3c0:	df 93       	push	r29
+ 3c2:	d8 2f       	mov	r29, r24
+ 3c4:	c6 2f       	mov	r28, r22
+	byte tmp;
+	tmp = GB_MFRC522_ReadRegister(gb_reg);
+ 3c6:	ee df       	rcall	.-36     	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+	GB_MFRC522_WriteRegister(gb_reg, tmp & (~mask));     //clear bit mask
+ 3c8:	c0 95       	com	r28
+ 3ca:	6c 2f       	mov	r22, r28
+ 3cc:	68 23       	and	r22, r24
+ 3ce:	8d 2f       	mov	r24, r29
+ 3d0:	c0 df       	rcall	.-128    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+}
+ 3d2:	df 91       	pop	r29
+ 3d4:	cf 91       	pop	r28
+ 3d6:	08 95       	ret
+
+000003d8 <_Z29GB_MFRC522_SetRegisterBitmask12PCD_Registerh>:
+
+void GB_MFRC522_SetRegisterBitmask( PCD_Register gb_reg, byte mask)
+{
+ 3d8:	cf 93       	push	r28
+ 3da:	df 93       	push	r29
+ 3dc:	d8 2f       	mov	r29, r24
+ 3de:	c6 2f       	mov	r28, r22
+	byte tmp;
+	tmp = GB_MFRC522_ReadRegister(gb_reg);
+ 3e0:	e1 df       	rcall	.-62     	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+	GB_MFRC522_WriteRegister(gb_reg, tmp | (mask));     //clear bit mask
+ 3e2:	68 2f       	mov	r22, r24
+ 3e4:	6c 2b       	or	r22, r28
+ 3e6:	8d 2f       	mov	r24, r29
+ 3e8:	b4 df       	rcall	.-152    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+}
+ 3ea:	df 91       	pop	r29
+ 3ec:	cf 91       	pop	r28
+ 3ee:	08 95       	ret
+
+000003f0 <_Z17GB_MFRC522Versionv>:
+void GB_MFRC522Version()
+{
+ 3f0:	cf 93       	push	r28
+	uint8_t v =  GB_MFRC522_ReadRegister(VersionReg);
+ 3f2:	8e e6       	ldi	r24, 0x6E	; 110
+ 3f4:	d7 df       	rcall	.-82     	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+ 3f6:	c8 2f       	mov	r28, r24
+	GB_printString0("Firmware Version: 0d");
+ 3f8:	83 e0       	ldi	r24, 0x03	; 3
+ 3fa:	92 e0       	ldi	r25, 0x02	; 2
+ 3fc:	a4 de       	rcall	.-696    	; 0x146 <_Z15GB_printString0PKc>
+	GB_decimel0(v);
+ 3fe:	6c 2f       	mov	r22, r28
+ 400:	70 e0       	ldi	r23, 0x00	; 0
+ 402:	80 e0       	ldi	r24, 0x00	; 0
+ 404:	90 e0       	ldi	r25, 0x00	; 0
+ 406:	ac de       	rcall	.-680    	; 0x160 <_Z11GB_decimel0m>
+	switch(v) 
+ 408:	c0 39       	cpi	r28, 0x90	; 144
+ 40a:	79 f0       	breq	.+30     	; 0x42a <__LOCK_REGION_LENGTH__+0x2a>
+ 40c:	28 f4       	brcc	.+10     	; 0x418 <__LOCK_REGION_LENGTH__+0x18>
+ 40e:	c2 31       	cpi	r28, 0x12	; 18
+ 410:	c1 f0       	breq	.+48     	; 0x442 <__LOCK_REGION_LENGTH__+0x42>
+ 412:	c8 38       	cpi	r28, 0x88	; 136
+ 414:	31 f0       	breq	.+12     	; 0x422 <__LOCK_REGION_LENGTH__+0x22>
+ 416:	19 c0       	rjmp	.+50     	; 0x44a <__LOCK_REGION_LENGTH__+0x4a>
+ 418:	c1 39       	cpi	r28, 0x91	; 145
+ 41a:	59 f0       	breq	.+22     	; 0x432 <__LOCK_REGION_LENGTH__+0x32>
+ 41c:	c2 39       	cpi	r28, 0x92	; 146
+ 41e:	69 f0       	breq	.+26     	; 0x43a <__LOCK_REGION_LENGTH__+0x3a>
+   {
+		case 0x88: GB_printString0(" = (clone)\n"); break;
+ 420:	14 c0       	rjmp	.+40     	; 0x44a <__LOCK_REGION_LENGTH__+0x4a>
+ 422:	88 e1       	ldi	r24, 0x18	; 24
+ 424:	92 e0       	ldi	r25, 0x02	; 2
+ 426:	8f de       	rcall	.-738    	; 0x146 <_Z15GB_printString0PKc>
+		case 0x90: GB_printString0(" = v0.0\n"); break;
+ 428:	13 c0       	rjmp	.+38     	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
+ 42a:	84 e2       	ldi	r24, 0x24	; 36
+ 42c:	92 e0       	ldi	r25, 0x02	; 2
+ 42e:	8b de       	rcall	.-746    	; 0x146 <_Z15GB_printString0PKc>
+		case 0x91: GB_printString0(" = v1.0\n"); break;
+ 430:	0f c0       	rjmp	.+30     	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
+ 432:	8d e2       	ldi	r24, 0x2D	; 45
+ 434:	92 e0       	ldi	r25, 0x02	; 2
+ 436:	87 de       	rcall	.-754    	; 0x146 <_Z15GB_printString0PKc>
+		case 0x92: GB_printString0(" = v2.0\n"); break;
+ 438:	0b c0       	rjmp	.+22     	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
+ 43a:	86 e3       	ldi	r24, 0x36	; 54
+ 43c:	92 e0       	ldi	r25, 0x02	; 2
+ 43e:	83 de       	rcall	.-762    	; 0x146 <_Z15GB_printString0PKc>
+		case 0x12: GB_printString0(" = counterfeit chip\n"); break;
+ 440:	07 c0       	rjmp	.+14     	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
+ 442:	8f e3       	ldi	r24, 0x3F	; 63
+ 444:	92 e0       	ldi	r25, 0x02	; 2
+ 446:	7f de       	rcall	.-770    	; 0x146 <_Z15GB_printString0PKc>
+ 448:	03 c0       	rjmp	.+6      	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
+		default: GB_printString0(" = (unknown)\n");
+ 44a:	84 e5       	ldi	r24, 0x54	; 84
+ 44c:	92 e0       	ldi	r25, 0x02	; 2
+ 44e:	7b de       	rcall	.-778    	; 0x146 <_Z15GB_printString0PKc>
+ 450:	cf 91       	pop	r28
+	}	   						   
+}
+ 452:	08 95       	ret
+
+00000454 <_Z20GB_MFRC522_AnteenaOnv>:
+ 454:	88 e2       	ldi	r24, 0x28	; 40
+	
+}
+
+void GB_MFRC522_AnteenaOn()
+{
+	uint8_t gb_x = GB_MFRC522_ReadRegister(TxControlReg);
+ 456:	a6 df       	rcall	.-180    	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+	if((gb_x & 0x03) != 0x03)
+ 458:	98 2f       	mov	r25, r24
+ 45a:	93 70       	andi	r25, 0x03	; 3
+ 45c:	93 30       	cpi	r25, 0x03	; 3
+ 45e:	21 f0       	breq	.+8      	; 0x468 <_Z20GB_MFRC522_AnteenaOnv+0x14>
+	{
+		GB_MFRC522_WriteRegister(TxControlReg, (gb_x | 0x03));
+ 460:	68 2f       	mov	r22, r24
+ 462:	63 60       	ori	r22, 0x03	; 3
+ 464:	88 e2       	ldi	r24, 0x28	; 40
+ 466:	75 cf       	rjmp	.-278    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+ 468:	08 95       	ret
+
+0000046a <_Z12MFRC522_initv>:
+	}	   						   
+}
+
+void MFRC522_init()
+{
+	GB_MFRC522_WriteRegister(TxModeReg, 0x00);
+ 46a:	60 e0       	ldi	r22, 0x00	; 0
+ 46c:	84 e2       	ldi	r24, 0x24	; 36
+ 46e:	71 df       	rcall	.-286    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(RxModeReg, 0x00);
+ 470:	60 e0       	ldi	r22, 0x00	; 0
+ 472:	86 e2       	ldi	r24, 0x26	; 38
+ 474:	6e df       	rcall	.-292    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	
+	GB_MFRC522_WriteRegister(ModWidthReg, 0x26);
+ 476:	66 e2       	ldi	r22, 0x26	; 38
+ 478:	88 e4       	ldi	r24, 0x48	; 72
+ 47a:	6b df       	rcall	.-298    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	
+	// When communicating with a PICC we need a timeout if something goes wrong.
+	// f_timer = 13.56 MHz / (2*TPreScaler+1) where TPreScaler = [TPrescaler_Hi:TPrescaler_Lo].
+	// TPrescaler_Hi are the four low bits in TModeReg. TPrescaler_Lo is TPrescalerReg.
+	GB_MFRC522_WriteRegister(TModeReg, 0x80);          // TAuto=1; timer starts automatically at the end of the transmission in all communication modes at all speeds
+ 47c:	60 e8       	ldi	r22, 0x80	; 128
+ 47e:	84 e5       	ldi	r24, 0x54	; 84
+ 480:	68 df       	rcall	.-304    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(TPrescalerReg, 0xA9);     // TPreScaler = TModeReg[3..0]:TPrescalerReg, ie 0x0A9 = 169 => f_timer=40kHz, ie a timer period of 25μs.
+ 482:	69 ea       	ldi	r22, 0xA9	; 169
+ 484:	86 e5       	ldi	r24, 0x56	; 86
+ 486:	65 df       	rcall	.-310    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(TReloadRegH, 0x03);       // Reload timer with 0x3E8 = 1000, ie 25ms before timeout.
+ 488:	63 e0       	ldi	r22, 0x03	; 3
+ 48a:	88 e5       	ldi	r24, 0x58	; 88
+ 48c:	62 df       	rcall	.-316    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(TReloadRegL, 0xE8);
+ 48e:	68 ee       	ldi	r22, 0xE8	; 232
+ 490:	8a e5       	ldi	r24, 0x5A	; 90
+ 492:	5f df       	rcall	.-322    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	
+	
+	GB_MFRC522_WriteRegister(TxASKReg, 0x40);// Default 0x00. Force a 100 % ASK modulation independent of the ModGsPReg register setting
+ 494:	60 e4       	ldi	r22, 0x40	; 64
+ 496:	8a e2       	ldi	r24, 0x2A	; 42
+ 498:	5c df       	rcall	.-328    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+ 49a:	6d e3       	ldi	r22, 0x3D	; 61
+	GB_MFRC522_WriteRegister(ModeReg, 0x3D); // Default 0x3F. Set the preset value for the CRC co processor for the CalcCRC command to 0x6363 (ISO 14443-3 part 6.2.4)		// Enable the antenna driver pins TX1 and TX2 (they were disabled by the reset)
+ 49c:	82 e2       	ldi	r24, 0x22	; 34
+ 49e:	59 df       	rcall	.-334    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+ 4a0:	d9 cf       	rjmp	.-78     	; 0x454 <_Z20GB_MFRC522_AnteenaOnv>
+ 4a2:	08 95       	ret
+
+000004a4 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb>:
+	
+	GB_MFRC522_AnteenaOn();                  //Enable the Antenna Driver pins TX1 & TX2(They are disabled by reset)
+ 4a4:	4f 92       	push	r4
+ 4a6:	5f 92       	push	r5
+ 4a8:	6f 92       	push	r6
+													  byte *backlen,
+													  byte *validbits,
+													  byte rxalign,
+													bool checkCRC
+													)
+{
+ 4aa:	7f 92       	push	r7
+ 4ac:	8f 92       	push	r8
+ 4ae:	9f 92       	push	r9
+ 4b0:	af 92       	push	r10
+ 4b2:	bf 92       	push	r11
+ 4b4:	cf 92       	push	r12
+ 4b6:	df 92       	push	r13
+ 4b8:	ef 92       	push	r14
+ 4ba:	ff 92       	push	r15
+ 4bc:	0f 93       	push	r16
+ 4be:	1f 93       	push	r17
+ 4c0:	cf 93       	push	r28
+ 4c2:	df 93       	push	r29
+ 4c4:	cd b7       	in	r28, 0x3d	; 61
+ 4c6:	de b7       	in	r29, 0x3e	; 62
+ 4c8:	98 2e       	mov	r9, r24
+ 4ca:	b6 2e       	mov	r11, r22
+ 4cc:	3a 01       	movw	r6, r20
+ 4ce:	82 2e       	mov	r8, r18
+	byte txLastBits = validbits ? *validbits :0;
+ 4d0:	c1 14       	cp	r12, r1
+ 4d2:	d1 04       	cpc	r13, r1
+ 4d4:	19 f0       	breq	.+6      	; 0x4dc <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x38>
+ 4d6:	f6 01       	movw	r30, r12
+ 4d8:	50 80       	ld	r5, Z
+ 4da:	01 c0       	rjmp	.+2      	; 0x4de <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x3a>
+ 4dc:	51 2c       	mov	r5, r1
+	byte bitFraming = (rxalign <<4) + txLastBits;    //RxAlign = BitFramingReg[6..4]. TxLastBits = BitFramingReg[2..0]
+ 4de:	f0 e1       	ldi	r31, 0x10	; 16
+ 4e0:	af 9e       	mul	r10, r31
+ 4e2:	50 0c       	add	r5, r0
+ 4e4:	11 24       	eor	r1, r1
+// 	GB_printString0("bitFraming");
+// 	GB_decimel0(bitFraming);
+// 	GB_printString0("\n");
+	
+	GB_MFRC522_WriteRegister(CommandReg, PCD_Idle);			// Stop any active command.
+ 4e6:	60 e0       	ldi	r22, 0x00	; 0
+ 4e8:	82 e0       	ldi	r24, 0x02	; 2
+ 4ea:	33 df       	rcall	.-410    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(ComIrqReg, 0x7F);					// Clear all seven interrupt request bits
+ 4ec:	6f e7       	ldi	r22, 0x7F	; 127
+ 4ee:	88 e0       	ldi	r24, 0x08	; 8
+ 4f0:	30 df       	rcall	.-416    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	
+	// For PCD to PICC Communication!!
+	GB_MFRC522_WriteRegister(FIFOLevelReg, 0x80);				// FlushBuffer = 1, FIFO initialization
+ 4f2:	60 e8       	ldi	r22, 0x80	; 128
+ 4f4:	84 e1       	ldi	r24, 0x14	; 20
+ 4f6:	2d df       	rcall	.-422    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(FIFODataReg, sendLen, sendData);	// Write sendData to the FIFO
+ 4f8:	a3 01       	movw	r20, r6
+ 4fa:	68 2d       	mov	r22, r8
+ 4fc:	82 e1       	ldi	r24, 0x12	; 18
+	GB_MFRC522_WriteRegister(BitFramingReg, bitFraming);		// Bit adjustments
+ 4fe:	36 df       	rcall	.-404    	; 0x36c <_Z24GB_MFRC522_WriteRegister12PCD_RegisterhPh>
+ 500:	65 2d       	mov	r22, r5
+ 502:	8a e1       	ldi	r24, 0x1A	; 26
+	GB_MFRC522_WriteRegister(CommandReg, command);				// Execute the command
+ 504:	26 df       	rcall	.-436    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+ 506:	69 2d       	mov	r22, r9
+	if(command = PCD_Transceive){
+		GB_MFRC522_SetRegisterBitmask(BitFramingReg, 0x80);     //StartSend=1, transmission of data starts
+ 508:	82 e0       	ldi	r24, 0x02	; 2
+ 50a:	23 df       	rcall	.-442    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+ 50c:	60 e8       	ldi	r22, 0x80	; 128
+ 50e:	8a e1       	ldi	r24, 0x1A	; 26
+	}
+	
+	const uint32_t deadline = GB_millis()+36;
+ 510:	63 df       	rcall	.-314    	; 0x3d8 <_Z29GB_MFRC522_SetRegisterBitmask12PCD_Registerh>
+ 512:	07 df       	rcall	.-498    	; 0x322 <_Z9GB_millisv>
+ 514:	2b 01       	movw	r4, r22
+ 516:	3c 01       	movw	r6, r24
+ 518:	24 e2       	ldi	r18, 0x24	; 36
+ 51a:	42 0e       	add	r4, r18
+ 51c:	51 1c       	adc	r5, r1
+ 51e:	61 1c       	adc	r6, r1
+// 	GB_printString0("\n");
+	bool completed = false;
+	
+	  // _delay_ms(300);
+	do {
+		byte n = GB_MFRC522_ReadRegister(ComIrqReg);	// ComIrqReg[7..0] bits are: Set1 TxIRq RxIRq IdleIRq HiAlertIRq LoAlertIRq ErrIRq TimerIRq
+ 520:	71 1c       	adc	r7, r1
+ 522:	88 e0       	ldi	r24, 0x08	; 8
+ 524:	3f df       	rcall	.-386    	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+		//GB_printString0("3\n");
+// 		GB_printString0("comirq\n");
+  		//GB_decimel0(n);
+ 	//	GB_printString0("\n");
+		if (n & waitIRQ) {					// One of the interrupts that signal success has been set.
+ 526:	98 2f       	mov	r25, r24
+ 528:	9b 21       	and	r25, r11
+ 52a:	29 f0       	breq	.+10     	; 0x536 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x92>
+			GB_printString0("signal success\n");
+ 52c:	82 e6       	ldi	r24, 0x62	; 98
+ 52e:	92 e0       	ldi	r25, 0x02	; 2
+ 530:	0a de       	rcall	.-1004   	; 0x146 <_Z15GB_printString0PKc>
+		//	GB_printString0("2\n");
+			completed = true;
+ 532:	81 e0       	ldi	r24, 0x01	; 1
+			break;
+ 534:	0e c0       	rjmp	.+28     	; 0x552 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xae>
+		}
+		if (n & 0x01) {						// Timer interrupt - nothing received in 25ms
+ 536:	80 ff       	sbrs	r24, 0
+ 538:	05 c0       	rjmp	.+10     	; 0x544 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xa0>
+			GB_printString0("Timeout\n");
+ 53a:	82 e7       	ldi	r24, 0x72	; 114
+ 53c:	92 e0       	ldi	r25, 0x02	; 2
+ 53e:	03 de       	rcall	.-1018   	; 0x146 <_Z15GB_printString0PKc>
+ 540:	8b e5       	ldi	r24, 0x5B	; 91
+			return STATUS_TIMEOUT;
+ 542:	34 c0       	rjmp	.+104    	; 0x5ac <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x108>
+ 544:	ee de       	rcall	.-548    	; 0x322 <_Z9GB_millisv>
+		}
+	//yield();
+	//GB_decimel0(GB_millis());
+//	GB_printString0("\n");
+	}
+	while (static_cast<uint32_t> (GB_millis()) < deadline);
+ 546:	64 15       	cp	r22, r4
+ 548:	75 05       	cpc	r23, r5
+// 	GB_decimel0(deadline);
+// 	GB_printString0("\n");
+	bool completed = false;
+	
+	  // _delay_ms(300);
+	do {
+ 54a:	86 05       	cpc	r24, r6
+ 54c:	97 05       	cpc	r25, r7
+ 54e:	48 f3       	brcs	.-46     	; 0x522 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x7e>
+ 550:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	
+	const uint32_t deadline = GB_millis()+36;
+// 	GB_decimel0(deadline);
+// 	GB_printString0("\n");
+	bool completed = false;
+ 552:	eb e4       	ldi	r30, 0x4B	; 75
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 554:	fd e1       	ldi	r31, 0x1D	; 29
+ 556:	31 97       	sbiw	r30, 0x01	; 1
+ 558:	f1 f7       	brne	.-4      	; 0x556 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xb2>
+ 55a:	00 c0       	rjmp	.+0      	; 0x55c <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xb8>
+ 55c:	00 00       	nop
+	}
+	while (static_cast<uint32_t> (GB_millis()) < deadline);
+
+	   _delay_ms(30);
+//36ms and nothing happened. Communication with the MFRC522 might be down.
+if (!completed) {
+ 55e:	88 23       	and	r24, r24
+ 560:	01 f1       	breq	.+64     	; 0x5a2 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xfe>
+	return STATUS_TIMEOUT;
+}
+
+//Stop now if any errors except collisions were detected.
+byte errorRegValue = GB_MFRC522_ReadRegister(ErrorReg); // ErrorReg[7..0] bits are: WrErr TempErr reserved BufferOvfl CollErr CRCErr ParityErr ProtocolErr
+ 562:	8c e0       	ldi	r24, 0x0C	; 12
+ 564:	1f df       	rcall	.-450    	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+ 566:	83 71       	andi	r24, 0x13	; 19
+if (errorRegValue & 0x13) {	 // BufferOvfl ParityErr ProtocolErr
+ 568:	29 f0       	breq	.+10     	; 0x574 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xd0>
+	GB_printString0("Some error \n");
+ 56a:	8b e7       	ldi	r24, 0x7B	; 123
+ 56c:	92 e0       	ldi	r25, 0x02	; 2
+ 56e:	eb dd       	rcall	.-1066   	; 0x146 <_Z15GB_printString0PKc>
+ 570:	81 e0       	ldi	r24, 0x01	; 1
+	return STATUS_ERROR;
+ 572:	1c c0       	rjmp	.+56     	; 0x5ac <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x108>
+}
+
+byte _validbits = 0;
+//If the caller wants data back, get it from the MFRC522.
+if(backdata && backlen) {
+ 574:	01 2b       	or	r16, r17
+ 576:	a1 f0       	breq	.+40     	; 0x5a0 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xfc>
+ 578:	e1 14       	cp	r14, r1
+ 57a:	f1 04       	cpc	r15, r1
+ 57c:	89 f0       	breq	.+34     	; 0x5a0 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0xfc>
+	byte n = GB_MFRC522_ReadRegister(FIFOLevelReg);
+ 57e:	84 e1       	ldi	r24, 0x14	; 20
+ 580:	11 df       	rcall	.-478    	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+ 582:	f7 01       	movw	r30, r14
+// 	GB_printString0("FIFO len");
+// 	GB_decimel0(n);
+	//GB_printString0("\n");
+	if(n > *backlen){
+ 584:	90 81       	ld	r25, Z
+ 586:	98 17       	cp	r25, r24
+ 588:	70 f0       	brcs	.+28     	; 0x5a6 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x102>
+ 58a:	80 83       	st	Z, r24
+		return STATUS_NO_ROOM;
+	}
+	
+	*backlen = n;
+ 58c:	88 e1       	ldi	r24, 0x18	; 24
+	GB_MFRC522_ReadRegister(FIFODataReg, n, backdata, rxalign);
+// 	GB_printString0("FIFO len");
+// 	GB_decimel0(*backdata);
+//	GB_printString0("\n");
+	_validbits = GB_MFRC522_ReadRegister(ControlReg) & 0x07;
+ 58e:	0a df       	rcall	.-492    	; 0x3a4 <_Z23GB_MFRC522_ReadRegister12PCD_Register>
+ 590:	87 70       	andi	r24, 0x07	; 7
+ 592:	c1 14       	cp	r12, r1
+ 594:	d1 04       	cpc	r13, r1
+	if(validbits){
+ 596:	49 f0       	breq	.+18     	; 0x5aa <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x106>
+ 598:	f6 01       	movw	r30, r12
+ 59a:	80 83       	st	Z, r24
+		*validbits = _validbits;
+ 59c:	80 e0       	ldi	r24, 0x00	; 0
+ 59e:	06 c0       	rjmp	.+12     	; 0x5ac <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x108>
+			}
+			return STATUS_OK;
+ 5a0:	05 c0       	rjmp	.+10     	; 0x5ac <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x108>
+ 5a2:	8b e5       	ldi	r24, 0x5B	; 91
+}
+	//return STATUS_OK;
+}
+ 5a4:	03 c0       	rjmp	.+6      	; 0x5ac <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x108>
+	while (static_cast<uint32_t> (GB_millis()) < deadline);
+
+	   _delay_ms(30);
+//36ms and nothing happened. Communication with the MFRC522 might be down.
+if (!completed) {
+	return STATUS_TIMEOUT;
+ 5a6:	8c e5       	ldi	r24, 0x5C	; 92
+ 5a8:	01 c0       	rjmp	.+2      	; 0x5ac <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb+0x108>
+	byte n = GB_MFRC522_ReadRegister(FIFOLevelReg);
+// 	GB_printString0("FIFO len");
+// 	GB_decimel0(n);
+	//GB_printString0("\n");
+	if(n > *backlen){
+		return STATUS_NO_ROOM;
+ 5aa:	80 e0       	ldi	r24, 0x00	; 0
+ 5ac:	df 91       	pop	r29
+//	GB_printString0("\n");
+	_validbits = GB_MFRC522_ReadRegister(ControlReg) & 0x07;
+	if(validbits){
+		*validbits = _validbits;
+			}
+			return STATUS_OK;
+ 5ae:	cf 91       	pop	r28
+}
+	//return STATUS_OK;
+}
+ 5b0:	1f 91       	pop	r17
+ 5b2:	0f 91       	pop	r16
+ 5b4:	ff 90       	pop	r15
+ 5b6:	ef 90       	pop	r14
+ 5b8:	df 90       	pop	r13
+ 5ba:	cf 90       	pop	r12
+ 5bc:	bf 90       	pop	r11
+ 5be:	af 90       	pop	r10
+ 5c0:	9f 90       	pop	r9
+ 5c2:	8f 90       	pop	r8
+ 5c4:	7f 90       	pop	r7
+ 5c6:	6f 90       	pop	r6
+ 5c8:	5f 90       	pop	r5
+ 5ca:	4f 90       	pop	r4
+ 5cc:	08 95       	ret
+
+000005ce <_Z25GB_MFRC522_TransceiveDataPhhS_S_S_hb>:
+ 5ce:	8f 92       	push	r8
+ 5d0:	af 92       	push	r10
+												  byte *backlen,      //In: Max no of bytes to write to *backdata. Out: The no of bytes returned.
+												  byte *validbits,    //In/Out: The number of valid bits in the last byte
+												  byte rxalign,
+												  bool checkCRC       //In: True => The last 2 bytes of the response is assumed to be a CRC_A that must be validated
+												  )
+{
+ 5d2:	cf 92       	push	r12
+ 5d4:	df 92       	push	r13
+ 5d6:	ef 92       	push	r14
+ 5d8:	ff 92       	push	r15
+ 5da:	0f 93       	push	r16
+ 5dc:	1f 93       	push	r17
+	byte waitIRQ = 0x30;
+	return GB_MFRC522_CommunicateWithPICC(PCD_Transceive, waitIRQ, senddata, sendlen, backdata, backlen, validbits, rxalign, checkCRC);
+ 5de:	8c 2c       	mov	r8, r12
+ 5e0:	ae 2c       	mov	r10, r14
+ 5e2:	68 01       	movw	r12, r16
+ 5e4:	79 01       	movw	r14, r18
+ 5e6:	8a 01       	movw	r16, r20
+ 5e8:	26 2f       	mov	r18, r22
+ 5ea:	ac 01       	movw	r20, r24
+ 5ec:	60 e3       	ldi	r22, 0x30	; 48
+ 5ee:	8c e0       	ldi	r24, 0x0C	; 12
+ 5f0:	59 df       	rcall	.-334    	; 0x4a4 <_Z30GB_MFRC522_CommunicateWithPICChhPhhS_S_S_hb>
+}
+ 5f2:	1f 91       	pop	r17
+ 5f4:	0f 91       	pop	r16
+ 5f6:	ff 90       	pop	r15
+ 5f8:	ef 90       	pop	r14
+ 5fa:	df 90       	pop	r13
+ 5fc:	cf 90       	pop	r12
+ 5fe:	af 90       	pop	r10
+ 600:	8f 90       	pop	r8
+ 602:	08 95       	ret
+
+00000604 <_Z20GB_PICC_REQA_OR_WUPAhPhS_>:
+
+
+gb_MFRC522_statusCodes GB_PICC_REQA_OR_WUPA(byte command, byte *gb_bufferATQA, byte *gb_buffersize)
+{
+ 604:	8f 92       	push	r8
+ 606:	9f 92       	push	r9
+ 608:	af 92       	push	r10
+ 60a:	bf 92       	push	r11
+ 60c:	cf 92       	push	r12
+ 60e:	ef 92       	push	r14
+ 610:	0f 93       	push	r16
+ 612:	1f 93       	push	r17
+ 614:	cf 93       	push	r28
+ 616:	df 93       	push	r29
+ 618:	1f 92       	push	r1
+ 61a:	1f 92       	push	r1
+ 61c:	cd b7       	in	r28, 0x3d	; 61
+ 61e:	de b7       	in	r29, 0x3e	; 62
+ 620:	8a 83       	std	Y+2, r24	; 0x02
+	gb_MFRC522_statusCodes status;
+	byte gb_validbits;
+	if(gb_bufferATQA == 0 || *gb_buffersize < 2) { // As gb_bufferATQA is a buffer to store the Answer to request, when command REQ is send by PCD.
+ 622:	61 15       	cp	r22, r1
+ 624:	71 05       	cpc	r23, r1
+ 626:	21 f1       	breq	.+72     	; 0x670 <_Z20GB_PICC_REQA_OR_WUPAhPhS_+0x6c>
+ 628:	fa 01       	movw	r30, r20
+ 62a:	80 81       	ld	r24, Z
+ 62c:	82 30       	cpi	r24, 0x02	; 2
+ 62e:	10 f1       	brcs	.+68     	; 0x674 <_Z20GB_PICC_REQA_OR_WUPAhPhS_+0x70>
+ 630:	4a 01       	movw	r8, r20
+ 632:	5b 01       	movw	r10, r22
+	 return STATUS_NO_ROOM;                                                   //So this buffer should be pointing to some valid pointer and not to null pointer. And buffer 
+	}												   //size should be greater then 2 bytes, ATQA is of 2 bytes.
+	
+	GB_MFRC522_ClearRegisterBitMask(CollReg,0x80);
+ 634:	60 e8       	ldi	r22, 0x80	; 128
+ 636:	8c e1       	ldi	r24, 0x1C	; 28
+ 638:	c2 de       	rcall	.-636    	; 0x3be <_Z31GB_MFRC522_ClearRegisterBitMask12PCD_Registerh>
+	gb_validbits = 7;
+ 63a:	87 e0       	ldi	r24, 0x07	; 7
+ 63c:	89 83       	std	Y+1, r24	; 0x01
+	
+	status = GB_MFRC522_TransceiveData(&command, 1, gb_bufferATQA, gb_buffersize, &gb_validbits, 0, 0);
+ 63e:	c1 2c       	mov	r12, r1
+ 640:	e1 2c       	mov	r14, r1
+ 642:	8e 01       	movw	r16, r28
+ 644:	0f 5f       	subi	r16, 0xFF	; 255
+ 646:	1f 4f       	sbci	r17, 0xFF	; 255
+ 648:	94 01       	movw	r18, r8
+ 64a:	a5 01       	movw	r20, r10
+ 64c:	61 e0       	ldi	r22, 0x01	; 1
+ 64e:	ce 01       	movw	r24, r28
+ 650:	02 96       	adiw	r24, 0x02	; 2
+ 652:	bd df       	rcall	.-134    	; 0x5ce <_Z25GB_MFRC522_TransceiveDataPhhS_S_S_hb>
+ 654:	b8 2e       	mov	r11, r24
+	GB_printString0("status -->");
+ 656:	88 e8       	ldi	r24, 0x88	; 136
+ 658:	92 e0       	ldi	r25, 0x02	; 2
+ 65a:	75 dd       	rcall	.-1302   	; 0x146 <_Z15GB_printString0PKc>
+	GB_decimel0(status);
+ 65c:	6b 2d       	mov	r22, r11
+ 65e:	70 e0       	ldi	r23, 0x00	; 0
+ 660:	80 e0       	ldi	r24, 0x00	; 0
+ 662:	90 e0       	ldi	r25, 0x00	; 0
+	GB_printString0("\n");
+ 664:	7d dd       	rcall	.-1286   	; 0x160 <_Z11GB_decimel0m>
+ 666:	86 e8       	ldi	r24, 0x86	; 134
+ 668:	92 e0       	ldi	r25, 0x02	; 2
+ 66a:	6d dd       	rcall	.-1318   	; 0x146 <_Z15GB_printString0PKc>
+	if( status != STATUS_OK);
+	return status;
+ 66c:	8b 2d       	mov	r24, r11
+ 66e:	03 c0       	rjmp	.+6      	; 0x676 <_Z20GB_PICC_REQA_OR_WUPAhPhS_+0x72>
+gb_MFRC522_statusCodes GB_PICC_REQA_OR_WUPA(byte command, byte *gb_bufferATQA, byte *gb_buffersize)
+{
+	gb_MFRC522_statusCodes status;
+	byte gb_validbits;
+	if(gb_bufferATQA == 0 || *gb_buffersize < 2) { // As gb_bufferATQA is a buffer to store the Answer to request, when command REQ is send by PCD.
+	 return STATUS_NO_ROOM;                                                   //So this buffer should be pointing to some valid pointer and not to null pointer. And buffer 
+ 670:	8c e5       	ldi	r24, 0x5C	; 92
+ 672:	01 c0       	rjmp	.+2      	; 0x676 <_Z20GB_PICC_REQA_OR_WUPAhPhS_+0x72>
+ 674:	8c e5       	ldi	r24, 0x5C	; 92
+		return STATUS_ERROR;
+	}
+	
+	return STATUS_OK;
+	
+}
+ 676:	0f 90       	pop	r0
+ 678:	0f 90       	pop	r0
+ 67a:	df 91       	pop	r29
+ 67c:	cf 91       	pop	r28
+ 67e:	1f 91       	pop	r17
+ 680:	0f 91       	pop	r16
+ 682:	ef 90       	pop	r14
+ 684:	cf 90       	pop	r12
+ 686:	bf 90       	pop	r11
+ 688:	af 90       	pop	r10
+ 68a:	9f 90       	pop	r9
+ 68c:	8f 90       	pop	r8
+ 68e:	08 95       	ret
+
+00000690 <_Z16GB_PICC_RequestAPhS_>:
+
+gb_MFRC522_statusCodes GB_PICC_RequestA(byte * bufferATQ, byte *buffersize)
+{
+ 690:	ab 01       	movw	r20, r22
+	return GB_PICC_REQA_OR_WUPA(PICC_CMD_REQA, bufferATQ, buffersize);
+ 692:	bc 01       	movw	r22, r24
+ 694:	86 e2       	ldi	r24, 0x26	; 38
+ 696:	b6 cf       	rjmp	.-148    	; 0x604 <_Z20GB_PICC_REQA_OR_WUPAhPhS_>
+}
+ 698:	08 95       	ret
+
+0000069a <_Z24GB_PICC_IsNewCardPresentv>:
+bool GB_PICC_IsNewCardPresent()
+{
+ 69a:	cf 93       	push	r28
+ 69c:	df 93       	push	r29
+ 69e:	00 d0       	rcall	.+0      	; 0x6a0 <_Z24GB_PICC_IsNewCardPresentv+0x6>
+ 6a0:	cd b7       	in	r28, 0x3d	; 61
+ 6a2:	de b7       	in	r29, 0x3e	; 62
+	byte gb_bufferATQ[2]; // We will be sending the Request command. That is in order to detect the PICCs which are in the operating field 
+	                     // PCD shall send repeated request commands. PCD will send REQ or WUP in any sequence to detect the PICCs.
+						 //REQ commands are transmitted via short frame If PICC is in energizing field for PCD and gets powered up,
+						 //it will start listening for valid REQ command. And transmits its ATQ(Answer to request). 
+						 //This answer to Request is stored in this buffer. ATQA is a 2 byte number that is returned by PICC.
+	byte gb_buffersize = sizeof(gb_bufferATQ);
+ 6a4:	82 e0       	ldi	r24, 0x02	; 2
+ 6a6:	8b 83       	std	Y+3, r24	; 0x03
+	// Reset baud rates
+	GB_MFRC522_WriteRegister(TxModeReg, 0x00);
+ 6a8:	60 e0       	ldi	r22, 0x00	; 0
+ 6aa:	84 e2       	ldi	r24, 0x24	; 36
+ 6ac:	52 de       	rcall	.-860    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	GB_MFRC522_WriteRegister(RxModeReg, 0x00);
+ 6ae:	60 e0       	ldi	r22, 0x00	; 0
+ 6b0:	86 e2       	ldi	r24, 0x26	; 38
+ 6b2:	4f de       	rcall	.-866    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	// Reset ModWidthReg
+	GB_MFRC522_WriteRegister(ModWidthReg, 0x26);//38 in decimal
+ 6b4:	66 e2       	ldi	r22, 0x26	; 38
+ 6b6:	88 e4       	ldi	r24, 0x48	; 72
+ 6b8:	4c de       	rcall	.-872    	; 0x352 <_Z24GB_MFRC522_WriteRegister12PCD_Registerh>
+	
+   gb_MFRC522_statusCodes result = GB_PICC_RequestA(gb_bufferATQ, &gb_buffersize);
+ 6ba:	be 01       	movw	r22, r28
+ 6bc:	6d 5f       	subi	r22, 0xFD	; 253
+ 6be:	7f 4f       	sbci	r23, 0xFF	; 255
+ 6c0:	ce 01       	movw	r24, r28
+ 6c2:	01 96       	adiw	r24, 0x01	; 1
+ 6c4:	e5 df       	rcall	.-54     	; 0x690 <_Z16GB_PICC_RequestAPhS_>
+ 	return (result == STATUS_OK || result == STATUS_COLLISION);
+ 6c6:	88 23       	and	r24, r24
+ 6c8:	21 f0       	breq	.+8      	; 0x6d2 <_Z24GB_PICC_IsNewCardPresentv+0x38>
+ 6ca:	8a 35       	cpi	r24, 0x5A	; 90
+ 6cc:	21 f4       	brne	.+8      	; 0x6d6 <_Z24GB_PICC_IsNewCardPresentv+0x3c>
+ 6ce:	81 e0       	ldi	r24, 0x01	; 1
+ 6d0:	03 c0       	rjmp	.+6      	; 0x6d8 <_Z24GB_PICC_IsNewCardPresentv+0x3e>
+ 6d2:	81 e0       	ldi	r24, 0x01	; 1
+ 6d4:	01 c0       	rjmp	.+2      	; 0x6d8 <_Z24GB_PICC_IsNewCardPresentv+0x3e>
+ 6d6:	80 e0       	ldi	r24, 0x00	; 0
+	
+	
+ 6d8:	0f 90       	pop	r0
+ 6da:	0f 90       	pop	r0
+ 6dc:	0f 90       	pop	r0
+ 6de:	df 91       	pop	r29
+ 6e0:	cf 91       	pop	r28
+ 6e2:	08 95       	ret
+
+000006e4 <main>:
+
+
+int main(void)
+{
+	uint8_t gb_a = 0x00;
+	GB_UART_Init0();
+ 6e4:	1f dd       	rcall	.-1474   	; 0x124 <_Z13GB_UART_Init0v>
+	GB_init_millis(16000000UL); //frequency the atmega328p is running at
+ 6e6:	60 e0       	ldi	r22, 0x00	; 0
+ 6e8:	74 e2       	ldi	r23, 0x24	; 36
+ 6ea:	84 ef       	ldi	r24, 0xF4	; 244
+ 6ec:	90 e0       	ldi	r25, 0x00	; 0
+	GB_MA_SPI0_init_master();
+ 6ee:	03 de       	rcall	.-1018   	; 0x2f6 <_Z14GB_init_millism>
+ 6f0:	a9 dd       	rcall	.-1198   	; 0x244 <_Z22GB_MA_SPI0_init_masterv>
+	pinMode(gb_MFRC522_CE,&DDRB, OUTPUT);
+ 6f2:	41 e0       	ldi	r20, 0x01	; 1
+ 6f4:	64 e2       	ldi	r22, 0x24	; 36
+ 6f6:	70 e0       	ldi	r23, 0x00	; 0
+	/* Replace with your application code */
+	GB_MFRC522Version();
+ 6f8:	80 e0       	ldi	r24, 0x00	; 0
+ 6fa:	b5 dd       	rcall	.-1174   	; 0x266 <_Z7pinModehPVhb>
+		
+	MFRC522_init();
+ 6fc:	79 de       	rcall	.-782    	; 0x3f0 <_Z17GB_MFRC522Versionv>
+ 6fe:	b5 de       	rcall	.-662    	; 0x46a <_Z12MFRC522_initv>
+ 700:	87 ea       	ldi	r24, 0xA7	; 167
+ 702:	91 e6       	ldi	r25, 0x61	; 97
+ 704:	01 97       	sbiw	r24, 0x01	; 1
+ 706:	f1 f7       	brne	.-4      	; 0x704 <main+0x20>
+ 708:	00 c0       	rjmp	.+0      	; 0x70a <main+0x26>
+	_delay_ms(100);
+	
+    while (1) 
+    {
+        GB_MFRC522Version();
+ 70a:	00 00       	nop
+ 70c:	71 de       	rcall	.-798    	; 0x3f0 <_Z17GB_MFRC522Versionv>
+ 70e:	9f eb       	ldi	r25, 0xBF	; 191
+ 710:	27 e2       	ldi	r18, 0x27	; 39
+ 712:	89 e0       	ldi	r24, 0x09	; 9
+ 714:	91 50       	subi	r25, 0x01	; 1
+ 716:	20 40       	sbci	r18, 0x00	; 0
+ 718:	80 40       	sbci	r24, 0x00	; 0
+ 71a:	e1 f7       	brne	.-8      	; 0x714 <main+0x30>
+ 71c:	00 c0       	rjmp	.+0      	; 0x71e <main+0x3a>
+        _delay_ms(3000);
+		
+		GB_PICC_IsNewCardPresent();
+ 71e:	00 00       	nop
+ 720:	bc df       	rcall	.-136    	; 0x69a <_Z24GB_PICC_IsNewCardPresentv>
+ 722:	f4 cf       	rjmp	.-24     	; 0x70c <main+0x28>
+
+00000724 <__udivmodsi4>:
+ 724:	a1 e2       	ldi	r26, 0x21	; 33
+ 726:	1a 2e       	mov	r1, r26
+ 728:	aa 1b       	sub	r26, r26
+ 72a:	bb 1b       	sub	r27, r27
+ 72c:	fd 01       	movw	r30, r26
+ 72e:	0d c0       	rjmp	.+26     	; 0x74a <__udivmodsi4_ep>
+
+00000730 <__udivmodsi4_loop>:
+ 730:	aa 1f       	adc	r26, r26
+ 732:	bb 1f       	adc	r27, r27
+ 734:	ee 1f       	adc	r30, r30
+ 736:	ff 1f       	adc	r31, r31
+ 738:	a2 17       	cp	r26, r18
+ 73a:	b3 07       	cpc	r27, r19
+ 73c:	e4 07       	cpc	r30, r20
+ 73e:	f5 07       	cpc	r31, r21
+ 740:	20 f0       	brcs	.+8      	; 0x74a <__udivmodsi4_ep>
+ 742:	a2 1b       	sub	r26, r18
+ 744:	b3 0b       	sbc	r27, r19
+ 746:	e4 0b       	sbc	r30, r20
+ 748:	f5 0b       	sbc	r31, r21
+
+0000074a <__udivmodsi4_ep>:
+ 74a:	66 1f       	adc	r22, r22
+ 74c:	77 1f       	adc	r23, r23
+ 74e:	88 1f       	adc	r24, r24
+ 750:	99 1f       	adc	r25, r25
+ 752:	1a 94       	dec	r1
+ 754:	69 f7       	brne	.-38     	; 0x730 <__udivmodsi4_loop>
+ 756:	60 95       	com	r22
+ 758:	70 95       	com	r23
+ 75a:	80 95       	com	r24
+ 75c:	90 95       	com	r25
+ 75e:	9b 01       	movw	r18, r22
+ 760:	ac 01       	movw	r20, r24
+ 762:	bd 01       	movw	r22, r26
+ 764:	cf 01       	movw	r24, r30
+ 766:	08 95       	ret
+
+00000768 <_exit>:
+ 768:	f8 94       	cli
+
+0000076a <__stop_program>:
+ 76a:	ff cf       	rjmp	.-2      	; 0x76a <__stop_program>
